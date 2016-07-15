@@ -1,0 +1,19 @@
+{
+  "name": "bigbodies",
+  "version": "1.0.0",
+  "description": "\"#bbds\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clervius/bbds.git"
+  },
+  "author": "Joram Clervius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clervius/bbds/issues"
+  },
+  "homepage": "https://github.com/clervius/bbds#readme"
+}
