@@ -16,8 +16,9 @@ var recordSchema = new Schema({
 		ref: 'athlete'
 	},
 	division: String,
+	pictures: Schema.Types.Mixed,
 	class: String,
-	Place:Number,
+	place:Number,
 	_creator: {
 		type: Schema.ObjectId,
 		ref: 'user'

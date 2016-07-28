@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var record = require('../competitions/records/record.quote');
+var record = require('../competitions/records/record.model');
+
 
 var socialProfile = new Schema({
 	service: String,
@@ -18,5 +19,6 @@ var athleteSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'user'
 	},
-	bio: String
+	bio: String,
+	records: [record],
 });
