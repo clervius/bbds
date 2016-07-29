@@ -37,7 +37,7 @@ var autoPopulateRecord = function(next){
 
 recordSchema.pre('findOne', autoPopulateRecord).pre('find', autoPopulateRecord);
 
-recordSchema.virtual('createdDate').get(fucntion(){
+recordSchema.virtual('createdDate').get(function(){
 	return this._id.getTimestamp();
 });
 
