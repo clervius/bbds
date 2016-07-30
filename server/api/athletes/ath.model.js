@@ -15,34 +15,41 @@ var country = new Schema({
 	countryName: String
 });
 
-var galleries = new Schema({
+var gallery = new Schema({
 	galleryName: String,
+	description: String,
 	images: [{image: Schema.Types.Mixed}]
 });
 
+var video = new Schema({
+	videoName: String,
+	description: String,
+	file: String
+})
 
 var athleteSchema = new Schema({
 	dob: Date,
 	competitions: [{record: {type: Schema.ObjectId, ref:'record'}}],
-	profile: {
-		type: Schema.ObjectId,
-		ref: 'user'
-	},
+	profile: { type: Schema.ObjectId, ref: 'user' },
 	countries: [country],
 	social: [socialProfile],
 	bio: String,
-	federation: {
-		type: Schema.ObjectId,
-		ref: 'federation'
-	},
-	createdAt: {
-		type: Date,
-		default: Date.now
-	},
-	_creator: {
-		type: Schema.ObjectId,
-		ref: 'user'
-	}
+	federation: [{ federation: {type: Schema.ObjectId, ref: 'federation'} }],
+	galleries: [gallery],
+	videos: [video],
+	createdAt: { type: Date, default: Date.now },
+	_creator: { type: Schema.ObjectId, ref: 'user' }
 }, {
 	toJSON: { virtuals: true}
 });
+
+var autoPopulateAth = function(next){
+	this.populate('competitions.record');
+	this.populate('profile');
+	this.populate('federation.federation');
+	this.populate('_creator');
+};
+
+athleteSchema.pre('findOne', autoPopulateAth).pre('find', autoPopulateAth);
+
+module.exports = mongoose.model('athlete', athleteSchema);

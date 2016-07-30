@@ -22,6 +22,10 @@ var recordSchema = new Schema({
 	_creator: {
 		type: Schema.ObjectId,
 		ref: 'user'
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now
 	}
 }, {
 	toJSON: { virtuals: true}
