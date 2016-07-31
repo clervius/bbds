@@ -16,7 +16,7 @@ var recordSchema = new Schema({
 		ref: 'athlete'
 	},
 	division: String,
-	pictures: Schema.Types.Mixed,
+	//pictures: Schema.Types.Mixed,
 	class: String,
 	place:Number,
 	_creator: {
@@ -25,7 +25,7 @@ var recordSchema = new Schema({
 	},
 	createdAt: {
 		type: Date,
-		default: Date.now
+		default: new Date
 	}
 }, {
 	toJSON: { virtuals: true}

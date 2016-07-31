@@ -1,18 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var record = require('../records/record.model');
-var division = require('../federations/divisions/division.model');
-
-var classSchema = new Schema({
-	records: [{record: {type: Schema.ObjectId}}],
-	className: String,
-	description: String
-});
 
 var showSchema = new Schema({
 	year: Number,
 	date: Date,
-	createdAt: { type: Date, default: Date.now },
+	createdAt: { type: Date, default: new Date },
+	description: String,
 	location: {
 		venue: String,
 		country: String,
@@ -22,7 +15,23 @@ var showSchema = new Schema({
 		Zip: String
 	},
 	federation: { type: Schema.ObjectId, ref: 'federation' },
-	divisions: [ { division: { type: Schema.ObjectId, ref: 'division' }, classes: [classSchema] } ],
+	divisions: [
+		{
+			division: {
+				divisionName: String,
+				gender: String,
+				classes: [
+					{
+						Class: {
+							className: String,
+							description: String,
+							records: [{record: {type: Schema.ObjectId, ref: 'record'}}]
+						}
+					}
+				]
+			}
+		}
+	],
 	_creator: {
 		type: Schema.ObjectId,
 		ref: 'user'
@@ -33,8 +42,7 @@ var showSchema = new Schema({
 
 var autoPopulateShow = function(next){
 	this.populate('federation');
-	this.populate('divisions.division');
-	this.populate('divisions.classes.records.record');
+	this.populate('divisions.division.classes.class.records');
 	this.populate('_creator');
 };
 

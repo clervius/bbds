@@ -25,7 +25,7 @@ var video = new Schema({
 	videoName: String,
 	description: String,
 	file: String
-})
+});
 
 var athleteSchema = new Schema({
 	dob: Date,
@@ -37,7 +37,7 @@ var athleteSchema = new Schema({
 	federation: [{ federation: {type: Schema.ObjectId, ref: 'federation'} }],
 	galleries: [gallery],
 	videos: [video],
-	createdAt: { type: Date, default: Date.now },
+	createdAt: { type: Date, default: new Date },
 	_creator: { type: Schema.ObjectId, ref: 'user' }
 }, {
 	toJSON: { virtuals: true}
@@ -49,7 +49,5 @@ var autoPopulateAth = function(next){
 	this.populate('federation.federation');
 	this.populate('_creator');
 };
-
-athleteSchema.pre('findOne', autoPopulateAth).pre('find', autoPopulateAth);
 
 module.exports = mongoose.model('athlete', athleteSchema);

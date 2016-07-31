@@ -26,12 +26,20 @@ var divisionSchema = new Schema({
 
 var federationSchema = new Schema({
 	country: String,
-	federationName: String,
+	federationFullName: String,
+	federationShortName: String,
+	createdAt: {
+		type: Date,
+		default: new Date
+	},
 	profile: profile,
 	divisions: [divisionSchema],
 	_creator: {
 		type: Schema.ObjectId,
 		ref: 'user'
 	}
+}, {
+	toJSON: { virtuals: true}
 });
 
+module.exports = mongoose.model('federation', federationSchema);
