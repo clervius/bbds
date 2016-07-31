@@ -3,6 +3,10 @@ var express = require('express');
 
 module.exports = function(app){
 
+
+	app.get('/manager/', function(req, res){
+		res.render('admin');
+	});
 	//API routes
 	app.get('/ath/*', require('../api/athletes'));
 	app.post('/ath/*', require('../api/athletes'));
