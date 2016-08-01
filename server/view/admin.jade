@@ -1,7 +1,14 @@
-doctype
-html(lang="en")
+doctype html
+html(lang="en", ng-app="manager")
 	head
 		include includes/admin/head
-	body(ng-app="app")
-		.app(ui-view, ng-controller="AppCtrl")
+	body
+		.wrapper
+			include includes/admin/aside
+			.main-panel
+				include includes/admin/nav/top
+				.content
+					.container-fluid
+						p Hello to you!
+				include includes/admin/footer
 		include includes/admin/scripts
