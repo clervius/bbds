@@ -6,7 +6,7 @@ nav.navbar.navbar-default
 				span.icon-bar.bar1
 				span.icon-bar.bar2
 				span.icon-bar.bar3
-			a.navbar-brand(href="#") Dashboard
+			a.navbar-brand(href="#", ng-bind="$state.current.data.pageTitle")
 		.collapse.navbar-collapse
 			ul.nav.navbar-nav.navbar-right
 				li
@@ -14,7 +14,7 @@ nav.navbar.navbar-default
 						i.ti-world
 						p &nbsp;View Site
 				li
-					a.dropdown-toggle(data-toggle="dropdown", href="/manager/approvals/")
+					a.dropdown-toggle(data-toggle="dropdown", ui-sref="/approvals/")
 						i.ti-bell
 						p.notification &nbsp;5
 						p &nbsp;Approvals
@@ -25,7 +25,7 @@ nav.navbar.navbar-default
 						b.caret
 					ul.dropdown-menu
 						li
-							a(href="/manager/account/update") My Account
+							a(ui-sref="/account/update") My Account
 						li
 							a(href="/logout") Logout
 
