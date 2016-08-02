@@ -1,21 +1,41 @@
 .row
-	.col-md-3
-		.card
-			.header
-				h4.title New Division
-				p.category Enter new division information
-			.content
-				form
-					.clearfix
+	form(name="createDivisionForm")
+		.col-md-3
+			.card
+				.header
+					h4.title(ng-bind="newDivision.divisionName || 'New Division'") 
+					p.category Enter division information
+				.content
+						.clearfix
+							.form-group
+								label Division name
+								input.form-control.border-input(ng-model="newDivision.divisionName")
+						.clearfix
+							.form-group
+								label gender
+								select.form-control.border-input(ng-model="newDivision.gender")
+									option(value="Male") Male
+									option(value="Female") Female
+		.col-md-9
+			p Use the options below to add classes to 
+				strong(ng-bind="divisionName || 'this division'")
+				button.btn.btn-sm.btn-primary.pull-right.btn-fill(ng-click="addNewClass()") 
+					i.ti-plus
+					|&nbsp;Add Class
+				button.btn.btn-sm.btn-danger.pull-right.btn-fill(ng-click="removeClass", style="margin-right:15px") 
+					i.ti-trash
+					|&nbsp;Remove Class
+			hr
+			.col-md-3(data-ng-repeat="class in classes")
+				.card
+					.content
+						p.category(ng-bind="class.className || 'New Class'")
 						.form-group
-							label Division name
-							input.form-control.border-input(ng-model="divisionName")
-					.clearfix
+							input.form-control.border-input(placeholder="Class Name", ng-model="class.className")
 						.form-group
-							label gender
-							select.form-control.border-input(ng-model="divisionName")
-								option(value="Male") Men's
-								option(value="Female") Women's
-	.col-md-9
-		.card.card-plain
-			# add new class forms in here
+							input.form-control.border-input(placeholder="Description", ng-model="class.description")
+			.clearfix
+			hr
+		button.btn.btn-primary.btn-wd.btn-fill.pull-right(type="submit", ng-click="createDivision()", style="position:relative;left:-15px") Create Division
+.clearfix
+br

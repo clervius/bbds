@@ -71,6 +71,41 @@ angular.module('manager').controller('fedCtrl2', function($scope, $http, filepic
 
 // New Division controller
 angular.module('manager').controller('fedCtrl3', function($scope, $stateParams, $state, $http){
+	$scope.federation = {};
+	$scope.newDivision = {}
 
+	$http.get('/federation/' + $stateParams.id).success(function(data){
+		$scope.federation = data
+	});
+
+	$scope.classes = [
+		{id: 'class1', className: '', description: ''},
+		{id: 'class2', className: '', description: ''},
+		{id: 'class3', className: '', description: ''},
+		{id: 'class4', className: '', description: ''},
+	]
+	$scope.addNewClass = function(){
+		var newItemNo = $scope.classes.length + 1;
+		$scope.classes.push({'id':'class' + newItemNo, 'className': '', 'description': ''});
+	};
+	$scope.removeClass = function(){
+		var lastItem = $scope.classes.length - 1;
+		$scope.classes.splice(lastItem);	
+	};
+
+	$scope.newDivision.fed = $stateParams.id ;
+	$scope.newDivision.classes = $scope.classes;
 	
+	$scope.createDivision = function(){
+		console.log('going to create this new division... good luck!');
+		console.log($scope.federation._id)
+		console.log($scope.newDivision);
+		$http.post('/federation/addDivision', $scope.newDivision).success(function(data){
+			console.log('successfully added division')
+			console.log(data);
+		}).error(function(data){
+			console.log('did not add division');
+			console.log(data);
+		})
+	};
 })

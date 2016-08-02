@@ -7,5 +7,6 @@ router.get('/federation/:id', controller.getOne);
 
 router.post('/federation/new', controller.create);
 router.post('/federation/update/:id', controller.update);
+router.post('/federation/addDivision', controller.addDivision);
 
 module.exports = router;
