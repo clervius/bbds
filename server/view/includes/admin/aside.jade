@@ -3,18 +3,19 @@
 		.logo
 			a.simple-text(ui-sref="/") Big Bodies
 		ul.nav
+
 			li(ui-sref-active="active")
 				a(ui-sref="dashboard")
 					i.ti-panel
 					p Dashboard
 			li(ui-sref-active="active")
-				a(ui-sref="athletes")
-					i.ti-user
-					p Athletes
-			li(ui-sref-active="active")
 				a(ui-sref="federations")
 					i.ti-layers
 					p Federations
+			li(ui-sref-active="active")
+				a(ui-sref="athletes")
+					i.ti-user
+					p Athletes			
 			li(ui-sref-active="active")
 				a(ui-sref="competitions")
 					i.ti-medall

@@ -1,0 +1,24 @@
+.row
+	.col-lg-8.col-md-7
+		.card
+			.header
+				h4.title(ng-bind="federationShortName") New Federation
+				p.category(ng-bind="federationFullName") &nbsp;
+			.content
+				include createForm
+	.col-lg-4.col-md-5
+		.card.card-plain
+			.header
+				h4.title(ng-bind="federationShortName") New Federation
+				p.category Please fill out as much information as possible about this federation.
+			.content
+				p 
+					i.fa.fa-file-image-o
+					|&nbsp;&nbsp;Right now, you cannot change the cover picture nor the logo of the federation once you have added it here. Please keep that in mind until that functionality is added (be sure to add pictures you are happy with.)
+		hr
+		.card.card-plain
+			.header
+				h4.title 
+					i.fa.fa-exclamation
+					|&nbsp;Divisions
+				p You will not be creating Divisions and sub-categories (classes) on this page. Once the Federation has been created, you will be able to then go in and add divisions and their corresponding classes.

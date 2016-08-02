@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 
 var profile = new Schema({
 	president: String,
+	shortDescription: String,
+	longDescription: String,
 	yearFounded: Number,
 	address: {
 		street: String,
@@ -23,11 +25,22 @@ var divisionSchema = new Schema({
 	classes: [classSchema]
 });
 
-
+var update = new Schema({
+	who: {
+		type: Schema.ObjectId,
+		ref: 'user'
+	},
+	when: {
+		type: Date,
+		default: new Date
+	}
+})
 var federationSchema = new Schema({
 	country: String,
 	federationFullName: String,
 	federationShortName: String,
+	coverImage: Schema.Types.Mixed,
+	logo: Schema.Types.Mixed,
 	createdAt: {
 		type: Date,
 		default: new Date
@@ -37,7 +50,8 @@ var federationSchema = new Schema({
 	_creator: {
 		type: Schema.ObjectId,
 		ref: 'user'
-	}
+	},
+	updates: [update]
 }, {
 	toJSON: { virtuals: true}
 });

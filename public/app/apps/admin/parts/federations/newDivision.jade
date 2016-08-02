@@ -1,0 +1,21 @@
+.row
+	.col-md-3
+		.card
+			.header
+				h4.title New Division
+				p.category Enter new division information
+			.content
+				form
+					.clearfix
+						.form-group
+							label Division name
+							input.form-control.border-input(ng-model="divisionName")
+					.clearfix
+						.form-group
+							label gender
+							select.form-control.border-input(ng-model="divisionName")
+								option(value="Male") Men's
+								option(value="Female") Women's
+	.col-md-9
+		.card.card-plain
+			# add new class forms in here

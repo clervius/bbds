@@ -1,4 +1,4 @@
-angular.module('manager').config(function($stateProvider, $urlRouterProvider){
+angular.module('manager').config(function($stateProvider, $urlRouterProvider, filepickerProvider){
 
 	$stateProvider
 		.state('dashboard',{
@@ -41,6 +41,24 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider){
 				pageTitle: 'Single Federation'
 			}
 		})
+		.state('federation.addDivision', {
+			url: '/div/:id',
+			templateUrl: '/client/app/apps/admin/parts/federations/newDivision',
+			controller: 'fedCtrl3',
+			data: {
+				pageTitle: 'Create Division'
+			}
+		})
+		.state('createfederation', {
+			url: '/create/federation',
+			templateUrl: '/client/app/apps/admin/parts/federations/newfederation',
+			controller: 'fedCtrl2',
+			data: {
+				pageTitle: 'New Federation'
+			}
+		})
 		
-	$urlRouterProvider.otherwise('/')
+	$urlRouterProvider.otherwise('/');
+
+	filepickerProvider.setKey('ASnewwz6T3qiMff59c3ngz');
 })

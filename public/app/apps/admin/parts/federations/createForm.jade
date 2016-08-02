@@ -1,0 +1,77 @@
+form(name="createFederationForm", novalidate)
+	.row
+		.col-md-5
+			.form-group
+				label Full Name
+				input.form-control.border-input(placeholder="Full Federation Name", name="federation.federationFullName", ng-model="federation.federationFullName")
+		.col-md-3
+			.form-group
+				label Short Name
+				input.form-control.border-input(placeholder="Short Federation Name", name="federation.federationShortName", ng-model="federation.federationShortName")
+		.col-md-4
+			.form-group
+				label Region/Country
+				input.form-control.border-input(placeholder="Enter Country or Region", name="federation.country", ng-model="federation.country")
+	hr
+	.row
+		.col-md-6
+			button.btn.btn-fill.btn-primary.btn-wd(ng-click="newCover()") 
+				i.fa.fa-image
+				|&nbsp;&nbsp;Cover Image (wide)&nbsp;&nbsp;
+				span.caret
+			div
+				a.thumbnail(ng-if="federation.coverImage", href="{{federation.coverImage.url}}")
+					img(ng-src="{{federation.coverImage.url}}")
+		.col-md-6
+			button.btn.btn-fill.btn-primary.btn-wd(ng-click="newLogo()") 
+				i.fa.fa-image
+				|&nbsp;&nbsp;Federation Logo (Square)&nbsp;&nbsp;
+				span.caret
+			div
+				a.thumbnail(ng-if="federation.logo", href="{{federation.logo.url}}")
+					img(ng-src="{{federation.logo.url}}")
+	hr
+	.row
+		.col-md-12
+			h6 Federation Profile
+		.col-md-6
+			.col-xs-6
+				.form-group
+					label President/Owner
+					input.form-control.border-input(placeholder="President/Owner", name="federation..profile.president", ng-model="federation.profile.president")
+			.col-xs-6
+				.form-group
+					label Year Founded
+					input.form-control.border-input(placeholder="Year Founded", name="federation.profile.yearFounded", ng-model="federation.profile.yearFounded")
+			.clearfix
+			.form-group(style="width:96%;position:relative;left:15px")
+				label Short Description
+				input.form-control.border-input(placeholder="Short Description", name="federation.profile.shortDescription", ng-model="federation.profile.shortDescription")
+		.col-md-6
+			.col-xs-12
+				.form-group
+					label Long Description (Summary)
+					textarea.form-control.border-input(placeholder="Long Description", name="federation.profile.longDescription", style="height:127px", ng-model="federation.profile.longDescription")
+		.col-md-12
+			.col-xs-5
+				.form-group
+					label Street Address
+					input.form-control.border-input(placeholder="Street Address", name="federation.profile.address.street", ng-model="federation.profile.address.street")
+			.col-xs-3
+				.form-group
+					label City
+					input.form-control.border-input(placeholder="City", name="federation.profile.address.city", ng-model="federation.profile.address.city")
+			.col-xs-2
+				.form-group
+					label State/Province
+					input.form-control.border-input(placeholder="State/Province", name="federation.profile.address.state", ng-model="federation.profile.address.state")
+			.col-xs-2
+				.form-group
+					label Zip/Postal Code
+					input.form-control.border-input(placeholder="Zip/Postal Code", name="federation.profile.address.zip", ng-model="federation.profile.address.zip")
+	hr
+	.text-center
+		button.btn.btn-info.btn-fill.btn-wd(type="submit", ng-click="createFederation()", ng-disabled="federation.$invalid || !federation.federationFullName || !federation.federationShortName") 
+			i.fa.fa-plus
+			|&nbsp;Create&nbsp; 
+			span(ng-bind="federationShortName")

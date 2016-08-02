@@ -1,0 +1,58 @@
+form
+	.row
+		.col-md-5
+			.form-group
+				label Full Name
+				input.form-control.border-input(placeholder="Full Federation Name", value="{{ federation.federationFullName }}", name="federationFullName")
+		.col-md-3
+			.form-group
+				label Short Name
+				input.form-control.border-input(placeholder="Short Federation Name", value="{{ federation.federationShortName }}", name="federationShortName")
+		.col-md-4
+			.form-group
+				label Region/Country
+				input.form-control.border-input(placeholder="Enter Country or Region", value="{{ federation.country }}", name="country")
+	hr
+	.row
+		.col-md-12
+			h6 Federation Profile
+		.col-md-6
+			.col-xs-6
+				.form-group
+					label President/Owner
+					input.form-control.border-input(placeholder="President/Owner", value="{{ federation.profile.president }}", name="president")
+			.col-xs-6
+				.form-group
+					label Year Founded
+					input.form-control.border-input(placeholder="Year Founded", value="{{ federation.profile.yearFounded }}", name="yearFounded")
+			.clearfix
+			.form-group(style="width:96%;position:relative;left:15px")
+				label Short Description
+				input.form-control.border-input(placeholder="Short Description", value="{{ federation.profile.shortDescription }}", name="shortDescription")
+		.col-md-6
+			.col-xs-12
+				.form-group
+					label Long Description (Summary)
+					textarea.form-control.border-input(placeholder="Long Description", name="longDescription", style="height:127px") {{ federation.profile.longDescription }}
+		.col-md-12
+			.col-xs-5
+				.form-group
+					label Street Address
+					input.form-control.border-input(placeholder="Street Address", value="{{ federation.profile.address.street}}", name="street")
+			.col-xs-3
+				.form-group
+					label City
+					input.form-control.border-input(placeholder="City", value="{{ federation.profile.address.city }}", name="city")
+			.col-xs-2
+				.form-group
+					label State/Province
+					input.form-control.border-input(placeholder="State/Province", value="{{ federation.profile.address.state }}", name="state")
+			.col-xs-2
+				.form-group
+					label Zip/Postal Code
+					input.form-control.border-input(placeholder="Zip/Postal Code", value="{{ federation.profile.address.zip }}", name="zip")
+	hr
+	p This update will save your account information and date for update records.
+	.text-center
+		button.btn.btn-info.btn-fill.btn-wd(type="submit") Update Federation
+

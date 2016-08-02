@@ -1,6 +1,57 @@
 .row
-	.col.md-12
+	.col-lg-4.col-md-5
+		.card.card-user
+			.image
+				img(src="{{ federation.coverImage.url }}", alt="{{federation.federationFullName}}")
+			.content
+				.author
+					img.avatar.border-white(src="{{ federation.logo.url }}", alt="{{federation.federationFullName}}")
+					h4.title {{ federation.federationShortName }}
+						br
+						small {{ federation.federationFullName }}
+				p.description(style="width:80%") {{ federation.profile.shortDescription }}
+			hr
+			.text-center
+				.row
+					.col-md-2.col-md-offset-1
+						h5 {{ federation.divisions.length }}
+							br
+							small Divisions
+					.col-md-4
+						h5 {{ federation.profile.yearFounded }}
+							br
+							small Founded
+					.col-md-5
+						h5 {{ federation.country }}
+							br
+							small Region
 		.card
 			.header
-				h4.title {{ federation.federationShortName}}
-				p.category {{ federation.federationFullName}}
+				h4.title Divisions
+			.content
+				ul.list-unstyled.team-members
+					li(ng-repeat="division in federation.divisions")
+						.row
+							.col-xs-6 {{ division.divisionName }}
+								br
+								span.text-muted
+									small Gender: {{ division.gender }}
+							.col-xs-3 {{ division.classes.length }}
+								br
+								span.text-muted
+									small Classes
+							.col-xs-3.text-right
+								a.btn.btn-sm.btn-danger.btn-icon
+									i.fa.fa-trash
+		p
+			a.btn.btn-primary.pull-right(ui-sref="federation.addDivision({ id: federation._id})") 
+				i.fa.fa-plus
+				|&nbsp;Add Division
+	.col-lg-8.col-md-7
+		div(ui-view="")
+		.card
+			.header
+				h4.title Edit Federation
+				p.category {{ federation.federationFullName }}
+			.content
+				include editForm
