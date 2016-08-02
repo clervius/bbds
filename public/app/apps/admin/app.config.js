@@ -25,6 +25,22 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider){
 				pageTitle: 'Add Athlete'
 			}
 		})
-
+		.state('federations', {
+			url: '/federations',
+			templateUrl: '/client/app/apps/admin/parts/federations/home',
+			controller: 'fedCtrl',
+			data: {
+				pageTitle: 'Federations'
+			}
+		})
+		.state('federation', {
+			url: '/federations/:id',
+			templateUrl: '/client/app/apps/admin/parts/federations/detail',
+			controller: 'fedCtrl1',
+			data: {
+				pageTitle: 'Single Federation'
+			}
+		})
+		
 	$urlRouterProvider.otherwise('/')
 })

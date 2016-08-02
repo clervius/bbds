@@ -1,0 +1,40 @@
+.row
+	.col-md-3
+		.card
+			.header
+				h4.title Create Federation
+				hr
+				p.category Click below to [Add] a Federation to the database.				
+			.content
+				p
+					a.pull-right.btn.btn-primary(ui-sref="federations.add") Create Federation
+				.clearfix
+.row
+	.col-md-12
+		.card.card-plain
+			.header
+				h4.title Federations
+				p.category Some of the federations currently in the database
+			.content.table-responsive.table-full-width
+				table.table.table-hover
+					thead
+						tr
+							th 
+							th Full Name
+							th Short Name
+							th Country
+							th Founded
+							th President
+							th Divisions
+							th
+					tbody
+						tr(ng-repeat="federation in federations")
+							td {{ $index + 1 }}
+							td {{ federation.federationFullName }}
+							td {{ federation.federationShortName }}
+							td {{ federation.country }}
+							td {{ federation.profile.yearFounded }}
+							td {{ federation.profile.president }}
+							td {{ federation.divisions.length }}
+							td 
+								a.btn.btn-primary.btn-sm(ui-sref="federation({id: federation._id})") View
