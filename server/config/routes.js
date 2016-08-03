@@ -18,7 +18,7 @@ module.exports = function(app, passport){
 	
 	
 	app.post('/access/register', passport.authenticate('local-signup', {
-		successRedirect: '/manager',
+		successRedirect: '/logout',
 		failureRedirect: '/noauth'
 	}), function(req, res){
 		res.redirect('/noauth')
