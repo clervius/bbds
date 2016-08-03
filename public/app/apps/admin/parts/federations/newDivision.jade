@@ -1,4 +1,9 @@
-.row
+div.clearfix(style="padding:25px 20px; background-color:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06)")
+	.alert.alert-danger(ng-show="danger")
+		button.close(type="button", aria-hidden="true") x
+		span
+			b Problem - &nbsp;
+			| There was a problem creating this Division
 	form(name="createDivisionForm")
 		.col-md-3
 			.card
@@ -16,7 +21,7 @@
 								select.form-control.border-input(ng-model="newDivision.gender")
 									option(value="Male") Male
 									option(value="Female") Female
-		.col-md-9
+		.col-md-9			
 			p Use the options below to add classes to 
 				strong(ng-bind="divisionName || 'this division'")
 				button.btn.btn-sm.btn-primary.pull-right.btn-fill(ng-click="addNewClass()") 

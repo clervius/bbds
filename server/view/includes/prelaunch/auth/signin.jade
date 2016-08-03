@@ -1,0 +1,22 @@
+.col-md-4.col-md-offset-4.col-sm6.col-sm-offset-3
+	.card
+		.header.header-primary.text-center
+			h4.title Log In
+		p.text-divider.text-center Big Bodies
+		br
+		.content(style="padding:0 40px")
+			form(name="signin", novalidate, action="/access/login" method="post")
+				.input-group(style="margin-bottom:10px")
+					span.input-group-addon
+						i.fa.fa-envelope
+					input.form-control(placeholder="Email...", name="email", id="email", style="padding-left:15px")
+				.input-group
+					span.input-group-addon
+						i.fa.fa-lock
+					input.form-control(type="password", placeholder="Password...", name="password", id="password", style="padding-left:15px")
+				.clearfix
+				br
+				br
+				.input-group.text-right.col-sm-12
+					input.btn.btn-warning.btn-raised(value="Log In", type="submit")
+				br

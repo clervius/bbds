@@ -73,7 +73,7 @@ angular.module('manager').controller('fedCtrl2', function($scope, $http, filepic
 angular.module('manager').controller('fedCtrl3', function($scope, $stateParams, $state, $http){
 	$scope.federation = {};
 	$scope.newDivision = {}
-
+	$scope.problem = false;
 	$http.get('/federation/' + $stateParams.id).success(function(data){
 		$scope.federation = data
 	});
@@ -103,9 +103,12 @@ angular.module('manager').controller('fedCtrl3', function($scope, $stateParams, 
 		$http.post('/federation/addDivision', $scope.newDivision).success(function(data){
 			console.log('successfully added division')
 			console.log(data);
+			$scope.newDivision = {};
+			$state.go('federation');
 		}).error(function(data){
 			console.log('did not add division');
 			console.log(data);
+			$scope.problem = true;
 		})
 	};
 })

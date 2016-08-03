@@ -31,6 +31,7 @@
 			.content
 				ul.list-unstyled.team-members
 					li(ng-repeat="division in federation.divisions")
+						br
 						.row
 							.col-xs-6 {{ division.divisionName }}
 								br
@@ -43,8 +44,15 @@
 							.col-xs-3.text-right
 								a.btn.btn-sm.btn-danger.btn-icon(title="Doesnt work yet")
 									i.fa.fa-trash
+						.row
+							.col-xs-11
+								strong
+									small Classes:&nbsp;
+								small.text-info(ng-repeat="class in division.classes", title="{{ class.description}}") [ {{ class.className}} ]&nbsp;&nbsp;
+						.clearfix
+						br
 		p
-			a.btn.btn-primary.pull-right(ui-sref="federation.addDivision({ id: federation._id})") 
+			a.btn.btn-primary.pull-right.btn-fill(ui-sref="federation.addDivision({ id: federation._id})") 
 				i.fa.fa-plus
 				|&nbsp;Add Division
 	.col-lg-8.col-md-7

@@ -1,6 +1,14 @@
 angular.module('manager').config(function($stateProvider, $urlRouterProvider, filepickerProvider){
 
 	$stateProvider
+		.state('signin',{
+			url: '/access/signin',
+			templateUrl: '/client/app/apps/admin/parts/auth/signin'
+		})
+		.state('signup',{
+			url: '/signup',
+			templateUrl: '/client/app/apps/admin/parts/auth/signup'
+		})
 		.state('dashboard',{
 			url: '/',
 			templateUrl: '/client/app/apps/admin/parts/dashboard/dashboard',
