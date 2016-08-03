@@ -20,15 +20,11 @@ module.exports = function(app, passport){
 	app.post('/access/register', passport.authenticate('local-signup', {
 		successRedirect: '/logout',
 		failureRedirect: '/noauth'
-	}), function(req, res){
-		res.redirect('/noauth')
-	});
+	}));
 	app.post('/access/login', passport.authenticate('local-login', {
 		successRedirect: '/manager',
 		failureRedirect: '/auth'
-	}), function(req, res){
-		res.redirect('/auth')
-	});
+	}));
 
 	//API routes
 	app.get('/ath/*', require('../api/athletes'));
