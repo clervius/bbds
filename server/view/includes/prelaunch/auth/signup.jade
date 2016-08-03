@@ -2,22 +2,23 @@
 	.card.card-signup
 		.header.header-primary.text-center
 			h4 Bigbodies account
-		p.text-divider For verified users ONLY
+		p.text-center For verified users ONLY
 		.content(style="padding:0 40px")
 			form(name="form", novalidate, action="/access/register" method="post")
 				.row
-					.col-sm-4
+					.col-sm-6
+						.form-group
+							label.control-label Authorization Code
+							input.form-control(name="code", id="code")
+				.row
+					.col-sm-6
 						.form-group.label-floating.is-empty
 							label.control-label First Name
 							input.form-control(name="fname", id="fname")
-					.col-sm-4
+					.col-sm-6
 						.form-group.label-floating.is-empty
 							label.control-label Last Name
 							input.form-control(name="lname", id="lname")
-					.col-sm-4
-						.form-group.label-floating.is-empty
-							label.control-label Username
-							input.form-control(name="username", id="lname")
 				.row
 					.col-sm-6
 						.form-group.label-floating.is-empty

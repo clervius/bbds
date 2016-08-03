@@ -5,7 +5,7 @@ module.exports = function(app, passport){
 
 
 	app.get('/manager*', isLoggedIn, function(req, res){
-		res.render('admin');
+		res.render('admin', {user: req.user});
 	});
 	app.get('/access', function(req, res){
 		res.render('homeform');
@@ -19,12 +19,16 @@ module.exports = function(app, passport){
 	
 	app.post('/access/register', passport.authenticate('local-signup', {
 		successRedirect: '/manager',
-		failureRedirect: '/'
-	}));
+		failureRedirect: '/noauth'
+	}), function(req, res){
+		res.redirect('/noauth')
+	});
 	app.post('/access/login', passport.authenticate('local-login', {
 		successRedirect: '/manager',
-		failureRedirect: '/'
-	}));
+		failureRedirect: '/auth'
+	}), function(req, res){
+		res.redirect('/auth')
+	});
 
 	//API routes
 	app.get('/ath/*', require('../api/athletes'));
@@ -41,6 +45,12 @@ module.exports = function(app, passport){
 	    res.render('../../public/' + req.params[0]); 
 	});
 
+	app.get('/auth', function(req, res){
+		res.render('unauthorized');
+	});
+	app.get('/noauth', function(req, res){
+		res.render('nonewUser')
+	})
 	app.get('/logout', function(req, res){
 		req.logout();
 		res.redirect('/');
@@ -55,6 +65,6 @@ function isLoggedIn(req, res, next){
 	if(req.isAuthenticated()){
 		return next()
 	}else{
-		res.redirect('/');
+		res.redirect('/auth');
 	}
 }

@@ -39,7 +39,7 @@ module.exports = function(passport) {
 
     passport.use('local-signup', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField : 'username',
+        usernameField : 'email',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
@@ -61,6 +61,7 @@ module.exports = function(passport) {
             } else {
 
                 // if there is no user with that email
+                var code = req.body.code;
                 // create the user
                 var newUser  = new User();
 
@@ -69,7 +70,6 @@ module.exports = function(passport) {
                 newUser.password = newUser.generateHash(password);
                 newUser.fname = req.body.fname;
                 newUser.lname = req.body.lname;
-                newUser.username = req.body.username;
                 newUser.address.street = req.body.street
                 newUser.address.city = req.body.city;
                 newUser.address.state = req.body.state;
@@ -82,7 +82,7 @@ module.exports = function(passport) {
                     "personalizations": [
                         {
                             "to": [{"email":newUser.email}],
-                            "subject": newUser.fname + " Congrats and welcome to Advent Software!"
+                            "subject": newUser.fname + " Congrats and welcome to Big Bodies!"
                         }
                     ],
                     "from": { "email": "support@bigbodies.com"},
@@ -94,25 +94,29 @@ module.exports = function(passport) {
                 mail.method = 'POST'
                 mail.path = '/v3/mail/send'
                 // save the user
-                newUser.save(function(err) {
-                    if (err){
-                        console.log('couldnt create user');
-                        console.log(err)
+                if(code === '12301988'){
+                    newUser.save(function(err) {
+                        if (err){
+                            console.log('couldnt create user');
+                            console.log(err)
 
-                    }else{
+                        }else{
+                            
+                            console.log('user created');
+                            console.log(newUser);
+                            sg.API(mail, function(response){
+                                console.log(response.statusCode);
+                                console.log(response.body);
+                                console.log(response.headers);
+                                console.log('email sent!')
+                            });
+                            return done(null, newUser);
+                        }
                         
-                        console.log('user created');
-                        console.log(newUser);
-                        sg.API(mail, function(response){
-                            console.log(response.statusCode);
-                            console.log(response.body);
-                            console.log(response.headers);
-                            console.log('email sent!')
-                        });
-                        return done(null, newUser);
-                    }
-                    
-                });
+                    });
+                }else {
+                    return next()
+                }
             }
 
         });    
@@ -134,7 +138,7 @@ module.exports = function(passport) {
         passReqToCallback : true,
         //passResToCallback: true // allows us to pass back the entire request to the callback
     },
-    function(req, email, password, done) { // callback with email and password from our form
+    function(req, email, password, next, done) { // callback with email and password from our form
 
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
@@ -145,9 +149,12 @@ module.exports = function(passport) {
                 }if (!user){
                    // return done(null, false); // req.flash is the way to set flashdata using connect-flash
                     console.log("User doesnt exist")
+                    return next()
                 }if (!user.validPassword(password)){
+                    console.log("wrong password");
+                    return next()
                     return done(null, false); // create the loginMessage and save it to session as flashdata
-                    console.log("wrong password")
+                    
                 }else{
                     // all is well, return successful user
                     return done(null, user);
