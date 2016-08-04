@@ -1,0 +1,52 @@
+.row
+	.col-md-9
+		.card
+			.header
+				h4.title New Athlete
+				p.category Fill the form to create an athlete
+			hr
+			.content
+				form
+					.row
+						.col-md-2.col-md-3
+							.image-container(style="background-image:url('{{athlete.profilePicture.url}}')")
+							.clearfix
+							button.btn.btn-default.btn-xs.btn-fill.pull-right Upload Picture
+						.col-md-10
+							.nav-tabs-navigation
+								.nav-tabs-wrapper
+									ul.nav.nav-tabs(id="tabs", data-tabs="tabs")
+										li.active
+											a(data-toggle="tab", data-target="#01", role="tab") 
+												i.ti-user
+												|&nbsp;&nbsp;Profile&nbsp;&raquo;
+										li
+											a(data-toggle="tab", data-target="#02", role="tab") 
+												i.ti-comments
+												|&nbsp;&nbsp;Contact&nbsp;&raquo;
+										li
+											a(data-toggle="tab", data-target="#03", role="tab") 
+												i.ti-bookmark-alt
+												|&nbsp;&nbsp;Editorials&nbsp;&raquo;
+										li
+											a(data-toggle="tab", data-target="#04", role="tab") 
+												i.ti-medall
+												|&nbsp;&nbsp;Competitions
+							.tab-content(id="my-tab-content")
+								.tab-pane.active.fade.in(id="01")
+									include create/01
+								.tab-pane.fade.in(id="02")
+									include create/02
+								.tab-pane.fade.in(id="03")
+									include create/03
+								.tab-pane.fade.in(id="04")
+									include create/04
+		button.btn.btn-wd.btn-fill.btn-default.pull-right(disabled) Save Athlete
+	.col-md-3
+		.card.card-plain
+			.header
+				h4.title Videos?
+				p.category After you have saved the athlete, you will be able to add videos
+				hr
+				h4.title Pictures?
+				p.category After you have saved the athlete, you will be able to add galleries and images

@@ -1,14 +1,21 @@
 doctype html
-html
+html(lang="en")
 	head
-		title Bigbodies Prelaunch
-		include includes/prelaunch/head
+		include includes/admin/head
 	body
-		.container
-			.row
-				h1.title Access back-end
-					br
-					small login below
-				.col-sm-10.col-sm-offset-1
-					include includes/prelaunch/auth/signin
-		
+		include includes/admin/nav/frontTop
+		.wrapper.wrapper-full-page
+			.full-page.login-page(data-color="red", data-image="app/apps/admin/img/login.jpg")
+				.content
+					.container
+						.row
+							include includes/prelaunch/auth/signin
+				include includes/admin/footer
+		include includes/admin/scripts
+		script.
+			$().ready(function(){
+				dashboard.checkFullPageBackgroundImage()
+				setTimeout(function(){
+					$('.card').removeClass('card-hidden');
+				}, 700)
+			})

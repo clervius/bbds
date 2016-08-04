@@ -25,9 +25,9 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 				pageTitle: 'Athletes'
 			}
 		})
-		.state('athletes.add', {
+		.state('newAthlete', {
 			url: '/athletes/add',
-			templateUrl: '/client/app/apps/admin/parts/athletes/add',
+			templateUrl: '/client/app/apps/admin/parts/athletes/new',
 			controller: 'athCtrl1',
 			data: {
 				pageTitle: 'Add Athlete'

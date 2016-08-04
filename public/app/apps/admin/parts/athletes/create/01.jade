@@ -1,0 +1,36 @@
+.row
+	.col-md-12
+		.row
+			.col-md-4
+				.form-group
+					label First Name
+						star *
+					input.form-control(name="firstName")
+			.col-md-3
+				.form-group
+					label Middle Name
+					input.form-control(name="mName")
+			.col-md-5
+				.form-group
+					label Last Name
+						star *
+					input.form-control(name="lastName")
+		.row
+			.col-md-7
+				.form-group
+					label Biography
+						star *
+					textarea.form-control(name="biography", style="height:150px")
+			.col-md-5
+				.form-group
+					label Primary Country 
+						small (resides)
+						star *
+					select.form-control(name="primaryCountry")
+						include ../../countries
+				.form-group
+					label Secondary Country 
+						small (birth)
+					select.form-control(name="secondaryCountry")
+						include ../../countries
+

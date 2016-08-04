@@ -1,9 +1,28 @@
-.sidebar(data-background-color="black", data-active-color="danger")
+.sidebar(data-background-color="brown", data-active-color="danger")
 	.sidebar-wrapper
 		.logo
-			a.simple-text(ui-sref="/") Big Bodies
-		ul.nav
+			a.simple-text(ui-sref="dashboard") 
+				img.headerLogo(src="app/apps/admin/img/logo_white.png", style="width:35px")
+				|&nbsp;Big Bodies
+		.logo-mini.logo
+			a.simple-text(ui-sref="dashboard") BB
+		.user
+			.photo
+				img(src="")
+			.info
+				a.collapsed(data-toggle="collapse", href="#collapseUser")
+					|Your Name&nbsp;&nbsp;
+					b.caret
+				.collapse(id="collapseUser")
+					ul.nav
+						li
+							a(ui-sref="") My Profile
+						li
+							a(ui-sref="") Edit Profile
+						li
+							a(href="/logout") Logout
 
+		ul.nav
 			li(ui-sref-active="active")
 				a(ui-sref="dashboard")
 					i.ti-panel
