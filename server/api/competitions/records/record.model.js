@@ -3,20 +3,14 @@ var Schema = mongoose.Schema;
 
 var recordSchema = new Schema({
 	year: Number,
-	federation: {
-		type: Schema.ObjectId,
-		ref: 'federation'
-	},
-	show: {
-		type: Schema.ObjectId,
-		ref: 'show'
-	},
+	federation: String,
+	show: String,
 	athlete: {
 		type: Schema.ObjectId,
 		ref: 'athlete'
 	},
 	division: String,
-	//pictures: Schema.Types.Mixed,
+	pictures: Schema.Types.Mixed,
 	class: String,
 	place:Number,
 	_creator: {
@@ -32,8 +26,6 @@ var recordSchema = new Schema({
 });
 
 var autoPopulateRecord = function(next){
-	this.populate('federation');
-	this.populate('show');
 	this.populate('athlete');
 	this.populate('_creator');
 	next();

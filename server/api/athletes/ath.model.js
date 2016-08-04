@@ -27,10 +27,30 @@ var video = new Schema({
 	file: String
 });
 
+var athleteProfile = new Schema({
+	firstName: String,
+	middleName: String,
+	lastName: String,
+	subtitle: String
+});
+
+var publishing = new Schema({
+	link: String,
+	title: String,
+	createdAt: {
+		type: Date,
+		default: new Date
+	}
+});
+
+
 var athleteSchema = new Schema({
 	dob: Date,
 	competitions: [{record: {type: Schema.ObjectId, ref:'record'}}],
-	profile: { type: Schema.ObjectId, ref: 'user' },
+	fbId: String,
+	account: { type: Schema.ObjectId, ref: 'user' },
+	profile: athleteProfile,
+	published: [publishing],
 	countries: [country],
 	social: [socialProfile],
 	bio: String,

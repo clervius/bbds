@@ -83,3 +83,52 @@ a:hover {
 	background-repeat: no-repeat;
 	background-color: rgba(0,0,0,.03)
 }
+table.form-table {
+	width:100%;
+}
+table.form-table thead {}
+table.form-table thead tr {}
+table.form-table thead tr th {}
+
+table.form-table tbody {}
+table.form-table tbody tr {}
+table.form-table tbody tr td {
+	padding:5px 3px !important;
+}
+table.form-table tbody tr td:not(:last-child) {
+	border-right:1px solid rgba(0,0,0,.04);
+}
+table.form-table tbody tr td input {
+	width:100%;
+	border: none;
+	padding:3px 5px;
+}
+
+table.form-table thead tr th:first-child, table.form-table tbody tr td:first-child {
+	width:7%;
+}
+table.form-table thead tr th:nth-child(2), table.form-table tbody tr td:nth-child(2) {
+	width:15%;
+}
+table.form-table thead tr th:nth-child(3), table.form-table tbody tr td:nth-child(3) {
+	width:25%
+}
+table.form-table thead tr th:nth-child(4), table.form-table tbody tr td:nth-child(4) {
+	width:20%;
+}
+table.form-table thead tr th:nth-child(5), table.form-table tbody tr td:nth-child(5) {
+	width:10%;
+}
+table.form-table thead tr th:nth-child(6), table.form-table tbody tr td:nth-child(6) {
+	width:5%;
+}
+table.form-table thead tr th:nth-child(7), table.form-table tbody tr td:nth-child(7) {
+	width:15%;
+	background-color:white !important;
+}
+table.form-table thead tr th:nth-child(7), table.form-table tbody tr td:nth-child(7) input {
+	text-align: center
+}
+.tbl-input {
+	background-color:transparent;
+}
