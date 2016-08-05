@@ -15,9 +15,9 @@ module.exports = function(){
 		create: function(req, res){
 			var newAthlete = new athlete(req.body);
 
-			newAthlete.save(function(err){
+			newAthlete.save(function(err, athlete){
 				if(err){console.log('could not create athlete'); res.send(err)}
-				res.json(req.body);
+				res.json(athlete);
 			});
 		},
 		getOne: function(req, res){
@@ -26,6 +26,20 @@ module.exports = function(){
 				res.json(athlete);
 			})
 		},
+		addRecord: function(req, res){
+			console.log('adding record into athlete')
+			athlete.findByIdAndUpdate(req.body.athlete, 
+				{ $push: { 'records' : req.body._id} }, 
+				{new: true, safe:true, upsert: true}, 
+				function(err, athlete){
+				if(err){console.log('could not add record'); res.json(err)}
+				else{
+					console.log('successfully added record to athlete');
+					console.log(athlete);
+					res.json(athlete);
+				}
+			})
+		}
 		update: function(req, res){}
 	};
 

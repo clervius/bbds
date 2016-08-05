@@ -15,9 +15,9 @@ module.exports = function(){
 		create: function(req, res){
 			var newfederation = new federation(req.body);
 
-			newfederation.save(function(err){
+			newfederation.save(function(err, federation){
 				if(err){console.log('could not create federation'); res.send(err)}
-				res.json(req.body);
+				res.json(federation);
 			});
 		},
 		getOne: function(req, res){

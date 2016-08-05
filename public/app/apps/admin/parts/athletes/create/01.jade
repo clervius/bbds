@@ -5,16 +5,25 @@
 				.form-group
 					label First Name
 						star *
-					input.form-control(name="firstName")
+					input.form-control(name="firstName", ng-model="newAthlete.athleteProfile.firstName")
 			.col-md-3
 				.form-group
 					label Middle Name
-					input.form-control(name="mName")
+					input.form-control(name="mName", ng-model="newAthlete.athleteProfile.middleName")
 			.col-md-5
 				.form-group
 					label Last Name
 						star *
-					input.form-control(name="lastName")
+					input.form-control(name="lastName", ng-model="newAthlete.athleteProfile.lastName")
+		.row
+			.col-md-4
+				.form-group
+					label Subtitle
+					input.form-control(ng-model="newAthlete.athleteProfile.subtitle")
+			.col-md-4
+				.form-group
+					label Federation
+					select.form-control(ng-model="newAthlete.athleteProfile.subtitle")
 		.row
 			.col-md-7
 				.form-group

@@ -1,35 +1,14 @@
 .row
 	.col-md-12
-		button.btn.btn-xs.btn-fill.btn-default.pull-right
+		button.btn.btn-xs.btn-fill.btn-default.pull-right(ng-click="addPost()")
 			i.ti-plus
 			|&nbsp;&nbsp; Add Article
 hr
-.row
+.row(ng-repeat="post in editorials")
 	.col-md-7
 		.form-group
-			input.form-control(placeholder="Article Title")
+			input.form-control(placeholder="Article Title", ng-model="post.title")
 	.col-md-5
 		.form-group
-			input.form-control(placeholder="Article URL")
-.row
-	.col-md-7
-		.form-group
-			input.form-control(placeholder="Article Title")
-	.col-md-5
-		.form-group
-			input.form-control(placeholder="Article URL")
-.row
-	.col-md-7
-		.form-group
-			input.form-control(placeholder="Article Title")
-	.col-md-5
-		.form-group
-			input.form-control(placeholder="Article URL")
-.row
-	.col-md-7
-		.form-group
-			input.form-control(placeholder="Article Title")
-	.col-md-5
-		.form-group
-			input.form-control(placeholder="Article URL")
+			input.form-control(placeholder="Article URL", ng-model="post.link")
 

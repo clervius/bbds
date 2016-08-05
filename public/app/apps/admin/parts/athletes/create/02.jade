@@ -4,7 +4,7 @@
 		p The Facebook ID will be used to authenticate and offer the athlete the ability to update their profile.
 		p To find their ID, copy the athlete's Facebook URL and paste in the following page:&nbsp;
 			strong
-				a.btn.btn-facebook.btn-xs.btn-wd.btn-fill(href="http://findmyfbid.com/") Search FB ID
+				a.btn.btn-facebook.btn-xs.btn-wd.btn-fill(href="http://findmyfbid.com/", target="blank") Search FB ID
 		p
 			small.text-info If you get an error, we will have to manually authenticate this user for their account when they request to claim.
 	.col-md-6
@@ -12,7 +12,7 @@
 			label 
 				i.fa.fa-lock
 				|&nbsp;&nbsp; Enter Facebook ID
-			input.form-control(name="fbID", placeholder="1001542109")
+			input.form-control(name="fbID", placeholder="1001542109", ng-model="newAthlete.fbID")
 hr
 .row
 	.col-md-12
@@ -22,42 +22,42 @@ hr
 		.input-group
 			span.input-group-addon.btn-facebook
 				i.ti-facebook
-			input.form-control(name="personalFB", placeholder="Personal Facebook URL", style="padding-left:15px")
+			input.form-control(name="personalFB", ng-model="personalFB", placeholder="Personal Facebook URL", style="padding-left:15px")
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-facebook
 				i.ti-facebook
-			input.form-control(name="publicFB", placeholder="Facebook Page", style="padding-left:15px")
+			input.form-control(name="publicFB", ng-model="publicFB", placeholder="Facebook Page", style="padding-left:15px")
 .row
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-twitter
 				i.ti-twitter-alt
-			input.form-control(name="", placeholder="Twitter URL", style="padding-left:15px")
+			input.form-control(name="personalTwitter", ng-model="personalTwitter", placeholder="Twitter URL", style="padding-left:15px")
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-instagram
 				i.ti-instagram
-			input.form-control(name="", placeholder="Instagram Username", style="padding-left:15px")
+			input.form-control(name="personalInstagram", ng-model="personalInstagram", placeholder="Instagram Username", style="padding-left:15px")
 .row
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-youtube
 				i.ti-youtube
-			input.form-control(name="", placeholder="Youtube Channel URL", style="padding-left:15px")
+			input.form-control(name="personalYoutube", ng-model="personalYoutube", placeholder="Youtube Channel URL", style="padding-left:15px")
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-google
 				i.ti-google
-			input.form-control(name="", placeholder="Google Plus URL", style="padding-left:15px")
+			input.form-control(name="personalGooglePlus", ng-model="personalGooglePlus", placeholder="Google Plus URL", style="padding-left:15px")
 .row
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-tumblr
 				i.ti-world
-			input.form-control(name="", placeholder="Website URL", style="padding-left:15px")
+			input.form-control(name="personalWebsite1", ng-model="personalWebsite1", placeholder="Website URL", style="padding-left:15px")
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-tumblr
 				i.ti-world
-			input.form-control(name="", placeholder="Additional Website URL", style="padding-left:15px")
+			input.form-control(name="personalWebsite2", ng-model="personalWebsite2", placeholder="Additional Website URL", style="padding-left:15px")

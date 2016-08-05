@@ -15,9 +15,9 @@ module.exports = function(){
 		create: function(req, res){
 			var newRecord = new record(req.body);
 
-			newRecord.save(function(err){
+			newRecord.save(function(err, record){
 				if(err){console.log('could not create record'); res.send(err)}
-				res.json(req.body);
+				res.json(record);
 			});
 		},
 		getOne: function(req, res){

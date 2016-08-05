@@ -1,6 +1,6 @@
 .row
 	.col-md-12
-		button.btn.btn-xs.btn-fill.btn-default.pull-right
+		button.btn.btn-xs.btn-fill.btn-default.pull-right(ng-click="addRecord()")
 			i.ti-plus
 			|&nbsp;&nbsp; Add Show
 hr
@@ -17,69 +17,20 @@ hr
 					th Place
 					th Save
 			tbody
-				form
-					tr
-						td 
-							input.tbl-input(name="year")
-						td 
-							input.tbl-input(name="federation")
-						td 
-							input.tbl-input(name="show")
-						td 
-							input.tbl-input(name="division")
-						td 
-							input.tbl-input(name="class")
-						td 
-							input.tbl-input.text-center(name="place")
-						td.td-actions.text-right 
-							input.btn.btn-info.btn-simple.btn-xs(rel="tooltip", title="Save Record", type="submit", value="Save Record")
-				form
-					tr
-						td 
-							input.tbl-input(name="year")
-						td 
-							input.tbl-input(name="federation")
-						td 
-							input.tbl-input(name="show")
-						td 
-							input.tbl-input(name="division")
-						td 
-							input.tbl-input(name="class")
-						td 
-							input.tbl-input.text-center(name="place")
-						td.td-actions.text-right 
-							input.btn.btn-info.btn-simple.btn-xs(rel="tooltip", title="Save Record", type="submit", value="Save Record")
-				form
-					tr
-						td 
-							input.tbl-input(name="year")
-						td 
-							input.tbl-input(name="federation")
-						td 
-							input.tbl-input(name="show")
-						td 
-							input.tbl-input(name="division")
-						td 
-							input.tbl-input(name="class")
-						td 
-							input.tbl-input.text-center(name="place")
-						td.td-actions.text-right 
-							input.btn.btn-info.btn-simple.btn-xs(rel="tooltip", title="Save Record", type="submit", value="Save Record")
-				form
-					tr
-						td 
-							input.tbl-input(name="year")
-						td 
-							input.tbl-input(name="federation")
-						td 
-							input.tbl-input(name="show")
-						td 
-							input.tbl-input(name="division")
-						td 
-							input.tbl-input(name="class")
-						td 
-							input.tbl-input.text-center(name="place")
-						td.td-actions.text-right 
-							input.btn.btn-info.btn-simple.btn-xs(rel="tooltip", title="Save Record", type="submit", value="Save Record")
+				tr(name="{{record.id}}", ng-repeat="record in records")
+					td 
+						input.tbl-input(ng-model="record.year")
+					td 
+						input.tbl-input(ng-model="record.federation")
+					td 
+						input.tbl-input(ng-model="record.show")
+					td 
+						input.tbl-input(ng-model="record.division")
+					td 
+						input.tbl-input(ng-model="record.class")
+					td 
+						input.tbl-input.text-center(ng-model="record.place")
+					td.td-actions.text-right 
+						a.btn.btn-info.btn-simple.btn-xs(rel="tooltip", title="Save Record", ng-click="saveRecord(record)") Save Record
 
 
