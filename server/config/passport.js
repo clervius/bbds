@@ -149,7 +149,7 @@ module.exports = function(passport) {
                 }if (!user){
                    // return done(null, false); // req.flash is the way to set flashdata using connect-flash
                     console.log("User doesnt exist")
-                    return next()
+                    
                 }if (!user.validPassword(password)){
                     console.log("wrong password");
                     return next()

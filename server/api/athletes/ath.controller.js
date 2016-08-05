@@ -17,7 +17,8 @@ module.exports = function(){
 
 			newAthlete.save(function(err, athlete){
 				if(err){console.log('could not create athlete'); res.send(err)}
-				res.json(athlete);
+				else{ console.log('created new athlete'); console.log(athlete); res.json(athlete);}
+				
 			});
 		},
 		getOne: function(req, res){
@@ -29,7 +30,7 @@ module.exports = function(){
 		addRecord: function(req, res){
 			console.log('adding record into athlete')
 			athlete.findByIdAndUpdate(req.body.athlete, 
-				{ $push: { 'records' : req.body._id} }, 
+				{ $push: { 'competitions' : req.body._id} }, 
 				{new: true, safe:true, upsert: true}, 
 				function(err, athlete){
 				if(err){console.log('could not add record'); res.json(err)}
@@ -39,7 +40,7 @@ module.exports = function(){
 					res.json(athlete);
 				}
 			})
-		}
+		},
 		update: function(req, res){}
 	};
 

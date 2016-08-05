@@ -3,14 +3,15 @@ angular.module('manager').controller('athCtrl', function($scope, athletes){
 	$scope.homeMessage = "Now on Athlete Page"
 	$scope.athletes = athletes.athletes;
 	
-})
+});
 
 
 // Controller for adding athletes
-angular.module('manager').controller('athCtrl1', function($scope, federations){
+angular.module('manager').controller('athCtrl1', function($scope, federations, $http){
 	$scope.federations = federations.federations;
 	$scope.newAthlete = {};
 	$scope.socials = [];
+	$scope.countries = [];
 	$scope.editorials = [
 		{id: 'post1', link: '', title: ''}
 	]
@@ -52,10 +53,22 @@ angular.module('manager').controller('athCtrl1', function($scope, federations){
 	}
 	$scope.socials.push(personalFB, publicFB, twitter, instagram, youtube, gPlus, web1, web2);
 
+	// Countries
+	var primaryCountry = {
+		classify: 'primary',
+		countryName: $scope.primaryCountry
+	}
+	var secondaryCountry = {
+		classify: 'secondary',
+		countryName: $scope.secondaryCountry
+	}
+	$scope.countries.push(primaryCountry, secondaryCountry);
+
+
 	// editorial publishings
 	$scope.addPost = function(){
 		newItemNo = $scope.editorials.length + 1;
-		var post {
+		var post = {
 			id: 'post' + newItemNo,
 			link: '',
 			title: ''
@@ -86,6 +99,12 @@ angular.module('manager').controller('athCtrl1', function($scope, federations){
 	};
 
 
+
+
+	$scope.newAthlete.social = $scope.socials;
+	$scope.newAthlete.countries = $scope.countries;
+	$scope.newAthlete.published = $scope.editorials;
+	$scope.newAthlete._creator = $scope.user;
 	$scope.createAthlete = function(){
 		console.log('creating this athlete...');
 
