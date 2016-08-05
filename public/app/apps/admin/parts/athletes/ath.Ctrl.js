@@ -51,7 +51,13 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, $
 		service: 'web2',
 		link: $scope.personalWebsite2
 	}
-	$scope.socials.push(personalFB, publicFB, twitter, instagram, youtube, gPlus, web1, web2);
+	var addSocial = function(account){
+		if(account.link.length) {
+			console.log('adding ' + account.service + ' to socials array')
+			$scope.socials.push(account);
+		}
+	}
+	
 
 	// Countries
 	var primaryCountry = {
@@ -101,13 +107,14 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, $
 
 
 
-	$scope.newAthlete.social = $scope.socials;
+	
 	$scope.newAthlete.countries = $scope.countries;
 	$scope.newAthlete.published = $scope.editorials;
 	$scope.newAthlete._creator = $scope.user;
 	$scope.createAthlete = function(){
 		console.log('creating this athlete...');
-
+		addSocial(personalFB); addSocial(publicFB); addSocial(twitter); addSocial(instagram); addSocial(youtube); addSocial(gPlus); addSocial(web1); addSocial(web2); 
+		$scope.newAthlete.social = $scope.socials;
 		console.log($scope.user);
 		console.log($scope.newAthlete);
 		// Create this athlete
@@ -118,27 +125,29 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, $
 				angular.forEach($scope.records, function(item, key){
 					item.athlete = athId; 
 					console.log(item);
+
+					$http.post('/record/new', item)
+						.success(function(data){
+							console.log('successfully created the record as: '  + data);
+							// need to now add this record back into the athlete.
+							$http.post('/ath/addRecord', data)
+								.success(function(data){
+									console.log('successfully added record into athlete');
+									console.log(data)
+								})
+								.error(function(data){
+									console.log('could not add that record back into athlete');
+									console.log(data)
+								})
+						})
+						.error(function(data){
+							console.log('did not create the record');
+							console.log(data)
+						});
 				});
 				console.log('going to create the above record')
 				// Need to now create the records
-				$http.post('/record/new', item)
-					.success(function(data){
-						console.log('successfully created the record as: '  + data);
-						// need to now add this record back into the athlete.
-						$http.post('/ath/addRecord', data)
-							.success(function(data){
-								console.log('successfully added record into athlete');
-								console.log(data)
-							})
-							.error(function(data){
-								console.log('could not add that record back into athlete');
-								console.log(data)
-							})
-					})
-					.error(function(data){
-						console.log('did not create the record');
-						console.log(data)
-					})
+				
 			})
 			.error(function(data){
 				console.log('could not create the athlete');
