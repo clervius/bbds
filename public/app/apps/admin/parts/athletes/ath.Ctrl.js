@@ -7,69 +7,45 @@ angular.module('manager').controller('athCtrl', function($scope, athletes){
 
 
 // Controller for adding athletes
-angular.module('manager').controller('athCtrl1', function($scope, federations, $http){
+angular.module('manager').controller('athCtrl1', function($scope, federations, filepickerService, $http, $state){
 	$scope.federations = federations.federations;
 	$scope.newAthlete = {};
+	$scope.newAthlete.profile = {};
 	$scope.socials = [];
 	$scope.countries = [];
-	$scope.editorials = [
-		{id: 'post1', link: '', title: ''}
-	]
-	$scope.records = [
-		{id: 'record1', year: '', federation: '', show:'', division: '', class: '', place: '', _creator: $scope.user}
-	]
+	$scope.editorials = [ {id: 'post1', link: '', title: ''} ]
+	$scope.records = [ {id: 'record1', year: '', federation: '', show:'', division: '', class: '', place: '', _creator: $scope.user} ]
+	$scope.newPicture = function(){
+		filepickerService.pick({
+			mimetype: 'image/*',
+			language: 'en',
+			services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'INSTAGRAM'],
+			openTo: 'IMAGE_SEARCH'
+		},function(Blob){
+			console.log(angular.toJson(Blob));
+			$scope.newAthlete.profile.picture = Blob;
+			$scope.$apply();
+		});
+	};
+
 	// Social profiles code
-	var personalFB = {
-		service: 'personal Facebook',
-		link: $scope.personalFB
-	}
-	var publicFB = {
-		service: 'public Facebook',
-		link: $scope.publicFB
-	}
-	var twitter = {
-		service: 'twitter',
-		link: $scope.personalTwitter
-	}
-	var instagram = {
-		service: 'instagram',
-		link: $scope.personalInstagram
-	}
-	var youtube = {
-		service: 'youtube',
-		link: $scope.personalYoutube
-	}
-	var gPlus = {
-		service: 'google plus',
-		link: $scope.personalGooglePlus
-	}
-	var web1 = {
-		service: 'web1',
-		link: $scope.personalWebsite1
-	}
-	var web2 = {
-		service: 'web2',
-		link: $scope.personalWebsite2
-	}
-	var addSocial = function(account){
-		if(account.link.length) {
-			console.log('adding ' + account.service + ' to socials array')
+	$scope.personalFB = { service: 'personal Facebook' };
+	$scope.publicFB = { service: 'public Facebook' };
+	$scope.twitter = { service: 'twitter' };
+	$scope.instagram = { service: 'instagram' };
+	$scope.youtube = { service: 'youtube' };
+	$scope.gPlus = { service: 'google plus' };
+	$scope.web1 = { service: 'web1' };
+	$scope.web2 = { service: 'web2' };
+	var addSocial = function(account){		
 			$scope.socials.push(account);
-		}
 	}
-	
-
 	// Countries
-	var primaryCountry = {
-		classify: 'primary',
-		countryName: $scope.primaryCountry
+	$scope.primaryCountry = { classify: 'primary' }
+	$scope.secondaryCountry = { classify: 'secondary' }
+	var addCountries = function(input){
+			$scope.countries.push(input)
 	}
-	var secondaryCountry = {
-		classify: 'secondary',
-		countryName: $scope.secondaryCountry
-	}
-	$scope.countries.push(primaryCountry, secondaryCountry);
-
 
 	// editorial publishings
 	$scope.addPost = function(){
@@ -104,50 +80,50 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, $
 		console.log('adding: ' + angular.toJson(record) + 'to records array.');
 	};
 
-
-
-
-	
 	$scope.newAthlete.countries = $scope.countries;
 	$scope.newAthlete.published = $scope.editorials;
 	$scope.newAthlete._creator = $scope.user;
 	$scope.createAthlete = function(){
 		console.log('creating this athlete...');
-		addSocial(personalFB); addSocial(publicFB); addSocial(twitter); addSocial(instagram); addSocial(youtube); addSocial(gPlus); addSocial(web1); addSocial(web2); 
+		addSocial($scope.personalFB); addSocial($scope.publicFB); addSocial($scope.twitter); addSocial($scope.instagram); addSocial($scope.youtube); addSocial($scope.gPlus); addSocial($scope.web1); addSocial($scope.web2); 
+		addCountries($scope.primaryCountry); addCountries($scope.secondaryCountry);		
+		$scope.newAthlete.countries = $scope.countries;
 		$scope.newAthlete.social = $scope.socials;
 		console.log($scope.user);
 		console.log($scope.newAthlete);
 		// Create this athlete
 		$http.post('/ath/new', $scope.newAthlete)
 			.success(function(data){
+				console.log(angular.toJson(data));
 				var athId = data._id;
 				// Add this athlete into the records objects
 				angular.forEach($scope.records, function(item, key){
 					item.athlete = athId; 
 					console.log(item);
-
+					console.log('going to create the above record');
 					$http.post('/record/new', item)
 						.success(function(data){
-							console.log('successfully created the record as: '  + data);
+							console.log('successfully created the record as: '  + angular.toJson(data));
 							// need to now add this record back into the athlete.
 							$http.post('/ath/addRecord', data)
 								.success(function(data){
 									console.log('successfully added record into athlete');
-									console.log(data)
+									console.log(angular.toJson(data))
 								})
 								.error(function(data){
 									console.log('could not add that record back into athlete');
-									console.log(data)
+									console.log(angular.toJson(data))
 								})
 						})
 						.error(function(data){
 							console.log('did not create the record');
-							console.log(data)
+							console.log(angular.toJson(data))
 						});
 				});
-				console.log('going to create the above record')
-				// Need to now create the records
-				
+				$scope.newAthlete = {};
+				$scope.records = [ {id: 'record1', year: '', federation: '', show:'', division: '', class: '', place: '', _creator: $scope.user} ]
+				$state.go('athletes')
+
 			})
 			.error(function(data){
 				console.log('could not create the athlete');

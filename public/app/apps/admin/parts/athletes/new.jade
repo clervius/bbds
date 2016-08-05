@@ -9,9 +9,9 @@
 				form
 					.row
 						.col-md-2.col-md-3
-							.image-container(style="background-image:url('{{athlete.profilePicture.url}}')")
+							.image-container(style="background-image:url('{{newAthlete.profile.picture.url}}')")
 							.clearfix
-							button.btn.btn-default.btn-xs.btn-fill.pull-right 
+							button.btn.btn-default.btn-xs.btn-fill.pull-right(ng-click="newPicture()")
 								i.ti-image
 								|&nbsp;&nbsp;Upload Picture
 						.col-md-10

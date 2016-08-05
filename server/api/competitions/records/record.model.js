@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var recordSchema = new Schema({
-	year: Number,
+	year: String,
 	federation: String,
 	show: String,
 	athlete: {
@@ -12,7 +12,7 @@ var recordSchema = new Schema({
 	division: String,
 	pictures: Schema.Types.Mixed,
 	class: String,
-	place:Number,
+	place: String,
 	_creator: {
 		type: Schema.ObjectId,
 		ref: 'user'

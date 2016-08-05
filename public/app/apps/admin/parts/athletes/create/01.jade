@@ -18,6 +18,10 @@
 		.row
 			.col-md-4
 				.form-group
+					label Birth date
+					input.form-control.datepicker(ng-model="newAthlete.dob")
+			.col-md-4
+				.form-group
 					label Subtitle
 					input.form-control(ng-model="newAthlete.profile.subtitle")
 			.col-md-4
@@ -35,11 +39,11 @@
 					label Primary Country 
 						small (resides)
 						star *
-					select.form-control(name="primaryCountry", ng-model="primaryCountry")
+					select.form-control(name="primaryCountry", ng-model="primaryCountry.countryName")
 						include ../../countries
 				.form-group
 					label Secondary Country 
 						small (birth)
-					select.form-control(name="secondaryCountry", ng-model="secondaryCountry")
+					select.form-control(name="secondaryCountry", ng-model="secondaryCountry.countryName")
 						include ../../countries
 

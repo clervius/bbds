@@ -30,7 +30,7 @@ module.exports = function(){
 		addRecord: function(req, res){
 			console.log('adding record into athlete')
 			athlete.findByIdAndUpdate(req.body.athlete, 
-				{ $push: { 'competitions' : req.body._id} }, 
+				{ $push: { 'competitions' : { 'record' : req.body._id} } }, 
 				{new: true, safe:true, upsert: true}, 
 				function(err, athlete){
 				if(err){console.log('could not add record'); res.json(err)}

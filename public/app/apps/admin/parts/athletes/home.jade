@@ -9,3 +9,28 @@
 				p
 					a.pull-right.btn.btn-primary(ui-sref="newAthlete") Create Athlete
 				.clearfix
+.row
+	.col-md-12
+		.card.card-plain
+			.header
+				h4.title Athletes
+				p.category Some of the Athletes currently in the database
+			.content.table-responsive.table-full-width
+				table.table.table-hover
+					thead
+						tr
+							th 
+							th Name
+							th Country
+							th Subtitle							
+							th # Shows
+							th
+					tbody
+						tr(ng-repeat="athlete in athletes")
+							td(style="background-image:url('{{athlete.profile.picture.url}}'); background-size:cover")
+							td {{ athlete.profile.firstName}} {{ athlete.profile.lastName}}
+							td {{ athlete.countries[0].countryName }}
+							td {{ athlete.profile.subtitle}}
+							td {{ athlete.competitions.length }}
+							td 
+								a.btn.btn-primary.btn-sm(disabled) not live

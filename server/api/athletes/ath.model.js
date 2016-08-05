@@ -31,7 +31,8 @@ var athleteProfile = new Schema({
 	firstName: String,
 	middleName: String,
 	lastName: String,
-	subtitle: String
+	subtitle: String,
+	picture: Schema.Types.Mixed
 });
 
 var publishing = new Schema({
@@ -63,11 +64,8 @@ var athleteSchema = new Schema({
 	toJSON: { virtuals: true}
 });
 
-var autoPopulateAth = function(next){
-	this.populate('competitions.record');
-	this.populate('profile');
-	this.populate('federation.federation');
-	this.populate('_creator');
-};
+
+
+
 
 module.exports = mongoose.model('athlete', athleteSchema);

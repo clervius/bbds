@@ -2,6 +2,8 @@ doctype html
 html(lang="en", ng-app="manager", ng-init='user = "'+user._id+'"')
 	head
 		include includes/admin/head
+		include includes/admin/scripts
+		include includes/admin/angular
 	body
 		.wrapper
 			include includes/admin/aside
@@ -10,5 +12,4 @@ html(lang="en", ng-app="manager", ng-init='user = "'+user._id+'"')
 				.content
 					.container-fluid(ui-view)
 				include includes/admin/footer
-		include includes/admin/scripts
-		include includes/admin/angular
+		

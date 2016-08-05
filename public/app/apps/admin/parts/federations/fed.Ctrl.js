@@ -19,7 +19,7 @@ angular.module('manager').controller('fedCtrl1', function($scope, $stateParams, 
 
 
 // Create New Federation Controller
-angular.module('manager').controller('fedCtrl2', function($scope, $http, filepickerService){
+angular.module('manager').controller('fedCtrl2', function($scope, $http, $state, filepickerService){
 	$scope.federation = {};
 
 	$scope.createFederation = function(){
@@ -27,6 +27,7 @@ angular.module('manager').controller('fedCtrl2', function($scope, $http, filepic
 			.success(function(data){
 				console.log(JSON.stringify(data));
 				$scope.federation = {}
+				$state.go('federations')
 			})
 			.error(function(data){
 				console.log('Error: ' + data);
