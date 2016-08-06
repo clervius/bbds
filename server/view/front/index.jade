@@ -1,4 +1,4 @@
-html(dir="ltr", lang="en-US", class="no-js")
+html(dir="ltr", lang="en-US", class="no-js", ng-app="bigbodies")
 	head
 		title Big Bodies
 		include includes/head
@@ -6,11 +6,7 @@ html(dir="ltr", lang="en-US", class="no-js")
 		include includes/fbSDK
 		include includes/loader
 		include includes/header/header
-		include includes/home/topSlider
-		include includes/home/responsiveAd
-		.container
-			.row
-				p Joram Clervius has finished the bulk of it
-		include includes/home/responsiveAd
+		.container(ui-view="")
 		include includes/footer/index
 		include includes/footer/scripts
+		include includes/angular

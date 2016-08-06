@@ -1,4 +1,4 @@
-angular.module('manager').config(function($stateProvider, $urlRouterProvider, filepickerProvider){
+angular.module('manager').config(function($stateProvider, $urlRouterProvider, filepickerProvider, $locationProvider){
 
 	$stateProvider
 		.state('signin',{
@@ -65,7 +65,7 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 				pageTitle: 'New Federation'
 			}
 		})
-		
+	$locationProvider.hashPrefix('!');
 	$urlRouterProvider.otherwise('/');
 
 	filepickerProvider.setKey('ASnewwz6T3qiMff59c3ngz');

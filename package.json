@@ -16,7 +16,7 @@
     "url": "https://github.com/clervius/bbds/issues"
   },
   "homepage": "https://github.com/clervius/bbds#readme",
-   "dependencies": {
+  "dependencies": {
     "bcrypt": "^0.8.7",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
@@ -43,6 +43,7 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "prerender-node": "^2.3.0",
     "sendgrid": "^3.0.11",
     "stripe": "^4.7.0",
     "stylus": "^0.54.5"

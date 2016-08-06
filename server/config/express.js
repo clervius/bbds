@@ -9,7 +9,8 @@ var express = require('express');
 	cookieParser = require('cookie-parser');
 	session = require('express-session');
 	passport = require('passport');
-	config = require('./config')
+	config = require('./config');
+	prerender = require('prerender-node');
 
 module.exports = function(app, config){
 
@@ -37,6 +38,6 @@ module.exports = function(app, config){
 	}));
 	
 	app.use(express.static(config.rootPath + '/public'));
-	
+	app.use(prerender);
 	app.locals.moment = require('moment');
 }
