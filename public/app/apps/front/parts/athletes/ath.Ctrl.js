@@ -22,21 +22,24 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 				$scope.fbPage = account;
 			};
 			// Social Classes
-			if(account.service === 'personal Facebook'){
-				account.service = 'facebook';
-				$scope.scMedia.push(account);
-			}else if(account.service === 'personal Facebook'){
-				account.service = 'facebook-official';
-				$scope.scMedia.push(account);
-			}else if(account.service === 'google plus'){
-				account.service === 'google-plus';
-				$scope.scMedia.push(account);
-			}else if(account.service === 'web1' || account.service === 'web2'){
-				account.service = 'globe';
-				$scope.scMedia.push(account);
-			}else{
-				$scope.scMedia.push(account);
-			}
+			if(account.link.length){
+				if(account.service === 'personal Facebook'){
+					account.service = 'facebook';
+					$scope.scMedia.push(account);
+				}else if(account.service === 'personal Facebook'){
+					account.service = 'facebook-official';
+					$scope.scMedia.push(account);
+				}else if(account.service === 'google plus'){
+					account.service === 'google-plus';
+					$scope.scMedia.push(account);
+				}else if(account.service === 'web1' || account.service === 'web2'){
+					account.service = 'globe';
+					$scope.scMedia.push(account);
+				}else{
+					$scope.scMedia.push(account);
+				}
+			}else{}
+			
 		});
 	});
 	$http.get('/record/ath/' + $stateParams.athId).success(function(data){
