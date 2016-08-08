@@ -23,6 +23,11 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 			};
 			// Social Classes
 			if(account.link.length){
+				if(!account.link.match(/^[a-zA-Z]+:\/\//)){
+					account.link = 'http://' + account.link;
+				}
+
+
 				if(account.service === 'personal Facebook'){
 					account.service = 'facebook-square';
 					$scope.scMedia.push(account);
