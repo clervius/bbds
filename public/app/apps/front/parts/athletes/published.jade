@@ -13,12 +13,12 @@
 									li(ng-repeat="post in athlete.published")
 										.thumb
 											a(href="{{ post.link }}", target="blank")
-												img.thumbnail(src="{{ post.meta.image }}")
+												
 											a.slider_title(href="{{ post.link }}", target="blank")
-												{{ post.meta.title }}
+												{{ post.title }}
 											a.overlay(href="{{ post.link }}", target="blank")
 										.feat-cap.clearfix
 											.date-info
-												.cap-date {{ post.meta.date | date }}
+												.cap-date {{ post.link | date }}
 											.clearfix
-											p {{ post.meta.description }}...
+											p {{ post.title }}...

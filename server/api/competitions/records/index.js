@@ -4,6 +4,7 @@ var router = express.Router();
 
 router.get('/record/all', controller.getAll);
 router.get('/record/:id', controller.getOne);
+router.get('/record/ath/:id', controller.getAthRecords);
 
 router.post('/record/new', controller.create);
 router.post('/record/update/:id', controller.update);

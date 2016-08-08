@@ -26,6 +26,13 @@ module.exports = function(){
 				res.json(record);
 			})
 		},
+		getAthRecords: function(req, res){
+			record.find({'athlete':req.params.id}).exec(function(err, records){
+				console.log('looking up shows')
+				if(err){ console.log(err); console.log('could not get this athletes shows')}
+				else{ console.log('got the shows'); console.log(records); res.json(records)}
+			})
+		},
 		update: function(req, res){}
 	};
 

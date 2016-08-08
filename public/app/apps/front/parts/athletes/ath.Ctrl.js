@@ -11,34 +11,7 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 	$scope.athlete = {};
 	$scope.fbPage = {};
 	$scope.scMedia = [];
-	$scope.shows = [
-		{
-		    _id : "57a62f137e71080300a7ae5c",
-		    year : "2013",
-		    federation : "NPC",
-		    show : "SFL Championships",
-		    division : "Men's Physique",
-		    class : "D",
-		    place : "1",
-		    _creator :"57a25ea543be0203004de994",
-		    athlete : "57a62f137e71080300a7ae4f",
-		    createdAt : "2016-08-06T18:05:20.695Z",
-		    __v : 0
-		},
-		{
-		    _id : "57a62f137e71080300a7ae5d",
-		    year : "2014",
-		    federation : "NPC",
-		    show : "Nationals",
-		    division : "Men's Physique",
-		    class : "D",
-		    place : "12",
-		    _creator : "57a25ea543be0203004de994",
-		    athlete : "57a62f137e71080300a7ae4f",
-		    createdAt : "2016-08-06T18:05:20.695Z",
-		    __v : 0
-		}
-	]
+	$scope.shows = [];
 	$http.get('/ath/' + $stateParams.athId).success(function(data){
 		console.log(data);
 		$scope.athlete = data;
@@ -66,6 +39,13 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 			}
 		});
 	});
+	$http.get('/record/ath/' + $stateParams.athId).success(function(data){
+		console.log(data);
+		data.forEach(function(show){
+			console.log(show);
+			$scope.shows.push(show);
+		})
+	})
 
 
 });
