@@ -27,20 +27,32 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 					account.link = 'http://' + account.link;
 				}
 
+				var makeLink = function(link){
+					if(!link.match(/^[a-zA-Z]+:\/\//)){
+						link = 'http://' + link
+					} else{
+						link = link;
+					}
+				}
 
 				if(account.service === 'personal Facebook'){
+					makeLink(account.link);
 					account.service = 'facebook-square';
 					$scope.scMedia.push(account);
 				}else if(account.service === 'public Facebook'){
+					makeLink(account.link);
 					account.service = 'facebook-official';
 					$scope.scMedia.push(account);
 				}else if(account.service === 'google plus'){
+					makeLink(account.link);
 					account.service === 'google-plus';
 					$scope.scMedia.push(account);
 				}else if(account.service === 'web1' || account.service === 'web2'){
+					makeLink(account.link);
 					account.service = 'globe';
 					$scope.scMedia.push(account);
 				}else{
+					makeLink(account.link);
 					$scope.scMedia.push(account);
 				}
 			}else{}
