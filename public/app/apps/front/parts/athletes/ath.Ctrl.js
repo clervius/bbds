@@ -1,32 +1,41 @@
 angular.module('bigbodies').controller('athCtrl', function($scope, $http){
+	$scope.athletes = [];
+
+	$http.get('/ath/all').success(function(data){
+		data.forEach(function(athlete){
+			athletes.push(athlete);
+		});
+	});
+})
+angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $state, $stateParams){
 	$scope.athlete = {};
 	$scope.fbPage = {};
 	$scope.scMedia = [];
-	$scope.shows [
+	$scope.shows = [
 		{
-		    _id : ObjectId("57a62f137e71080300a7ae5c"),
+		    _id : "57a62f137e71080300a7ae5c",
 		    year : "2013",
 		    federation : "NPC",
 		    show : "SFL Championships",
 		    division : "Men's Physique",
 		    class : "D",
 		    place : "1",
-		    _creator : ObjectId("57a25ea543be0203004de994"),
-		    athlete : ObjectId("57a62f137e71080300a7ae4f"),
-		    createdAt : ISODate("2016-08-06T18:05:20.695Z"),
+		    _creator :"57a25ea543be0203004de994",
+		    athlete : "57a62f137e71080300a7ae4f",
+		    createdAt : "2016-08-06T18:05:20.695Z",
 		    __v : 0
 		},
 		{
-		    _id : ObjectId("57a62f137e71080300a7ae5d"),
+		    _id : "57a62f137e71080300a7ae5d",
 		    year : "2014",
 		    federation : "NPC",
 		    show : "Nationals",
 		    division : "Men's Physique",
 		    class : "D",
 		    place : "12",
-		    _creator : ObjectId("57a25ea543be0203004de994"),
-		    athlete : ObjectId("57a62f137e71080300a7ae4f"),
-		    createdAt : ISODate("2016-08-06T18:05:20.695Z"),
+		    _creator : "57a25ea543be0203004de994",
+		    athlete : "57a62f137e71080300a7ae4f",
+		    createdAt : "2016-08-06T18:05:20.695Z",
 		    __v : 0
 		}
 	]

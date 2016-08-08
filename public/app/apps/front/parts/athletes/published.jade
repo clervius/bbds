@@ -1,0 +1,24 @@
+.row
+	.col-md-12
+		.clearfix(id="carousel-wrapper")
+			.car
+				.widget
+					div(id="carousel")
+						h4.title Published Editorials
+						div(id="previous_button")
+						div(id="next_button")
+						.widget_content
+							.content
+								ul
+									li(ng-repeat="post in athlete.published")
+										.thumb
+											a(href="{{ post.link }}", target="blank")
+												img.thumbnail(src="{{ post.meta.image }}")
+											a.slider_title(href="{{ post.link }}", target="blank")
+												{{ post.meta.title }}
+											a.overlay(href="{{ post.link }}", target="blank")
+										.feat-cap.clearfix
+											.date-info
+												.cap-date {{ post.meta.date | date }}
+											.clearfix
+											p {{ post.meta.description }}...

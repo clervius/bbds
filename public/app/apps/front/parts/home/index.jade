@@ -6,5 +6,9 @@
 	.row
 		p Just loaded the home page homie!
 		p {{ homeMessage }}
+		h4.title Athletes
+		ul
+			li(ng-repeat="athlete in athletes")
+				a(ui-sref="singleAthlete({athId: athlete._id})") {{athlete.profile.firstName}}
 	.row
 		include ../components/ads/responsiveAd2

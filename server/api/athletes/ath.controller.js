@@ -26,10 +26,9 @@ module.exports = function(){
 		},
 		getOne: function(req, res){
 			athlete.findById(req.params.id, function(err, athlete){
-				if(err){console.log('could not find that athlete'); res.send(err)}
-				console.log('looking up athlete');
-				
-				res.json(athlete);
+				if(err){console.log('could not find that athlete'); res.send(err); console.log(err)}
+				else{console.log('looking up athlete');				
+				athlete.scrape(athlete.published, function(){res.json(athlete)})}				
 			})
 		},
 		addRecord: function(req, res){

@@ -6,6 +6,7 @@ var record = require('../competitions/records/record.model');
 var ogs = require('open-graph-scraper');
 var Metascraper = require('metascraper')
 
+
 var socialProfile = new Schema({
 	service: String,
 	link: String
@@ -39,6 +40,7 @@ var athleteProfile = new Schema({
 var publishing = new Schema({
 	link: String,
 	title: String,
+	meta: Schema.Types.Mixed,
 	createdAt: {
 		type: Date,
 		default: new Date
@@ -66,45 +68,22 @@ var athleteSchema = new Schema({
 }, {
 	toJSON: { virtuals: true}
 });
-/*
-athleteSchema.pre('save', function(next){
 
-	var scrape = function(element){
-		ogs({'url': element.link}, function(err, results){
-			console.log(results)
-			if(err){console.log(err)}
-			else{element.meta = results;}
-		})
-	}
-	this.published.forEach(scrape);
-})
-athleteSchema.pre('find', function(next){
-	this.published.forEach(function(element){
-		Metascraper.scrapeUrl(element.link).then((metadata) => {
-			element.meta = metadata
-		})
+athleteSchema.methods.scrape = function(item, callback){
+	item.forEach(function(element, index, item){
+		var current = index + 1;
+		if(current < item.length){
+			Metascraper.scrapeUrl(element.link).then((metadata) => {
+				console.log(current);
+				element.meta = metadata;
+			})
+		}else {
+			Metascraper.scrapeUrl(element.link).then((metadata) => {
+				element.meta = metadata;
+			}).then(callback)
+		}
+	});
+	
 
-	})
-
-}).pre('findOne', function(next){
-	this.published.forEach(function(element){
-		Metascraper.scrapeUrl(element.link).then((metadata) => {
-			element.meta = metadata
-		})
-
-	})
-
-})*//*
-publishing.virtual('meta').get(function(){
-	Metascraper.scrapeUrl(this.link).then((metadata) => {
-		return metadata;
-	})
-});*/
-athleteSchema.methods.scrape = function(){
-	this.published.forEach(function(element){
-		Metascraper.scrapeUrl(element.link).then((metadata) => {
-			element.meta = metadata;
-		})
-	})
 }
 module.exports = mongoose.model('athlete', athleteSchema);

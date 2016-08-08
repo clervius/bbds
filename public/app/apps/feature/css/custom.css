@@ -1,0 +1,36 @@
+h1, h2, h3, h4, h5, h6, #top_title_box { font-family:Droid Sans!important; }
+			.featured_area_content_text, .da-slide p, #main_content, #container, .post_one_column h1, .post_mini_one_column h1, .post_two_column h1, .post_three_column h1 { font-family:Open Sans!important; }	
+			
+			h1, h2, h3, h4, h5, h6, .post_one_column h1 a, .post_two_column h1 a, .post_three_column h1 a, .jcarousel-skin-tango .post_three_column h1 a, .post_mini_one_column h1 a, .post h1 a { color: #!important; }
+			.site_title h1 { color: #!important; } 
+			.site_title h1:hover { color: #!important; } 
+			 a { color: #!important; }
+			 a:hover, .post_one_column h1 a:hover, .post_two_column h1 a:hover, .post_three_column h1 a:hover, .jcarousel-skin-tango .post_three_column h1 a:hover, .post_mini_one_column h1 a:hover, .post h1 a:hover, .post_category a:hover, .post_comments a:hover { color: #!important; }
+
+			.right-heading h3 { color: #!important; } 
+			.footer-heading h3 { color: #!important; } 
+			.right-widget li a{ color: #!important; }
+			.right-widget li a:hover { color: #!important; }
+			.footer-widget li a { color: #!important; }
+			.footer-widget li a:hover { color: #!important; }
+			#crumbs, #crumbs a{ color: #!important; }
+			#crumbs a:hover { color: #!important; }
+			
+			#mainMenu ul li a { color: #!important; } 
+			#mainMenu ul li a:hover, #mainMenu ul li.current-menu-parent > a, #mainMenu ul li.current_page_item > a, #mainMenu ul li.current-menu-ancestor > a, #mainMenu ul li.current-menu-item > a, #mainMenu ul li a:hover { color: #!important; } 
+			#mainMenu ul li.current-menu-parent > a, #mainMenu ul li.current_page_item > a, #mainMenu ul li.current-menu-ancestor > a, #mainMenu ul li.current-menu-item > a, #mainMenu ul li a:hover { background: #!important; } 
+			#mainMenu ul li.current-menu-parent > a, #mainMenu ul li.current_page_item > a, #mainMenu ul li.current-menu-ancestor > a, #mainMenu ul li.current-menu-item > a, #mainMenu ul li a:hover { color: #!important; } 	
+			#mainMenu.ddsmoothmenu ul li ul li a { color: #!important; } 
+			#mainMenu.ddsmoothmenu ul li ul li a:hover { color: #!important; } 
+			#mainMenu.ddsmoothmenu ul li ul li a, #mainMenu.ddsmoothmenu ul li ul li.current-menu-ancestor > a, #mainMenu.ddsmoothmenu ul li ul li.current-menu-item > a { background: #!important; } 
+			#mainMenu.ddsmoothmenu ul li ul li a:hover { background: #!important; } 
+			#secondaryMenu ul a, #signin_box a.signin, #login_box a.login, #login_box a, #signin_menu, #login_menu, #lost_pas a { color: #!important; } 
+			#secondaryMenu ul a:hover, #secondaryMenu ul li.sfHover a, #secondaryMenu ul li.current-cat a, #secondaryMenu ul li.current_page_item a, #secondaryMenu ul li.current-menu-item a, #signin_box a.signin:hover, #login_box a.login:hover, #login_box a:hover, a.signin.menu-open span, a.login.menu-open span, #lost_pas a:hover { color: #!important; } 
+			
+			.iview-caption { background: #!important; }
+			.flex-control-nav li a:hover, .flex-control-nav li a.active, #mainMenu, #menu_bottom_line, #signin_menu, #login_menu, .ei-slider-thumbs li a, .right-heading, .right-heading h3, #footer_bottom_line, #footer_box_line, .pagination .current, .current a { background: #!important; }
+			.ei-title h2, .comment-header h3, #similar-post h3, .archive_title h3, .archive_title_bot h3, #submit, .pagination span, .pagination a, .tagcloud a, #sidebar-footer .tagcloud a, #submittedWidget, #contact input[type="submit"], .filter a, .comment-reply-link, .comment-reply-link:visited { border-color: #!important; }
+			#footer_box { background: #!important; }
+			#footer_bottom { background: #!important; }
+			
+			.single_title h1 { font-size: 15px; } 
