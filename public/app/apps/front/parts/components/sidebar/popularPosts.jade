@@ -1,16 +1,17 @@
-.widget.clearfix
-	.on.PopularPosts(id="PopularPosts1")
-		h2.title POPULAR POSTS
-		.widget-content.popular-posts
-			ul
-				li(ng-repeat="post in popularPosts")
-					.item-content
-						.item-thumbnail
-							a(ui-sref="post({postId: post._id})")
-								img(alt="{{post.title}}", src="{{post.img.url}}")
-							a(ui-sref="post({postId: post._id})")
-								.overlay
-							.item-title
-								a(ui-sref="post({postId: post._id})") {{ post.title }}
-						.item-snippet {{ post.summary }}...
+.row
+	.widget.clearfix
+		.on.PopularPosts(id="PopularPosts1")
+			h2.title POPULAR POSTS
+			.widget-content.popular-posts
+				ul
+					li(ng-repeat="post in popularPosts")
+						.item-content
+							.item-thumbnail
+								a(ui-sref="post({postId: post._id})")
+									img(alt="{{post.title}}", src="{{post.img.url}}")
+								a(ui-sref="post({postId: post._id})")
+									.overlay
+								.item-title
+									a(ui-sref="post({postId: post._id})") {{ post.title }}
+							.item-snippet {{ post.summary }}...
 						

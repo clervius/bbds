@@ -24,9 +24,9 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 			// Social Classes
 			if(account.link.length){
 				if(account.service === 'personal Facebook'){
-					account.service = 'facebook';
+					account.service = 'facebook-square';
 					$scope.scMedia.push(account);
-				}else if(account.service === 'personal Facebook'){
+				}else if(account.service === 'public Facebook'){
 					account.service = 'facebook-official';
 					$scope.scMedia.push(account);
 				}else if(account.service === 'google plus'){
