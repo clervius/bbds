@@ -1,8 +1,10 @@
 .row
 	.col-md-12
 		h4.title Contact Options
-		ul.list-lined
+		ul.list-lined.list-profile-social
 			li(ng-repeat="account in scMedia")
-				span(class="{{account.service}}")
+				span.serviceIcon(class="{{account.service}}")
 					i.fa(class="fa-{{account.service}}")
 				a.serviceLink(href="{{account.link}}") {{ account.link }}
+.row
+	.line_1(style="margin:16px 0;")

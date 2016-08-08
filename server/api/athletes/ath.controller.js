@@ -1,8 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
 var athlete = require('./ath.model');
-var ogs = require('open-graph-scraper');
-var Metascraper = require('metascraper')
 
 module.exports = function(){
 	return{
@@ -28,7 +26,7 @@ module.exports = function(){
 			athlete.findById(req.params.id, function(err, athlete){
 				if(err){console.log('could not find that athlete'); res.send(err); console.log(err)}
 				else{console.log('looking up athlete');				
-				athlete.scrape(athlete.published, function(){res.json(athlete)})}				
+				res.json(athlete)}				
 			})
 		},
 		addRecord: function(req, res){

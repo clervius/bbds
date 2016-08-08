@@ -40,10 +40,12 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 		}
 	]
 	$http.get('/ath/' + $stateParams.athId).success(function(data){
+		console.log(data);
 		$scope.athlete = data;
 		angular.forEach(data.social, function(account, key){
 			// Facebook page link
 			if(account.service === 'public Facebook' && account.link.length){
+				//$scope.service === 'facebook-square'
 				$scope.fbPage = account;
 			};
 			// Social Classes

@@ -3,8 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var record = require('../competitions/records/record.model');
-var ogs = require('open-graph-scraper');
-var Metascraper = require('metascraper')
+
 
 
 var socialProfile = new Schema({
@@ -69,21 +68,5 @@ var athleteSchema = new Schema({
 	toJSON: { virtuals: true}
 });
 
-athleteSchema.methods.scrape = function(item, callback){
-	item.forEach(function(element, index, item){
-		var current = index + 1;
-		if(current < item.length){
-			Metascraper.scrapeUrl(element.link).then((metadata) => {
-				console.log(current);
-				element.meta = metadata;
-			})
-		}else {
-			Metascraper.scrapeUrl(element.link).then((metadata) => {
-				element.meta = metadata;
-			}).then(callback)
-		}
-	});
-	
 
-}
 module.exports = mongoose.model('athlete', athleteSchema);

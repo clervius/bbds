@@ -1,9 +1,19 @@
 .row
-	.col-md-6
-		.profilePicture
-			img(alt="{{athlete.profile.firstName}} {{ athlete.profile.lastName }}", src="{{athlete.profile.url}}")
-	.col-md-6
-		h3 {{athlete.profile.firstName}} {{ athlete.profile.lastName }}
-			small {{ athlete.profile.subtitle }}
-		.line(style="margin:-3px 0 12px")
-		p {{ athlete.bio }}
+	.magstyle.clearfix
+		.magstyle_wide.left
+			.profilePicture
+				img(alt="{{athlete.profile.firstName}} {{ athlete.profile.lastName }}", src="{{athlete.profile.picture.url}}", style="margin:0")
+		.magstyle_narrow.right
+			.widget
+				h2.title {{athlete.profile.firstName}} {{ athlete.profile.lastName }}
+					small {{ athlete.profile.subtitle }}
+				.line(style="margin:-3px 0 12px")
+				.athCountries
+					div.singleCountry(ng-repeat="country in athlete.countries")
+						div.countryFlag(style="background-image:url('img/flags/{{country.countryName | lowercase}}.png')")
+						span {{ country.classify }}
+				.clearfix
+				.line(style="margin:10px 0 12px")
+				p {{ athlete.bio }}
+.row
+	.line_1(style="margin:16px 0;")

@@ -1,3 +1,5 @@
+
+
 /**********************************************************************
 ***********************************************************************
     Theme Name: NewsPepper
@@ -4252,4 +4254,72 @@ ul.children {
   #col-6 .magstyle {
     margin-bottom: 7px;
   }
+}
+.title {}
+.title small {
+  display:block;
+  font-size:11px;
+  color:(0,0,0,.035);
+  font-weight:200;
+}
+.athCountries {
+}
+.athCountries div {
+  display:inline-block;
+  padding:0;
+  margin-right:5px;;
+}
+.athCountries div .countryFlag{
+  background-repeat: no-repeat;
+  width:16px;height:11px;
+  margin-right:10px;
+}
+.singleCountry:first-child {
+  border-right:1px solid rgba(0,0,0,.2);
+  padding-right:10px;
+  margin-right:10px;
+}
+.athCountries li span {}
+.list-lined {
+  list-style: none;
+  padding:0;
+}
+.list-lined li {
+  padding:5px;
+  border-bottom:1px solid rgba(0,0,0,.3);
+  display:inline-block;
+  width:47%;
+  height:;
+}
+.serviceIcon {
+  color:white;
+  background-color:black;
+  padding:5px;
+  margin-right:15px;
+  text-align: center;
+}
+.table {
+  width:100%;
+}
+.table-striped {}
+.table-striped thead {}
+.table-striped thead tr {
+  border-bottom:2px solid rgba(0,0,0,.33);
+}
+.table-striped tbody {}
+.table-striped tbody tr:nth-child(2n + 2) {
+  background-color:rgba(0,0,0,.05);
+}
+.table-shows {
+  font-size:13px;
+}
+.table-shows tr {}
+.table-shows tr th:not(:last-child), .table-shows tr td:not(:last-child) {
+  text-align:left;
+}
+.table-shows tr th:last-child, .table-shows tr td:last-child {
+  text-align:center;
+}
+.table-shows tr td, .table-shows tr th {
+  padding:5px;
 }
