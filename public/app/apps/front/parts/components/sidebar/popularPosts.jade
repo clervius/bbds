@@ -1,4 +1,4 @@
-.widget.clearfix(ng-controller="sidebar")
+.widget.clearfix
 	.on.PopularPosts(id="PopularPosts1")
 		h2.title POPULAR POSTS
 		.widget-content.popular-posts
@@ -12,4 +12,5 @@
 								.overlay
 							.item-title
 								a(ui-sref="post({postId: post._id})") {{ post.title }}
-						.item-snippet
+						.item-snippet {{ post.summary | truncate:140}}...
+						

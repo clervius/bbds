@@ -1,5 +1,8 @@
+'use strict';
 var mongoose = require('mongoose');
 var athlete = require('./ath.model');
+var ogs = require('open-graph-scraper');
+var Metascraper = require('metascraper')
 
 module.exports = function(){
 	return{
@@ -13,17 +16,19 @@ module.exports = function(){
 			});
 		},
 		create: function(req, res){
-			var newAthlete = new athlete(req.body);
 
+			console.log(req.body);
+			var newAthlete = new athlete(req.body);
 			newAthlete.save(function(err, athlete){
 				if(err){console.log('could not create athlete'); res.send(err)}
-				else{ console.log('created new athlete'); console.log(athlete); res.json(athlete);}
-				
+				else{ console.log('created new athlete'); console.log(athlete); res.json(athlete);}				
 			});
 		},
 		getOne: function(req, res){
 			athlete.findById(req.params.id, function(err, athlete){
 				if(err){console.log('could not find that athlete'); res.send(err)}
+				console.log('looking up athlete');
+				
 				res.json(athlete);
 			})
 		},

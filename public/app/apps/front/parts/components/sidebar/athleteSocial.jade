@@ -1,0 +1,5 @@
+.widget(ng-show="$state.includes('singleAthlete'")
+	.fb-page(data-href="{{fbPage.link}}", data-small-header="true", data-adapt-container-width="true", data-hide-cover="false", data-show-facepile="true")
+	.fp-page
+		blockquote.fb-xfbml-parse-ignore(cite="{{fbPage.link}}")
+			a(href="{{fbPage.link}}") {{ athlete.profile.firstName }}

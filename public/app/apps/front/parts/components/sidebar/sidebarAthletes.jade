@@ -1,0 +1,18 @@
+.widget
+	h2.title Recent Athletes
+	.cont.topLists
+		ul.topimages
+			li(ng-repeat="ath in recentAthletes | limitTo: 5")
+				figure
+					.topListimages
+						a(ui-sref="singleAthlete({athId: ath._id})")
+							img(alt="{{ath.profile.firstName}} {{ath.profile.lastName}}", src="{{ath.profile.picture.url}}")
+						a(ui-sref="singleAthlete({athId: ath._id})")
+							.overlay
+					.toptext
+						.date-info.clearfix
+							.cap-date Jan 14 2016
+							.cap-comment
+								i.fa.fa-trophy
+								|&nbsp; {{ ath.competitions.length }}
+						a(ui-sref="singleAthlete({athId: ath._id})") {{ ath.profile.firstName }} {{ ath.profile.lastName }}
