@@ -1,0 +1,11 @@
+.news_pictures
+	.widget
+		h2.title VIDEOS
+		ul.news_pictures_list.clearfix
+			li(ng-repeat="video in athlete.videos")
+				a(href="{{video.link}}", target="blank")
+					img(src="{{video.thumb}}")
+				a(href="{{video.link}}")
+					.overlay
+				a.title-section(href="{{video.link}}")
+					.title {{ video.videoName }}

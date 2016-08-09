@@ -2,7 +2,18 @@ $(document).ready(function() {
 	
 	"use strict";
 	
-	// Carousel
+	// Carousels
+	$("#picCarousel .content").jCarouselLite({
+		auto: 0,
+		scroll: 1,
+		speed: 500,
+		visible: 4,
+		start: 0,
+		circular: true,
+		btnPrev: "#pic_previous_button",
+		btnNext: "#pic_next_button"
+	});
+
 	$("#carousel .content").jCarouselLite({
 		auto: 0,
 		scroll: 1,
@@ -27,7 +38,7 @@ $(document).ready(function() {
         e.preventDefault();
         $('html,body').animate({
             scrollTop: 0
-        }, 400)
+        }, 200)
     })
 	
 	// fp-slider

@@ -19,13 +19,22 @@ var country = new Schema({
 var gallery = new Schema({
 	galleryName: String,
 	description: String,
-	images: [{image: Schema.Types.Mixed}]
+	images: [{image: Schema.Types.Mixed}],
+	ceatedAt: {
+		type: Date,
+		default: new Date
+	}
 });
 
 var video = new Schema({
 	videoName: String,
 	description: String,
-	file: String
+	thumb: String,
+	link: String,
+	ceatedAt: {
+		type: Date,
+		default: new Date
+	}
 });
 
 var athleteProfile = new Schema({

@@ -8,6 +8,7 @@ router.get('/ath/:id', controller.getOne);
 
 router.post('/ath/new', controller.create);
 router.post('/ath/addRecord', controller.addRecord);
+router.post('/ath/addVideo', controller.addVideo);
 router.post('/ath/update/:id', controller.update);
 
 module.exports = router;

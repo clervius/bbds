@@ -1,0 +1,23 @@
+.carousel-wrapper.clearfix
+	.car
+		.widget
+			div(id="picCarousel")
+				h4.title PICTURES
+				div(id="pic_previous_button")
+				div(id="pic_next_button")
+				.widget_content
+					.content
+						ul
+							li(ng-repeat="gallery in athlete.galleries")
+								.thumb
+									a(ui-sref="singleAthlete.photos({gallery: gallery._id})")
+										img.thumbnail.Thumbnail.carousel(src="gallery.images[0].url")
+									a.slider_title(ui-sref="singleAthlete.photos({gallery: gallery._id})") {{ gallery.galleryName }}
+									a(ui-sref="singleAthlete.photos({gallery: gallery._id})")
+										.overlay
+								.feat-cap.clearfix
+									.date-info
+										.cap-date {{ gallery.createdAt | date }}
+									.clearfix
+									p {{ gallery.description }}
+.row(ui-view="photos")

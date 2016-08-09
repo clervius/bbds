@@ -48,7 +48,8 @@
     "flot.tooltip": "~0.8.4",
     "flot.orderbars": "*",
     "flot-spline": "*",
-    "waves": "~0.7.2"
+    "waves": "~0.7.2",
+    "angular-bootstrap-lightbox": "^0.12.0"
   },
   "resolutions": {
     "angular": "1.4.x",

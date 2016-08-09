@@ -1,5 +1,13 @@
 .row
 	div 
-		h3.title GALLERIES
-		ul
-			li
+		h3.title MEDIA
+		ul(role="tablist")
+			li.active(role="presentation")
+				a(data-toggle="tab", data-target="#photos", role="tab") Pictures
+			li(role="presentation")
+				a(data-toggle="tab", data-target="#videos", role="tab") Videos
+		.tab-content
+			.tab-pane.active.fade.in(role="tabpanel", id="photos")
+				include photos
+			.tab-pane.fade.in(role="tabpanel", id="videos")
+				include videos

@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose');
 var athlete = require('./ath.model');
+var youthumb = require('youtube-thumbnails');
 
 module.exports = function(){
 	return{
@@ -30,7 +31,8 @@ module.exports = function(){
 			})
 		},
 		addRecord: function(req, res){
-			console.log('adding record into athlete')
+			console.log('adding record into athlete');
+
 			athlete.findByIdAndUpdate(req.body.athlete, 
 				{ $push: { 'competitions' : { 'record' : req.body._id} } }, 
 				{new: true, safe:true, upsert: true}, 
@@ -42,6 +44,38 @@ module.exports = function(){
 					res.json(athlete);
 				}
 			})
+		},
+		addVideo: function(req, res){
+			console.log('adding video to this athlete');
+			function matchYoutubeUrl(url){
+				var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+				console.log('looking up id for' + url)
+				 return (url.match(p)) ? RegExp.$1 : false ;
+				}
+			var videoId = matchYoutubeUrl(req.body.link);
+			var saveVid = function(){
+				athlete.findByIdAndUpdate(req.body.athlete,
+					{ $push: {'videos':  req.body.video } }, 
+					{new: true, safe: true, upsert: true}, 
+					function(err, athlete){
+						if(err){console.log('could not add video'); res.json(err)}
+						else{
+							console.log('succes with adding the video');
+							console.log(athlete);
+							res.json(athlete)
+						}
+					})
+				}
+			youthumb.get(videoId, 'maxres', function(err, thumbnail){
+				if(err){
+					saveVid()
+				}
+				else{
+					req.body.thumbnail = thumbnail
+					saveVid()
+				}
+			})
+			
 		},
 		update: function(req, res){}
 	};
