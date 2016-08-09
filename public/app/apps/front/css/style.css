@@ -1975,7 +1975,6 @@ ul.topimages li {
 .magstyle_narrow li {
   background: #ffffff;
   list-style: none;
-  height: 90px;
   padding: 0 10px 0 0;
   overflow: hidden;
   margin-bottom: 10px;
@@ -4340,4 +4339,18 @@ ul.children {
 }
 .profilePicture {
   max-height:330px;
+}
+.socialShareAthlete {
+  list-style: none;
+  padding-left:0;
+}
+.socialShareAthlete li {
+  display:inline-block;
+  margin-right:10px;
+  background: transparent;
+  padding:0;
+}
+.socialShareAthlete li:last-child {
+  position:relative;
+  
 }
