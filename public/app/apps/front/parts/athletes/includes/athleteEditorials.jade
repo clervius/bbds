@@ -1,0 +1,8 @@
+.row(ng-show="athlete.published.length")
+	div
+		h4.title FEATURED POSTS
+		ul
+			li(ng-repeat="post in athlete.published")
+				a(href="{{ post.link }}", target="blank")
+					i.fa.fa-globe
+					|&nbsp;&nbsp; {{ post.title }}

@@ -68,9 +68,5 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 			$scope.shows.push(show);
 		})
 	})
-	$http.get('https://api.instagram.com/v1/users/massmotives/media/recent/?access_token=290494831.1677ed0.b81d0ca82ba64863b0030437d6f84cf5').success(function(data){
-		console.log('got ig')
-		console.log(data)
-	})
 
 });
