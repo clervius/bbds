@@ -52,10 +52,11 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 					account.service = 'globe';
 					$scope.scMedia.push(account);
 				}else{
-					makeLink(account.link);
 					$scope.scMedia.push(account);
 				}
-			}else{}
+			}else{
+				console.log(account.service + 'has nothing')
+			}
 			
 		});
 	});

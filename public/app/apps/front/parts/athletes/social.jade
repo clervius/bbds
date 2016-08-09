@@ -5,6 +5,6 @@
 			li(ng-repeat="account in scMedia")
 				span.serviceIcon(class="{{account.service}}")
 					i.fa(class="fa-{{account.service}}")
-				a.serviceLink(href="{{account.link}}") {{ account.link }}
+				a.serviceLink(href="{{ account.link }}", target="blank") {{ account.link }}
 .row
 	.line_1(style="margin:16px 0;")
