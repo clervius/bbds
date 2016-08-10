@@ -19,7 +19,9 @@ var country = new Schema({
 var gallery = new Schema({
 	galleryName: String,
 	description: String,
-	images: [{image: Schema.Types.Mixed}],
+	images: Schema.Types.Mixed,
+	photographerName: String,
+	photographerLink:String,
 	ceatedAt: {
 		type: Date,
 		default: new Date

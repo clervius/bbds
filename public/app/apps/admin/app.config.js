@@ -33,15 +33,14 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 				pageTitle: 'Single Athlete'
 			}
 		})
-		/*
 		.state('athlete.addAlbum', {
-			url: '/athlete/:id',
-			templateUrl: '/client/app/apps/admin/parts/athletes/detail',
-			controller: 'athCtrl2',
+			url: '/gallery/:id',
+			templateUrl: '/client/app/apps/admin/parts/athletes/newAlbum',
+			controller: 'athCtrl3',
 			data: {
-				pageTitle: 'Single Athlete'
+				pageTitle: 'Create Album'
 			}
-		})*/
+		})
 		.state('newAthlete', {
 			url: '/athletes/add',
 			templateUrl: '/client/app/apps/admin/parts/athletes/new',

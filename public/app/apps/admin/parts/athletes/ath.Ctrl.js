@@ -150,4 +150,38 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 		})
 	})
 	
+
+});
+
+// New Album Controller
+angular.module('manager').controller('athCtrl3', function($scope, $http, $stateParams, filepickerService){
+	$scope.newAlbum = {};
+	$scope.newAlbum.images = [];
+	$scope.newAlbum.athlete = $stateParams.id;
+
+	$scope.addPictures = function(){
+		filepickerService.pickMultiple({
+			mimetype: 'image/*',
+			language: 'en',
+			maxFiles: 10,
+			services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'INSTAGRAM'],
+			openTo: 'COMPUTER'
+		},function(Blob){
+			console.log('uploaded image')
+			console.log(JSON.stringify(Blob));
+			$scope.newAlbum.images = Blob;
+			$scope.$apply();
+		})
+	};
+
+
+	$scope.createAlbum = function(){
+		console.log('Adding this gallery');
+		console.log($scope.newAlbum.images);
+		$http.post('/ath/addGallery', $scope.newAlbum).success(function(data){
+			console.log('successfully added this album')
+			console.log(data);
+			$scope.newAlbum = {};
+		})
+	};
 });

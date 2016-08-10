@@ -1,0 +1,40 @@
+.col-md-7
+	.card
+		.header
+			h4.title New Photo Album
+			p.category fill out the following form and upload pictures to add to this album
+		.content
+			form
+				.row
+					.col-md-6
+						.form-group
+							label Gallery Name
+							input.form-control(ng-model="newAlbum.galleryName")
+				.row
+					.col-md-2
+						.form-group
+							label Photographer/Credit
+							input.form-control(ng-model="newAlbum.photographerName")
+					.col-md-4
+						.form-group
+							label Photographer Site/Link
+							input.form-control(ng-model="newAlbum.photographerLink", placeholder="http://")
+				.row
+					.col-md-12
+						.form-group
+							label Gallery description
+							input.form-control(ng-model="newAlbum.description")
+				.row
+					.col-md-12
+						button.btn.btn-wd.btn-fill.btn-simple.pull-right(ng-click="addPictures()")
+							i.fa.fa-picture-o
+							|&nbsp;&nbsp; Upload Pictures (10 max)
+	br
+	button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="createAlbum()")
+		i.fa.fa-floppy-o
+		|&nbsp;&nbsp; Create Album
+.col-md-5
+	ul.newAlbum-images
+		li.col-md-3(ng-repeat="image in newAlbum.images")
+			.imgShow(style="background-image:url('{{image.url}}')")
+

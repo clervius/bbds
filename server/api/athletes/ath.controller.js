@@ -77,6 +77,17 @@ module.exports = function(){
 			})
 			
 		},
+		addGallery: function(req, res){
+			console.log('creating album for this athlete');
+			console.log(req.body);
+			console.log(req.body.images);
+			athlete.findByIdAndUpdate(req.body.athlete, { $push: {'galleries': req.body} }, 
+				{new: true, safe: true, upsert: true}, 
+				function(err, athlete){
+					if(err){console.log('could not create album'); console.log(err); res.json(err)}
+					else{console.log('successfully added album to athlete'); console.log(athlete); res.json(athlete)}
+				})
+		},
 		update: function(req, res){}
 	};
 

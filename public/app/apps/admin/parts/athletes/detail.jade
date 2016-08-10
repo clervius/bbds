@@ -30,6 +30,10 @@
 											a(data-toggle="tab", data-target="#04", role="tab") 
 												i.ti-medall
 												|&nbsp;&nbsp;Competitions
+										li(ng-show="athlete.galleries.length")
+											a(data-toggle="tab", data-target="#05", role="tab") 
+												i.ti-image
+												|&nbsp;&nbsp;Albums
 							.tab-content(id="my-tab-content")
 								.tab-pane.active.fade.in(id="01")
 									include info/01
@@ -39,11 +43,14 @@
 									include info/03
 								.tab-pane.fade.in(id="04")
 									include info/04
+								.tab-pane.fa.in(id="05")
+									include info/05
 	.col-md-3
 		.card.card-plain
 			.header
 				h4.title Pictures
-				button.btn.btn-wd.btn-primary.btn-fill Create Album
+				a.btn.btn-wd.btn-primary.btn-fill(ui-sref="athlete.addAlbum({ id: athlete._id})") Create Album
 				hr
 				h4.title Videos
 				button.btn.btn-wd.btn-primary.btn-fill Add Video
+.row(ui-view="")
