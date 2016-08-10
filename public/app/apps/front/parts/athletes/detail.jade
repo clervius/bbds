@@ -1,14 +1,12 @@
 include ../components/ads/responsiveAd
 .container
-	include ../components/tabsMenu
 	.clearfix.row(id="outer-wrapper")
-		.secondary-content.clearfix(style="width:calc(100% - 320px)")
+		.secondary-content.clearfix.col-md-9
 			.clearfix(id="main-wrapper")
 				.theiaStickySidebar
 					.post.clearfix
 						include topProfile
 						include social
 						include shows
-						include published
 						include includes/galleries							
 		include includes/sidebar

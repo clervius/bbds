@@ -13,6 +13,53 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 	$scope.scMedia = [];
 	$scope.shows = [];
 	$scope.ig = {};
+	$scope.galleries = [
+		{
+			_id: "1234567",
+			images: 
+				{
+					url: 'https://cdn.filepicker.io/api/file/TmDbqka7TlWD9fHmhAVq'
+				},
+			galleryName: 'First Gallery',
+			description: 'This is just an example gallery'
+		},
+		{
+			_id: "1234567",
+			images: 
+				{
+					url: 'http://www.bodybuilding.com/fun/images/2015/5-reasons-to-date-a-bodybuilder-graphics-1.jpg'
+				},
+			galleryName: 'This guy',
+			description: 'Photoshoot I did with Ulrich'
+		},
+		{
+			_id: "1234567",
+			images: 
+				{
+					url: 'http://iluvesports.com/wp-content/uploads/2015/02/40-Insane-Arnold-Schwarzenegger-Bodybuilding-Pictures5-600x480.jpg'
+				},
+			galleryName: 'Arnold Schwarzenegger',
+			description: 'My inspiration in everything I do'
+		},
+		{
+			_id: "1234567",
+			images: 
+				{
+					url: 'http://media1.santabanta.com/full1/Sports/Bodybuilding/bodybuilding-181a.jpg'
+				},
+			galleryName: 'Magazine Shoot',
+			description: 'I did this photoshoot with a magazine person'
+		},
+		{
+			_id: "1234567",
+			images: 
+				{
+					url: 'https://cdn.filepicker.io/api/file/TmDbqka7TlWD9fHmhAVq'
+				},
+			galleryName: 'First Gallery',
+			description: 'This is just an example gallery'
+		}
+	];
 	$http.get('/ath/' + $stateParams.athId).success(function(data){
 		console.log(data);
 		$scope.athlete = data;

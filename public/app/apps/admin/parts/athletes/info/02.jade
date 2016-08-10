@@ -1,0 +1,25 @@
+.row
+	
+	.col-md-12
+		p The Facebook ID will be used to authenticate and offer the athlete the ability to update their profile.
+		p To find their ID, copy the athlete's Facebook URL and paste in the following page:&nbsp;
+			strong
+				a.btn.btn-facebook.btn-xs.btn-wd.btn-fill(href="http://findmyfbid.com/", target="blank") Search FB ID
+		p
+			small.text-info If you get an error, we will have to manually authenticate this user for their account when they request to claim.
+	.col-md-6
+		.form-group
+			label 
+				i.fa.fa-lock
+				|&nbsp;&nbsp; Facebook ID
+			input.form-control(name="fbID", value="{{athlete.fbId}}")
+hr
+.row
+	.col-md-12
+		h6.title Public Contact Information
+.row
+	.col-md-6(ng-repeat="account in athlete.social")
+		.form-group
+			label {{ account.service}}
+			input.form-control(value="{{ account.link }}")
+	

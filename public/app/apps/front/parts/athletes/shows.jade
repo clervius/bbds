@@ -1,23 +1,22 @@
 .row(ng-hide="!shows.length")
-	.col-md-12		
-		.magstyle_narrow
-			h3.title COMPETITION HISTORY
-			ul
-				li
-					table.table.table-striped.table-shows
-						thead
-							tr.date-info
-								th Year
-								th Federation
-								th Competition
-								th Division
-								th Category
-								th Place
-						tbody
-							tr.featuredTitle(ng-repeat="show in shows")
-								td {{ show.year }}
-								td {{ show.federation }}
-								td {{ show.show }}
-								td {{ show.division }}
-								td {{ show.class }}
-								td {{ show.place }}
+	.magstyle_narrow
+		h3.title COMPETITION HISTORY
+		ul
+			li
+				table.table.table-striped.table-shows
+					thead
+						tr.date-info
+							th Year
+							th Federation
+							th Competition
+							th Division
+							th Category
+							th Place
+					tbody
+						tr.featuredTitle(ng-repeat="show in shows")
+							td {{ show.year }}
+							td {{ show.federation }}
+							td {{ show.show }}
+							td {{ show.division }}
+							td {{ show.class }}
+							td {{ show.place }}

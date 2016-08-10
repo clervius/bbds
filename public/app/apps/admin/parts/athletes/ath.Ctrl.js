@@ -130,4 +130,24 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, f
 				console.log(data);
 			})
 	}
-})
+});
+
+// Athlete detail page
+angular.module('manager').controller('athCtrl2', function($scope, $http, $stateParams){
+	$scope.athlete = {};
+	$scope.records = [];
+
+
+	$http.get('/ath/' + $stateParams.id).success(function(data){
+		$scope.athlete= data;
+	});
+	
+	$http.get('/record/ath/' + $stateParams.id).success(function(data){
+		console.log(data);
+		data.forEach(function(record){
+			console.log(record);
+			$scope.records.push(record);
+		})
+	})
+	
+});

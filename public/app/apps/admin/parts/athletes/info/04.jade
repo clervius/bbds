@@ -1,0 +1,36 @@
+.row
+	.col-md-12
+		button.btn.btn-xs.btn-fill.btn-default.pull-right
+			i.ti-plus
+			|&nbsp;&nbsp; Add Show
+hr
+.row
+	.table-responsive
+		table.table.form-table.table-striped
+			thead
+				tr
+					th Year
+					th Federation
+					th Competition 
+					th Division
+					th Class
+					th Place
+					th Save
+			tbody
+				tr(ng-repeat="record in records")
+					td 
+						input.tbl-input(value="{{ record.year }}")
+					td 
+						input.tbl-input(value="{{ record.federation }}")
+					td 
+						input.tbl-input(value="{{ record.show }}")
+					td 
+						input.tbl-input(value="{{ record.division }}")
+					td 
+						input.tbl-input(value="{{ record.class }}")
+					td 
+						input.tbl-input.text-center(value="{{ record.place }}")
+					td.td-actions.text-right 
+						a.btn.btn-info.btn-simple.btn-xs Record
+
+

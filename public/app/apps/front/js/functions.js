@@ -78,3 +78,7 @@ $(document).ready(function() {
     });
 	
 })
+$(document).on('click', 'a[data-toggle="tab"]', function(){
+	console.log('you clidked')
+	$(this).tab('show')
+})

@@ -1,10 +1,10 @@
 .row
-	.magstyle.clearfix
-		.magstyle_wide.left
+	.magstyle.clearfix.col-md-12
+		.magstyle_wide.left(style="margin-right:25px")
 			.profilePicture
 				img(alt="{{athlete.profile.firstName}} {{ athlete.profile.lastName }}", src="{{athlete.profile.picture.url}}", style="margin:0", ng-show="athlete.profile.picture.url.length")
 				img(alt="{{athlete.profile.firstName}}", src="app/apps/front/img/profile.jpg", ng-hide="athlete.profile.picture.url.length", style="margin:0", title="No Picture Added")
-		.magstyle_narrow.right
+		.magstyle_narrow.left
 			.widget
 				h2.title {{athlete.profile.firstName}} {{ athlete.profile.lastName }}
 					small {{ athlete.profile.subtitle }}

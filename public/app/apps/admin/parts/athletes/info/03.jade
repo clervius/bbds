@@ -1,0 +1,9 @@
+hr
+.row(ng-repeat="post in athlete.published")
+	.col-md-7
+		.form-group
+			input.form-control(placeholder="Article Title", value="{{ post.title }}")
+	.col-md-5
+		.form-group
+			input.form-control(placeholder="Article URL", value="{{ post.link }}")
+
