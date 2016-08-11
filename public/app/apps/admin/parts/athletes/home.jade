@@ -20,17 +20,26 @@
 					thead
 						tr
 							th 
-							th Name
+							th Athlete
 							th Country
 							th Subtitle							
 							th # Shows
+							th Albums
 							th
 					tbody
 						tr(ng-repeat="athlete in athletes")
 							td(style="background-image:url('{{athlete.profile.picture.url}}'); background-size:cover")
 							td {{ athlete.profile.firstName}} {{ athlete.profile.lastName}}
-							td {{ athlete.countries[0].countryName }}
+							td
+								img(src="img/flags/{{athlete.countries[0].countryName | lowercase}}.png")
 							td {{ athlete.profile.subtitle}}
 							td {{ athlete.competitions.length }}
+							td {{ athlete.galleries.length }}
 							td 
-								a.btn.btn-primary.btn-sm(ui-sref="athlete({id: athlete._id})") View
+								a.btn.btn-primary.btn-sm.btn-fill(ui-sref="athlete({id: athlete._id})")
+									i.ti-pencil
+									|&nbsp;&nbsp;Edit
+								|&nbsp;&nbsp;&nbsp;&nbsp;
+								a.btn.btn-default.btn-sm.btn-fill(href="/#!/athlete/{{athlete._id}}", target="blank")
+									i.ti-new-window
+									|&nbsp;&nbsp;View Page
