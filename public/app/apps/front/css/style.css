@@ -2568,7 +2568,6 @@ h3.postTitle {
   float: left;
   margin: 0 0 0 1px;
   overflow: visible;
-  height: 300px;
 }
 
 #carousel .thumb {
@@ -3249,9 +3248,6 @@ blockquote p {
   opacity: 1;
 }
 
-iframe {
-  height: 300px;
-}
 
 h2.post-title {
   margin-bottom: 0px;
@@ -4388,4 +4384,16 @@ ul.children {
 }
 .medias-list li .title small {
   display:block;
+}
+.image-container, .imgShow {
+  border-radius: 6px;
+  display:block;
+  width:99%;
+  padding-top:95.41%;
+  overflow:hidden;
+  border:3px solid rgba(0,0,0,.06);
+  margin-bottom:15px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,.03)
 }

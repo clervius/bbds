@@ -1,0 +1,14 @@
+.related-posts.clearfix
+	ul.row.medias-list
+		li.col-md-4(ng-repeat="gallery in athlete.galleries")
+			.thumbR.clearfix
+				a(ui-sref="singleAthlete.photos({gallery: gallery._id})")
+					img(src="{{gallery.images[0].url}}")
+			.title
+				h4
+					a(ui-sref="singleAthlete.photos({gallery: gallery._id})")
+						i.fa.fa-picture-o
+						|&nbsp;&nbsp;{{ gallery.galleryName }}
+						.clearfix
+						small {{ gallery.description}}
+.row(ui-view)

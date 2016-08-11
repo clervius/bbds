@@ -14,16 +14,20 @@ $(document).ready(function() {
 		btnNext: "#pic_next_button"
 	});
 
-	$("#carousel .content").jCarouselLite({
-		auto: 0,
-		scroll: 1,
-		speed: 500,
-		visible: 4,
-		start: 0,
-		circular: true,
-		btnPrev: "#previous_button",
-		btnNext: "#next_button"
-	});
+	setTimeout(function(){
+
+		$("#carousel .content").jCarouselLite({
+			auto: 0,
+			scroll: 1,
+			speed: 500,
+			visible: 4,
+			start: 0,
+			circular: true,
+			btnPrev: "#previous_button",
+			btnNext: "#next_button"
+		});
+		console.log('making a carousel');
+	}, 2000)
 	
 	// Back to Top
 	var $ele = $('#BackToTop');
@@ -81,4 +85,12 @@ $(document).ready(function() {
 $(document).on('click', 'a[data-toggle="tab"]', function(){
 	console.log('you clidked')
 	$(this).tab('show')
+})
+$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event){
+	event.preventDefault();
+	$(this).ekkoLightbox({
+		always_show_close: true,
+		scale_height:true,
+		
+	});
 })

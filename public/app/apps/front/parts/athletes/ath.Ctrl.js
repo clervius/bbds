@@ -70,3 +70,28 @@ angular.module('bigbodies').controller('athCtrl1', function($scope, $http, $stat
 	})
 
 });
+
+// Controller for viewing images
+angular.module('bigbodies').controller('athCtrl2', function($scope, $http, $state, $stateParams){
+	$scope.athlete = {}
+	$scope.gallery = {}
+
+	$http.get('/ath/' + $stateParams.athId).success(function(data){
+		console.log('got the athlete');
+		console.log(data);
+		$scope.athlete = data;
+
+		angular.forEach(data.galleries, function(item){
+			if(item._id === $stateParams.gallery){
+				console.log('found the gallery!');
+				$scope.gallery = item;
+			}
+		})
+	});
+
+	$scope.goback = function(){
+		$stage.go('singleAthlete({athId: $stateParams.athId})')
+	}
+
+
+})

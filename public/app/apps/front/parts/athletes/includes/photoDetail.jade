@@ -1,4 +1,14 @@
 .row
 	.line
-	h2.title {{ gallery.galleryName }}
-	p This is where all the gallery images will come in
+	h3.title 
+		strong {{ gallery.galleryName }}
+		small.category {{ gallery.description}}
+		a.pull-right.btn.btn-simple(ui-sref="singleAthlete({athId: athlete._id})")
+			i.fa.fa-times-circle
+	p.category
+		strong By:&nbsp;
+		a(href="{{gallery.photographerLink")  {{ gallery.photographerName }}
+	div
+		.col-md-2(ng-repeat="image in gallery.images")
+			a.imgShow(style="background-image:url('{{image.url}}')", href="{{image.url}}", data-toggle="lightbox", data-gallery="{{gallery._id}}")
+
