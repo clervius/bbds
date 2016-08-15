@@ -1,0 +1,87 @@
+.row
+	.col-md-9
+		.card
+			.header
+				h4.title New Article
+				p.category Fill in the form to post an article
+				p.category Keep in mind, all of these posts are under the cateory (Athlete Feature)
+			hr
+			.content
+				form
+					.row
+						.col-md-2
+							div
+								h6.title Category
+								label.radio
+									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="features", selected, disabled)
+									|&nbsp;&nbsp; Features
+								label.radio
+									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="training", disabled)
+									|&nbsp;&nbsp; Training
+								label.radio
+									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="nutrition", disabled)
+									|&nbsp;&nbsp; Nutrition
+								label.radio
+									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="athNews", disabled)
+									|&nbsp;&nbsp; Athlete News
+								label.radio
+									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="contestNews", disabled)
+									|&nbsp;&nbsp; Contest News
+							hr
+							div
+								h6.title Included
+								label.checkbox(for="homePage")
+									input(type="checkbox", ng-model="newPost.where.homePage", id="homePage", data-toggle="checkbox")
+									|&nbsp;&nbsp;Include on Home Page
+								label.checkbox(for="topicPage")
+									input(type="checkbox", ng-model="newPost.where.topicPage", id="topicPage", data-toggle="checkbox")
+									|&nbsp;&nbsp;Include on Topic Page
+								label.checkbox(for="storyPage")
+									input(type="checkbox", ng-model="newPost.where.storyPage", id="storyPage", data-toggle="checkbox")
+									|&nbsp;&nbsp;Include on Story Page
+						.col-md-10
+							h5.title(ng-bind="newPost.postTitle || 'New Article'")
+							p.category Post content and details below.
+							.row
+								.col-md-12
+									.form-group
+										label Post Title
+										input.form-control(placeholder="Post Title", ng-model="newPost.postTitle")
+							.row
+								.col-md-5
+									.form-group
+										label Social Title 
+											small&nbsp;&nbsp; A title that only appears on social Media.
+										input.form-control(placeholder="Optional", ng-model="new")
+								.col-md-4
+									.form-group
+										label Author
+										input.form-control(placeholder="Author", ng-model="newPost.author", title="In the future, will pull from current logged in user")
+								.col-md-3
+									.form-group
+										label Published Date:
+											small (Optional, only if you want it to show a different day from today.)
+										input.form-control(placeholder="01/10/1980", ng-model="newPost.published")
+							.row
+								.col-md-12
+									div.postMainImg(style="backgdound-image:url('{{newPost.mainImg.url}}')")
+									button.pull-right.btn.btn-primary.btn-wd(ng-clidk="uploadMainImg()") Upload Main Image
+							.row
+								.col-md-4
+									.form-group
+										label Post Summary
+											small Shows up out front, and on social media
+										textarea.form-control(ng-model="newPost.summary", placeholder="Enter Post summary here", style="height:100px")
+								.col-md-8
+									.form-group
+										label Post Content
+											small Enter post content
+										textarea.forom-control(ng-model="newPost.content", placeholder="Post Content goes here", style="height:250px")
+	.col-md-3
+		p.category Use this page to create a post on the website.
+
+
+
+
+
+

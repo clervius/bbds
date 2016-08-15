@@ -1,0 +1,40 @@
+.row
+	.col-md-3
+		.card
+			.header
+				h4.title Create
+				hr
+				p.category Click below to [Add] a post to the database.				
+			.content
+				p
+					a.pull-right.btn.btn-primary(ui-sref="newAthlete") Create Post
+				.clearfix
+.row
+	.col-md-12
+		.card.card-plain
+			.header
+				h4.title Articles
+				p.category Some of the  articles currently in the database
+			.content.table-responsive.table-full-width
+				table.table.table-hover
+					thead
+						tr
+							th #
+							th Title
+							th Author
+							th Published	
+							th
+					tbody
+						tr(ng-repeat="post in posts")
+							td {{ $index + 1 }}
+							td {{ post.postTitle }}
+							td {{ post.author }}
+							td {{ post.published | date }}
+							td 
+								a.btn.btn-primary.btn-sm.btn-fill(ui-sref="post({id: post._id})")
+									i.ti-pencil
+									|&nbsp;&nbsp;Edit
+								|&nbsp;&nbsp;&nbsp;&nbsp;
+								a.btn.btn-default.btn-sm.btn-fill(href="/#!/post/{{postId: post._id}}", target="blank")
+									i.ti-new-window
+									|&nbsp;&nbsp;View Page

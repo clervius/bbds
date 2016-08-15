@@ -24,5 +24,17 @@ include ../components/ads/responsiveAd
 															.cap-author
 																i.fa.fa-pencil-square-o 
 																|&nbsp; {{ article.author }}
-
+															.cap-date {{ article.published | date }}
+															.cap-comment
+																i.fa.fa-comment
+																|&nbsp; 2
+														p {{ article.summary }}
+				.pagenav(ng-show="pages.length > 1")
+					span.pages Page 1 of 4
+					a(ui-sref="") Prev
+					a(ui-sref="") 1
+					span.current 2
+					a(ui-sref="") 3
+					a(ui-sref="") Next
+					a(ui-sref="") Last
 		include sidebar/index

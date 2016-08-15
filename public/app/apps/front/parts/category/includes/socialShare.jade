@@ -1,0 +1,11 @@
+ul.socialShareAthlete
+	li
+		.fb-like(data-href="http://bigbodies.herokuapp.com/#!/athlete/{{$stateParams.athId}}", data-layout="button_count", data-action="like", data-size="small", data-show-faces="false", data-share="true")
+	li
+		a.twitter-share-button(href="http://bigbodies.herokuapp.com/#!/athlete/{{$stateParams.athId}}", data-show-count="true") Tweet
+		script(async, src="//platform.twitter.com/widgets.js", charset="utf-8")
+	li
+		.g-plusone(data-size="medium", data-annotation="none")
+		script(src="https://apis.google.com/js/platform.js", async, type="text/javascript")
+	li
+		a(data-pin-do="buttonPin", data-pin-save="true", href="https://www.pinterest.com/pin/create/button/?url=http://localhost:888/#!/athlete/{{$stateParams.athId}}&media={{athlete.profile.picture.url}}&description={{athlete.profile.firstName}}")

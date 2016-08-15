@@ -8,6 +8,20 @@ var editorialSchema = new Schema({
 	author: String,
 	ogTitle: String,
 	category: String,
+	where:{
+		homePage: {
+			type: Boolean,
+			default: true
+		},
+		topicPage: {
+			type: Boolean,
+			default: true
+		},
+		storyPage: {
+			type: Boolean,
+			default: true
+		}
+	}
 	content: Schema.Types.Mixed,
 	created: {
 		type: Date,
