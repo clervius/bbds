@@ -21,7 +21,7 @@ var editorialSchema = new Schema({
 			type: Boolean,
 			default: true
 		}
-	}
+	},
 	content: Schema.Types.Mixed,
 	created: {
 		type: Date,

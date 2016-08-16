@@ -9,37 +9,46 @@
 			.content
 				form
 					.row
-						.col-md-2
+						.col-md-3
 							div
 								h6.title Category
-								label.radio
-									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="features", selected, disabled)
-									|&nbsp;&nbsp; Features
-								label.radio
-									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="training", disabled)
+								label
+									input(type="radio", ng-model="newPost.category", value="features", checked="checked", disabled)
+									|&nbsp;&nbsp;&nbsp;
+									strong Features
+									|&nbsp;&nbsp;
+									i.fa.fa-check
+								.clearfix
+								label
+									input(type="radio", ng-model="newPost.category", value="training", disabled)
 									|&nbsp;&nbsp; Training
-								label.radio
-									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="nutrition", disabled)
+								.clearfix
+								label
+									input(type="radio", ng-model="newPost.category", value="nutrition", disabled)
 									|&nbsp;&nbsp; Nutrition
-								label.radio
-									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="athNews", disabled)
+								.clearfix
+								label
+									input(type="radio", ng-model="newPost.category", value="athNews", disabled)
 									|&nbsp;&nbsp; Athlete News
-								label.radio
-									input(type="radio", data-toggle="radio", ng-model="newPost.category", value="contestNews", disabled)
+								.clearfix
+								label
+									input(type="radio", ng-model="newPost.category", value="contestNews", disabled)
 									|&nbsp;&nbsp; Contest News
 							hr
 							div
 								h6.title Included
-								label.checkbox(for="homePage")
-									input(type="checkbox", ng-model="newPost.where.homePage", id="homePage", data-toggle="checkbox")
+								label(for="homePage")
+									input(type="checkbox", ng-model="newPost.where.homePage", id="homePage")
 									|&nbsp;&nbsp;Include on Home Page
-								label.checkbox(for="topicPage")
-									input(type="checkbox", ng-model="newPost.where.topicPage", id="topicPage", data-toggle="checkbox")
+								.clearfix
+								label(for="topicPage")
+									input(type="checkbox", ng-model="newPost.where.topicPage", id="topicPage")
 									|&nbsp;&nbsp;Include on Topic Page
-								label.checkbox(for="storyPage")
-									input(type="checkbox", ng-model="newPost.where.storyPage", id="storyPage", data-toggle="checkbox")
+								.clearfix
+								label(for="storyPage")
+									input(type="checkbox", ng-model="newPost.where.storyPage", id="storyPage")
 									|&nbsp;&nbsp;Include on Story Page
-						.col-md-10
+						.col-md-9
 							h5.title(ng-bind="newPost.postTitle || 'New Article'")
 							p.category Post content and details below.
 							.row
@@ -51,8 +60,7 @@
 								.col-md-5
 									.form-group
 										label Social Title 
-											small&nbsp;&nbsp; A title that only appears on social Media.
-										input.form-control(placeholder="Optional", ng-model="new")
+										input.form-control(placeholder="Optional - appears on social Media", ng-model="new")
 								.col-md-4
 									.form-group
 										label Author
@@ -60,23 +68,25 @@
 								.col-md-3
 									.form-group
 										label Published Date:
-											small (Optional, only if you want it to show a different day from today.)
-										input.form-control(placeholder="01/10/1980", ng-model="newPost.published")
+										input.form-control(placeholder="01/10/1980 - Optional", ng-model="newPost.published")
+							hr
 							.row
 								.col-md-12
-									div.postMainImg(style="backgdound-image:url('{{newPost.mainImg.url}}')")
-									button.pull-right.btn.btn-primary.btn-wd(ng-clidk="uploadMainImg()") Upload Main Image
+									div.postMainImg(style="background-image:url('{{newPost.mainImg.url}}')")
+									button.pull-right.btn.btn-primary.btn-xs(ng-click="uploadMainImg()") Upload Main Image
+							hr
 							.row
 								.col-md-4
 									.form-group
 										label Post Summary
-											small Shows up out front, and on social media
-										textarea.form-control(ng-model="newPost.summary", placeholder="Enter Post summary here", style="height:100px")
+										textarea.form-control(ng-model="newPost.summary", placeholder="Shows up out front, and on social media", style="height:100px")
 								.col-md-8
 									.form-group
 										label Post Content
-											small Enter post content
-										textarea.forom-control(ng-model="newPost.content", placeholder="Post Content goes here", style="height:250px")
+										textarea.form-control(ng-model="newPost.content", placeholder="Post Content goes here", style="height:250px")
+		.pull-right.btn.btn-wd.btn-default.btn-fill(ng-click="savePost()") 
+			i.fa.fa-pencil
+			|&nbsp;&nbsp;Create Post
 	.col-md-3
 		p.category Use this page to create a post on the website.
 

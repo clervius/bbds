@@ -14,10 +14,15 @@ module.exports = function(){
 		},
 		create: function(req, res){
 			var neweditorial = new editorial(req.body);
-
+			console.log(neweditorial)
 			neweditorial.save(function(err, editorial){
 				if(err){console.log('could not create editorial'); res.send(err)}
-				res.json(editorial);
+				else{
+					console.log('created editorial');
+					console.log(editorial)
+					res.json(editorial);
+				}
+				
 			});
 		},
 		getOne: function(req, res){

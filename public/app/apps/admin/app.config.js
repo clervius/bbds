@@ -81,6 +81,22 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 				pageTitle: 'New Federation'
 			}
 		})
+		.state('posts', {
+			url:'/posts',
+			templateUrl: '/client/app/apps/admin/parts/posts/home',
+			controller: 'postCtrl',
+			data: {
+				pageTitle: 'Articles'
+			}
+		})
+		.state('newPosts', {
+			url:'/create/post',
+			templateUrl: '/client/app/apps/admin/parts/posts/new',
+			controller: 'postCtrl1',
+			data: {
+				pageTitle: 'New Article'
+			}
+		})
 	$locationProvider.hashPrefix('!');
 	$urlRouterProvider.otherwise('/');
 

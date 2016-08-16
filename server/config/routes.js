@@ -35,6 +35,8 @@ module.exports = function(app, passport){
 	app.post('/show/*', require('../api/competitions/shows'));
 	app.get('/federation/*', require('../api/federations'));
 	app.post('/federation/*', require('../api/federations'));
+	app.get('/editorial/*', require('../api/editorials'));
+	app.post('/editorial/*', require('../api/editorials'));
 
 	//front-end jade
 	app.get('/client/*', function(req, res){
