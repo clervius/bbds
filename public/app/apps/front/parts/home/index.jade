@@ -6,13 +6,21 @@
 	.row
 		p Just loaded the home page homie!
 		p {{ homeMessage }}
-		h4.title Athletes
-		.clearfix
-		ul.col-md-6
-			li(ng-repeat="athlete in athletes")
-				a(ui-sref="singleAthlete({athId: athlete._id})") {{athlete.profile.firstName}}
-		ul.col-md-6
-			li(ng-repeat="post in posts")
-				a(ui-sref="post({id: post._id})") {{ post.postTitle }}
+		.col-md-4
+			h6.title Athletes
+				small.category
+					a(ui-sref="athletes") Link
+			hr
+			ul.col-md-6
+				li(ng-repeat="athlete in athletes")
+					a(ui-sref="singleAthlete({athId: athlete._id})") {{athlete.profile.firstName}}
+		.col-md-4
+			h6.title Posts
+				small.category
+					a(ui-sref="posts") Link
+			hr
+			ul.col-md-6
+				li(ng-repeat="post in posts")
+					a(ui-sref="post({id: post._id})") {{ post.postTitle }}
 	.row
 		include ../components/ads/responsiveAd2

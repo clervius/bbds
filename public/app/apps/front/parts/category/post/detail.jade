@@ -1,17 +1,17 @@
-include ../components/ads/responsiveAd
+include ../../components/ads/responsiveAd
 .container
 	.clearfix.row(id="outer-wrapper")
 		.secondary-content.clearfix.col-md-9
 			.clearfix(id="main-wrapper")
 				.theiaStickySidebar
-					.post.clearfix	
+					.post.clearfix
 						.latestpost
 							h2.title Athlete Features
 						.storage
 							.cont.topLists
 								ul.topimages
 									li(ng-repeat="article in posts")
-										figure	
+										figure
 											.topListImages
 												a(ui-sref="article({postId: article._id})")
 													img(src="{{ article.mainImg.url }}")
@@ -37,4 +37,4 @@ include ../components/ads/responsiveAd
 					a(ui-sref="") 3
 					a(ui-sref="") Next
 					a(ui-sref="") Last
-		include sidebar/index
+		include ../sidebar/index

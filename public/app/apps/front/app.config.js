@@ -1,5 +1,4 @@
 angular.module('bigbodies').config(function($stateProvider, $urlRouterProvider, $locationProvider){
-
 	$stateProvider
 		.state('home', {
 			url: '/',
@@ -20,6 +19,11 @@ angular.module('bigbodies').config(function($stateProvider, $urlRouterProvider, 
 			url:'/:gallery',
 			templateUrl: '/client/app/apps/front/parts/athletes/includes/photoDetail',
 			controller: 'athCtrl2'
+		})
+		.state('posts', {
+			url: '/posts',
+			templateUrl: '/client/app/apps/front/parts/category/post/detail',
+			controller: 'postCtrl'
 		})
 		.state('post',{
 			url: '/post/:id',

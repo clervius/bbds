@@ -96,8 +96,8 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			data: {
 				pageTitle: 'New Article'
 			}
-		}).
-		state('post', {
+		})
+		.state('post', {
 			url: '/post/:id',
 			templateUrl: 'client/app/apps/admin/parts/posts/detail',
 			controller: 'postCtrl2',
