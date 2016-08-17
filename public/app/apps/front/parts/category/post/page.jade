@@ -1,30 +1,29 @@
 include ../../components/ads/responsiveAd
 .container
-	.row
-		.outer-wrapper.clearfix
-			.secondary-content.clearfix
-				.clearfix(id="main-wrapper")
-					.theisStickySidebar
-						.post.clearfix
-							div.imgShow(id="post-header", style="background-image:url({{article.mainImg.url}})")
-							h2.post-title {{ article.postTitle }}
-							.meta.post-meta
-								span
-									i.fa.fa-clock-o
-									|&nbsp;&nbsp; {{ article.published | date }}
-								span
-									i.fa.fa-user 
-									|&nbsp;&nbsp; {{ article.author }}
-								span
-									i.fa.fa-comments
-									|&nbsp;&nbsp; 4 Comments
-							include ../includes/socialShare
-							.post-body
-								p {{ article.content }}
-								div(ng-repeat="item in moreContent")
-									.alignleft
-										img.imgShow(style="background-image:url({{ item.image.url}})")
-									p {{ item.content }}
-								.articleComments
-									.fb-comments(data-href="http://bigbodies.herokuapp.com/#!/post/{{$stateParams.postId}}", data-numposts="5")
-			include ../sidebar/index
+	.clearfix.row(id="outer-wrapper")
+		.secondary-content.clearfix.col-md-9
+			.clearfix(id="main-wrapper")
+				.theisStickySidebar
+					.post.clearfix
+						div.postMainImg(id="post-header", style="background-image:url({{article.mainImg.url}})")
+						h2.post-title {{ article.postTitle }}
+						.meta.post-meta
+							span
+								i.fa.fa-clock-o
+								|&nbsp;&nbsp; {{ article.published | date }}&nbsp;&nbsp;&nbsp;&nbsp;
+							span
+								i.fa.fa-user 
+								|&nbsp;&nbsp; {{ article.author }}&nbsp;&nbsp;&nbsp;&nbsp;
+							span
+								i.fa.fa-comments
+								|&nbsp;&nbsp; 4 Comments
+						include ../includes/socialShare
+						.post-body
+							p {{ article.content }}
+							div(ng-repeat="item in moreContent")
+								.alignleft
+									img.imgShow(style="background-image:url({{ item.image.url}})")
+								p {{ item.content }}
+							.articleComments
+								.fb-comments(data-href="http://bigbodies.herokuapp.com/#!/post/{{$stateParams.postId}}", data-numposts="5", data-width="100%")
+		include ../sidebar/index

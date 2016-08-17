@@ -1587,7 +1587,7 @@ ul.topimages li {
   bottom: 0;
   left: 0;
   text-shadow: 1px 1px 0 rgba(0,0,0,0.9);
-  width: 90%;
+  width: 100%;
   padding: 35px 5.050505050505% 15px;
   -webkit-transition-duration: 1.0s;
   -moz-transition-duration: 1.0s;
@@ -4386,7 +4386,7 @@ ul.children {
   display:block;
 }
 .image-container, .imgShow {
-  border-radius: 6px;
+  border-radius: 2px;
   display:block;
   width:99%;
   padding-top:95.41%;
@@ -4396,4 +4396,28 @@ ul.children {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(0,0,0,.03)
+}
+.postMainImg {
+  border-radius: 6px;
+  display:block;
+  width:99%;
+  padding-top:40.41%;
+  overflow:hidden;
+  border:3px solid rgba(0,0,0,.05);
+  margin-bottom:15px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:center center;
+  background-color: rgba(0,0,0,.3);
+  
+}
+.socialShareAthlete.postPage {
+  border-top:1px solid rgba(0,0,0,.05);
+  border-bottom:1px solid rgba(0,0,0,.05);
+  padding:10px 0 5px;
+}
+.socialShareAthlete.postPage li {}
+.socialShareAthlete.postPage li:last-child {
+  position:relative;
+  top:-6px;
 }

@@ -4,7 +4,7 @@
 			h2.title POPULAR POSTS
 			.widget-content.popular-posts
 				ul
-					li(ng-repeat="post in popularPosts")
+					li(ng-repeat="post in popularPosts | limitTo: 3")
 						.item-content
 							.item-thumbnail
 								a(ui-sref="post({postId: post._id})")
