@@ -1,0 +1,88 @@
+.row
+	.col-md-9
+		.card
+			.header
+				h4.title {{ post.postTitle }}
+				p.category Fill in the form to post an article
+				p.category Keep in mind, all of these posts are under the cateory (Athlete Feature)
+			hr
+			.content
+				form
+					.row
+						.col-md-3
+							div
+								h6.title Category
+								label
+									input(type="radio", value="features", checked="checked", disabled)
+									|&nbsp;&nbsp;&nbsp;
+									strong Features
+									|&nbsp;&nbsp;
+									i.fa.fa-check
+							.clearfix								
+							hr
+							div
+								h6.title Included
+								label(for="homePage")
+									input(type="checkbox", ng-model="post.where.homePage", id="homePage")
+									|&nbsp;&nbsp;Include on Home Page
+								.clearfix
+								label(for="topicPage")
+									input(type="checkbox", ng-model="post.where.topicPage", id="topicPage")
+									|&nbsp;&nbsp;Include on Topic Page
+								.clearfix
+								label(for="storyPage")
+									input(type="checkbox", ng-model="post.where.storyPage", id="storyPage")
+									|&nbsp;&nbsp;Include on Story Page
+						.col-md-9
+							h5.title {{ post.postTitle}}
+							p.category Post content and details below.
+							.row
+								.col-md-12
+									.form-group
+										label Post Title
+										input.form-control(placeholder="Post Title", ng-model="post.postTitle")
+							.row
+								.col-md-5
+									.form-group
+										label Social Title 
+										input.form-control(placeholder="Optional - appears on social Media", ng-model="post.ogTitle")
+								.col-md-4
+									.form-group
+										label Author
+										input.form-control(placeholder="Author", ng-model="post.author", title="In the future, will pull from current logged in user")
+								.col-md-3
+									.form-group
+										label Published Date:
+										input.form-control.datepicker(placeholder="{{ post.published | date}}", ng-model="post.published")
+							hr
+							.row
+								.col-md-12(style="position:relative")
+									div.postMainImg(style="background-image:url('{{post.mainImg.url}}')")
+									button.btn-fill.btn.btn-danger.btn-xs(ng-click="uploadMainImg()", style="position:absolute;top:10px;right:30px;") Upload Main Image
+							hr
+							.row
+								.col-md-4
+									.form-group
+										label Post Summary
+										textarea.form-control(placeholder="Shows up out front, and on social media", style="height:100px" ng-model="post.summary") {{ post.summary }}
+								.col-md-8
+									.form-group
+										label Post Content
+										textarea.form-control(placeholder="Post Content goes here", style="height:250px" ng-model="post.content") {{ post.content }}
+		.clearfix
+		br
+	.col-md-3
+		button.btn.btn-wd.btn-fill.btn-primary(ng-click="updatePost()", onclick='swal("Post Updated", "Post saved. You may now use the browser to go back to the previous page. Or stay on this post and make more edits", "success")')
+			i.ti-save
+			|&nbsp;&nbsp; Save
+		.clearfix
+		br
+		a.btn.btn-wd.btn-default.btn-fill(href="/#!/post/{{post._id}}", target="blank")
+			i.ti-new-window
+			|&nbsp;&nbsp; View
+		.clearfix
+		
+script.
+	$('.datepicker').datetimepicker({ format: 'MM/DD/YYYY', icons: { time: "fa fa-clock-o", date: "fa fa-calendar", up: "fa fa-chevron-up", down: "fa fa-chevron-down", previous: 'fa fa-chevron-left', next: 'fa fa-chevron-right', today: 'fa fa-screenshot', clear: 'fa fa-trash', close: 'fa fa-remove' } });
+
+

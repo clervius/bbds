@@ -89,12 +89,13 @@ a:hover {
 	width:99%;
 	padding-top:40.41%;
 	overflow:hidden;
-	border:3px solid rgba(0,0,0,.06);
+	border:3px solid rgba(0,0,0,.5);
 	margin-bottom:15px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position:center center;
-	background-color: rgba(0,0,0,.03)
+	background-color: rgba(0,0,0,.3);
+	
 }
 table.form-table {
 	width:100%;

@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var update = new Schema({
+	when: {
+		type: Date,
+		default: new Date
+	}
+})
 var editorialSchema = new Schema({
 	postTitle: String,
 	mainImg: Schema.Types.Mixed,

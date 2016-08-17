@@ -40,4 +40,21 @@ angular.module('manager').factory('federations', function($http){
 		}
 
 	}
-})
+});
+
+// All Posts in service
+angular.module('manager').factory('posts', function($http){
+	var posts = [];
+	
+	$http.get('/editorial/all').success(function(data){
+		data.forEach(function(post){
+			posts.push(post);
+			console.log(post);
+		});
+	});
+
+	return {
+		posts: posts
+	}
+});
+

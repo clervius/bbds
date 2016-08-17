@@ -1,4 +1,4 @@
-angular.module('bigbodies').config(function($stateProvider, $urlRouterProvider, $locationProvider, filepickerProvider){
+angular.module('bigbodies').config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
 	$stateProvider
 		.state('home', {
@@ -21,7 +21,11 @@ angular.module('bigbodies').config(function($stateProvider, $urlRouterProvider, 
 			templateUrl: '/client/app/apps/front/parts/athletes/includes/photoDetail',
 			controller: 'athCtrl2'
 		})
+		.state('post',{
+			url: '/post/:id',
+			templateUrl: '/client/app/apps/front/parts/category/post/page',
+			controller: 'postCtrl2'
+		})
 	$locationProvider.hashPrefix('!');
 	$urlRouterProvider.otherwise('/');
-	filepickerProvider.setKey('ASnewwz6T3qiMff59c3ngz');
 });

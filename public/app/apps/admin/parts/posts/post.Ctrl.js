@@ -1,5 +1,7 @@
 // Athlete home controller
-angular.module('manager').controller('postCtrl', function($scope, athletes){})
+angular.module('manager').controller('postCtrl', function($scope, posts){
+	$scope.posts = posts.posts;
+})
 
 // Create Post Ctrl
 angular.module('manager').controller('postCtrl1', function($scope, $http, filepickerService, $state, $stateParams){
@@ -20,10 +22,35 @@ angular.module('manager').controller('postCtrl1', function($scope, $http, filepi
 	}
 
 	$scope.savePost = function(){
-		$http.post('/editorial/new', $scope.newPost).success((err,newpost)=>{
-			if(!err){console.log(newpost); console.log('successfully created')}
-			else if(err){console.log(err); console.log('could not create post')}
+		$http.post('/editorial/new', $scope.newPost).success((err,newpost)=>{			
+			if(err){console.log(err); console.log('could not create post')}
+			else{console.log(newpost); console.log('successfully created')}
 		})
 	}
 
+})
+
+// view and edit post
+angular.module('manager').controller('postCtrl2', function($scope, $http, filepickerService, $state, $stateParams){
+	$scope.post = {};
+
+	$scope.updated = false;
+
+	$http.get('/editorial/' + $stateParams.id).success((data)=>{
+		//console.log(err || data);
+		console.log('applying')
+		$scope.post = data;
+	});
+
+
+	$scope.updatePost = function(){
+		console.log('about to update this one');
+		console.log($scope.post);
+		$http.post('/editorial/update/' + $stateParams.id, $scope.post).success((data)=>{
+			console.log('successfully updated');
+			console.log(data);
+			$scope.post = data;
+			$scope.updated = true;
+		})
+	}
 })

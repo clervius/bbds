@@ -2,7 +2,7 @@
 	.col-md-9
 		.card
 			.header
-				h4.title New Article
+				h4.title(ng-bind="newPost.postTitle || 'New Article'")
 				p.category Fill in the form to post an article
 				p.category Keep in mind, all of these posts are under the cateory (Athlete Feature)
 			hr
@@ -68,12 +68,12 @@
 								.col-md-3
 									.form-group
 										label Published Date:
-										input.form-control(placeholder="01/10/1980 - Optional", ng-model="newPost.published")
+										input.form-control.datepicker(placeholder="Optional", ng-model="newPost.published")
 							hr
 							.row
-								.col-md-12
+								.col-md-12(style="position:relative")
 									div.postMainImg(style="background-image:url('{{newPost.mainImg.url}}')")
-									button.pull-right.btn.btn-primary.btn-xs(ng-click="uploadMainImg()") Upload Main Image
+									button.btn-fill.btn.btn-danger.btn-xs(ng-click="uploadMainImg()", style="position:absolute;top:10px;right:30px;") Upload Main Image
 							hr
 							.row
 								.col-md-4
@@ -87,11 +87,11 @@
 		.pull-right.btn.btn-wd.btn-default.btn-fill(ng-click="savePost()") 
 			i.fa.fa-pencil
 			|&nbsp;&nbsp;Create Post
+		.clearfix
+		br
 	.col-md-3
 		p.category Use this page to create a post on the website.
-
-
-
-
+script.
+	$('.datepicker').datetimepicker({ format: 'MM/DD/YYYY', icons: { time: "fa fa-clock-o", date: "fa fa-calendar", up: "fa fa-chevron-up", down: "fa fa-chevron-down", previous: 'fa fa-chevron-left', next: 'fa fa-chevron-right', today: 'fa fa-screenshot', clear: 'fa fa-trash', close: 'fa fa-remove' } });
 
 
