@@ -24,7 +24,11 @@ angular.module('manager').controller('postCtrl1', function($scope, $http, filepi
 	$scope.savePost = function(){
 		$http.post('/editorial/new', $scope.newPost).success((err,newpost)=>{			
 			if(err){console.log(err); console.log('could not create post')}
-			else{console.log(newpost); console.log('successfully created')}
+			else{
+				console.log(newpost); 
+				console.log('successfully created');
+				$state.go('posts')
+			}
 		})
 	}
 

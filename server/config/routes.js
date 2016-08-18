@@ -54,8 +54,12 @@ module.exports = function(app, passport){
 		res.redirect('/');
 	});
 
+	app.get('/front', function(req, res){
+		res.render('front/index')
+	})
+
 	app.get('/', function(req, res){
-		res.render('front/index');
+		res.render('comingsoon');
 	});
 }
 
