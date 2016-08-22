@@ -5,7 +5,8 @@ include ../../components/ads/responsiveAd
 			.clearfix(id="main-wrapper")
 				.theisStickySidebar
 					.post.clearfix
-						div.postMainImg(id="post-header", style="background-image:url({{article.mainImg.url}})")
+						div(id="post-header")
+							img.img-responsive(src="{{article.mainImg.url}}+{{article.mainImg.filename}}")
 						h2.post-title {{ article.postTitle }}
 						.meta.post-meta
 							span
@@ -19,11 +20,11 @@ include ../../components/ads/responsiveAd
 								|&nbsp;&nbsp; 4 Comments
 						include ../includes/socialShare
 						.post-body
-							p {{ article.content }}
+							div(ng-bind-html="article.content") 
 							div(ng-repeat="item in moreContent")
 								.alignleft
 									img.imgShow(style="background-image:url({{ item.image.url}})")
-								p {{ item.content }}
+								.clearfix {{ item.content }}
 							.articleComments
 								.fb-comments(data-href="http://bigbodies.herokuapp.com/#!/post/{{$stateParams.postId}}", data-numposts="5", data-width="100%")
 		include ../sidebar/index

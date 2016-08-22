@@ -60,7 +60,7 @@
 								.col-md-5
 									.form-group
 										label Social Title 
-										input.form-control(placeholder="Optional - appears on social Media", ng-model="new")
+										input.form-control(placeholder="Optional - appears on social Media", ng-model="newPost.ogTitle")
 								.col-md-4
 									.form-group
 										label Author
@@ -78,12 +78,16 @@
 							.row
 								.col-md-4
 									.form-group
+										label Subtitle
+										input.form-control(ng-model="newPost.subtitle", placeholder="Type subtitle")
+									hr
+									.form-group
 										label Post Summary
 										textarea.form-control(ng-model="newPost.summary", placeholder="Shows up out front, and on social media", style="height:100px")
 								.col-md-8
 									.form-group
 										label Post Content
-										textarea.form-control(ng-model="newPost.content", placeholder="Post Content goes here", style="height:250px")
+										textarea.form-control(ng-model="newPost.content", placeholder="Post Content goes here", style="height:250px", ui-tinymce="tinymceOptions")
 		.pull-right.btn.btn-wd.btn-default.btn-fill(ng-click="savePost()") 
 			i.fa.fa-pencil
 			|&nbsp;&nbsp;Create Post

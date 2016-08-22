@@ -13,6 +13,9 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/',
 			templateUrl: '/client/app/apps/admin/parts/dashboard/dashboard',
 			controller: 'dashCtrl',
+			ncyBreadcrumb: {
+				label: 'Dashboard',
+			},
 			data: {
 				pageTitle: 'Dashboard'
 			}
@@ -21,6 +24,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/athletes',
 			templateUrl: '/client/app/apps/admin/parts/athletes/home',
 			controller: 'athCtrl',
+			ncyBreadcrumb: {
+				label: 'Athletes',
+				parent: 'dashboard'
+			},
 			data: {
 				pageTitle: 'Athletes'
 			}
@@ -29,6 +36,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/athlete/:id',
 			templateUrl: '/client/app/apps/admin/parts/athletes/detail',
 			controller: 'athCtrl2',
+			ncyBreadcrumb: {
+				label: 'Single Athlete',
+				parent: 'athletes'
+			},
 			data: {
 				pageTitle: 'Single Athlete'
 			}
@@ -37,6 +48,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/gallery/:id',
 			templateUrl: '/client/app/apps/admin/parts/athletes/newAlbum',
 			controller: 'athCtrl3',
+			ncyBreadcrumb: {
+				label: 'Create Album',
+				parent: 'athlete'
+			},
 			data: {
 				pageTitle: 'Create Album'
 			}
@@ -45,6 +60,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/athletes/add',
 			templateUrl: '/client/app/apps/admin/parts/athletes/new',
 			controller: 'athCtrl1',
+			ncyBreadcrumb: {
+				label: 'Create Athlete',
+				parent: 'athletes'
+			},
 			data: {
 				pageTitle: 'Add Athlete'
 			}
@@ -53,6 +72,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/federations',
 			templateUrl: '/client/app/apps/admin/parts/federations/home',
 			controller: 'fedCtrl',
+			ncyBreadcrumb: {
+				label: 'Federations',
+				parent: 'dashboard'
+			},
 			data: {
 				pageTitle: 'Federations'
 			}
@@ -61,6 +84,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/federations/:id',
 			templateUrl: '/client/app/apps/admin/parts/federations/detail',
 			controller: 'fedCtrl1',
+			ncyBreadcrumb: {
+				label: 'Single Federation',
+				parent: 'federations'
+			},
 			data: {
 				pageTitle: 'Single Federation'
 			}
@@ -69,6 +96,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/div/:id',
 			templateUrl: '/client/app/apps/admin/parts/federations/newDivision',
 			controller: 'fedCtrl3',
+			ncyBreadcrumb: {
+				label: 'Create Division',
+				parent: 'federation'
+			},
 			data: {
 				pageTitle: 'Create Division'
 			}
@@ -77,6 +108,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/create/federation',
 			templateUrl: '/client/app/apps/admin/parts/federations/newfederation',
 			controller: 'fedCtrl2',
+			ncyBreadcrumb: {
+				label: 'Create Federation',
+				parent: 'federation'
+			},
 			data: {
 				pageTitle: 'New Federation'
 			}
@@ -85,6 +120,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url:'/posts',
 			templateUrl: '/client/app/apps/admin/parts/posts/home',
 			controller: 'postCtrl',
+			ncyBreadcrumb: {
+				label: 'Editorials',
+				parent: 'dashboard'
+			},
 			data: {
 				pageTitle: 'Articles'
 			}
@@ -93,6 +132,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url:'/create/post',
 			templateUrl: '/client/app/apps/admin/parts/posts/new',
 			controller: 'postCtrl1',
+			ncyBreadcrumb: {
+				label: 'Create Editorial',
+				parent: 'posts'
+			},
 			data: {
 				pageTitle: 'New Article'
 			}
@@ -101,6 +144,10 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 			url: '/post/:id',
 			templateUrl: 'client/app/apps/admin/parts/posts/detail',
 			controller: 'postCtrl2',
+			ncyBreadcrumb: {
+				label: 'Single Article',
+				parent: 'posts'
+			},
 			data: {
 				pageTitle: 'Single Post'
 			}

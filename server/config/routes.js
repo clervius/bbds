@@ -37,7 +37,7 @@ module.exports = function(app, passport){
 	app.post('/federation/*', require('../api/federations'));
 	app.get('/editorial/*', require('../api/editorials'));
 	app.post('/editorial/*', require('../api/editorials'));
-
+	app.delete('/editorial/*', require('../api/editorials'));
 	//front-end jade
 	app.get('/client/*', function(req, res){
 	    res.render('../../public/' + req.params[0]); 
@@ -55,9 +55,21 @@ module.exports = function(app, passport){
 	});
 
 	app.get('/', function(req, res){
-		res.render('front/index');
+		if(req.isAuthenticated()){
+			res.render('front/index')
+		}else{
+			res.render('index')
+		}
 	});
 }
+
+function frontLoggedIn(req,res,next){
+	if(req.isAuthenticated()){
+		return next()
+	}else{
+		res.render('index')
+	}
+};
 
 function isLoggedIn(req, res, next){
 	if(req.isAuthenticated()){
@@ -65,4 +77,4 @@ function isLoggedIn(req, res, next){
 	}else{
 		res.redirect('/auth');
 	}
-}
+};

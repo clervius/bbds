@@ -9,6 +9,7 @@ var update = new Schema({
 })
 var editorialSchema = new Schema({
 	postTitle: String,
+	subtitle: String,
 	mainImg: Schema.Types.Mixed,
 	summary: String,
 	author: String,

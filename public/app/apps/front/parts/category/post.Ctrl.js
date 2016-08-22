@@ -3,11 +3,14 @@ angular.module('bigbodies').controller('postCtrl', function($scope, posts){
 	$scope.posts = posts.posts;
 });
 
-// View and edit post
-angular.module('bigbodies').controller('postCtrl2', function($scope, $http, $state, $stateParams){
+// View 
+angular.module('bigbodies').controller('postCtrl2', function($scope, $http, $state, $stateParams, $sce){
 	$scope.article = {};
+	//$scope.content = {};
 	$http.get('/editorial/' + $stateParams.id).success((data)=>{
 		console.log('applying')
 		$scope.article = data;
+		//$scope.content = $sce.trustAsHtml(data.content)
 	});
+	
 });

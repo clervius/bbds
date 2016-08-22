@@ -1,0 +1,1654 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Joram\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@3.10.5
+3 info using node@v4.4.3
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly fetchNamedPackageData bcrypt
+20 silly mapToRegistry name bcrypt
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry data Result {
+23 silly mapToRegistry   raw: 'bcrypt',
+23 silly mapToRegistry   scope: null,
+23 silly mapToRegistry   escapedName: 'bcrypt',
+23 silly mapToRegistry   name: 'bcrypt',
+23 silly mapToRegistry   rawSpec: '',
+23 silly mapToRegistry   spec: 'latest',
+23 silly mapToRegistry   type: 'tag' }
+24 silly mapToRegistry uri https://registry.npmjs.org/bcrypt
+25 silly fetchNamedPackageData youtube-thumbnails
+26 silly mapToRegistry name youtube-thumbnails
+27 silly mapToRegistry using default registry
+28 silly mapToRegistry registry https://registry.npmjs.org/
+29 silly mapToRegistry data Result {
+29 silly mapToRegistry   raw: 'youtube-thumbnails',
+29 silly mapToRegistry   scope: null,
+29 silly mapToRegistry   escapedName: 'youtube-thumbnails',
+29 silly mapToRegistry   name: 'youtube-thumbnails',
+29 silly mapToRegistry   rawSpec: '',
+29 silly mapToRegistry   spec: 'latest',
+29 silly mapToRegistry   type: 'tag' }
+30 silly mapToRegistry uri https://registry.npmjs.org/youtube-thumbnails
+31 verbose request uri https://registry.npmjs.org/bcrypt
+32 verbose request no auth needed
+33 info attempt registry request try #1 at 8:16:59 PM
+34 verbose request id 2d8ce6780d0b9a44
+35 verbose etag "C7PPHNNQHG2QANK95BEOGXYTK"
+36 http request GET https://registry.npmjs.org/bcrypt
+37 verbose request uri https://registry.npmjs.org/youtube-thumbnails
+38 verbose request no auth needed
+39 info attempt registry request try #1 at 8:16:59 PM
+40 verbose etag "KZ4L3DPKEIR1OM1C6IPLLB9K"
+41 http request GET https://registry.npmjs.org/youtube-thumbnails
+42 http 304 https://registry.npmjs.org/bcrypt
+43 verbose headers { date: 'Mon, 22 Aug 2016 00:17:00 GMT',
+43 verbose headers   via: '1.1 varnish',
+43 verbose headers   'cache-control': 'max-age=300',
+43 verbose headers   etag: '"C7PPHNNQHG2QANK95BEOGXYTK"',
+43 verbose headers   age: '213',
+43 verbose headers   connection: 'keep-alive',
+43 verbose headers   'x-served-by': 'cache-atl6237-ATL',
+43 verbose headers   'x-cache': 'HIT',
+43 verbose headers   'x-cache-hits': '1',
+43 verbose headers   'x-timer': 'S1471825020.432201,VS0,VE0',
+43 verbose headers   vary: 'Accept-Encoding' }
+44 silly get cb [ 304,
+44 silly get   { date: 'Mon, 22 Aug 2016 00:17:00 GMT',
+44 silly get     via: '1.1 varnish',
+44 silly get     'cache-control': 'max-age=300',
+44 silly get     etag: '"C7PPHNNQHG2QANK95BEOGXYTK"',
+44 silly get     age: '213',
+44 silly get     connection: 'keep-alive',
+44 silly get     'x-served-by': 'cache-atl6237-ATL',
+44 silly get     'x-cache': 'HIT',
+44 silly get     'x-cache-hits': '1',
+44 silly get     'x-timer': 'S1471825020.432201,VS0,VE0',
+44 silly get     vary: 'Accept-Encoding' } ]
+45 verbose etag https://registry.npmjs.org/bcrypt from cache
+46 verbose get saving bcrypt to C:\Users\Joram\AppData\Roaming\npm-cache\registry.npmjs.org\bcrypt\.cache.json
+47 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+48 silly resolveWithNewModule bcrypt@0.8.7 checking installable status
+49 silly cache add args [ 'bcrypt@^0.8.7', null ]
+50 verbose cache add spec bcrypt@^0.8.7
+51 silly cache add parsed spec Result {
+51 silly cache add   raw: 'bcrypt@^0.8.7',
+51 silly cache add   scope: null,
+51 silly cache add   escapedName: 'bcrypt',
+51 silly cache add   name: 'bcrypt',
+51 silly cache add   rawSpec: '^0.8.7',
+51 silly cache add   spec: '>=0.8.7 <0.9.0',
+51 silly cache add   type: 'range' }
+52 silly addNamed bcrypt@>=0.8.7 <0.9.0
+53 verbose addNamed ">=0.8.7 <0.9.0" is a valid semver range for bcrypt
+54 silly addNameRange { name: 'bcrypt', range: '>=0.8.7 <0.9.0', hasData: false }
+55 silly mapToRegistry name bcrypt
+56 silly mapToRegistry using default registry
+57 silly mapToRegistry registry https://registry.npmjs.org/
+58 silly mapToRegistry data Result {
+58 silly mapToRegistry   raw: 'bcrypt',
+58 silly mapToRegistry   scope: null,
+58 silly mapToRegistry   escapedName: 'bcrypt',
+58 silly mapToRegistry   name: 'bcrypt',
+58 silly mapToRegistry   rawSpec: '',
+58 silly mapToRegistry   spec: 'latest',
+58 silly mapToRegistry   type: 'tag' }
+59 silly mapToRegistry uri https://registry.npmjs.org/bcrypt
+60 verbose addNameRange registry:https://registry.npmjs.org/bcrypt not in flight; fetching
+61 verbose get https://registry.npmjs.org/bcrypt not expired, no request
+62 silly addNameRange number 2 { name: 'bcrypt', range: '>=0.8.7 <0.9.0', hasData: true }
+63 silly addNameRange versions [ 'bcrypt',
+63 silly addNameRange   [ '0.1.2',
+63 silly addNameRange     '0.2.0',
+63 silly addNameRange     '0.2.1',
+63 silly addNameRange     '0.1.3',
+63 silly addNameRange     '0.2.2',
+63 silly addNameRange     '0.2.3',
+63 silly addNameRange     '0.2.4',
+63 silly addNameRange     '0.3.0',
+63 silly addNameRange     '0.3.1',
+63 silly addNameRange     '0.3.2',
+63 silly addNameRange     '0.4.0',
+63 silly addNameRange     '0.4.1',
+63 silly addNameRange     '0.5.0',
+63 silly addNameRange     '0.6.0',
+63 silly addNameRange     '0.7.0',
+63 silly addNameRange     '0.7.1',
+63 silly addNameRange     '0.7.2',
+63 silly addNameRange     '0.7.3',
+63 silly addNameRange     '0.7.4',
+63 silly addNameRange     '0.7.5',
+63 silly addNameRange     '0.7.6',
+63 silly addNameRange     '0.7.7',
+63 silly addNameRange     '0.7.8',
+63 silly addNameRange     '0.8.0',
+63 silly addNameRange     '0.8.1',
+63 silly addNameRange     '0.8.2',
+63 silly addNameRange     '0.8.3',
+63 silly addNameRange     '0.8.4',
+63 silly addNameRange     '0.8.5',
+63 silly addNameRange     '0.8.6',
+63 silly addNameRange     '0.8.7' ] ]
+64 silly addNamed bcrypt@0.8.7
+65 verbose addNamed "0.8.7" is a plain semver version for bcrypt
+66 silly cache afterAdd bcrypt@0.8.7
+67 verbose afterAdd C:\Users\Joram\AppData\Roaming\npm-cache\bcrypt\0.8.7\package\package.json not in flight; writing
+68 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+69 verbose afterAdd C:\Users\Joram\AppData\Roaming\npm-cache\bcrypt\0.8.7\package\package.json written
+70 http 304 https://registry.npmjs.org/youtube-thumbnails
+71 verbose headers { date: 'Mon, 22 Aug 2016 00:17:00 GMT',
+71 verbose headers   via: '1.1 varnish',
+71 verbose headers   'cache-control': 'max-age=300',
+71 verbose headers   etag: '"KZ4L3DPKEIR1OM1C6IPLLB9K"',
+71 verbose headers   age: '0',
+71 verbose headers   connection: 'keep-alive',
+71 verbose headers   'x-served-by': 'cache-atl6227-ATL',
+71 verbose headers   'x-cache': 'MISS',
+71 verbose headers   'x-cache-hits': '0',
+71 verbose headers   'x-timer': 'S1471825020.473230,VS0,VE363',
+71 verbose headers   vary: 'Accept-Encoding' }
+72 silly get cb [ 304,
+72 silly get   { date: 'Mon, 22 Aug 2016 00:17:00 GMT',
+72 silly get     via: '1.1 varnish',
+72 silly get     'cache-control': 'max-age=300',
+72 silly get     etag: '"KZ4L3DPKEIR1OM1C6IPLLB9K"',
+72 silly get     age: '0',
+72 silly get     connection: 'keep-alive',
+72 silly get     'x-served-by': 'cache-atl6227-ATL',
+72 silly get     'x-cache': 'MISS',
+72 silly get     'x-cache-hits': '0',
+72 silly get     'x-timer': 'S1471825020.473230,VS0,VE363',
+72 silly get     vary: 'Accept-Encoding' } ]
+73 verbose etag https://registry.npmjs.org/youtube-thumbnails from cache
+74 verbose get saving youtube-thumbnails to C:\Users\Joram\AppData\Roaming\npm-cache\registry.npmjs.org\youtube-thumbnails\.cache.json
+75 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+76 silly resolveWithNewModule youtube-thumbnails@1.0.2 checking installable status
+77 silly cache add args [ 'youtube-thumbnails@^1.0.2', null ]
+78 verbose cache add spec youtube-thumbnails@^1.0.2
+79 silly cache add parsed spec Result {
+79 silly cache add   raw: 'youtube-thumbnails@^1.0.2',
+79 silly cache add   scope: null,
+79 silly cache add   escapedName: 'youtube-thumbnails',
+79 silly cache add   name: 'youtube-thumbnails',
+79 silly cache add   rawSpec: '^1.0.2',
+79 silly cache add   spec: '>=1.0.2 <2.0.0',
+79 silly cache add   type: 'range' }
+80 silly addNamed youtube-thumbnails@>=1.0.2 <2.0.0
+81 verbose addNamed ">=1.0.2 <2.0.0" is a valid semver range for youtube-thumbnails
+82 silly addNameRange { name: 'youtube-thumbnails',
+82 silly addNameRange   range: '>=1.0.2 <2.0.0',
+82 silly addNameRange   hasData: false }
+83 silly mapToRegistry name youtube-thumbnails
+84 silly mapToRegistry using default registry
+85 silly mapToRegistry registry https://registry.npmjs.org/
+86 silly mapToRegistry data Result {
+86 silly mapToRegistry   raw: 'youtube-thumbnails',
+86 silly mapToRegistry   scope: null,
+86 silly mapToRegistry   escapedName: 'youtube-thumbnails',
+86 silly mapToRegistry   name: 'youtube-thumbnails',
+86 silly mapToRegistry   rawSpec: '',
+86 silly mapToRegistry   spec: 'latest',
+86 silly mapToRegistry   type: 'tag' }
+87 silly mapToRegistry uri https://registry.npmjs.org/youtube-thumbnails
+88 verbose addNameRange registry:https://registry.npmjs.org/youtube-thumbnails not in flight; fetching
+89 verbose get https://registry.npmjs.org/youtube-thumbnails not expired, no request
+90 silly addNameRange number 2 { name: 'youtube-thumbnails',
+90 silly addNameRange   range: '>=1.0.2 <2.0.0',
+90 silly addNameRange   hasData: true }
+91 silly addNameRange versions [ 'youtube-thumbnails', [ '1.0.0', '1.0.1', '1.0.2' ] ]
+92 silly addNamed youtube-thumbnails@1.0.2
+93 verbose addNamed "1.0.2" is a plain semver version for youtube-thumbnails
+94 silly cache afterAdd youtube-thumbnails@1.0.2
+95 verbose afterAdd C:\Users\Joram\AppData\Roaming\npm-cache\youtube-thumbnails\1.0.2\package\package.json not in flight; writing
+96 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+97 verbose afterAdd C:\Users\Joram\AppData\Roaming\npm-cache\youtube-thumbnails\1.0.2\package\package.json written
+98 silly fetchNamedPackageData bindings
+99 silly mapToRegistry name bindings
+100 silly mapToRegistry using default registry
+101 silly mapToRegistry registry https://registry.npmjs.org/
+102 silly mapToRegistry data Result {
+102 silly mapToRegistry   raw: 'bindings',
+102 silly mapToRegistry   scope: null,
+102 silly mapToRegistry   escapedName: 'bindings',
+102 silly mapToRegistry   name: 'bindings',
+102 silly mapToRegistry   rawSpec: '',
+102 silly mapToRegistry   spec: 'latest',
+102 silly mapToRegistry   type: 'tag' }
+103 silly mapToRegistry uri https://registry.npmjs.org/bindings
+104 silly fetchNamedPackageData nan
+105 silly mapToRegistry name nan
+106 silly mapToRegistry using default registry
+107 silly mapToRegistry registry https://registry.npmjs.org/
+108 silly mapToRegistry data Result {
+108 silly mapToRegistry   raw: 'nan',
+108 silly mapToRegistry   scope: null,
+108 silly mapToRegistry   escapedName: 'nan',
+108 silly mapToRegistry   name: 'nan',
+108 silly mapToRegistry   rawSpec: '',
+108 silly mapToRegistry   spec: 'latest',
+108 silly mapToRegistry   type: 'tag' }
+109 silly mapToRegistry uri https://registry.npmjs.org/nan
+110 verbose request uri https://registry.npmjs.org/bindings
+111 verbose request no auth needed
+112 info attempt registry request try #1 at 8:17:00 PM
+113 verbose etag "33TX4J3DNTGF7K41ZUV6OA182"
+114 http request GET https://registry.npmjs.org/bindings
+115 verbose request uri https://registry.npmjs.org/nan
+116 verbose request no auth needed
+117 info attempt registry request try #1 at 8:17:00 PM
+118 verbose etag "EGTR1APXEV7TH8V3QYT0WN357"
+119 http request GET https://registry.npmjs.org/nan
+120 http 304 https://registry.npmjs.org/bindings
+121 verbose headers { date: 'Mon, 22 Aug 2016 00:17:01 GMT',
+121 verbose headers   via: '1.1 varnish',
+121 verbose headers   'cache-control': 'max-age=300',
+121 verbose headers   etag: '"33TX4J3DNTGF7K41ZUV6OA182"',
+121 verbose headers   age: '250',
+121 verbose headers   connection: 'keep-alive',
+121 verbose headers   'x-served-by': 'cache-atl6237-ATL',
+121 verbose headers   'x-cache': 'HIT',
+121 verbose headers   'x-cache-hits': '1',
+121 verbose headers   'x-timer': 'S1471825021.095769,VS0,VE0',
+121 verbose headers   vary: 'Accept-Encoding' }
+122 silly get cb [ 304,
+122 silly get   { date: 'Mon, 22 Aug 2016 00:17:01 GMT',
+122 silly get     via: '1.1 varnish',
+122 silly get     'cache-control': 'max-age=300',
+122 silly get     etag: '"33TX4J3DNTGF7K41ZUV6OA182"',
+122 silly get     age: '250',
+122 silly get     connection: 'keep-alive',
+122 silly get     'x-served-by': 'cache-atl6237-ATL',
+122 silly get     'x-cache': 'HIT',
+122 silly get     'x-cache-hits': '1',
+122 silly get     'x-timer': 'S1471825021.095769,VS0,VE0',
+122 silly get     vary: 'Accept-Encoding' } ]
+123 verbose etag https://registry.npmjs.org/bindings from cache
+124 verbose get saving bindings to C:\Users\Joram\AppData\Roaming\npm-cache\registry.npmjs.org\bindings\.cache.json
+125 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+126 http 304 https://registry.npmjs.org/nan
+127 verbose headers { date: 'Mon, 22 Aug 2016 00:17:01 GMT',
+127 verbose headers   via: '1.1 varnish',
+127 verbose headers   'cache-control': 'max-age=300',
+127 verbose headers   etag: '"EGTR1APXEV7TH8V3QYT0WN357"',
+127 verbose headers   age: '92',
+127 verbose headers   connection: 'keep-alive',
+127 verbose headers   'x-served-by': 'cache-atl6227-ATL',
+127 verbose headers   'x-cache': 'HIT',
+127 verbose headers   'x-cache-hits': '137',
+127 verbose headers   'x-timer': 'S1471825021.100801,VS0,VE0',
+127 verbose headers   vary: 'Accept-Encoding' }
+128 silly get cb [ 304,
+128 silly get   { date: 'Mon, 22 Aug 2016 00:17:01 GMT',
+128 silly get     via: '1.1 varnish',
+128 silly get     'cache-control': 'max-age=300',
+128 silly get     etag: '"EGTR1APXEV7TH8V3QYT0WN357"',
+128 silly get     age: '92',
+128 silly get     connection: 'keep-alive',
+128 silly get     'x-served-by': 'cache-atl6227-ATL',
+128 silly get     'x-cache': 'HIT',
+128 silly get     'x-cache-hits': '137',
+128 silly get     'x-timer': 'S1471825021.100801,VS0,VE0',
+128 silly get     vary: 'Accept-Encoding' } ]
+129 verbose etag https://registry.npmjs.org/nan from cache
+130 verbose get saving nan to C:\Users\Joram\AppData\Roaming\npm-cache\registry.npmjs.org\nan\.cache.json
+131 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+132 silly resolveWithNewModule nan@2.3.5 checking installable status
+133 silly cache add args [ 'nan@2.3.5', null ]
+134 verbose cache add spec nan@2.3.5
+135 silly cache add parsed spec Result {
+135 silly cache add   raw: 'nan@2.3.5',
+135 silly cache add   scope: null,
+135 silly cache add   escapedName: 'nan',
+135 silly cache add   name: 'nan',
+135 silly cache add   rawSpec: '2.3.5',
+135 silly cache add   spec: '2.3.5',
+135 silly cache add   type: 'version' }
+136 silly addNamed nan@2.3.5
+137 verbose addNamed "2.3.5" is a plain semver version for nan
+138 silly mapToRegistry name nan
+139 silly mapToRegistry using default registry
+140 silly mapToRegistry registry https://registry.npmjs.org/
+141 silly mapToRegistry data Result {
+141 silly mapToRegistry   raw: 'nan',
+141 silly mapToRegistry   scope: null,
+141 silly mapToRegistry   escapedName: 'nan',
+141 silly mapToRegistry   name: 'nan',
+141 silly mapToRegistry   rawSpec: '',
+141 silly mapToRegistry   spec: 'latest',
+141 silly mapToRegistry   type: 'tag' }
+142 silly mapToRegistry uri https://registry.npmjs.org/nan
+143 verbose addNameVersion registry:https://registry.npmjs.org/nan not in flight; fetching
+144 silly resolveWithNewModule bindings@1.2.1 checking installable status
+145 silly cache add args [ 'bindings@1.2.1', null ]
+146 verbose cache add spec bindings@1.2.1
+147 silly cache add parsed spec Result {
+147 silly cache add   raw: 'bindings@1.2.1',
+147 silly cache add   scope: null,
+147 silly cache add   escapedName: 'bindings',
+147 silly cache add   name: 'bindings',
+147 silly cache add   rawSpec: '1.2.1',
+147 silly cache add   spec: '1.2.1',
+147 silly cache add   type: 'version' }
+148 silly addNamed bindings@1.2.1
+149 verbose addNamed "1.2.1" is a plain semver version for bindings
+150 silly mapToRegistry name bindings
+151 silly mapToRegistry using default registry
+152 silly mapToRegistry registry https://registry.npmjs.org/
+153 silly mapToRegistry data Result {
+153 silly mapToRegistry   raw: 'bindings',
+153 silly mapToRegistry   scope: null,
+153 silly mapToRegistry   escapedName: 'bindings',
+153 silly mapToRegistry   name: 'bindings',
+153 silly mapToRegistry   rawSpec: '',
+153 silly mapToRegistry   spec: 'latest',
+153 silly mapToRegistry   type: 'tag' }
+154 silly mapToRegistry uri https://registry.npmjs.org/bindings
+155 verbose addNameVersion registry:https://registry.npmjs.org/bindings not in flight; fetching
+156 verbose get https://registry.npmjs.org/nan not expired, no request
+157 verbose get https://registry.npmjs.org/bindings not expired, no request
+158 silly cache afterAdd nan@2.3.5
+159 verbose afterAdd C:\Users\Joram\AppData\Roaming\npm-cache\nan\2.3.5\package\package.json not in flight; writing
+160 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+161 silly cache afterAdd bindings@1.2.1
+162 verbose afterAdd C:\Users\Joram\AppData\Roaming\npm-cache\bindings\1.2.1\package\package.json not in flight; writing
+163 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+164 verbose afterAdd C:\Users\Joram\AppData\Roaming\npm-cache\bindings\1.2.1\package\package.json written
+165 verbose afterAdd C:\Users\Joram\AppData\Roaming\npm-cache\nan\2.3.5\package\package.json written
+166 silly fetchNamedPackageData fsevents
+167 silly mapToRegistry name fsevents
+168 silly mapToRegistry using default registry
+169 silly mapToRegistry registry https://registry.npmjs.org/
+170 silly mapToRegistry data Result {
+170 silly mapToRegistry   raw: 'fsevents',
+170 silly mapToRegistry   scope: null,
+170 silly mapToRegistry   escapedName: 'fsevents',
+170 silly mapToRegistry   name: 'fsevents',
+170 silly mapToRegistry   rawSpec: '',
+170 silly mapToRegistry   spec: 'latest',
+170 silly mapToRegistry   type: 'tag' }
+171 silly mapToRegistry uri https://registry.npmjs.org/fsevents
+172 verbose request uri https://registry.npmjs.org/fsevents
+173 verbose request no auth needed
+174 info attempt registry request try #1 at 8:17:00 PM
+175 verbose etag "1IUUBBNAFSLRNOMEHDGNJ1LTJ"
+176 http request GET https://registry.npmjs.org/fsevents
+177 http 304 https://registry.npmjs.org/fsevents
+178 verbose headers { date: 'Mon, 22 Aug 2016 00:17:01 GMT',
+178 verbose headers   via: '1.1 varnish',
+178 verbose headers   'cache-control': 'max-age=300',
+178 verbose headers   etag: '"1IUUBBNAFSLRNOMEHDGNJ1LTJ"',
+178 verbose headers   age: '38',
+178 verbose headers   connection: 'keep-alive',
+178 verbose headers   'x-served-by': 'cache-atl6237-ATL',
+178 verbose headers   'x-cache': 'HIT',
+178 verbose headers   'x-cache-hits': '1',
+178 verbose headers   'x-timer': 'S1471825021.718348,VS0,VE0',
+178 verbose headers   vary: 'Accept-Encoding' }
+179 silly get cb [ 304,
+179 silly get   { date: 'Mon, 22 Aug 2016 00:17:01 GMT',
+179 silly get     via: '1.1 varnish',
+179 silly get     'cache-control': 'max-age=300',
+179 silly get     etag: '"1IUUBBNAFSLRNOMEHDGNJ1LTJ"',
+179 silly get     age: '38',
+179 silly get     connection: 'keep-alive',
+179 silly get     'x-served-by': 'cache-atl6237-ATL',
+179 silly get     'x-cache': 'HIT',
+179 silly get     'x-cache-hits': '1',
+179 silly get     'x-timer': 'S1471825021.718348,VS0,VE0',
+179 silly get     vary: 'Accept-Encoding' } ]
+180 verbose etag https://registry.npmjs.org/fsevents from cache
+181 verbose get saving fsevents to C:\Users\Joram\AppData\Roaming\npm-cache\registry.npmjs.org\fsevents\.cache.json
+182 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+183 silly resolveWithNewModule fsevents@1.0.14 checking installable status
+184 silly loadAllDepsIntoIdealTree Finishing
+185 silly loadIdealTree Finishing
+186 silly currentTree bigbodies@1.0.0
+186 silly currentTree +-- abab@1.0.3
+186 silly currentTree +-- abbrev@1.0.9
+186 silly currentTree +-- accepts@1.3.3
+186 silly currentTree +-- acorn-globals@1.0.9
+186 silly currentTree +-- acorn@2.7.0
+186 silly currentTree +-- addressparser@1.0.1
+186 silly currentTree +-- align-text@0.1.4
+186 silly currentTree +-- amdefine@1.0.0
+186 silly currentTree +-- ansi-regex@2.0.0
+186 silly currentTree +-- ansi-styles@2.2.1
+186 silly currentTree +-- any-promise@1.3.0
+186 silly currentTree +-- anymatch@1.3.0
+186 silly currentTree +-- arr-diff@2.0.0
+186 silly currentTree +-- arr-flatten@1.0.1
+186 silly currentTree +-- array-flatten@1.1.1
+186 silly currentTree +-- array-unique@0.2.1
+186 silly currentTree +-- arrify@1.0.1
+186 silly currentTree +-- asap@1.0.0
+186 silly currentTree +-- asn1@0.2.3
+186 silly currentTree +-- assert-plus@0.2.0
+186 silly currentTree +-- async-each@1.0.0
+186 silly currentTree +-- async@1.5.2
+186 silly currentTree +-- aws-sign2@0.6.0
+186 silly currentTree +-- aws4@1.4.1
+186 silly currentTree +-- balanced-match@0.4.2
+186 silly currentTree +-- base64-url@1.3.2
+186 silly currentTree +-- base64url@1.0.6
+186 silly currentTree +-- basic-auth@1.0.4
+186 silly currentTree +-- bcrypt-nodejs@0.0.3
+186 silly currentTree +-- binary-extensions@1.5.0
+186 silly currentTree +-- bl@1.1.2
+186 silly currentTree | +-- isarray@1.0.0
+186 silly currentTree | `-- readable-stream@2.0.6
+186 silly currentTree +-- bluebird@2.10.2
+186 silly currentTree +-- body-parser@1.15.2
+186 silly currentTree +-- boolbase@1.0.0
+186 silly currentTree +-- boom@2.10.1
+186 silly currentTree +-- bower@1.7.9
+186 silly currentTree +-- brace-expansion@1.1.6
+186 silly currentTree +-- braces@1.8.5
+186 silly currentTree +-- bson@0.4.23
+186 silly currentTree +-- buffer-equal-constant-time@1.0.1
+186 silly currentTree +-- buffer-shims@1.0.0
+186 silly currentTree +-- buildmail@3.8.0
+186 silly currentTree +-- bytes@2.4.0
+186 silly currentTree +-- camelcase-keys@1.0.0
+186 silly currentTree +-- camelcase@1.2.1
+186 silly currentTree +-- caseless@0.11.0
+186 silly currentTree +-- center-align@0.1.3
+186 silly currentTree +-- chalk@1.1.3
+186 silly currentTree +-- character-parser@1.2.1
+186 silly currentTree +-- cheerio@0.20.0
+186 silly currentTree +-- chokidar@1.6.0
+186 silly currentTree +-- chrono-node@1.2.4
+186 silly currentTree +-- clean-css@3.4.19
+186 silly currentTree | `-- commander@2.8.1
+186 silly currentTree +-- cliui@2.1.0
+186 silly currentTree | `-- wordwrap@0.0.2
+186 silly currentTree +-- combined-stream@1.0.5
+186 silly currentTree +-- commander@2.6.0
+186 silly currentTree +-- composable-middleware@0.3.0
+186 silly currentTree +-- compressible@2.0.8
+186 silly currentTree +-- compression@1.6.2
+186 silly currentTree | `-- bytes@2.3.0
+186 silly currentTree +-- concat-map@0.0.1
+186 silly currentTree +-- concat-stream@1.4.10
+186 silly currentTree +-- configstore@1.4.0
+186 silly currentTree | `-- object-assign@4.1.0
+186 silly currentTree +-- constantinople@3.0.2
+186 silly currentTree +-- content-disposition@0.5.1
+186 silly currentTree +-- content-type@1.0.2
+186 silly currentTree +-- cookie-parser@1.4.3
+186 silly currentTree +-- cookie-signature@1.0.6
+186 silly currentTree +-- cookie@0.3.1
+186 silly currentTree +-- core-util-is@1.0.2
+186 silly currentTree +-- crc@3.4.0
+186 silly currentTree +-- cryptiles@2.0.5
+186 silly currentTree +-- crypto@0.0.3
+186 silly currentTree +-- css-parse@1.0.4
+186 silly currentTree +-- css-select@1.2.0
+186 silly currentTree +-- css-stringify@1.0.5
+186 silly currentTree +-- css-what@2.1.0
+186 silly currentTree +-- css@1.0.8
+186 silly currentTree +-- cssom@0.3.1
+186 silly currentTree +-- cssstyle@0.2.36
+186 silly currentTree +-- dashdash@1.14.0
+186 silly currentTree | `-- assert-plus@1.0.0
+186 silly currentTree +-- debug@2.2.0
+186 silly currentTree +-- decamelize@1.2.0
+186 silly currentTree +-- deep-extend@0.4.1
+186 silly currentTree +-- deep-is@0.1.3
+186 silly currentTree +-- delayed-stream@1.0.0
+186 silly currentTree +-- depd@1.1.0
+186 silly currentTree +-- destroy@1.0.4
+186 silly currentTree +-- dom-serializer@0.1.0
+186 silly currentTree | `-- domelementtype@1.1.3
+186 silly currentTree +-- domelementtype@1.3.0
+186 silly currentTree +-- domhandler@2.3.0
+186 silly currentTree +-- domutils@1.5.1
+186 silly currentTree +-- duplexer@0.1.1
+186 silly currentTree +-- duplexify@3.4.5
+186 silly currentTree | +-- isarray@1.0.0
+186 silly currentTree | `-- readable-stream@2.1.4
+186 silly currentTree +-- ecc-jsbn@0.1.1
+186 silly currentTree +-- ecdsa-sig-formatter@1.0.7
+186 silly currentTree +-- ee-first@1.1.1
+186 silly currentTree +-- encodeurl@1.0.1
+186 silly currentTree +-- end-of-stream@1.0.0
+186 silly currentTree +-- entities@1.1.1
+186 silly currentTree +-- errorhandler@1.4.3
+186 silly currentTree +-- es6-promise@3.0.2
+186 silly currentTree +-- escape-html@1.0.3
+186 silly currentTree +-- escape-regexp-component@1.0.2
+186 silly currentTree +-- escape-string-regexp@1.0.5
+186 silly currentTree +-- escodegen@1.8.1
+186 silly currentTree | `-- source-map@0.2.0
+186 silly currentTree +-- esprima@2.7.2
+186 silly currentTree +-- estraverse@1.9.3
+186 silly currentTree +-- esutils@2.0.2
+186 silly currentTree +-- etag@1.7.0
+186 silly currentTree +-- event-stream@3.3.4
+186 silly currentTree +-- expand-brackets@0.1.5
+186 silly currentTree +-- expand-range@1.8.2
+186 silly currentTree +-- express-jwt@3.4.0
+186 silly currentTree | `-- jsonwebtoken@5.7.0
+186 silly currentTree +-- express-session@1.14.0
+186 silly currentTree +-- express-unless@0.3.0
+186 silly currentTree +-- express@4.14.0
+186 silly currentTree +-- extend@3.0.0
+186 silly currentTree +-- extglob@0.3.2
+186 silly currentTree +-- extsprintf@1.0.2
+186 silly currentTree +-- fast-levenshtein@1.1.4
+186 silly currentTree +-- filename-regex@2.0.0
+186 silly currentTree +-- fill-range@2.2.3
+186 silly currentTree +-- finalhandler@0.5.0
+186 silly currentTree +-- for-in@0.1.5
+186 silly currentTree +-- for-own@0.1.4
+186 silly currentTree +-- forEachAsync@3.0.0
+186 silly currentTree +-- forever-agent@0.6.1
+186 silly currentTree +-- form-data@1.0.0-rc4
+186 silly currentTree +-- forwarded@0.1.0
+186 silly currentTree +-- fresh@0.3.0
+186 silly currentTree +-- from@0.1.3
+186 silly currentTree +-- fs.realpath@1.0.0
+186 silly currentTree +-- generate-function@2.0.0
+186 silly currentTree +-- generate-object-property@1.2.0
+186 silly currentTree +-- get-stdin@4.0.1
+186 silly currentTree +-- getpass@0.1.6
+186 silly currentTree | `-- assert-plus@1.0.0
+186 silly currentTree +-- glob-base@0.3.0
+186 silly currentTree +-- glob-parent@2.0.0
+186 silly currentTree +-- glob@7.0.5
+186 silly currentTree +-- got@3.3.1
+186 silly currentTree | `-- object-assign@3.0.0
+186 silly currentTree +-- graceful-fs@4.1.5
+186 silly currentTree +-- graceful-readlink@1.0.1
+186 silly currentTree +-- har-validator@2.0.6
+186 silly currentTree | `-- commander@2.9.0
+186 silly currentTree +-- has-ansi@2.0.0
+186 silly currentTree +-- hawk@3.1.3
+186 silly currentTree +-- hoek@2.16.3
+186 silly currentTree +-- hooks-fixed@1.2.0
+186 silly currentTree +-- htmlparser2@3.8.3
+186 silly currentTree | `-- entities@1.0.0
+186 silly currentTree +-- http-errors@1.5.0
+186 silly currentTree +-- http-signature@1.1.1
+186 silly currentTree +-- httpntlm@1.6.1
+186 silly currentTree +-- httpreq@0.4.22
+186 silly currentTree +-- iconv-lite@0.4.13
+186 silly currentTree +-- ignore-by-default@1.0.1
+186 silly currentTree +-- imurmurhash@0.1.4
+186 silly currentTree +-- indent-string@1.2.2
+186 silly currentTree +-- infinity-agent@2.0.3
+186 silly currentTree +-- inflight@1.0.5
+186 silly currentTree +-- inherits@2.0.1
+186 silly currentTree +-- ini@1.3.4
+186 silly currentTree +-- ip@1.1.3
+186 silly currentTree +-- ipaddr.js@1.1.1
+186 silly currentTree +-- is-binary-path@1.0.1
+186 silly currentTree +-- is-buffer@1.1.3
+186 silly currentTree +-- is-dotfile@1.0.2
+186 silly currentTree +-- is-equal-shallow@0.1.3
+186 silly currentTree +-- is-extendable@0.1.1
+186 silly currentTree +-- is-extglob@1.0.0
+186 silly currentTree +-- is-finite@1.0.1
+186 silly currentTree +-- is-glob@2.0.1
+186 silly currentTree +-- is-isodate@0.0.1
+186 silly currentTree +-- is-my-json-valid@2.13.1
+186 silly currentTree +-- is-npm@1.0.0
+186 silly currentTree +-- is-number@2.1.0
+186 silly currentTree +-- is-posix-bracket@0.1.1
+186 silly currentTree +-- is-primitive@2.0.0
+186 silly currentTree +-- is-promise@2.1.0
+186 silly currentTree +-- is-property@1.0.2
+186 silly currentTree +-- is-redirect@1.0.0
+186 silly currentTree +-- is-stream@1.1.0
+186 silly currentTree +-- is-typedarray@1.0.0
+186 silly currentTree +-- is-url@1.2.2
+186 silly currentTree +-- isarray@0.0.1
+186 silly currentTree +-- isemail@1.2.0
+186 silly currentTree +-- isobject@2.1.0
+186 silly currentTree | `-- isarray@1.0.0
+186 silly currentTree +-- isstream@0.1.2
+186 silly currentTree +-- jade@1.11.0
+186 silly currentTree +-- jodid25519@1.0.2
+186 silly currentTree +-- joi@6.10.1
+186 silly currentTree +-- jsbn@0.1.0
+186 silly currentTree +-- jsdom@7.2.2
+186 silly currentTree | `-- sax@1.2.1
+186 silly currentTree +-- json-schema@0.2.2
+186 silly currentTree +-- json-stringify-safe@5.0.1
+186 silly currentTree +-- jsonpointer@2.0.0
+186 silly currentTree +-- jsonwebtoken@7.1.7
+186 silly currentTree +-- jsprim@1.3.0
+186 silly currentTree +-- jstransformer@0.0.2
+186 silly currentTree +-- jwa@1.1.3
+186 silly currentTree +-- jws@3.1.3
+186 silly currentTree +-- kareem@1.1.3
+186 silly currentTree +-- kind-of@3.0.4
+186 silly currentTree +-- latest-version@1.0.1
+186 silly currentTree +-- lazy-cache@1.0.4
+186 silly currentTree +-- levn@0.3.0
+186 silly currentTree +-- libbase64@0.1.0
+186 silly currentTree +-- libmime@2.0.3
+186 silly currentTree +-- libqp@1.1.0
+186 silly currentTree +-- lodash._baseassign@3.2.0
+186 silly currentTree +-- lodash._basecopy@3.0.1
+186 silly currentTree +-- lodash._bindcallback@3.0.1
+186 silly currentTree +-- lodash._createassigner@3.1.1
+186 silly currentTree +-- lodash._getnative@3.9.1
+186 silly currentTree +-- lodash._isiterateecall@3.0.9
+186 silly currentTree +-- lodash.assign@3.2.0
+186 silly currentTree +-- lodash.defaults@3.1.2
+186 silly currentTree +-- lodash.isarguments@3.0.9
+186 silly currentTree +-- lodash.isarray@3.0.4
+186 silly currentTree +-- lodash.keys@3.1.2
+186 silly currentTree +-- lodash.once@4.1.0
+186 silly currentTree +-- lodash.restparam@3.6.1
+186 silly currentTree +-- lodash.set@4.3.1
+186 silly currentTree +-- lodash@4.14.1
+186 silly currentTree +-- longest@1.0.1
+186 silly currentTree +-- lowercase-keys@1.0.0
+186 silly currentTree +-- mailchimp-api@2.0.7
+186 silly currentTree +-- mailchimp@1.2.0
+186 silly currentTree +-- mailcomposer@3.10.0
+186 silly currentTree +-- make-error-cause@1.2.1
+186 silly currentTree +-- make-error@1.2.0
+186 silly currentTree +-- map-obj@1.0.1
+186 silly currentTree +-- map-stream@0.1.0
+186 silly currentTree +-- media-typer@0.3.0
+186 silly currentTree +-- meow@2.0.0
+186 silly currentTree +-- merge-descriptors@1.0.1
+186 silly currentTree +-- metascraper@1.0.5
+186 silly currentTree +-- method-override@2.3.6
+186 silly currentTree +-- methods@1.1.2
+186 silly currentTree +-- micromatch@2.3.11
+186 silly currentTree +-- mime-db@1.23.0
+186 silly currentTree +-- mime-types@2.1.11
+186 silly currentTree +-- mime@1.3.4
+186 silly currentTree +-- minimatch@3.0.2
+186 silly currentTree +-- minimist@1.2.0
+186 silly currentTree +-- mkdirp@0.5.1
+186 silly currentTree | `-- minimist@0.0.8
+186 silly currentTree +-- moment@2.14.1
+186 silly currentTree +-- mongodb-core@1.3.18
+186 silly currentTree +-- mongodb@2.1.18
+186 silly currentTree | `-- readable-stream@1.0.31
+186 silly currentTree +-- mongoose@4.5.8
+186 silly currentTree +-- morgan@1.7.0
+186 silly currentTree +-- mpath@0.2.1
+186 silly currentTree +-- mpromise@0.5.5
+186 silly currentTree +-- mquery@1.11.0
+186 silly currentTree | `-- sliced@0.0.5
+186 silly currentTree +-- ms@0.7.1
+186 silly currentTree +-- muri@1.1.0
+186 silly currentTree +-- negotiator@0.6.1
+186 silly currentTree +-- nested-error-stacks@1.0.2
+186 silly currentTree +-- node-uuid@1.4.7
+186 silly currentTree +-- nodemailer-direct-transport@3.2.0
+186 silly currentTree +-- nodemailer-fetch@1.4.0
+186 silly currentTree +-- nodemailer-shared@1.0.5
+186 silly currentTree +-- nodemailer-smtp-pool@2.7.0
+186 silly currentTree +-- nodemailer-smtp-transport@2.6.0
+186 silly currentTree +-- nodemailer-wellknown@0.1.10
+186 silly currentTree +-- nodemailer@2.5.0
+186 silly currentTree +-- nodemon@1.10.0
+186 silly currentTree +-- nopt@1.0.10
+186 silly currentTree +-- normalize-path@2.0.1
+186 silly currentTree +-- nth-check@1.0.1
+186 silly currentTree +-- number-is-nan@1.0.0
+186 silly currentTree +-- nwmatcher@1.3.8
+186 silly currentTree +-- oauth-sign@0.8.2
+186 silly currentTree +-- object-assign@1.0.0
+186 silly currentTree +-- object.omit@2.0.0
+186 silly currentTree +-- on-finished@2.3.0
+186 silly currentTree +-- on-headers@1.0.1
+186 silly currentTree +-- once@1.3.3
+186 silly currentTree +-- open-graph-scraper@2.2.0
+186 silly currentTree | +-- bl@1.0.3
+186 silly currentTree | +-- isarray@1.0.0
+186 silly currentTree | +-- lodash@4.2.1
+186 silly currentTree | +-- qs@6.0.2
+186 silly currentTree | +-- readable-stream@2.0.6
+186 silly currentTree | +-- request@2.69.0
+186 silly currentTree | `-- tough-cookie@2.2.2
+186 silly currentTree +-- optimist@0.3.7
+186 silly currentTree +-- optionator@0.8.1
+186 silly currentTree | `-- wordwrap@1.0.0
+186 silly currentTree +-- os-homedir@1.0.1
+186 silly currentTree +-- os-tmpdir@1.0.1
+186 silly currentTree +-- osenv@0.1.3
+186 silly currentTree +-- package-json@1.2.0
+186 silly currentTree +-- parse-glob@3.0.4
+186 silly currentTree +-- parse5@1.5.1
+186 silly currentTree +-- parseurl@1.3.1
+186 silly currentTree +-- passport-local@1.0.0
+186 silly currentTree +-- passport-strategy@1.0.0
+186 silly currentTree +-- passport@0.3.2
+186 silly currentTree +-- path-is-absolute@1.0.0
+186 silly currentTree +-- path-to-regexp@0.1.7
+186 silly currentTree +-- path@0.12.7
+186 silly currentTree +-- pause-stream@0.0.11
+186 silly currentTree +-- pause@0.0.1
+186 silly currentTree +-- pinkie-promise@2.0.1
+186 silly currentTree +-- pinkie@2.0.4
+186 silly currentTree +-- popsicle@6.2.2
+186 silly currentTree | +-- async@0.9.2
+186 silly currentTree | +-- combined-stream@0.0.7
+186 silly currentTree | +-- delayed-stream@0.0.5
+186 silly currentTree | +-- form-data@0.2.0
+186 silly currentTree | +-- mime-db@1.12.0
+186 silly currentTree | `-- mime-types@2.0.14
+186 silly currentTree +-- prelude-ls@1.1.2
+186 silly currentTree +-- prepend-http@1.0.4
+186 silly currentTree +-- prerender-node@2.3.0
+186 silly currentTree +-- preserve@0.2.0
+186 silly currentTree +-- process-nextick-args@1.0.7
+186 silly currentTree +-- process@0.11.7
+186 silly currentTree +-- promise@6.1.0
+186 silly currentTree +-- proxy-addr@1.1.2
+186 silly currentTree +-- ps-tree@1.1.0
+186 silly currentTree +-- qs@6.2.0
+186 silly currentTree +-- random-bytes@1.0.0
+186 silly currentTree +-- randomatic@1.1.5
+186 silly currentTree +-- range-parser@1.2.0
+186 silly currentTree +-- raw-body@2.1.7
+186 silly currentTree +-- rc@1.1.6
+186 silly currentTree +-- read-all-stream@3.1.0
+186 silly currentTree | +-- isarray@1.0.0
+186 silly currentTree | `-- readable-stream@2.1.4
+186 silly currentTree +-- readable-stream@1.1.14
+186 silly currentTree +-- readdirp@2.1.0
+186 silly currentTree | +-- isarray@1.0.0
+186 silly currentTree | `-- readable-stream@2.1.4
+186 silly currentTree +-- regex-cache@0.4.3
+186 silly currentTree +-- regexp-clone@0.0.1
+186 silly currentTree +-- registry-url@3.1.0
+186 silly currentTree +-- repeat-element@1.1.2
+186 silly currentTree +-- repeat-string@1.5.4
+186 silly currentTree +-- repeating@1.1.3
+186 silly currentTree +-- request@2.74.0
+186 silly currentTree +-- require_optional@1.0.0
+186 silly currentTree +-- resolve-from@2.0.0
+186 silly currentTree +-- right-align@0.1.3
+186 silly currentTree +-- sax@0.5.8
+186 silly currentTree +-- semver-diff@2.1.0
+186 silly currentTree +-- semver@5.3.0
+186 silly currentTree +-- send@0.14.1
+186 silly currentTree +-- sendgrid-rest@2.2.1
+186 silly currentTree +-- sendgrid@3.0.11
+186 silly currentTree +-- serve-static@1.11.1
+186 silly currentTree +-- set-immediate-shim@1.0.1
+186 silly currentTree +-- setprototypeof@1.0.1
+186 silly currentTree +-- sliced@1.0.1
+186 silly currentTree +-- slide@1.1.6
+186 silly currentTree +-- smart-buffer@1.0.11
+186 silly currentTree +-- smtp-connection@2.8.0
+186 silly currentTree +-- sntp@1.0.9
+186 silly currentTree +-- socks@1.1.9
+186 silly currentTree +-- source-map@0.4.4
+186 silly currentTree +-- split@0.3.3
+186 silly currentTree +-- sshpk@1.9.2
+186 silly currentTree | `-- assert-plus@1.0.0
+186 silly currentTree +-- statuses@1.3.0
+186 silly currentTree +-- stream-combiner@0.0.4
+186 silly currentTree +-- stream-shift@1.0.0
+186 silly currentTree +-- string_decoder@0.10.31
+186 silly currentTree +-- string-length@1.0.1
+186 silly currentTree +-- stringstream@0.0.5
+186 silly currentTree +-- strip-ansi@3.0.1
+186 silly currentTree +-- strip-json-comments@1.0.4
+186 silly currentTree +-- stripe@4.9.0
+186 silly currentTree | `-- qs@2.4.2
+186 silly currentTree +-- stylus@0.54.5
+186 silly currentTree | +-- css-parse@1.7.0
+186 silly currentTree | `-- source-map@0.1.43
+186 silly currentTree +-- supports-color@2.0.0
+186 silly currentTree +-- symbol-tree@3.1.4
+186 silly currentTree +-- through@2.3.8
+186 silly currentTree +-- throwback@1.1.1
+186 silly currentTree +-- timed-out@2.0.0
+186 silly currentTree +-- title-case-minors@1.0.0
+186 silly currentTree +-- to-capital-case@1.0.0
+186 silly currentTree +-- to-no-case@1.0.1
+186 silly currentTree +-- to-sentence-case@1.0.0
+186 silly currentTree +-- to-space-case@1.0.0
+186 silly currentTree +-- to-title-case@1.0.0
+186 silly currentTree +-- topo@1.1.0
+186 silly currentTree +-- touch@1.0.0
+186 silly currentTree +-- tough-cookie@2.3.1
+186 silly currentTree +-- tr46@0.0.3
+186 silly currentTree +-- transformers@2.1.0
+186 silly currentTree | +-- is-promise@1.0.1
+186 silly currentTree | +-- promise@2.0.0
+186 silly currentTree | +-- source-map@0.1.43
+186 silly currentTree | `-- uglify-js@2.2.5
+186 silly currentTree +-- tunnel-agent@0.4.3
+186 silly currentTree +-- tweetnacl@0.13.3
+186 silly currentTree +-- type-check@0.3.2
+186 silly currentTree +-- type-is@1.6.13
+186 silly currentTree +-- typedarray@0.0.6
+186 silly currentTree +-- uglify-js@2.7.0
+186 silly currentTree | +-- async@0.2.10
+186 silly currentTree | `-- source-map@0.5.6
+186 silly currentTree +-- uglify-to-browserify@1.0.2
+186 silly currentTree +-- uid-safe@2.1.1
+186 silly currentTree | `-- base64-url@1.2.2
+186 silly currentTree +-- undefsafe@0.0.3
+186 silly currentTree +-- underscore@1.7.0
+186 silly currentTree +-- unpipe@1.0.0
+186 silly currentTree +-- update-notifier@0.5.0
+186 silly currentTree +-- util-deprecate@1.0.2
+186 silly currentTree +-- util@0.10.3
+186 silly currentTree +-- utils-merge@1.0.0
+186 silly currentTree +-- uuid@2.0.2
+186 silly currentTree +-- vary@1.1.0
+186 silly currentTree +-- verror@1.3.6
+186 silly currentTree +-- void-elements@2.0.1
+186 silly currentTree +-- webidl-conversions@2.0.1
+186 silly currentTree +-- whatwg-url-compat@0.6.5
+186 silly currentTree +-- window-size@0.1.0
+186 silly currentTree +-- with@4.0.3
+186 silly currentTree | `-- acorn@1.2.2
+186 silly currentTree +-- wordwrap@0.0.3
+186 silly currentTree +-- wrappy@1.0.2
+186 silly currentTree +-- write-file-atomic@1.1.4
+186 silly currentTree +-- xdg-basedir@2.0.0
+186 silly currentTree +-- xml-name-validator@2.0.1
+186 silly currentTree +-- xtend@4.0.1
+186 silly currentTree `-- yargs@3.10.0
+187 silly idealTree bigbodies@1.0.0
+187 silly idealTree +-- abab@1.0.3
+187 silly idealTree +-- abbrev@1.0.9
+187 silly idealTree +-- accepts@1.3.3
+187 silly idealTree +-- acorn-globals@1.0.9
+187 silly idealTree +-- acorn@2.7.0
+187 silly idealTree +-- addressparser@1.0.1
+187 silly idealTree +-- align-text@0.1.4
+187 silly idealTree +-- amdefine@1.0.0
+187 silly idealTree +-- ansi-regex@2.0.0
+187 silly idealTree +-- ansi-styles@2.2.1
+187 silly idealTree +-- any-promise@1.3.0
+187 silly idealTree +-- anymatch@1.3.0
+187 silly idealTree +-- arr-diff@2.0.0
+187 silly idealTree +-- arr-flatten@1.0.1
+187 silly idealTree +-- array-flatten@1.1.1
+187 silly idealTree +-- array-unique@0.2.1
+187 silly idealTree +-- arrify@1.0.1
+187 silly idealTree +-- asap@1.0.0
+187 silly idealTree +-- asn1@0.2.3
+187 silly idealTree +-- assert-plus@0.2.0
+187 silly idealTree +-- async-each@1.0.0
+187 silly idealTree +-- async@1.5.2
+187 silly idealTree +-- aws-sign2@0.6.0
+187 silly idealTree +-- aws4@1.4.1
+187 silly idealTree +-- balanced-match@0.4.2
+187 silly idealTree +-- base64-url@1.3.2
+187 silly idealTree +-- base64url@1.0.6
+187 silly idealTree +-- basic-auth@1.0.4
+187 silly idealTree +-- bcrypt-nodejs@0.0.3
+187 silly idealTree +-- bcrypt@0.8.7
+187 silly idealTree +-- binary-extensions@1.5.0
+187 silly idealTree +-- bindings@1.2.1
+187 silly idealTree +-- bl@1.1.2
+187 silly idealTree | +-- isarray@1.0.0
+187 silly idealTree | `-- readable-stream@2.0.6
+187 silly idealTree +-- bluebird@2.10.2
+187 silly idealTree +-- body-parser@1.15.2
+187 silly idealTree +-- boolbase@1.0.0
+187 silly idealTree +-- boom@2.10.1
+187 silly idealTree +-- bower@1.7.9
+187 silly idealTree +-- brace-expansion@1.1.6
+187 silly idealTree +-- braces@1.8.5
+187 silly idealTree +-- bson@0.4.23
+187 silly idealTree +-- buffer-equal-constant-time@1.0.1
+187 silly idealTree +-- buffer-shims@1.0.0
+187 silly idealTree +-- buildmail@3.8.0
+187 silly idealTree +-- bytes@2.4.0
+187 silly idealTree +-- camelcase-keys@1.0.0
+187 silly idealTree +-- camelcase@1.2.1
+187 silly idealTree +-- caseless@0.11.0
+187 silly idealTree +-- center-align@0.1.3
+187 silly idealTree +-- chalk@1.1.3
+187 silly idealTree +-- character-parser@1.2.1
+187 silly idealTree +-- cheerio@0.20.0
+187 silly idealTree +-- chokidar@1.6.0
+187 silly idealTree +-- chrono-node@1.2.4
+187 silly idealTree +-- clean-css@3.4.19
+187 silly idealTree | `-- commander@2.8.1
+187 silly idealTree +-- cliui@2.1.0
+187 silly idealTree | `-- wordwrap@0.0.2
+187 silly idealTree +-- combined-stream@1.0.5
+187 silly idealTree +-- commander@2.6.0
+187 silly idealTree +-- composable-middleware@0.3.0
+187 silly idealTree +-- compressible@2.0.8
+187 silly idealTree +-- compression@1.6.2
+187 silly idealTree | `-- bytes@2.3.0
+187 silly idealTree +-- concat-map@0.0.1
+187 silly idealTree +-- concat-stream@1.4.10
+187 silly idealTree +-- configstore@1.4.0
+187 silly idealTree | `-- object-assign@4.1.0
+187 silly idealTree +-- constantinople@3.0.2
+187 silly idealTree +-- content-disposition@0.5.1
+187 silly idealTree +-- content-type@1.0.2
+187 silly idealTree +-- cookie-parser@1.4.3
+187 silly idealTree +-- cookie-signature@1.0.6
+187 silly idealTree +-- cookie@0.3.1
+187 silly idealTree +-- core-util-is@1.0.2
+187 silly idealTree +-- crc@3.4.0
+187 silly idealTree +-- cryptiles@2.0.5
+187 silly idealTree +-- crypto@0.0.3
+187 silly idealTree +-- css-parse@1.0.4
+187 silly idealTree +-- css-select@1.2.0
+187 silly idealTree +-- css-stringify@1.0.5
+187 silly idealTree +-- css-what@2.1.0
+187 silly idealTree +-- css@1.0.8
+187 silly idealTree +-- cssom@0.3.1
+187 silly idealTree +-- cssstyle@0.2.36
+187 silly idealTree +-- dashdash@1.14.0
+187 silly idealTree | `-- assert-plus@1.0.0
+187 silly idealTree +-- debug@2.2.0
+187 silly idealTree +-- decamelize@1.2.0
+187 silly idealTree +-- deep-extend@0.4.1
+187 silly idealTree +-- deep-is@0.1.3
+187 silly idealTree +-- delayed-stream@1.0.0
+187 silly idealTree +-- depd@1.1.0
+187 silly idealTree +-- destroy@1.0.4
+187 silly idealTree +-- dom-serializer@0.1.0
+187 silly idealTree | `-- domelementtype@1.1.3
+187 silly idealTree +-- domelementtype@1.3.0
+187 silly idealTree +-- domhandler@2.3.0
+187 silly idealTree +-- domutils@1.5.1
+187 silly idealTree +-- duplexer@0.1.1
+187 silly idealTree +-- duplexify@3.4.5
+187 silly idealTree | +-- isarray@1.0.0
+187 silly idealTree | `-- readable-stream@2.1.4
+187 silly idealTree +-- ecc-jsbn@0.1.1
+187 silly idealTree +-- ecdsa-sig-formatter@1.0.7
+187 silly idealTree +-- ee-first@1.1.1
+187 silly idealTree +-- encodeurl@1.0.1
+187 silly idealTree +-- end-of-stream@1.0.0
+187 silly idealTree +-- entities@1.1.1
+187 silly idealTree +-- errorhandler@1.4.3
+187 silly idealTree +-- es6-promise@3.0.2
+187 silly idealTree +-- escape-html@1.0.3
+187 silly idealTree +-- escape-regexp-component@1.0.2
+187 silly idealTree +-- escape-string-regexp@1.0.5
+187 silly idealTree +-- escodegen@1.8.1
+187 silly idealTree | `-- source-map@0.2.0
+187 silly idealTree +-- esprima@2.7.2
+187 silly idealTree +-- estraverse@1.9.3
+187 silly idealTree +-- esutils@2.0.2
+187 silly idealTree +-- etag@1.7.0
+187 silly idealTree +-- event-stream@3.3.4
+187 silly idealTree +-- expand-brackets@0.1.5
+187 silly idealTree +-- expand-range@1.8.2
+187 silly idealTree +-- express-jwt@3.4.0
+187 silly idealTree | `-- jsonwebtoken@5.7.0
+187 silly idealTree +-- express-session@1.14.0
+187 silly idealTree +-- express-unless@0.3.0
+187 silly idealTree +-- express@4.14.0
+187 silly idealTree +-- extend@3.0.0
+187 silly idealTree +-- extglob@0.3.2
+187 silly idealTree +-- extsprintf@1.0.2
+187 silly idealTree +-- fast-levenshtein@1.1.4
+187 silly idealTree +-- filename-regex@2.0.0
+187 silly idealTree +-- fill-range@2.2.3
+187 silly idealTree +-- finalhandler@0.5.0
+187 silly idealTree +-- for-in@0.1.5
+187 silly idealTree +-- for-own@0.1.4
+187 silly idealTree +-- forEachAsync@3.0.0
+187 silly idealTree +-- forever-agent@0.6.1
+187 silly idealTree +-- form-data@1.0.0-rc4
+187 silly idealTree +-- forwarded@0.1.0
+187 silly idealTree +-- fresh@0.3.0
+187 silly idealTree +-- from@0.1.3
+187 silly idealTree +-- fs.realpath@1.0.0
+187 silly idealTree +-- generate-function@2.0.0
+187 silly idealTree +-- generate-object-property@1.2.0
+187 silly idealTree +-- get-stdin@4.0.1
+187 silly idealTree +-- getpass@0.1.6
+187 silly idealTree | `-- assert-plus@1.0.0
+187 silly idealTree +-- glob-base@0.3.0
+187 silly idealTree +-- glob-parent@2.0.0
+187 silly idealTree +-- glob@7.0.5
+187 silly idealTree +-- got@3.3.1
+187 silly idealTree | `-- object-assign@3.0.0
+187 silly idealTree +-- graceful-fs@4.1.5
+187 silly idealTree +-- graceful-readlink@1.0.1
+187 silly idealTree +-- har-validator@2.0.6
+187 silly idealTree | `-- commander@2.9.0
+187 silly idealTree +-- has-ansi@2.0.0
+187 silly idealTree +-- hawk@3.1.3
+187 silly idealTree +-- hoek@2.16.3
+187 silly idealTree +-- hooks-fixed@1.2.0
+187 silly idealTree +-- htmlparser2@3.8.3
+187 silly idealTree | `-- entities@1.0.0
+187 silly idealTree +-- http-errors@1.5.0
+187 silly idealTree +-- http-signature@1.1.1
+187 silly idealTree +-- httpntlm@1.6.1
+187 silly idealTree +-- httpreq@0.4.22
+187 silly idealTree +-- iconv-lite@0.4.13
+187 silly idealTree +-- ignore-by-default@1.0.1
+187 silly idealTree +-- imurmurhash@0.1.4
+187 silly idealTree +-- indent-string@1.2.2
+187 silly idealTree +-- infinity-agent@2.0.3
+187 silly idealTree +-- inflight@1.0.5
+187 silly idealTree +-- inherits@2.0.1
+187 silly idealTree +-- ini@1.3.4
+187 silly idealTree +-- ip@1.1.3
+187 silly idealTree +-- ipaddr.js@1.1.1
+187 silly idealTree +-- is-binary-path@1.0.1
+187 silly idealTree +-- is-buffer@1.1.3
+187 silly idealTree +-- is-dotfile@1.0.2
+187 silly idealTree +-- is-equal-shallow@0.1.3
+187 silly idealTree +-- is-extendable@0.1.1
+187 silly idealTree +-- is-extglob@1.0.0
+187 silly idealTree +-- is-finite@1.0.1
+187 silly idealTree +-- is-glob@2.0.1
+187 silly idealTree +-- is-isodate@0.0.1
+187 silly idealTree +-- is-my-json-valid@2.13.1
+187 silly idealTree +-- is-npm@1.0.0
+187 silly idealTree +-- is-number@2.1.0
+187 silly idealTree +-- is-posix-bracket@0.1.1
+187 silly idealTree +-- is-primitive@2.0.0
+187 silly idealTree +-- is-promise@2.1.0
+187 silly idealTree +-- is-property@1.0.2
+187 silly idealTree +-- is-redirect@1.0.0
+187 silly idealTree +-- is-stream@1.1.0
+187 silly idealTree +-- is-typedarray@1.0.0
+187 silly idealTree +-- is-url@1.2.2
+187 silly idealTree +-- isarray@0.0.1
+187 silly idealTree +-- isemail@1.2.0
+187 silly idealTree +-- isobject@2.1.0
+187 silly idealTree | `-- isarray@1.0.0
+187 silly idealTree +-- isstream@0.1.2
+187 silly idealTree +-- jade@1.11.0
+187 silly idealTree +-- jodid25519@1.0.2
+187 silly idealTree +-- joi@6.10.1
+187 silly idealTree +-- jsbn@0.1.0
+187 silly idealTree +-- jsdom@7.2.2
+187 silly idealTree | `-- sax@1.2.1
+187 silly idealTree +-- json-schema@0.2.2
+187 silly idealTree +-- json-stringify-safe@5.0.1
+187 silly idealTree +-- jsonpointer@2.0.0
+187 silly idealTree +-- jsonwebtoken@7.1.7
+187 silly idealTree +-- jsprim@1.3.0
+187 silly idealTree +-- jstransformer@0.0.2
+187 silly idealTree +-- jwa@1.1.3
+187 silly idealTree +-- jws@3.1.3
+187 silly idealTree +-- kareem@1.1.3
+187 silly idealTree +-- kind-of@3.0.4
+187 silly idealTree +-- latest-version@1.0.1
+187 silly idealTree +-- lazy-cache@1.0.4
+187 silly idealTree +-- levn@0.3.0
+187 silly idealTree +-- libbase64@0.1.0
+187 silly idealTree +-- libmime@2.0.3
+187 silly idealTree +-- libqp@1.1.0
+187 silly idealTree +-- lodash._baseassign@3.2.0
+187 silly idealTree +-- lodash._basecopy@3.0.1
+187 silly idealTree +-- lodash._bindcallback@3.0.1
+187 silly idealTree +-- lodash._createassigner@3.1.1
+187 silly idealTree +-- lodash._getnative@3.9.1
+187 silly idealTree +-- lodash._isiterateecall@3.0.9
+187 silly idealTree +-- lodash.assign@3.2.0
+187 silly idealTree +-- lodash.defaults@3.1.2
+187 silly idealTree +-- lodash.isarguments@3.0.9
+187 silly idealTree +-- lodash.isarray@3.0.4
+187 silly idealTree +-- lodash.keys@3.1.2
+187 silly idealTree +-- lodash.once@4.1.0
+187 silly idealTree +-- lodash.restparam@3.6.1
+187 silly idealTree +-- lodash.set@4.3.1
+187 silly idealTree +-- lodash@4.14.1
+187 silly idealTree +-- longest@1.0.1
+187 silly idealTree +-- lowercase-keys@1.0.0
+187 silly idealTree +-- mailchimp-api@2.0.7
+187 silly idealTree +-- mailchimp@1.2.0
+187 silly idealTree +-- mailcomposer@3.10.0
+187 silly idealTree +-- make-error-cause@1.2.1
+187 silly idealTree +-- make-error@1.2.0
+187 silly idealTree +-- map-obj@1.0.1
+187 silly idealTree +-- map-stream@0.1.0
+187 silly idealTree +-- media-typer@0.3.0
+187 silly idealTree +-- meow@2.0.0
+187 silly idealTree +-- merge-descriptors@1.0.1
+187 silly idealTree +-- metascraper@1.0.5
+187 silly idealTree +-- method-override@2.3.6
+187 silly idealTree +-- methods@1.1.2
+187 silly idealTree +-- micromatch@2.3.11
+187 silly idealTree +-- mime-db@1.23.0
+187 silly idealTree +-- mime-types@2.1.11
+187 silly idealTree +-- mime@1.3.4
+187 silly idealTree +-- minimatch@3.0.2
+187 silly idealTree +-- minimist@1.2.0
+187 silly idealTree +-- mkdirp@0.5.1
+187 silly idealTree | `-- minimist@0.0.8
+187 silly idealTree +-- moment@2.14.1
+187 silly idealTree +-- mongodb-core@1.3.18
+187 silly idealTree +-- mongodb@2.1.18
+187 silly idealTree | `-- readable-stream@1.0.31
+187 silly idealTree +-- mongoose@4.5.8
+187 silly idealTree +-- morgan@1.7.0
+187 silly idealTree +-- mpath@0.2.1
+187 silly idealTree +-- mpromise@0.5.5
+187 silly idealTree +-- mquery@1.11.0
+187 silly idealTree | `-- sliced@0.0.5
+187 silly idealTree +-- ms@0.7.1
+187 silly idealTree +-- muri@1.1.0
+187 silly idealTree +-- nan@2.3.5
+187 silly idealTree +-- negotiator@0.6.1
+187 silly idealTree +-- nested-error-stacks@1.0.2
+187 silly idealTree +-- node-uuid@1.4.7
+187 silly idealTree +-- nodemailer-direct-transport@3.2.0
+187 silly idealTree +-- nodemailer-fetch@1.4.0
+187 silly idealTree +-- nodemailer-shared@1.0.5
+187 silly idealTree +-- nodemailer-smtp-pool@2.7.0
+187 silly idealTree +-- nodemailer-smtp-transport@2.6.0
+187 silly idealTree +-- nodemailer-wellknown@0.1.10
+187 silly idealTree +-- nodemailer@2.5.0
+187 silly idealTree +-- nodemon@1.10.0
+187 silly idealTree +-- nopt@1.0.10
+187 silly idealTree +-- normalize-path@2.0.1
+187 silly idealTree +-- nth-check@1.0.1
+187 silly idealTree +-- number-is-nan@1.0.0
+187 silly idealTree +-- nwmatcher@1.3.8
+187 silly idealTree +-- oauth-sign@0.8.2
+187 silly idealTree +-- object-assign@1.0.0
+187 silly idealTree +-- object.omit@2.0.0
+187 silly idealTree +-- on-finished@2.3.0
+187 silly idealTree +-- on-headers@1.0.1
+187 silly idealTree +-- once@1.3.3
+187 silly idealTree +-- open-graph-scraper@2.2.0
+187 silly idealTree | +-- bl@1.0.3
+187 silly idealTree | +-- isarray@1.0.0
+187 silly idealTree | +-- lodash@4.2.1
+187 silly idealTree | +-- qs@6.0.2
+187 silly idealTree | +-- readable-stream@2.0.6
+187 silly idealTree | +-- request@2.69.0
+187 silly idealTree | `-- tough-cookie@2.2.2
+187 silly idealTree +-- optimist@0.3.7
+187 silly idealTree +-- optionator@0.8.1
+187 silly idealTree | `-- wordwrap@1.0.0
+187 silly idealTree +-- os-homedir@1.0.1
+187 silly idealTree +-- os-tmpdir@1.0.1
+187 silly idealTree +-- osenv@0.1.3
+187 silly idealTree +-- package-json@1.2.0
+187 silly idealTree +-- parse-glob@3.0.4
+187 silly idealTree +-- parse5@1.5.1
+187 silly idealTree +-- parseurl@1.3.1
+187 silly idealTree +-- passport-local@1.0.0
+187 silly idealTree +-- passport-strategy@1.0.0
+187 silly idealTree +-- passport@0.3.2
+187 silly idealTree +-- path-is-absolute@1.0.0
+187 silly idealTree +-- path-to-regexp@0.1.7
+187 silly idealTree +-- path@0.12.7
+187 silly idealTree +-- pause-stream@0.0.11
+187 silly idealTree +-- pause@0.0.1
+187 silly idealTree +-- pinkie-promise@2.0.1
+187 silly idealTree +-- pinkie@2.0.4
+187 silly idealTree +-- popsicle@6.2.2
+187 silly idealTree | +-- async@0.9.2
+187 silly idealTree | +-- combined-stream@0.0.7
+187 silly idealTree | +-- delayed-stream@0.0.5
+187 silly idealTree | +-- form-data@0.2.0
+187 silly idealTree | +-- mime-db@1.12.0
+187 silly idealTree | `-- mime-types@2.0.14
+187 silly idealTree +-- prelude-ls@1.1.2
+187 silly idealTree +-- prepend-http@1.0.4
+187 silly idealTree +-- prerender-node@2.3.0
+187 silly idealTree +-- preserve@0.2.0
+187 silly idealTree +-- process-nextick-args@1.0.7
+187 silly idealTree +-- process@0.11.7
+187 silly idealTree +-- promise@6.1.0
+187 silly idealTree +-- proxy-addr@1.1.2
+187 silly idealTree +-- ps-tree@1.1.0
+187 silly idealTree +-- qs@6.2.0
+187 silly idealTree +-- random-bytes@1.0.0
+187 silly idealTree +-- randomatic@1.1.5
+187 silly idealTree +-- range-parser@1.2.0
+187 silly idealTree +-- raw-body@2.1.7
+187 silly idealTree +-- rc@1.1.6
+187 silly idealTree +-- read-all-stream@3.1.0
+187 silly idealTree | +-- isarray@1.0.0
+187 silly idealTree | `-- readable-stream@2.1.4
+187 silly idealTree +-- readable-stream@1.1.14
+187 silly idealTree +-- readdirp@2.1.0
+187 silly idealTree | +-- isarray@1.0.0
+187 silly idealTree | `-- readable-stream@2.1.4
+187 silly idealTree +-- regex-cache@0.4.3
+187 silly idealTree +-- regexp-clone@0.0.1
+187 silly idealTree +-- registry-url@3.1.0
+187 silly idealTree +-- repeat-element@1.1.2
+187 silly idealTree +-- repeat-string@1.5.4
+187 silly idealTree +-- repeating@1.1.3
+187 silly idealTree +-- request@2.74.0
+187 silly idealTree +-- require_optional@1.0.0
+187 silly idealTree +-- resolve-from@2.0.0
+187 silly idealTree +-- right-align@0.1.3
+187 silly idealTree +-- sax@0.5.8
+187 silly idealTree +-- semver-diff@2.1.0
+187 silly idealTree +-- semver@5.3.0
+187 silly idealTree +-- send@0.14.1
+187 silly idealTree +-- sendgrid-rest@2.2.1
+187 silly idealTree +-- sendgrid@3.0.11
+187 silly idealTree +-- serve-static@1.11.1
+187 silly idealTree +-- set-immediate-shim@1.0.1
+187 silly idealTree +-- setprototypeof@1.0.1
+187 silly idealTree +-- sliced@1.0.1
+187 silly idealTree +-- slide@1.1.6
+187 silly idealTree +-- smart-buffer@1.0.11
+187 silly idealTree +-- smtp-connection@2.8.0
+187 silly idealTree +-- sntp@1.0.9
+187 silly idealTree +-- socks@1.1.9
+187 silly idealTree +-- source-map@0.4.4
+187 silly idealTree +-- split@0.3.3
+187 silly idealTree +-- sshpk@1.9.2
+187 silly idealTree | `-- assert-plus@1.0.0
+187 silly idealTree +-- statuses@1.3.0
+187 silly idealTree +-- stream-combiner@0.0.4
+187 silly idealTree +-- stream-shift@1.0.0
+187 silly idealTree +-- string_decoder@0.10.31
+187 silly idealTree +-- string-length@1.0.1
+187 silly idealTree +-- stringstream@0.0.5
+187 silly idealTree +-- strip-ansi@3.0.1
+187 silly idealTree +-- strip-json-comments@1.0.4
+187 silly idealTree +-- stripe@4.9.0
+187 silly idealTree | `-- qs@2.4.2
+187 silly idealTree +-- stylus@0.54.5
+187 silly idealTree | +-- css-parse@1.7.0
+187 silly idealTree | `-- source-map@0.1.43
+187 silly idealTree +-- supports-color@2.0.0
+187 silly idealTree +-- symbol-tree@3.1.4
+187 silly idealTree +-- through@2.3.8
+187 silly idealTree +-- throwback@1.1.1
+187 silly idealTree +-- timed-out@2.0.0
+187 silly idealTree +-- title-case-minors@1.0.0
+187 silly idealTree +-- to-capital-case@1.0.0
+187 silly idealTree +-- to-no-case@1.0.1
+187 silly idealTree +-- to-sentence-case@1.0.0
+187 silly idealTree +-- to-space-case@1.0.0
+187 silly idealTree +-- to-title-case@1.0.0
+187 silly idealTree +-- topo@1.1.0
+187 silly idealTree +-- touch@1.0.0
+187 silly idealTree +-- tough-cookie@2.3.1
+187 silly idealTree +-- tr46@0.0.3
+187 silly idealTree +-- transformers@2.1.0
+187 silly idealTree | +-- is-promise@1.0.1
+187 silly idealTree | +-- promise@2.0.0
+187 silly idealTree | +-- source-map@0.1.43
+187 silly idealTree | `-- uglify-js@2.2.5
+187 silly idealTree +-- tunnel-agent@0.4.3
+187 silly idealTree +-- tweetnacl@0.13.3
+187 silly idealTree +-- type-check@0.3.2
+187 silly idealTree +-- type-is@1.6.13
+187 silly idealTree +-- typedarray@0.0.6
+187 silly idealTree +-- uglify-js@2.7.0
+187 silly idealTree | +-- async@0.2.10
+187 silly idealTree | `-- source-map@0.5.6
+187 silly idealTree +-- uglify-to-browserify@1.0.2
+187 silly idealTree +-- uid-safe@2.1.1
+187 silly idealTree | `-- base64-url@1.2.2
+187 silly idealTree +-- undefsafe@0.0.3
+187 silly idealTree +-- underscore@1.7.0
+187 silly idealTree +-- unpipe@1.0.0
+187 silly idealTree +-- update-notifier@0.5.0
+187 silly idealTree +-- util-deprecate@1.0.2
+187 silly idealTree +-- util@0.10.3
+187 silly idealTree +-- utils-merge@1.0.0
+187 silly idealTree +-- uuid@2.0.2
+187 silly idealTree +-- vary@1.1.0
+187 silly idealTree +-- verror@1.3.6
+187 silly idealTree +-- void-elements@2.0.1
+187 silly idealTree +-- webidl-conversions@2.0.1
+187 silly idealTree +-- whatwg-url-compat@0.6.5
+187 silly idealTree +-- window-size@0.1.0
+187 silly idealTree +-- with@4.0.3
+187 silly idealTree | `-- acorn@1.2.2
+187 silly idealTree +-- wordwrap@0.0.3
+187 silly idealTree +-- wrappy@1.0.2
+187 silly idealTree +-- write-file-atomic@1.1.4
+187 silly idealTree +-- xdg-basedir@2.0.0
+187 silly idealTree +-- xml-name-validator@2.0.1
+187 silly idealTree +-- xtend@4.0.1
+187 silly idealTree +-- yargs@3.10.0
+187 silly idealTree `-- youtube-thumbnails@1.0.2
+188 silly generateActionsToTake Starting
+189 silly install generateActionsToTake
+190 silly generateActionsToTake Finishing
+191 silly diffTrees action count 4
+192 silly diffTrees add bindings@1.2.1
+193 silly diffTrees add nan@2.3.5
+194 silly diffTrees add bcrypt@0.8.7
+195 silly diffTrees add youtube-thumbnails@1.0.2
+196 silly decomposeActions action count 32
+197 silly decomposeActions fetch bindings@1.2.1
+198 silly decomposeActions extract bindings@1.2.1
+199 silly decomposeActions test bindings@1.2.1
+200 silly decomposeActions preinstall bindings@1.2.1
+201 silly decomposeActions build bindings@1.2.1
+202 silly decomposeActions install bindings@1.2.1
+203 silly decomposeActions postinstall bindings@1.2.1
+204 silly decomposeActions finalize bindings@1.2.1
+205 silly decomposeActions fetch nan@2.3.5
+206 silly decomposeActions extract nan@2.3.5
+207 silly decomposeActions test nan@2.3.5
+208 silly decomposeActions preinstall nan@2.3.5
+209 silly decomposeActions build nan@2.3.5
+210 silly decomposeActions install nan@2.3.5
+211 silly decomposeActions postinstall nan@2.3.5
+212 silly decomposeActions finalize nan@2.3.5
+213 silly decomposeActions fetch bcrypt@0.8.7
+214 silly decomposeActions extract bcrypt@0.8.7
+215 silly decomposeActions test bcrypt@0.8.7
+216 silly decomposeActions preinstall bcrypt@0.8.7
+217 silly decomposeActions build bcrypt@0.8.7
+218 silly decomposeActions install bcrypt@0.8.7
+219 silly decomposeActions postinstall bcrypt@0.8.7
+220 silly decomposeActions finalize bcrypt@0.8.7
+221 silly decomposeActions fetch youtube-thumbnails@1.0.2
+222 silly decomposeActions extract youtube-thumbnails@1.0.2
+223 silly decomposeActions test youtube-thumbnails@1.0.2
+224 silly decomposeActions preinstall youtube-thumbnails@1.0.2
+225 silly decomposeActions build youtube-thumbnails@1.0.2
+226 silly decomposeActions install youtube-thumbnails@1.0.2
+227 silly decomposeActions postinstall youtube-thumbnails@1.0.2
+228 silly decomposeActions finalize youtube-thumbnails@1.0.2
+229 silly executeActions Starting
+230 silly install executeActions
+231 silly doSerial global-install 0
+232 silly doParallel fetch 4
+233 verbose correctMkdir C:\Users\Joram\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+234 verbose lock using C:\Users\Joram\AppData\Roaming\npm-cache\_locks\staging-d31b43148a796598.lock for C:\nodejs\projects\bigbodies\node_modules\.staging
+235 silly doParallel extract 4
+236 silly extract bindings@1.2.1
+237 silly extract nan@2.3.5
+238 silly extract bcrypt@0.8.7
+239 silly extract youtube-thumbnails@1.0.2
+240 verbose unbuild node_modules\.staging\bindings-1ea06139
+241 verbose unbuild node_modules\.staging\bcrypt-ca3ec6e3
+242 verbose unbuild node_modules\.staging\nan-6589c054
+243 verbose unbuild node_modules\.staging\youtube-thumbnails-788cebbb
+244 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139 is being purged from base C:\nodejs\projects\bigbodies
+245 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139
+246 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3 is being purged from base C:\nodejs\projects\bigbodies
+247 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3
+248 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054 is being purged from base C:\nodejs\projects\bigbodies
+249 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054
+250 verbose tar unpack C:\Users\Joram\AppData\Roaming\npm-cache\bindings\1.2.1\package.tgz
+251 verbose tar unpacking to C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139
+252 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139 is being purged
+253 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139
+254 verbose tar unpack C:\Users\Joram\AppData\Roaming\npm-cache\bcrypt\0.8.7\package.tgz
+255 verbose tar unpacking to C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3
+256 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3 is being purged
+257 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3
+258 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\youtube-thumbnails-788cebbb is being purged from base C:\nodejs\projects\bigbodies
+259 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\youtube-thumbnails-788cebbb
+260 verbose tar unpack C:\Users\Joram\AppData\Roaming\npm-cache\nan\2.3.5\package.tgz
+261 verbose tar unpacking to C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054
+262 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054 is being purged
+263 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054
+264 silly gunzTarPerm modes [ '777', '666' ]
+265 silly gunzTarPerm modes [ '777', '666' ]
+266 verbose tar unpack C:\Users\Joram\AppData\Roaming\npm-cache\youtube-thumbnails\1.0.2\package.tgz
+267 verbose tar unpacking to C:\nodejs\projects\bigbodies\node_modules\.staging\youtube-thumbnails-788cebbb
+268 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\youtube-thumbnails-788cebbb is being purged
+269 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\youtube-thumbnails-788cebbb
+270 silly gunzTarPerm modes [ '777', '666' ]
+271 silly gunzTarPerm modes [ '777', '666' ]
+272 silly gunzTarPerm extractEntry package.json
+273 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+274 silly gunzTarPerm extractEntry package.json
+275 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+276 silly gunzTarPerm extractEntry package.json
+277 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+278 silly gunzTarPerm extractEntry package.json
+279 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+280 silly gunzTarPerm extractEntry README.md
+281 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+282 silly gunzTarPerm extractEntry bindings.js
+283 silly gunzTarPerm modified mode [ 'bindings.js', 420, 438 ]
+284 silly gunzTarPerm extractEntry .npmignore
+285 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+286 silly gunzTarPerm extractEntry README.md
+287 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+288 silly gunzTarPerm extractEntry README.md
+289 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+290 silly gunzTarPerm extractEntry include_dirs.js
+291 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 438 ]
+292 silly gunzTarPerm extractEntry .npmignore
+293 silly gunzTarPerm modified mode [ '.npmignore', 436, 438 ]
+294 silly gunzTarPerm extractEntry README.md
+295 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+296 silly gunzTarPerm extractEntry LICENSE
+297 silly gunzTarPerm modified mode [ 'LICENSE', 436, 438 ]
+298 silly gunzTarPerm extractEntry index.js
+299 silly gunzTarPerm extractEntry LICENSE
+300 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+301 silly gunzTarPerm extractEntry bcrypt.js
+302 silly gunzTarPerm modified mode [ 'bcrypt.js', 420, 438 ]
+303 silly gunzTarPerm extractEntry Makefile
+304 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+305 silly gunzTarPerm extractEntry .travis.yml
+306 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+307 silly gunzTarPerm extractEntry CHANGELOG.md
+308 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+309 silly gunzTarPerm extractEntry binding.gyp
+310 silly gunzTarPerm modified mode [ 'binding.gyp', 420, 438 ]
+311 silly gunzTarPerm extractEntry examples/async_compare.js
+312 silly gunzTarPerm modified mode [ 'examples/async_compare.js', 420, 438 ]
+313 silly gunzTarPerm extractEntry examples/forever_gen_salt.js
+314 silly gunzTarPerm modified mode [ 'examples/forever_gen_salt.js', 420, 438 ]
+315 silly gunzTarPerm extractEntry test/async.js
+316 silly gunzTarPerm modified mode [ 'test/async.js', 420, 438 ]
+317 silly gunzTarPerm extractEntry test/repetitions.js
+318 silly gunzTarPerm modified mode [ 'test/repetitions.js', 420, 438 ]
+319 silly gunzTarPerm extractEntry test/sync.js
+320 silly gunzTarPerm modified mode [ 'test/sync.js', 420, 438 ]
+321 silly gunzTarPerm extractEntry ISSUE_TEMPLATE.md
+322 silly gunzTarPerm modified mode [ 'ISSUE_TEMPLATE.md', 420, 438 ]
+323 silly gunzTarPerm extractEntry src/bcrypt.cc
+324 silly gunzTarPerm modified mode [ 'src/bcrypt.cc', 420, 438 ]
+325 silly gunzTarPerm extractEntry src/bcrypt_node.cc
+326 silly gunzTarPerm modified mode [ 'src/bcrypt_node.cc', 420, 438 ]
+327 silly gunzTarPerm extractEntry src/blowfish.cc
+328 silly gunzTarPerm modified mode [ 'src/blowfish.cc', 420, 438 ]
+329 silly gunzTarPerm extractEntry src/node_blf.h
+330 silly gunzTarPerm modified mode [ 'src/node_blf.h', 420, 438 ]
+331 silly gunzTarPerm extractEntry werker.yml
+332 silly gunzTarPerm modified mode [ 'werker.yml', 420, 438 ]
+333 silly gunzTarPerm extractEntry nan_converters.h
+334 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 438 ]
+335 silly gunzTarPerm extractEntry LICENSE.md
+336 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 438 ]
+337 silly gunzTarPerm extractEntry doc/node_misc.md
+338 silly gunzTarPerm modified mode [ 'doc/node_misc.md', 436, 438 ]
+339 silly gunzTarPerm extractEntry test.js
+340 silly gunzTarPerm extractEntry doc/asyncworker.md
+341 silly gunzTarPerm modified mode [ 'doc/asyncworker.md', 436, 438 ]
+342 silly gunzTarPerm extractEntry doc/callback.md
+343 silly gunzTarPerm modified mode [ 'doc/callback.md', 436, 438 ]
+344 silly gunzTarPerm extractEntry doc/converters.md
+345 silly gunzTarPerm modified mode [ 'doc/converters.md', 436, 438 ]
+346 silly gunzTarPerm extractEntry doc/errors.md
+347 silly gunzTarPerm modified mode [ 'doc/errors.md', 436, 438 ]
+348 silly gunzTarPerm extractEntry doc/maybe_types.md
+349 silly gunzTarPerm modified mode [ 'doc/maybe_types.md', 436, 438 ]
+350 silly gunzTarPerm extractEntry doc/methods.md
+351 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 438 ]
+352 silly gunzTarPerm extractEntry doc/new.md
+353 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 438 ]
+354 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139\node_modules is being purged
+355 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139\node_modules
+356 silly gunzTarPerm extractEntry doc/buffers.md
+357 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 438 ]
+358 silly gunzTarPerm extractEntry doc/object_wrappers.md
+359 silly gunzTarPerm modified mode [ 'doc/object_wrappers.md', 436, 438 ]
+360 silly gunzTarPerm extractEntry doc/persistent.md
+361 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 438 ]
+362 silly gunzTarPerm extractEntry doc/scopes.md
+363 silly gunzTarPerm modified mode [ 'doc/scopes.md', 436, 438 ]
+364 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\youtube-thumbnails-788cebbb\node_modules is being purged
+365 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\youtube-thumbnails-788cebbb\node_modules
+366 silly gunzTarPerm extractEntry doc/script.md
+367 silly gunzTarPerm modified mode [ 'doc/script.md', 436, 438 ]
+368 silly gunzTarPerm extractEntry doc/string_bytes.md
+369 silly gunzTarPerm modified mode [ 'doc/string_bytes.md', 436, 438 ]
+370 silly gunzTarPerm extractEntry doc/v8_internals.md
+371 silly gunzTarPerm modified mode [ 'doc/v8_internals.md', 436, 438 ]
+372 silly gunzTarPerm extractEntry doc/v8_misc.md
+373 silly gunzTarPerm modified mode [ 'doc/v8_misc.md', 436, 438 ]
+374 silly gunzTarPerm extractEntry nan.h
+375 silly gunzTarPerm modified mode [ 'nan.h', 436, 438 ]
+376 silly gunzTarPerm extractEntry nan_callbacks.h
+377 silly gunzTarPerm modified mode [ 'nan_callbacks.h', 436, 438 ]
+378 silly gunzTarPerm extractEntry nan_callbacks_12_inl.h
+379 silly gunzTarPerm modified mode [ 'nan_callbacks_12_inl.h', 436, 438 ]
+380 silly gunzTarPerm extractEntry nan_callbacks_pre_12_inl.h
+381 silly gunzTarPerm modified mode [ 'nan_callbacks_pre_12_inl.h', 436, 438 ]
+382 silly gunzTarPerm extractEntry nan_converters_43_inl.h
+383 silly gunzTarPerm modified mode [ 'nan_converters_43_inl.h', 436, 438 ]
+384 silly gunzTarPerm extractEntry nan_converters_pre_43_inl.h
+385 silly gunzTarPerm modified mode [ 'nan_converters_pre_43_inl.h', 436, 438 ]
+386 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+387 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 438 ]
+388 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+389 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 438 ]
+390 silly gunzTarPerm extractEntry nan_maybe_43_inl.h
+391 silly gunzTarPerm modified mode [ 'nan_maybe_43_inl.h', 436, 438 ]
+392 silly gunzTarPerm extractEntry nan_maybe_pre_43_inl.h
+393 silly gunzTarPerm modified mode [ 'nan_maybe_pre_43_inl.h', 436, 438 ]
+394 silly gunzTarPerm extractEntry nan_new.h
+395 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 438 ]
+396 silly gunzTarPerm extractEntry nan_object_wrap.h
+397 silly gunzTarPerm modified mode [ 'nan_object_wrap.h', 436, 438 ]
+398 silly gunzTarPerm extractEntry nan_persistent_12_inl.h
+399 silly gunzTarPerm modified mode [ 'nan_persistent_12_inl.h', 436, 438 ]
+400 silly gunzTarPerm extractEntry nan_persistent_pre_12_inl.h
+401 silly gunzTarPerm modified mode [ 'nan_persistent_pre_12_inl.h', 436, 438 ]
+402 silly gunzTarPerm extractEntry nan_string_bytes.h
+403 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 438 ]
+404 silly gunzTarPerm extractEntry nan_typedarray_contents.h
+405 silly gunzTarPerm modified mode [ 'nan_typedarray_contents.h', 436, 438 ]
+406 silly gunzTarPerm extractEntry nan_weak.h
+407 silly gunzTarPerm modified mode [ 'nan_weak.h', 436, 438 ]
+408 silly gunzTarPerm extractEntry CHANGELOG.md
+409 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 438 ]
+410 silly gunzTarPerm extractEntry tools/package.json
+411 silly gunzTarPerm modified mode [ 'tools/package.json', 436, 438 ]
+412 silly gunzTarPerm extractEntry tools/README.md
+413 silly gunzTarPerm modified mode [ 'tools/README.md', 436, 438 ]
+414 silly gunzTarPerm extractEntry tools/1to2.js
+415 silly gunzTarPerm modified mode [ 'tools/1to2.js', 509, 511 ]
+416 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3\node_modules is being purged
+417 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3\node_modules
+418 silly gentlyRm C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054\node_modules is being purged
+419 verbose gentlyRm don't care about contents; nuking C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054\node_modules
+420 silly doParallel preinstall 4
+421 silly preinstall bindings@1.2.1 C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139
+422 info lifecycle bindings@1.2.1~preinstall: bindings@1.2.1
+423 silly preinstall nan@2.3.5 C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054
+424 info lifecycle nan@2.3.5~preinstall: nan@2.3.5
+425 silly preinstall bcrypt@0.8.7 C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3
+426 info lifecycle bcrypt@0.8.7~preinstall: bcrypt@0.8.7
+427 silly preinstall youtube-thumbnails@1.0.2 C:\nodejs\projects\bigbodies\node_modules\.staging\youtube-thumbnails-788cebbb
+428 info lifecycle youtube-thumbnails@1.0.2~preinstall: youtube-thumbnails@1.0.2
+429 silly lifecycle bindings@1.2.1~preinstall: no script for preinstall, continuing
+430 silly lifecycle nan@2.3.5~preinstall: no script for preinstall, continuing
+431 silly lifecycle bcrypt@0.8.7~preinstall: no script for preinstall, continuing
+432 silly lifecycle youtube-thumbnails@1.0.2~preinstall: no script for preinstall, continuing
+433 silly doReverseSerial remove 0
+434 silly doSerial move 0
+435 silly doSerial finalize 4
+436 silly finalize C:\nodejs\projects\bigbodies\node_modules\bindings
+437 silly finalize C:\nodejs\projects\bigbodies\node_modules\nan
+438 silly finalize C:\nodejs\projects\bigbodies\node_modules\bcrypt
+439 silly finalize C:\nodejs\projects\bigbodies\node_modules\youtube-thumbnails
+440 silly doSerial build 4
+441 silly build bindings@1.2.1
+442 info linkStuff bindings@1.2.1
+443 silly linkStuff bindings@1.2.1 has C:\nodejs\projects\bigbodies\node_modules as its parent node_modules
+444 verbose linkBins bindings@1.2.1
+445 verbose linkMans bindings@1.2.1
+446 silly build nan@2.3.5
+447 info linkStuff nan@2.3.5
+448 silly linkStuff nan@2.3.5 has C:\nodejs\projects\bigbodies\node_modules as its parent node_modules
+449 verbose linkBins nan@2.3.5
+450 verbose linkMans nan@2.3.5
+451 silly build bcrypt@0.8.7
+452 info linkStuff bcrypt@0.8.7
+453 silly linkStuff bcrypt@0.8.7 has C:\nodejs\projects\bigbodies\node_modules as its parent node_modules
+454 verbose linkBins bcrypt@0.8.7
+455 verbose linkMans bcrypt@0.8.7
+456 silly build youtube-thumbnails@1.0.2
+457 info linkStuff youtube-thumbnails@1.0.2
+458 silly linkStuff youtube-thumbnails@1.0.2 has C:\nodejs\projects\bigbodies\node_modules as its parent node_modules
+459 verbose linkBins youtube-thumbnails@1.0.2
+460 verbose linkMans youtube-thumbnails@1.0.2
+461 silly doSerial global-link 0
+462 silly doParallel update-linked 0
+463 silly doSerial install 4
+464 silly install bindings@1.2.1 C:\nodejs\projects\bigbodies\node_modules\.staging\bindings-1ea06139
+465 info lifecycle bindings@1.2.1~install: bindings@1.2.1
+466 silly lifecycle bindings@1.2.1~install: no script for install, continuing
+467 silly install nan@2.3.5 C:\nodejs\projects\bigbodies\node_modules\.staging\nan-6589c054
+468 info lifecycle nan@2.3.5~install: nan@2.3.5
+469 silly lifecycle nan@2.3.5~install: no script for install, continuing
+470 silly install bcrypt@0.8.7 C:\nodejs\projects\bigbodies\node_modules\.staging\bcrypt-ca3ec6e3
+471 info lifecycle bcrypt@0.8.7~install: bcrypt@0.8.7
+472 verbose lifecycle bcrypt@0.8.7~install: unsafe-perm in lifecycle true
+473 verbose lifecycle bcrypt@0.8.7~install: PATH: C:\Users\Joram\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;C:\nodejs\projects\bigbodies\node_modules\bcrypt\node_modules\.bin;C:\nodejs\projects\bigbodies\node_modules\.bin;C:\nodejs;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Brackets\command;C:\Program Files (x86)\Google\Google Apps Sync\;C:\Program Files (x86)\Google\Google Apps Migration\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Skype\Phone\;C:\nodejs\;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;C:\Program Files (x86)\Git\cmd;C:\mongodb\bin;C:\mongodb\;C:\Users\Joram\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
+474 verbose lifecycle bcrypt@0.8.7~install: CWD: C:\nodejs\projects\bigbodies\node_modules\bcrypt
+475 silly lifecycle bcrypt@0.8.7~install: Args: [ '/d /s /c', 'node-gyp rebuild' ]
+476 silly lifecycle bcrypt@0.8.7~install: Returned: code: 1  signal: null
+477 info lifecycle bcrypt@0.8.7~install: Failed to exec install script
+478 verbose unlock done using C:\Users\Joram\AppData\Roaming\npm-cache\_locks\staging-d31b43148a796598.lock for C:\nodejs\projects\bigbodies\node_modules\.staging
+479 silly rollbackFailedOptional Starting
+480 silly rollbackFailedOptional Finishing
+481 silly runTopLevelLifecycles Starting
+482 silly runTopLevelLifecycles Finishing
+483 silly install printInstalled
+484 warn optional Skipping failed optional dependency /chokidar/fsevents:
+485 warn notsup Not compatible with your operating system or architecture: fsevents@1.0.14
+486 verbose stack Error: bcrypt@0.8.7 install: `node-gyp rebuild`
+486 verbose stack Exit status 1
+486 verbose stack     at EventEmitter.<anonymous> (C:\Users\Joram\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:242:16)
+486 verbose stack     at emitTwo (events.js:87:13)
+486 verbose stack     at EventEmitter.emit (events.js:172:7)
+486 verbose stack     at ChildProcess.<anonymous> (C:\Users\Joram\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:40:14)
+486 verbose stack     at emitTwo (events.js:87:13)
+486 verbose stack     at ChildProcess.emit (events.js:172:7)
+486 verbose stack     at maybeClose (internal/child_process.js:827:16)
+486 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+487 verbose pkgid bcrypt@0.8.7
+488 verbose cwd C:\nodejs\projects\bigbodies
+489 error Windows_NT 10.0.14393
+490 error argv "C:\\nodejs\\node.exe" "C:\\Users\\Joram\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install"
+491 error node v4.4.3
+492 error npm  v3.10.5
+493 error code ELIFECYCLE
+494 error bcrypt@0.8.7 install: `node-gyp rebuild`
+494 error Exit status 1
+495 error Failed at the bcrypt@0.8.7 install script 'node-gyp rebuild'.
+495 error Make sure you have the latest version of node.js and npm installed.
+495 error If you do, this is most likely a problem with the bcrypt package,
+495 error not with npm itself.
+495 error Tell the author that this fails on your system:
+495 error     node-gyp rebuild
+495 error You can get information on how to open an issue for this project with:
+495 error     npm bugs bcrypt
+495 error Or if that isn't available, you can get their info via:
+495 error     npm owner ls bcrypt
+495 error There is likely additional logging output above.
+496 verbose exit [ 1, true ]

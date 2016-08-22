@@ -149,3 +149,6 @@ table.form-table thead tr th:nth-child(7), table.form-table tbody tr td:nth-chil
 .newAlbum-images {
 	list-style: none;
 }
+.breadcrumb {
+	background-color: transparent;
+}

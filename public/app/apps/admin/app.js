@@ -1,4 +1,4 @@
-angular.module('manager', ['ui.router', 'angular-filepicker', 'ngRoute', 'ngResource']).run(function($rootScope, $state, $stateParams){
+angular.module('manager', ['ui.router', 'angular-filepicker', 'ngRoute', 'ngResource', 'ui.tinymce', 'ncy-angular-breadcrumb']).run(function($rootScope, $state, $stateParams){
 	$rootScope.$on("$stateChangeError", console.log.bind(console));
 
 	$rootScope.$state = $state;

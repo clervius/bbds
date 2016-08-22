@@ -32,6 +32,18 @@ module.exports = function(){
 				res.json(editorial);
 			})
 		},
+		deleteOne: function(req, res){
+			console.log('deleting article')
+			editorial.findByIdAndRemove(req.params.id, function(err, editorial){
+				if(err){
+					console.log('could not find that editorial');
+					res.json(err);
+				}else{
+					console.log('success delete that article');
+					res.json({message: 'deleted that article'})
+				}
+			})
+		},
 		update: function(req, res){/*
 			editorial.findById(req.params.id, (err,thisPost)=>{
 				if(err){console.log('could not find this post');}

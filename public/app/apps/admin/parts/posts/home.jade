@@ -25,16 +25,20 @@
 							th Published	
 							th
 					tbody
-						tr(ng-repeat="post in posts")
+						tr(ng-repeat="post in posts", id="{{post._id}}")
 							td {{ $index + 1 }}
 							td {{ post.postTitle }}
 							td {{ post.author }}
 							td {{ post.published | date }}
-							td 
-								a.btn.btn-primary.btn-sm.btn-fill(ui-sref="post({id: post._id})")
-									i.ti-pencil
-									|&nbsp;&nbsp;Edit
-								|&nbsp;&nbsp;&nbsp;&nbsp;
-								a.btn.btn-default.btn-sm.btn-fill(href="/#!/post/{{post._id}}", target="blank")
+							td
+								a.btn.btn-default.btn-xs.btn-simple(href="/#!/post/{{post._id}}", target="blank", rel="tooltip")
 									i.ti-new-window
 									|&nbsp;&nbsp;View Page
+								|&nbsp;&nbsp;&nbsp;&nbsp;
+								a.btn.btn-primary.btn-xs.btn-simple(ui-sref="post({id: post._id})", rel="tooltip")
+									i.ti-pencil
+									|&nbsp;&nbsp;Edit
+								|&nbsp;&nbsp;&nbsp;&nbsp;								
+								a.btn.btn-danger.btn-xs.btn-simple(ng-click="delete(post._id)", title="delete {{ post.postTitle }}", rel="tooltip")
+									i.ti-trash
+									|&nbsp;&nbsp;Delete
