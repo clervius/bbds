@@ -29,6 +29,7 @@ module.exports = function(app, passport){
 	//API routes
 	app.get('/ath/*', require('../api/athletes'));
 	app.post('/ath/*', require('../api/athletes'));
+	app.delete('/ath/*', require('../api/athletes'));
 	app.get('/record/*', require('../api/competitions/records'));
 	app.post('/record/*', require('../api/competitions/records'));
 	app.get('/show/*', require('../api/competitions/shows'));
@@ -38,6 +39,7 @@ module.exports = function(app, passport){
 	app.get('/editorial/*', require('../api/editorials'));
 	app.post('/editorial/*', require('../api/editorials'));
 	app.delete('/editorial/*', require('../api/editorials'));
+
 	//front-end jade
 	app.get('/client/*', function(req, res){
 	    res.render('../../public/' + req.params[0]); 

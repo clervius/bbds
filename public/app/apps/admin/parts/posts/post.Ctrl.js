@@ -2,8 +2,8 @@
 angular.module('manager').controller('postCtrl', function($scope, posts, $http){
 	$scope.posts = posts.posts;
 	$scope.delete = function(id){
-		swal({  title: "Delete Post?",
-            	    text: "You are requesting to delete this post",
+		swal({  title: "Delete Athlete?",
+            	    text: "You are requesting to delete this Athlete",
             	    type: "warning",
                     showCancelButton: true,
                     confirmButtonClass: "btn btn-success btn-fill",

@@ -27,8 +27,9 @@
 							th Albums
 							th
 					tbody
-						tr(ng-repeat="athlete in athletes")
-							td(style="background-image:url('{{athlete.profile.picture.url}}'); background-size:cover")
+						tr(ng-repeat="athlete in athletes", id="athlete._id")
+							td(style="width:4.5%")
+								img.img-responsive.img-rounded(src="{{athlete.profile.picture.url}}+{{athlete.profile.picture.filename}}")
 							td {{ athlete.profile.firstName}} {{ athlete.profile.lastName}}
 							td
 								img(src="img/flags/{{athlete.countries[0].countryName | lowercase}}.png")
@@ -36,10 +37,12 @@
 							td {{ athlete.competitions.length }}
 							td {{ athlete.galleries.length }}
 							td 
-								a.btn.btn-primary.btn-sm.btn-fill(ui-sref="athlete({id: athlete._id})")
-									i.ti-pencil
-									|&nbsp;&nbsp;Edit
-								|&nbsp;&nbsp;&nbsp;&nbsp;
-								a.btn.btn-default.btn-sm.btn-fill(href="/#!/athlete/{{athlete._id}}", target="blank")
+								a.btn.btn-default.btn-xs.btn-simple(href="/#!/athlete/{{athlete._id}}", target="blank")
 									i.ti-new-window
 									|&nbsp;&nbsp;View Page
+								a.btn.btn-primary.btn-xs.btn-simple(ui-sref="athlete({id: athlete._id})")
+									i.ti-pencil
+									|&nbsp;&nbsp;Edit								
+								a.btn.btn-danger.btn-xs.btn-simple(ng-click="delete(athlete._id)", title="delete {{ athlete.profile.firstName }}")
+									i.ti-trash
+									|&nbsp;&nbsp;Delete

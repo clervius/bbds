@@ -30,6 +30,16 @@ module.exports = function(){
 				res.json(athlete)}				
 			})
 		},
+		deleteOne: function(req, res){
+			console.log('deleting athlete');
+			athlete.findByIdAndRemove(req.params.id, function(err, athlete){
+				if(err){
+					console.log('could not delete that athlete');
+				}else{
+					console.log('success deleted that athlete')
+				}
+			})
+		},
 		addRecord: function(req, res){
 			console.log('adding record into athlete');
 

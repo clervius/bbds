@@ -61,7 +61,10 @@ var publishing = new Schema({
 
 
 var athleteSchema = new Schema({
-	dob: Date,
+	dob: {
+		type: Date,
+		default: new Date
+	},
 	competitions: [{record: {type: Schema.ObjectId, ref:'record'}}],
 	fbId: String,
 	account: { type: Schema.ObjectId, ref: 'user' },

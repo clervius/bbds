@@ -1,7 +1,23 @@
 // Athlete home controller
-angular.module('manager').controller('athCtrl', function($scope, athletes){
+angular.module('manager').controller('athCtrl', function($scope, athletes, $http){
 	$scope.homeMessage = "Now on Athlete Page"
 	$scope.athletes = athletes.athletes;
+	$scope.delete = function(id){
+		swal({  title: "Delete Athlete?",
+            	    text: "You are requesting to delete this Athlete",
+            	    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    confirmButtonText: "Delete",
+                    closeOnConfirm: true,
+                },function(){
+                    $http.delete('/ath/' + id).success(function(athlete){
+						swal("Deleted", "Athlete has been deleted", "success");
+						$('#' + id).remove();
+					})
+                })
+		
+	}
 	
 });
 
@@ -122,7 +138,16 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, f
 				});
 				$scope.newAthlete = {};
 				$scope.records = [ {id: 'record1', year: '', federation: '', show:'', division: '', class: '', place: '', _creator: $scope.user} ]
-				$state.go('athletes')
+				swal({  title: "Athlete Saved",
+            	    text: "You have successfully created the athlete " + data.profile.firstName,
+            	    type: "success",
+                    showCancelButton: false,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    confirmButtonText: "Go to Athlete Page",
+                    closeOnConfirm: true,
+                },function(){
+                    $state.go('athlete', {'id': data._id} );
+                });
 
 			})
 			.error(function(data){
