@@ -10,7 +10,6 @@ angular.module('bigbodies').controller('postCtrl2', function($scope, $http, $sta
 	$http.get('/editorial/' + $stateParams.id).success((data)=>{
 		console.log('applying')
 		$scope.article = data;
-		//$scope.content = $sce.trustAsHtml(data.content)
 	});
 	
 });
