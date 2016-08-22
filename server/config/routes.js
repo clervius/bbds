@@ -54,11 +54,15 @@ module.exports = function(app, passport){
 		res.redirect('/');
 	});
 
+	app.get('/front', function(req, res){
+		res.render('front/index')
+	})
+
 	app.get('/', function(req, res){
 		if(req.isAuthenticated()){
 			res.render('front/index')
 		}else{
-			res.render('index')
+			res.render('comingsoon')
 		}
 	});
 }
