@@ -7,14 +7,15 @@
 					figure
 						.topListimages(style="width:70px;height:70px")
 							a(ui-sref="singleAthlete({athId: ath._id})")
-								img(alt="{{ath.profile.firstName}} {{ath.profile.lastName}}", src="{{ath.profile.picture.url}}")
+								img.img-responsive(alt="{{ath.profile.firstName}} {{ath.profile.lastName}}", src="{{ath.profile.picture.url}}+{{ath.profile.picture.filename}}")
 							a(ui-sref="singleAthlete({athId: ath._id})")
 								.overlay
 						figcaption
 							.toptext
-								.date-info.clearfix
-									.cap-date Jan 14 2016
-									.cap-comment
+								.date-info.clearfix									
+									.cap-comment(ng-if="ath.competitions.length > 0", style="float:left")
 										i.fa.fa-trophy
-										|&nbsp; {{ ath.competitions.length }}
+										|&nbsp; {{ ath.competitions.length }} Shows
 								a(ui-sref="singleAthlete({athId: ath._id})") {{ ath.profile.firstName }} {{ ath.profile.lastName }}
+									br
+									small.text-muted {{ ath.profile.subtitle }}

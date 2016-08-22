@@ -31,14 +31,14 @@
 							td {{ post.author }}
 							td {{ post.published | date }}
 							td
-								a.btn.btn-default.btn-xs.btn-simple(href="/#!/post/{{post._id}}", target="blank", rel="tooltip")
+								a.btn.btn-default.btn-xs.btn-simple(href="/#!/post/{{post._id}}", target="blank")
 									i.ti-new-window
 									|&nbsp;&nbsp;View Page
 								|&nbsp;&nbsp;&nbsp;&nbsp;
-								a.btn.btn-primary.btn-xs.btn-simple(ui-sref="post({id: post._id})", rel="tooltip")
+								a.btn.btn-primary.btn-xs.btn-simple(ui-sref="post({id: post._id})")
 									i.ti-pencil
 									|&nbsp;&nbsp;Edit
 								|&nbsp;&nbsp;&nbsp;&nbsp;								
-								a.btn.btn-danger.btn-xs.btn-simple(ng-click="delete(post._id)", title="delete {{ post.postTitle }}", rel="tooltip")
+								a.btn.btn-danger.btn-xs.btn-simple(ng-click="delete(post._id)", title="delete {{ post.postTitle }}")
 									i.ti-trash
 									|&nbsp;&nbsp;Delete

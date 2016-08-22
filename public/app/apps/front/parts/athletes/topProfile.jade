@@ -2,7 +2,7 @@
 	.magstyle.clearfix.col-md-12
 		.magstyle_wide.left(style="margin-right:25px")
 			.profilePicture
-				img(alt="{{athlete.profile.firstName}} {{ athlete.profile.lastName }}", src="{{athlete.profile.picture.url}}", style="margin:0", ng-show="athlete.profile.picture.url.length")
+				img(alt="{{athlete.profile.firstName}} {{ athlete.profile.lastName }}", src="{{athlete.profile.picture.url}}+{{athlete.profile.picture.filename}}", style="margin:0", ng-show="athlete.profile.picture.url.length")
 				img(alt="{{athlete.profile.firstName}}", src="app/apps/front/img/profile.jpg", ng-hide="athlete.profile.picture.url.length", style="margin:0", title="No Picture Added")
 		.magstyle_narrow.left
 			.widget

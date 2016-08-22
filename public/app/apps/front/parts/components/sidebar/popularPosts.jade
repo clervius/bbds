@@ -8,10 +8,10 @@
 						.item-content
 							.item-thumbnail
 								a(ui-sref="post({postId: post._id})")
-									img(alt="{{post.title}}", src="{{post.img.url}}")
+									img(alt="{{post.postTitle}}", src="{{post.mainImg.url}}+{{post.mainImg.filename}}")
 								a(ui-sref="post({postId: post._id})")
 									.overlay
 								.item-title
-									a(ui-sref="post({postId: post._id})") {{ post.title }}
+									a(ui-sref="post({postId: post._id})") {{ post.postTitle }}
 							.item-snippet {{ post.summary }}...
 						
