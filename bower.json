@@ -52,7 +52,8 @@
     "angular-bootstrap-lightbox": "^0.12.0",
     "angular-strap": "^2.3.9",
     "ekko-lightbox": "^4.0.2",
-    "angular-ui-tinymce": "^0.0.16"
+    "angular-ui-tinymce": "^0.0.16",
+    "ngMeta": "^0.3.9"
   },
   "resolutions": {
     "angular": "1.4.x",

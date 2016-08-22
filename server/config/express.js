@@ -38,6 +38,6 @@ module.exports = function(app, config){
 	}));
 	
 	app.use(express.static(config.rootPath + '/public'));
-	app.use(prerender);
+	app.use(require('prerender-node').set('prerenderToken', 'JnAcdMYmBLjwMWGwIgmG'));
 	app.locals.moment = require('moment');
 }
