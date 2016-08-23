@@ -10,5 +10,6 @@
 		a(href="{{gallery.photographerLink")  {{ gallery.photographerName }}
 	div
 		.col-md-2(ng-repeat="image in gallery.images")
-			a.imgShow(style="background-image:url('{{image.url}}')", href="{{image.url}}", data-toggle="lightbox", data-gallery="{{gallery._id}}")
+			a(href="{{image.url}}+{{image.filename}}", data-toggle="lightbox", data-gallery="{{gallery._id}}")
+				img.img-responsive.img-rounded(src="{{image.url}}+{{image.filename}}")
 

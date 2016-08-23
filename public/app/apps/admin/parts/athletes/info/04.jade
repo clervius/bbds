@@ -1,6 +1,6 @@
 .row
 	.col-md-12
-		button.btn.btn-xs.btn-fill.btn-default.pull-right
+		button.btn.btn-xs.btn-fill.btn-default.pull-right(ng-click="addRecord()")
 			i.ti-plus
 			|&nbsp;&nbsp; Add Show
 hr
@@ -19,18 +19,18 @@ hr
 			tbody
 				tr(ng-repeat="record in records")
 					td 
-						input.tbl-input(value="{{ record.year }}")
+						input.tbl-input(ng-model="record.year")
 					td 
-						input.tbl-input(value="{{ record.federation }}")
+						input.tbl-input(ng-model="record.federation")
 					td 
-						input.tbl-input(value="{{ record.show }}")
+						input.tbl-input(ng-model="record.show")
 					td 
-						input.tbl-input(value="{{ record.division }}")
+						input.tbl-input(ng-model="record.division")
 					td 
-						input.tbl-input(value="{{ record.class }}")
+						input.tbl-input(ng-model="record.class")
 					td 
-						input.tbl-input.text-center(value="{{ record.place }}")
+						input.tbl-input.text-center(ng-model="record.place")
 					td.td-actions.text-right 
-						a.btn.btn-info.btn-simple.btn-xs Record
+						button.btn.btn-info.btn-simple.btn-xs(ng-click="updateRecord(record._id)") Update
 
 

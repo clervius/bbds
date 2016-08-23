@@ -5,37 +5,37 @@
 				.form-group
 					label First Name
 						star *
-					input.form-control(name="firstName", value="{{ athlete.profile.firstName }}")
+					input.form-control(name="firstName", ng-model="athlete.profile.firstName")
 			.col-md-3
 				.form-group
 					label Middle Name
-					input.form-control(name="mName", value="{{ athlete.profile.middleName }}")
+					input.form-control(name="mName", ng-model="athlete.profile.middleName")
 			.col-md-5
 				.form-group
 					label Last Name
 						star *
-					input.form-control(name="lastName", value="{{ athlete.profile.lastName }}")
+					input.form-control(name="lastName", ng-model="athlete.profile.lastName")
 		.row
 			.col-md-4
 				.form-group
 					label Birth date
-					input.form-control.datepicker(value="{{ athlete.dob | date }}", placeholder="01/10/1975")
+					input.form-control.datepicker(ng-model="athlete.dob", placeholder="01/10/1975")
 			.col-md-4
 				.form-group
 					label Subtitle
-					input.form-control(value="{{ athlete.profile.subtitle }}")
+					input.form-control(ng-model="athlete.profile.subtitle")
 			.col-md-4
 				.form-group
 					label Federation
-					input.form-control(value="{{ athlete.federation.federationShortName }}")
+					input.form-control(ng-model="athlete.federation.federationShortName")
 		.row
 			.col-md-7
 				.form-group
 					label Biography
 						star *
-					textarea.form-control(name="biography", style="height:150px", value="{{ athlete.bio }}")
+					textarea.form-control(name="biography", style="height:150px", ng-model="athlete.bio")
 			.col-md-5
 				.form-group(ng-repeat="country in athlete.countries")
 					label {{ country.classify }}
-					input.form-control(value="{{country.countryName }}")
+					input.form-control(ng-model="country.countryName")
 

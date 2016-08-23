@@ -12,14 +12,15 @@
 			label 
 				i.fa.fa-lock
 				|&nbsp;&nbsp; Facebook ID
-			input.form-control(name="fbID", value="{{athlete.fbId}}")
+			input.form-control(name="fbID", ng-model="athlete.fbId")
 hr
 .row
 	.col-md-12
 		h6.title Public Contact Information
+		button.btn.btn-xs.btn-fill.btn-default.pull-right Add Account
 .row
 	.col-md-6(ng-repeat="account in athlete.social")
 		.form-group
 			label {{ account.service}}
-			input.form-control(value="{{ account.link }}")
+			input.form-control(ng-model="account.link")
 	

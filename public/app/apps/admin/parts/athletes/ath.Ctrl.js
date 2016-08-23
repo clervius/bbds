@@ -157,10 +157,30 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, f
 	}
 });
 
-// Athlete detail page
-angular.module('manager').controller('athCtrl2', function($scope, $http, $stateParams){
+// Athlete detail and edit page
+angular.module('manager').controller('athCtrl2', function($scope, $http, $stateParams, filepickerService, $state){
 	$scope.athlete = {};
 	$scope.records = [];
+
+	// Dealing with records
+	$scope.addRecord = function(){
+		var newItemNo = $scope.records.length + 1;
+		var record = {
+			id: 'record' + newItemNo,
+			year: '',
+			federation: '',
+			show:'',
+			division: '',
+			class: '',
+			place: '',
+			_creator: $scope.user
+		}
+		$scope.records.push(record);
+	};
+	$scope.removeRecord = function(){
+		var lastItem = $scope.records.length - 1;
+		$scope.records.splice(lastItem);
+	};
 
 
 	$http.get('/ath/' + $stateParams.id).success(function(data){
@@ -174,8 +194,41 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 			$scope.records.push(record);
 		})
 	})
-	
 
+	$scope.updateRecord = function(id){
+		if(id){
+			// find the record and update it
+		}else{
+			//create a brand new record.
+		}
+	}
+	$scope.updateAthlete = function(){
+		console.log('about to update this athlete')
+	};
+
+
+	// function to create/update Athlete
+	$scope.updateAth = function(){
+		console.log('updating this athlete...');
+		//addSocial($scope.personalFB); addSocial($scope.publicFB); addSocial($scope.twitter); addSocial($scope.instagram); addSocial($scope.youtube); addSocial($scope.gPlus); addSocial($scope.web1); addSocial($scope.web2); 
+		//addCountries($scope.primaryCountry); addCountries($scope.secondaryCountry);		
+		//$scope.newAthlete.countries = $scope.countries;
+		//$scope.newAthlete.social = $scope.socials;
+		console.log($scope.user);
+		console.log($scope.athlete);
+		// Create this athlete
+		$http.post('/ath/update/' + $stateParams.id, $scope.athlete)
+			.success(function(data){
+				console.log(angular.toJson(data));
+				var athId = data._id;				
+				swal("Athlete Updated", "Athlete has been successfully updated", "success")
+			})
+			.error(function(data){
+				console.log('could not save the athlete');
+				console.log(data);
+			})
+	}
+	// end function to create/update athlete
 });
 
 // New Album Controller

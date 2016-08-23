@@ -300,8 +300,7 @@ License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
           };
         })(this)));
       } else {
-        //this.lightbox_body.html('<iframe width="' + width + '" height="' + width + '" style="background-image:url(' + url + ')" frameborder="0" allowfullscreen></iframe>');
-        this.lightbox_body.html('<div class="imgShow" style="background-image:url(' + url + ')">')
+        this.lightbox_body.html('<iframe width="' + width + '" height="' + width + '" src="' + url + '" frameborder="0" allowfullscreen></iframe>');
         this.options.onContentLoaded.call(this);
       }
       if (this.modal_arrows) {

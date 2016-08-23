@@ -18,5 +18,5 @@
 						hr
 						.row
 							.col-md-2(ng-repeat="image in album.images ")
-								a.imgShow(style="background-image:url('{{image.url}}')", href="{{image.url}}")
+								img.img-responsive(src="{{image.url}}+{{image.filename}}")
 

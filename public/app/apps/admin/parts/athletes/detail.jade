@@ -34,6 +34,8 @@
 											a(data-toggle="tab", data-target="#05", role="tab") 
 												i.ti-image
 												|&nbsp;&nbsp;Albums
+										li(ng-show="athlete.videos.length")
+											a(data-toggle="tab", data-target="#06", role="tab")
 							.tab-content(id="my-tab-content")
 								.tab-pane.active.fade.in(id="01")
 									include info/01
@@ -43,9 +45,21 @@
 									include info/03
 								.tab-pane.fade.in(id="04")
 									include info/04
-								.tab-pane.fa.in(id="05")
+								.tab-pane.fade.in(id="05")
 									include info/05
+								.tab-pane.fade.in(id="06")
+									include info/06
 	.col-md-3
+		button.btn.btn-wd.btn-fill.btn-primary(ng-click="updateAth()", onclick='swal("Post Updated", "Post saved. You may now use the browser to go back to the previous page. Or stay on this post and make more edits", "success")')
+			i.ti-save
+			|&nbsp;&nbsp; Save
+		.clearfix
+		br
+		a.btn.btn-wd.btn-default.btn-fill(href="/#!/post/{{post._id}}", target="blank")
+			i.ti-new-window
+			|&nbsp;&nbsp; View
+		.clearfix
+		hr
 		.card.card-plain
 			.header
 				h4.title Pictures
@@ -54,3 +68,5 @@
 				h4.title Videos
 				button.btn.btn-wd.btn-primary.btn-fill Add Video
 .row(ui-view="")
+script.
+	$('.datepicker').datetimepicker({ format: 'MM/DD/YYYY', icons: { time: "fa fa-clock-o", date: "fa fa-calendar", up: "fa fa-chevron-up", down: "fa fa-chevron-down", previous: 'fa fa-chevron-left', next: 'fa fa-chevron-right', today: 'fa fa-screenshot', clear: 'fa fa-trash', close: 'fa fa-remove' } });
