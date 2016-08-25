@@ -1,10 +1,4 @@
 .row
-	.col-md-12
-		button.btn.btn-xs.btn-fill.btn-default.pull-right(ng-click="addRecord()")
-			i.ti-plus
-			|&nbsp;&nbsp; Add Show
-hr
-.row
 	.table-responsive
 		table.table.form-table.table-striped
 			thead
@@ -15,7 +9,7 @@ hr
 					th Division
 					th Class
 					th Place
-					th Save
+					th(style="background-color:transparent !important") 
 			tbody
 				tr(ng-repeat="record in records")
 					td 
@@ -28,9 +22,9 @@ hr
 						input.tbl-input(ng-model="record.division")
 					td 
 						input.tbl-input(ng-model="record.class")
-					td 
+					td
 						input.tbl-input.text-center(ng-model="record.place")
-					td.td-actions.text-right 
+					td.td-actions.text-center(style="background-color:transparent !important")
 						button.btn.btn-info.btn-simple.btn-xs(ng-click="updateRecord(record._id)") Update
 
 

@@ -147,26 +147,24 @@ module.exports = function(passport) {
                 if (err){
                     // handle error
                     console.log(err)
-                }if(user = null){
-                    console.log('the user is null')
-                }else{
-                    if (!user){
-                       // return done(null, false); // req.flash is the way to set flashdata using connect-flash
-                        console.log("User doesnt exist")
-                        throw err
+                }
+                if (!user){
+                    // return done(null, false); // req.flash is the way to set flashdata using connect-flash
+                    console.log("User doesnt exist")
+                    //throw err
+                    return done(null, false)  
+                }if(user){
+                    if (!user.validPassword(password)){
+                        console.log("wrong password");
+                        return done(null, false); // create the loginMessage and save it to session as flashdata
                         
-                    }if(user){
-                        if (!user.validPassword(password)){
-                            console.log("wrong password");
-                            return done(null, false); // create the loginMessage and save it to session as flashdata
-                            
-                        }else{
-                            // all is well, return successful user
-                            return done(null, user);
-                            //return res.json(user)
-                        }
+                    }else{
+                        // all is well, return successful user
+                        return done(null, user);
+                        //return res.json(user)
                     }
                 }
+                
             }
         );
 

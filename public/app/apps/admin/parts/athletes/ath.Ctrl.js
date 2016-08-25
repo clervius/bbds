@@ -183,6 +183,19 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 	};
 
 
+	// Updating picture
+	$scope.newPicture = function(){
+		filepickerService.pick({
+			mimetype: 'image/*',
+			language: 'en',
+			services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'INSTAGRAM'],
+			openTo: 'COMPUTER'
+		},function(Blob){
+			console.log(angular.toJson(Blob));
+			$scope.athlete.profile.picture = Blob;
+			$scope.$apply();
+		});
+	};
 	$http.get('/ath/' + $stateParams.id).success(function(data){
 		$scope.athlete= data;
 	});

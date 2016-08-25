@@ -1,22 +1,23 @@
-.clearfix
-	div(id="acordeon")
-		.panel-group(id="accordion")
-			.panel.panel-border.panel-default(ng-repeat="album in athlete.galleries")
-				a(data-toggle="collapse", data-target="#num-{{$index}}")
-					.panel-heading
-						h4.panel-title {{ album.galleryName}}
-							i.ti-angle-down
-				.panel-collapse.collapse(id="num-{{$index}}")
-					.panel-body
-						h6.title {{ album.description }}
-						p.category 
-							strong by: &nbsp;
-							a(href="{{ album.photographerLink}} ") {{ album.photographerName }} 
-						p.category
-							strong uploaded: &nbsp;
-							|{{ album.ceatedAt | date }}
-						hr
-						.row
-							.col-md-2(ng-repeat="image in album.images ")
-								img.img-responsive(src="{{image.url}}+{{image.filename}}")
+div(id="acordeon")
+	.panel-group(id="accordion")
+		.panel.panel-border.panel-default(ng-repeat="album in athlete.galleries")
+			a(data-toggle="collapse", data-target="#num-{{$index}}")
+				.panel-heading
+					h4.panel-title 
+						i.ti-image.pull-left
+						|&nbsp;&nbsp;{{ album.galleryName}}
+						i.ti-angle-down
+			.panel-collapse.collapse(id="num-{{$index}}")
+				.panel-body
+					h6.title {{ album.description }}
+					p.category 
+						strong by: &nbsp;
+						a(href="{{ album.photographerLink}} ") {{ album.photographerName }} 
+					p.category
+						strong uploaded: &nbsp;
+						|{{ album.ceatedAt | date }}
+					hr
+					.row
+						.col-md-2(ng-repeat="image in album.images", style="margin-bottom:15px")
+							img.img-responsive.img-thumbnail(src="{{image.url}}+{{image.filename}}")
 

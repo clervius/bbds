@@ -1,5 +1,12 @@
 .row
-	.col-md-9
+	.col-md-7
+		.row
+			.col-md-12.text-right
+				a.btn.btn-sm.btn-default.btn-fill(href="/#!/athlete/{{athlete._id}}", target="blank") View Page
+				|&nbsp;&nbsp;&nbsp;
+				button.btn.btn-sm.btn-primary.btn-fill(ng-click="updateAth()") Update Athlete
+		.clearfix
+		br
 		.card
 			.header
 				h4.title {{ athlete.profile.firstName}} {{ athlete.profile.lastName}}
@@ -8,9 +15,7 @@
 			.content
 				form
 					.row
-						.col-md-2.col-md-3
-							.image-container(style="background-image:url('{{ athlete.profile.picture.url }}')")
-						.col-md-10
+						.col-md-12
 							.nav-tabs-navigation
 								.nav-tabs-wrapper
 									ul.nav.nav-tabs(id="tabs", data-tabs="tabs")
@@ -26,14 +31,6 @@
 											a(data-toggle="tab", data-target="#03", role="tab") 
 												i.ti-bookmark-alt
 												|&nbsp;&nbsp;Editorials&nbsp;&raquo;
-										li
-											a(data-toggle="tab", data-target="#04", role="tab") 
-												i.ti-medall
-												|&nbsp;&nbsp;Competitions
-										li(ng-show="athlete.galleries.length")
-											a(data-toggle="tab", data-target="#05", role="tab") 
-												i.ti-image
-												|&nbsp;&nbsp;Albums
 										li(ng-show="athlete.videos.length")
 											a(data-toggle="tab", data-target="#06", role="tab")
 							.tab-content(id="my-tab-content")
@@ -43,30 +40,23 @@
 									include info/02
 								.tab-pane.fade.in(id="03")
 									include info/03
-								.tab-pane.fade.in(id="04")
-									include info/04
-								.tab-pane.fade.in(id="05")
-									include info/05
 								.tab-pane.fade.in(id="06")
 									include info/06
-	.col-md-3
-		button.btn.btn-wd.btn-fill.btn-primary(ng-click="updateAth()", onclick='swal("Post Updated", "Post saved. You may now use the browser to go back to the previous page. Or stay on this post and make more edits", "success")')
-			i.ti-save
-			|&nbsp;&nbsp; Save
-		.clearfix
-		br
-		a.btn.btn-wd.btn-default.btn-fill(href="/#!/post/{{post._id}}", target="blank")
-			i.ti-new-window
-			|&nbsp;&nbsp; View
-		.clearfix
-		hr
+	.col-md-5
+		.row
+			.col-md-12.text-right
+				a.btn.btn-sm.btn-default.btn-fill(ng-click="addRecord()") &nbsp;&nbsp;
+					i.ti-plus
+					|&nbsp;&nbsp;Add Show&nbsp;&nbsp;
 		.card.card-plain
-			.header
-				h4.title Pictures
-				a.btn.btn-wd.btn-primary.btn-fill(ui-sref="athlete.addAlbum({ id: athlete._id})") Create Album
-				hr
-				h4.title Videos
-				button.btn.btn-wd.btn-primary.btn-fill Add Video
+			include info/04
+		.row(ng-show="athlete.galleries.length")
+			.col-md-12.text-right
+				a.btn.btn-sm.btn-default.btn-fill(ui-sref="athlete.addAlbum({ id: athlete._id})") &nbsp;&nbsp;
+					i.ti-plus
+					|&nbsp;&nbsp;Add Album &nbsp;&nbsp;
+		.card.card-plain(ng-show="athlete.galleries.length")
+			include info/05
 .row(ui-view="")
 script.
 	$('.datepicker').datetimepicker({ format: 'MM/DD/YYYY', icons: { time: "fa fa-clock-o", date: "fa fa-calendar", up: "fa fa-chevron-up", down: "fa fa-chevron-down", previous: 'fa fa-chevron-left', next: 'fa fa-chevron-right', today: 'fa fa-screenshot', clear: 'fa fa-trash', close: 'fa fa-remove' } });

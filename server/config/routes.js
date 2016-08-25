@@ -23,9 +23,19 @@ module.exports = function(app, passport){
 	}));
 	app.post('/access/login', passport.authenticate('local-login', {
 		successRedirect: '/manager',
-		failureRedirect: '/auth'
+		failureRedirect: '/wrongpass'
 	}));
 
+	/*
+	app.post('/access/login', function(req, res, next){
+		passport.authenticate('local-login', {
+			successRedirect: '/manager',
+			failureRedirect: '/auth'
+		})
+	}, function(req,res){
+		// function here if user doesn't exist
+	});*/
+	
 	//API routes
 	app.get('/ath/*', require('../api/athletes'));
 	app.post('/ath/*', require('../api/athletes'));
@@ -50,6 +60,9 @@ module.exports = function(app, passport){
 	});
 	app.get('/noauth', function(req, res){
 		res.render('nonewUser')
+	})
+	app.get('/wrongpass', function(req, res){
+		res.render('wrongpass')
 	})
 	app.get('/logout', function(req, res){
 		req.logout();

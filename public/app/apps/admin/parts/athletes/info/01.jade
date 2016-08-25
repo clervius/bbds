@@ -2,32 +2,41 @@
 	.col-md-12
 		.row
 			.col-md-4
-				.form-group
-					label First Name
-						star *
-					input.form-control(name="firstName", ng-model="athlete.profile.firstName")
-			.col-md-3
-				.form-group
-					label Middle Name
-					input.form-control(name="mName", ng-model="athlete.profile.middleName")
-			.col-md-5
-				.form-group
-					label Last Name
-						star *
-					input.form-control(name="lastName", ng-model="athlete.profile.lastName")
-		.row
-			.col-md-4
-				.form-group
-					label Birth date
-					input.form-control.datepicker(ng-model="athlete.dob", placeholder="01/10/1975")
-			.col-md-4
-				.form-group
-					label Subtitle
-					input.form-control(ng-model="athlete.profile.subtitle")
-			.col-md-4
-				.form-group
-					label Federation
-					input.form-control(ng-model="athlete.federation.federationShortName")
+				.image-container(style="background-image:url('{{ athlete.profile.picture.url }}')")
+			.col-md-8
+				.row					
+					.col-md-5
+						.form-group
+							label First Name
+								star *
+							input.form-control(name="firstName", ng-model="athlete.profile.firstName")
+					.col-md-2
+						.form-group
+							label MI
+							input.form-control(name="mName", ng-model="athlete.profile.middleName")
+					.col-md-5
+						.form-group
+							label Last Name
+								star *
+							input.form-control(name="lastName", ng-model="athlete.profile.lastName")
+				.row
+					.col-md-4
+						.form-group
+							label Birth date
+							input.form-control.datepicker(ng-model="athlete.dob", placeholder="01/10/1975")
+					.col-md-4
+						.form-group
+							label Subtitle
+							input.form-control(ng-model="athlete.profile.subtitle")
+					.col-md-4
+						.form-group
+							label Federation
+							input.form-control(ng-model="athlete.federation.federationShortName")
+				.row
+					.col-md-12
+						button.btn.btn-xs.btn-fill.btn-primary() &nbsp;&nbsp;
+							i.ti-image
+							|&nbsp;&nbsp; Update picture &nbsp;&nbsp;
 		.row
 			.col-md-7
 				.form-group
