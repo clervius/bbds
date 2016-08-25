@@ -1,0 +1,47 @@
+.col-md-12
+	.card
+		.header
+			a.btn.btn-icon.btn-danger.btn-xs.btn-simple.pull-right(ng-click="close()", style="z-index:999") 
+				i.ti-close
+			h4.title(ng-bind="album.galleryName || 'New Photo Album'")
+			p.category fill out the following form and upload pictures to add to this album
+		.content
+			form
+				.row
+					.col-md-7
+						.form-group
+							label Gallery Name
+							input.form-control(ng-model="album.galleryName")
+				.row
+					.col-md-5
+						.form-group
+							label Photographer/Credit
+							input.form-control(ng-model="album.photographerName")
+					.col-md-7
+						.form-group
+							label Photographer Site/Link
+							input.form-control(ng-model="album.photographerLink", placeholder="http://")
+				.row
+					.col-md-12
+						.form-group
+							label Gallery description
+							input.form-control(ng-model="album.description")
+				.row
+					.col-md-12
+						button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="createAlbum()")
+							i.fa.fa-floppy-o
+							|&nbsp;&nbsp; Update Album
+						|&nbsp;&nbsp;
+						button.btn.btn-wd.btn-simple.pull-right(ng-click="addPictures()", ng-hide="album.images.length > numPics")
+							i.fa.fa-picture-o
+							|&nbsp;&nbsp; Select Pictures (15 max)
+						.clearfix
+.col-md-12
+	ul.newAlbum-images
+		li.col-md-2(ng-repeat="image in album.images")
+			label.checkbox(for="checkbox{{$index + 1 }}", style="position:relative;top:-7px;left:-7px")
+				input(type="checkbox", checklist-value="image._id", checklist-model="toDelete", id="checkbox{{$index + 1 }}", data-toggle="checkbox", ng-click="listList()")
+			.clearfix
+			img.img-responsive.img-thumbnail(src="{{image.url}}+{{image.filename}}")
+script.
+	$(':checkbox').checkbox();

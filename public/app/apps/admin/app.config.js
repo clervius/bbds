@@ -56,6 +56,18 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 				pageTitle: 'Create Album'
 			}
 		})
+		.state('athlete.editAlbum', {
+			url: '/editGallery/:id/:galId',
+			templateUrl: '/client/app/apps/admin/parts/athletes/editAlbum',
+			controller: 'athCtrl4',
+			ncyBreadcrumb: {
+				label: 'Edit Album',
+				parent: 'athlete'
+			},
+			data: {
+				pageTitle: 'Edit Album'
+			}
+		})
 		.state('newAthlete', {
 			url: '/athletes/add',
 			templateUrl: '/client/app/apps/admin/parts/athletes/new',

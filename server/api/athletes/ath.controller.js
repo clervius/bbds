@@ -64,16 +64,6 @@ module.exports = function(){
 				 return (url.match(p)) ? RegExp.$1 : false ;
 				}
 			var videoId = matchYoutubeUrl(req.body.link);
-			var thumb = '';
-			youthumb.get(videoId, 'maxres', function(err, thumbnail){
-				if(err){
-					console.log(err)
-				}
-				else{
-					console.log(thumbnail)
-					thumb = thumbnail;
-				}
-			})
 			console.log(videoId)
 			console.log('going now to add video into athlete')
 			athlete.findByIdAndUpdate(req.params.id,
@@ -87,9 +77,6 @@ module.exports = function(){
 						res.json(athlete)
 					}
 				})
-				
-			
-			
 		},
 		addGallery: function(req, res){
 			console.log('creating album for this athlete');
@@ -115,26 +102,7 @@ module.exports = function(){
 					console.log(err);
 					console.log('could not delete album')
 				}
-			})
-
-			/*
-			athlete.findById(req.params.id, function(err, athlete){
-				if(!err){
-					console.log('found athlete, attempting to delete album')
-					athlete.galleries.findByIdAndRemove(req.params.galId, function(err, athlete){
-						if(!err){
-							console.log('album deleted successfully');
-							res.json(athlete);
-						}else{
-							console.log('could not delete album');
-							console.log(err)
-						}
-					})
-				}else{
-					console.log('couldnt find this athlete to delete album from');
-					console.log(err)
-				}
-			});*/
+			});
 		},
 		update: function(req, res){}
 	};

@@ -1,9 +1,9 @@
-.header
+.header(ng-hide="$state.includes('athlete.editAlbum')")
 	h5.title Albums
-		a.btn.btn-xs.btn-info.btn-fill.pull-right(ui-sref="athlete.addAlbum({ id: athlete._id})", style="position:relative;top:-3px", ng-hide="$state.includes('athlete.addAlbum')") &nbsp;&nbsp;
+		a.btn.btn-xs.btn-info.btn-fill.pull-right(ui-sref="athlete.addAlbum({ id: athlete._id})", style="position:relative;top:-3px", ng-hide="$state.includes('athlete.addAlbum') || $state.includes('athlete.editAlbum')") &nbsp;&nbsp;
 			i.ti-image
 			|&nbsp;&nbsp;Add Album &nbsp;&nbsp;
-div(id="acordeon")
+div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 	.panel-group(id="accordion")
 		.panel.panel-border.panel-default(ng-repeat="album in athlete.galleries")
 			a(data-toggle="collapse", data-target="#num-{{$index}}")
@@ -23,7 +23,7 @@ div(id="acordeon")
 						strong uploaded: &nbsp;
 						|{{ album.ceatedAt | date }}
 					.clearfix.text-right.pull-right
-						a.btn.btn-xs.btn-info.btn-simple()
+						a.btn.btn-xs.btn-info.btn-simple(ui-sref="athlete.editAlbum({id: athlete._id, galId: album._id})")
 							i.ti-pencil
 							|&nbsp;&nbsp;Edit
 						|&nbsp;&nbsp;

@@ -161,6 +161,7 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, f
 angular.module('manager').controller('athCtrl2', function($scope, $http, $stateParams, filepickerService, $state){
 	$scope.athlete = {};
 	$scope.$state = $state;
+	$scope.$stateParams = $stateParams;
 	$scope.records = [];
 	$scope.newVideo = {};
 	// Dealing with records
@@ -334,4 +335,34 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 		})
 	};
 	
+});
+
+// Controller to edit albums.
+angular.module('manager').controller('athCtrl4', function($scope, $http, $stateParams, filepickerService, $state){
+	$scope.album = {};
+	$scope.numPics = '';
+	$scope.$stateParams = $stateParams;
+	$http.get('/ath/' + $stateParams.id).success((data)=>{
+		console.log('got the athlete')
+		angular.forEach(data.galleries, function(gallery, key){
+			console.log('looking for the album')
+			if(gallery._id === $stateParams.galId){
+				console.log('got the album');
+				$scope.album = gallery;
+				$scope.numPics = gallery.images.length;
+			}
+		});
+	});
+
+	$scope.toDelete = [];
+
+	$scope.listList = function(){
+		console.log($scope.toDelete)
+	}
+	$scope.close = function(){
+		parent.history.back();
+	}
+	$scope.deleteImages = function(){};
+	$scope.addImages = function(){};
+	$scope.updateAlbum = function(){};
 });
