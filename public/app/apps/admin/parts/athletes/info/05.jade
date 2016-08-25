@@ -14,6 +14,7 @@ div(id="acordeon")
 						i.ti-angle-down
 			.panel-collapse.collapse(id="num-{{$index}}")
 				.panel-body
+
 					h6.title {{ album.description }}
 					p.category 
 						strong by: &nbsp;
@@ -21,8 +22,16 @@ div(id="acordeon")
 					p.category
 						strong uploaded: &nbsp;
 						|{{ album.ceatedAt | date }}
+					.clearfix.text-right.pull-right
+						a.btn.btn-xs.btn-info.btn-simple()
+							i.ti-pencil
+							|&nbsp;&nbsp;Edit
+						|&nbsp;&nbsp;
+						a.btn.btn-xs.btn-danger.btn-simple(ng-click="deleteGallery(album._id)")
+							i.ti-trash
+							|&nbsp;&nbsp;Delete
 					hr
 					.row
-						.col-md-2(ng-repeat="image in album.images", style="margin-bottom:15px")
+						.col-md-2.col-xs-2(ng-repeat="image in album.images", style="margin-bottom:15px")
 							img.img-responsive.img-thumbnail(src="{{image.url}}+{{image.filename}}")
 

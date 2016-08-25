@@ -1,6 +1,8 @@
 .col-md-12
 	.card
 		.header
+			a.btn.btn-icon.btn-danger.btn-xs.btn-simple.pull-right(ui-sref="athlete({id: newAlbum.athlete})", style="z-index:999") 
+				i.ti-close
 			h4.title(ng-bind="newAlbum.galleryName || 'New Photo Album'")
 			p.category fill out the following form and upload pictures to add to this album
 		.content

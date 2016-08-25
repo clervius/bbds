@@ -183,6 +183,25 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 		$scope.records.splice(lastItem);
 	};
 
+	// Galleries
+	$scope.deleteGallery = function(id){
+		console.log('looking to delete this gallery');
+		swal({  title: "Delete Gallery?",
+            	    text: "You are requesting to delete this Gallery",
+            	    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    confirmButtonText: "Delete",
+                    closeOnConfirm: true,
+                },function(){
+                    $http.delete('/ath/' + $scope.athlete._id + '/gallery/' + id).success(function(athlete){
+						swal("Deleted", "Gallery has been deleted", "success");
+						location.reload();
+					})
+                })
+		
+	
+	};
 
 	// Updating picture
 	$scope.newPicture = function(){
@@ -274,6 +293,10 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 	$scope.newAlbum = {};
 	$scope.newAlbum.images = [];
 	$scope.newAlbum.athlete = $stateParams.id;
+
+	$scope.close = function(){
+		$state.go('athlete', {'id': $stateParams.id} );
+	};
 
 	$scope.addPictures = function(){
 		filepickerService.pickMultiple({

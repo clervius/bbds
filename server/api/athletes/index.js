@@ -13,5 +13,5 @@ router.post('/ath/:id/addVideo', controller.addVideo);
 router.post('/ath/update/:id', controller.update);
 
 router.delete('/ath/:id', controller.deleteOne);
-
+router.delete('/ath/:id/gallery/:galId', controller.deleteGallery);
 module.exports = router;
