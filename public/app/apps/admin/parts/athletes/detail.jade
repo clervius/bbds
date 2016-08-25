@@ -2,9 +2,25 @@
 	.col-md-7
 		.row
 			.col-md-12.text-right
-				a.btn.btn-sm.btn-default.btn-fill(href="/#!/athlete/{{athlete._id}}", target="blank") View Page
+				a.btn.btn-sm.btn-info.btn-fill(ng-click="addRecord()") &nbsp;&nbsp;
+					i.ti-medall-alt
+					|&nbsp;&nbsp;Add Show&nbsp;&nbsp;
 				|&nbsp;&nbsp;&nbsp;
-				button.btn.btn-sm.btn-primary.btn-fill(ng-click="updateAth()") Update Athlete
+				a.btn.btn-sm.btn-info.btn-fill(ui-sref="athlete.addAlbum({ id: athlete._id})") &nbsp;&nbsp;
+					i.ti-image
+					|&nbsp;&nbsp;Add Album &nbsp;&nbsp;
+				|&nbsp;&nbsp;&nbsp;
+				a.btn.btn-sm.btn-info.btn-fill(ng-click="addVideo()") &nbsp;&nbsp;
+					i.ti-control-play
+					|&nbsp;&nbsp;Add Video&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+				a.btn.btn-sm.btn-primary.btn-fill(href="/#!/athlete/{{athlete._id}}", target="blank")  &nbsp;&nbsp;
+					i.ti-new-window
+					|&nbsp;&nbsp;View Page&nbsp;&nbsp;
+				|&nbsp;&nbsp;&nbsp;
+				button.btn.btn-sm.btn-default.btn-fill(ng-click="updateAth()")
+					i.ti-save
+					|&nbsp;&nbsp;Update Athlete&nbsp;&nbsp;
 		.clearfix
 		br
 		.card
@@ -42,21 +58,14 @@
 									include info/03
 								.tab-pane.fade.in(id="06")
 									include info/06
-	.col-md-5
-		.row
-			.col-md-12.text-right
-				a.btn.btn-sm.btn-default.btn-fill(ng-click="addRecord()") &nbsp;&nbsp;
-					i.ti-plus
-					|&nbsp;&nbsp;Add Show&nbsp;&nbsp;
+	.col-md-5				
 		.card.card-plain
 			include info/04
-		.row(ng-show="athlete.galleries.length")
-			.col-md-12.text-right
-				a.btn.btn-sm.btn-default.btn-fill(ui-sref="athlete.addAlbum({ id: athlete._id})") &nbsp;&nbsp;
-					i.ti-plus
-					|&nbsp;&nbsp;Add Album &nbsp;&nbsp;
-		.card.card-plain(ng-show="athlete.galleries.length")
+		.row(ui-view="")
+		.card.card-plain(ng-show="athlete.galleries.length > 0")
 			include info/05
-.row(ui-view="")
+		.card.card-plain(ng-show="athlete.videos.length > 0")
+			include info/06
+
 script.
 	$('.datepicker').datetimepicker({ format: 'MM/DD/YYYY', icons: { time: "fa fa-clock-o", date: "fa fa-calendar", up: "fa fa-chevron-up", down: "fa fa-chevron-down", previous: 'fa fa-chevron-left', next: 'fa fa-chevron-right', today: 'fa fa-screenshot', clear: 'fa fa-trash', close: 'fa fa-remove' } });

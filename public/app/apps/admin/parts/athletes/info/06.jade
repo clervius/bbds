@@ -1,1 +1,11 @@
-// This is how you will see the videos that have been added.
+.header
+	h5.title Videos
+hr
+.row
+	ul.list-unstyled
+		li.col-md-3(ng-repeat="video in athlete.videos")
+			a.text-danger(href="{{video.link}}", target="blank", style="position:relative")
+				img.img-responsive.img-thumbnail(src="{{video.thumb}}", style="opacity:.5")
+				.clearfix
+				p.text-center(style="position:absolute;top:-60px;left:60px")
+					i.fa-play.fa

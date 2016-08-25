@@ -57,34 +57,38 @@ module.exports = function(){
 		},
 		addVideo: function(req, res){
 			console.log('adding video to this athlete');
+			console.log(req.body)
 			function matchYoutubeUrl(url){
 				var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 				console.log('looking up id for' + url)
 				 return (url.match(p)) ? RegExp.$1 : false ;
 				}
 			var videoId = matchYoutubeUrl(req.body.link);
-			var saveVid = function(){
-				athlete.findByIdAndUpdate(req.body.athlete,
-					{ $push: {'videos':  req.body.video } }, 
-					{new: true, safe: true, upsert: true}, 
-					function(err, athlete){
-						if(err){console.log('could not add video'); res.json(err)}
-						else{
-							console.log('succes with adding the video');
-							console.log(athlete);
-							res.json(athlete)
-						}
-					})
-				}
+			var thumb = '';
 			youthumb.get(videoId, 'maxres', function(err, thumbnail){
 				if(err){
-					saveVid()
+					console.log(err)
 				}
 				else{
-					req.body.thumbnail = thumbnail
-					saveVid()
+					console.log(thumbnail)
+					thumb = thumbnail;
 				}
 			})
+			console.log(videoId)
+			console.log('going now to add video into athlete')
+			athlete.findByIdAndUpdate(req.params.id,
+				{ $push: {'videos':  {'link' : req.body.link, 'thumb': req.body.thumb, 'id': videoId} } }, 
+				{new: true, safe: true, upsert: true}, 
+				function(err, athlete){
+					if(err){console.log('could not add video'); res.json(err)}
+					else{
+						console.log('success with adding the video');
+						console.log(athlete);
+						res.json(athlete)
+					}
+				})
+				
+			
 			
 		},
 		addGallery: function(req, res){

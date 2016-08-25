@@ -2,7 +2,7 @@
 	.col-md-12
 		.row
 			.col-md-4
-				.image-container(style="background-image:url('{{ athlete.profile.picture.url }}')")
+				a.image-container(style="background-image:url('{{ athlete.profile.picture.url }}')", ng-click="")
 			.col-md-8
 				.row					
 					.col-md-5
@@ -32,11 +32,6 @@
 						.form-group
 							label Federation
 							input.form-control(ng-model="athlete.federation.federationShortName")
-				.row
-					.col-md-12
-						button.btn.btn-xs.btn-fill.btn-primary() &nbsp;&nbsp;
-							i.ti-image
-							|&nbsp;&nbsp; Update picture &nbsp;&nbsp;
 		.row
 			.col-md-7
 				.form-group

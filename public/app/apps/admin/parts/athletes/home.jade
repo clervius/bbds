@@ -23,8 +23,9 @@
 							th Athlete
 							th Country
 							th Subtitle							
-							th # Shows
-							th Albums
+							th.text-center # Shows
+							th.text-center Albums
+							th.text-center Videos
 							th
 					tbody
 						tr(ng-repeat="athlete in athletes", id="athlete._id")
@@ -34,8 +35,9 @@
 							td
 								img(src="img/flags/{{athlete.countries[0].countryName | lowercase}}.png")
 							td {{ athlete.profile.subtitle}}
-							td {{ athlete.competitions.length }}
-							td {{ athlete.galleries.length }}
+							td.text-center {{ athlete.competitions.length }}
+							td.text-center {{ athlete.galleries.length }}
+							td.text-center {{ athlete.videos.length }}
 							td 
 								a.btn.btn-default.btn-xs.btn-simple(href="/#!/athlete/{{athlete._id}}", target="blank")
 									i.ti-new-window

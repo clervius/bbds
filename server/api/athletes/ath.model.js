@@ -29,10 +29,9 @@ var gallery = new Schema({
 });
 
 var video = new Schema({
-	videoName: String,
-	description: String,
-	thumb: String,
+	thumb: Schema.Types.Mixed,
 	link: String,
+	id: String,
 	ceatedAt: {
 		type: Date,
 		default: new Date

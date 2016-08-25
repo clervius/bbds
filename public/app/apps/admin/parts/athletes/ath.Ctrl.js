@@ -161,7 +161,7 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, f
 angular.module('manager').controller('athCtrl2', function($scope, $http, $stateParams, filepickerService, $state){
 	$scope.athlete = {};
 	$scope.records = [];
-
+	$scope.newVideo = {};
 	// Dealing with records
 	$scope.addRecord = function(){
 		var newItemNo = $scope.records.length + 1;
@@ -219,6 +219,30 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 		console.log('about to update this athlete')
 	};
 
+	// Add video
+
+	$scope.addVideo = function(){
+		console.log('adding video');
+		swal({
+            title: 'Paste the link to a Youtube Video in here',
+            html: '<p>YouTube Videos ONLY.</p><div class="form-group"><input id="videoLink" class="form-control" placeholder="https://www.youtube.com/watch?v=63rJrBa8s_8">',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            allowOutsideClick: false
+            },
+            function() {
+            	$scope.newVideo.link = $('#videoLink').val();
+            	$scope.newVideo.thumb = $.jYoutube($scope.newVideo.link, 'big');
+            	console.log($scope.newVideo)
+
+            	$http.post('/ath/' + $stateParams.id + '/addVideo', $scope.newVideo).success((video)=>{
+            		console.log('successfully added the video');
+            		swal({ html: 'You successfully added the video.' });
+            		location.reload();
+            	})
+            })
+
+	};
 
 	// function to create/update Athlete
 	$scope.updateAth = function(){
@@ -245,7 +269,7 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 });
 
 // New Album Controller
-angular.module('manager').controller('athCtrl3', function($scope, $http, $stateParams, filepickerService){
+angular.module('manager').controller('athCtrl3', function($scope, $http, $stateParams, filepickerService, $state){
 	$scope.newAlbum = {};
 	$scope.newAlbum.images = [];
 	$scope.newAlbum.athlete = $stateParams.id;
@@ -254,7 +278,7 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 		filepickerService.pickMultiple({
 			mimetype: 'image/*',
 			language: 'en',
-			maxFiles: 10,
+			maxFiles: 15,
 			services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'INSTAGRAM'],
 			openTo: 'COMPUTER'
 		},function(Blob){
@@ -265,14 +289,25 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 		})
 	};
 
-
+	// Create Album
 	$scope.createAlbum = function(){
 		console.log('Adding this gallery');
 		console.log($scope.newAlbum.images);
 		$http.post('/ath/addGallery', $scope.newAlbum).success(function(data){
 			console.log('successfully added this album')
 			console.log(data);
-			$scope.newAlbum = {};
+			$state.go('athlete', {'id': $stateParams.id} );
+			swal({  title: "Album Saved",
+            	    text: "You have successfully created this album.",
+            	    type: "success",
+                    showCancelButton: false,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    confirmButtonText: "Okay",
+                    closeOnConfirm: true,
+                },function(){
+                    location.reload();
+                });
 		})
 	};
+	
 });

@@ -1,21 +1,21 @@
-.col-md-7
+.col-md-12
 	.card
 		.header
-			h4.title New Photo Album
+			h4.title(ng-bind="newAlbum.galleryName || 'New Photo Album'")
 			p.category fill out the following form and upload pictures to add to this album
 		.content
 			form
 				.row
-					.col-md-6
+					.col-md-7
 						.form-group
 							label Gallery Name
 							input.form-control(ng-model="newAlbum.galleryName")
 				.row
-					.col-md-2
+					.col-md-5
 						.form-group
 							label Photographer/Credit
 							input.form-control(ng-model="newAlbum.photographerName")
-					.col-md-4
+					.col-md-7
 						.form-group
 							label Photographer Site/Link
 							input.form-control(ng-model="newAlbum.photographerLink", placeholder="http://")
@@ -26,15 +26,15 @@
 							input.form-control(ng-model="newAlbum.description")
 				.row
 					.col-md-12
-						button.btn.btn-wd.btn-fill.btn-simple.pull-right(ng-click="addPictures()")
+						button.btn.btn-wd.btn-simple.pull-right(ng-click="addPictures()", ng-hide="newAlbum.images.length > 0")
 							i.fa.fa-picture-o
-							|&nbsp;&nbsp; Upload Pictures (10 max)
-	br
-	button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="createAlbum()")
-		i.fa.fa-floppy-o
-		|&nbsp;&nbsp; Create Album
-.col-md-5
+							|&nbsp;&nbsp; Select Pictures (15 max)
+						button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="createAlbum()", ng-show="newAlbum.images.length > 0")
+							i.fa.fa-floppy-o
+							|&nbsp;&nbsp; Save Album
+						.clearfix
+.col-md-12
 	ul.newAlbum-images
-		li.col-md-3(ng-repeat="image in newAlbum.images")
+		li.col-md-2(ng-repeat="image in newAlbum.images")
 			.imgShow(style="background-image:url('{{image.url}}')")
 
