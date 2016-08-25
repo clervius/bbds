@@ -6,11 +6,11 @@
 					i.ti-medall-alt
 					|&nbsp;&nbsp;Add Show&nbsp;&nbsp;
 				|&nbsp;&nbsp;&nbsp;
-				a.btn.btn-sm.btn-info.btn-fill(ui-sref="athlete.addAlbum({ id: athlete._id})") &nbsp;&nbsp;
+				a.btn.btn-sm.btn-info.btn-fill(ui-sref="athlete.addAlbum({ id: athlete._id})", ng-hide="athlete.galleries.length > 0") &nbsp;&nbsp;
 					i.ti-image
 					|&nbsp;&nbsp;Add Album &nbsp;&nbsp;
 				|&nbsp;&nbsp;&nbsp;
-				a.btn.btn-sm.btn-info.btn-fill(ng-click="addVideo()") &nbsp;&nbsp;
+				a.btn.btn-sm.btn-info.btn-fill(ng-click="addVideo()", ng-hide="athlete.videos.length > 0") &nbsp;&nbsp;
 					i.ti-control-play
 					|&nbsp;&nbsp;Add Video&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;

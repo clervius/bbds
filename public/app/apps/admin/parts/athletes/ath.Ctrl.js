@@ -160,6 +160,7 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, f
 // Athlete detail and edit page
 angular.module('manager').controller('athCtrl2', function($scope, $http, $stateParams, filepickerService, $state){
 	$scope.athlete = {};
+	$scope.$state = $state;
 	$scope.records = [];
 	$scope.newVideo = {};
 	// Dealing with records

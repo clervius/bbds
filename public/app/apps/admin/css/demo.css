@@ -152,3 +152,6 @@ table.form-table thead tr th:nth-child(7), table.form-table tbody tr td:nth-chil
 .breadcrumb {
 	background-color: transparent;
 }
+.show-table {
+	font-size: .8em;
+}

@@ -1,3 +1,8 @@
+.header
+	h5.title Albums
+		a.btn.btn-xs.btn-info.btn-fill.pull-right(ui-sref="athlete.addAlbum({ id: athlete._id})", style="position:relative;top:-3px", ng-hide="$state.includes('athlete.addAlbum')") &nbsp;&nbsp;
+			i.ti-image
+			|&nbsp;&nbsp;Add Album &nbsp;&nbsp;
 div(id="acordeon")
 	.panel-group(id="accordion")
 		.panel.panel-border.panel-default(ng-repeat="album in athlete.galleries")
