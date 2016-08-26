@@ -28,20 +28,23 @@
 							input.form-control(ng-model="album.description")
 				.row
 					.col-md-12
-						button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="createAlbum()")
+						button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="updateAlbum()")
 							i.fa.fa-floppy-o
 							|&nbsp;&nbsp; Update Album
 						|&nbsp;&nbsp;
 						button.btn.btn-wd.btn-simple.pull-right(ng-click="addPictures()", ng-hide="album.images.length > numPics")
 							i.fa.fa-picture-o
-							|&nbsp;&nbsp; Select Pictures (15 max)
+							|&nbsp;&nbsp; Add Pictures (15 max)
 						.clearfix
 .col-md-12
+	h6.title(ng-show="newPictures.length > 0") New Images
+	ul.newAlbum-images(ng-show="newPictures.length > 0")
+		li.col-md-2(ng-repeat="image in newPictures")
+			img.img-responsive.img-thumbnail(src="{{image.url}}+{{image.filename}}")
+	.clearfix(ng-show="newPictures.length > 0")
+	hr(ng-show="newPictures.length > 0")
 	ul.newAlbum-images
 		li.col-md-2(ng-repeat="image in album.images")
-			label.checkbox(for="checkbox{{$index + 1 }}", style="position:relative;top:-7px;left:-7px")
-				input(type="checkbox", checklist-value="image._id", checklist-model="toDelete", id="checkbox{{$index + 1 }}", data-toggle="checkbox", ng-click="listList()")
-			.clearfix
 			img.img-responsive.img-thumbnail(src="{{image.url}}+{{image.filename}}")
 script.
 	$(':checkbox').checkbox();

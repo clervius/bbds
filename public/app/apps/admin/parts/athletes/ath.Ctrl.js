@@ -340,6 +340,7 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 // Controller to edit albums.
 angular.module('manager').controller('athCtrl4', function($scope, $http, $stateParams, filepickerService, $state){
 	$scope.album = {};
+	$scope.newPictures = [];
 	$scope.numPics = '';
 	$scope.$stateParams = $stateParams;
 	$http.get('/ath/' + $stateParams.id).success((data)=>{
@@ -354,15 +355,47 @@ angular.module('manager').controller('athCtrl4', function($scope, $http, $stateP
 		});
 	});
 
-	$scope.toDelete = [];
 
-	$scope.listList = function(){
-		console.log($scope.toDelete)
-	}
+	$scope.addPictures = function(){
+		filepickerService.pickMultiple({
+			mimetype: 'image/*',
+			language: 'en',
+			maxFiles: 15,
+			services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'INSTAGRAM'],
+			openTo: 'COMPUTER'
+		},function(Blob){
+			console.log('uploaded image')
+			console.log(JSON.stringify(Blob));
+			$scope.newPictures = Blob	
+			$scope.$apply();
+		})
+	};
 	$scope.close = function(){
 		parent.history.back();
 	}
 	$scope.deleteImages = function(){};
-	$scope.addImages = function(){};
-	$scope.updateAlbum = function(){};
+	$scope.updateAlbum = function(){
+		if($scope.newPictures.length > 0){
+			angular.forEach($scope.newPictures, function(picture, key){
+				$scope.album.images.push(picture);
+
+			});
+		}
+		console.log('going to update this album');
+		console.log($scope.album);
+		$http.post('/ath/' + $stateParams.id + '/editAlbum/' + $scope.album._id, $scope.album).success((athlete)=>{
+			console.log('successfully edited album');
+			parent.history.back();
+			swal({  title: "Album Saved",
+            	    text: "You have successfully updated this album.",
+            	    type: "success",
+                    showCancelButton: false,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    confirmButtonText: "Okay",
+                    closeOnConfirm: true,
+                },function(){
+                    location.reload();
+                });
+		})
+	};
 });
