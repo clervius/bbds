@@ -31,6 +31,10 @@ div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 							|&nbsp;&nbsp;&nbsp;
 							button.btn.btn-xs.btn-info.btn-fill(ng-click="saveNewPix(album._id)") Save
 					.clearfix.text-right.pull-right
+						a.btn.btn-xs.btn-danger.btn-simple(ng-click='deleteImages(album._id)', ng-show="toBeDeleted.length > 0")
+							i.ti-close
+							|&nbsp;&nbsp;Remove Pictures
+						|&nbsp;&nbsp;
 						a.btn.btn-xs.btn-info.btn-simple(ui-sref="athlete.editAlbum({id: athlete._id, galId: album._id})")
 							i.ti-pencil
 							|&nbsp;&nbsp;Edit
@@ -41,9 +45,15 @@ div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 						|&nbsp;&nbsp;
 						a.btn.btn-xs.btn-danger.btn-simple(ng-click="deleteGallery(album._id)")
 							i.ti-trash
-							|&nbsp;&nbsp;Delete
+							|&nbsp;&nbsp;Delete Album
 					hr
 					.row
 						.col-md-2.col-xs-2(ng-repeat="image in album.images", style="margin-bottom:15px")
+							label(for="image{{$index+1}}", style="z-index:999;position:relative;top:5px;")
+								input(id="image{{$index+1}}", ng-model="deleteList[image.url]", type="checkbox")
+							.clearfix
 							div.imgShow(style="background-image:url({{image.url}}+{{image.filename}})")
-
+					.row
+						.col-md-12
+							p {{deleteList}}
+script.

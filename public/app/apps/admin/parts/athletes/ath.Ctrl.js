@@ -194,6 +194,8 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 
 	// Galleries
 	$scope.newPictures = [];
+	$scope.deleteList = {};
+	$scope.toBeDeleted = [];
 	$scope.deleteGallery = function(id){
 		console.log('looking to delete this gallery');
 		swal({  title: "Delete Gallery?",
@@ -209,8 +211,6 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 						location.reload();
 					});
                 });
-		
-	
 	};
 	$scope.addPictures = function(){
 		filepickerService.pickMultiple({
@@ -224,11 +224,24 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 			console.log(JSON.stringify(Blob));
 			$scope.newPictures = Blob;
 			$scope.$apply();
-		})
+		});
+	};
+	$scope.addToList = function(){
+
+	};
+	$scope.deleteImages = function(album){
+		angular.forEach($scope.deleteList, function(value, key){
+			if(key == true){
+				console.log(value);
+				$scope.toBedeleted.push(value);
+				console.log($scope.toBedeleted)
+			}
+		});
+		$http.delete('/ath/' + $scope.athlete._id + '/deleteFromAlbum/' + album, $scope.deleteList)
 	};
 	$scope.cancelNewPix = function(){
 		swal({  title: "Cancel?",
-            	    text: "You are requesting to cancel adding new pictures",
+            	    text: "You are requesting to cancel adding new pictures. This will delete anything you've uploaded.",
             	    type: "warning",
                     showCancelButton: true,
                     confirmButtonClass: "btn btn-success btn-fill",
