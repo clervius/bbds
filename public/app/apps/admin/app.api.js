@@ -4,7 +4,9 @@ angular.module('manager').factory('athletes', function($http){
 	
 	$http.get('/ath/all').success(function(data){
 		data.forEach(function(athlete){
-			athletes.push(athlete);
+      if(athlete._id != null){
+        athletes.push(athlete);
+      }
 			console.log(athlete)
 		});
 	});

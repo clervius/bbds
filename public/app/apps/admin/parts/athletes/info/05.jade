@@ -14,7 +14,6 @@ div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 						i.ti-angle-down
 			.panel-collapse.collapse(id="num-{{$index}}")
 				.panel-body
-
 					h6.title {{ album.description }}
 					p.category 
 						strong by: &nbsp;
@@ -22,10 +21,23 @@ div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 					p.category
 						strong uploaded: &nbsp;
 						|{{ album.ceatedAt | date }}
+					hr(ng-show="newPictures.length > 0")
+					.row(ng-show="newPictures.length > 0")
+						.col-md-2(ng-repeat="picture in newPictures")
+							img.img-responsive.img-thumbnail(src="{{picture.url}}+{{picture.filename}}")
+					.row(ng-show="newPictures.length > 0")
+						.col-md-12.text-right(style="margin-bottom:15px")
+							button.btn.btn-xs.btn-danger.btn-fill(ng-click="cancelNewPix()") Cancel
+							|&nbsp;&nbsp;&nbsp;
+							button.btn.btn-xs.btn-info.btn-fill(ng-click="saveNewPix(album._id)") Save
 					.clearfix.text-right.pull-right
 						a.btn.btn-xs.btn-info.btn-simple(ui-sref="athlete.editAlbum({id: athlete._id, galId: album._id})")
 							i.ti-pencil
 							|&nbsp;&nbsp;Edit
+						|&nbsp;&nbsp;
+						a.btn.btn-xs.btn-info.btn-simple(ng-click="addPictures()")
+							i.ti-image
+							|&nbsp;&nbsp;Add
 						|&nbsp;&nbsp;
 						a.btn.btn-xs.btn-danger.btn-simple(ng-click="deleteGallery(album._id)")
 							i.ti-trash
@@ -33,5 +45,5 @@ div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 					hr
 					.row
 						.col-md-2.col-xs-2(ng-repeat="image in album.images", style="margin-bottom:15px")
-							img.img-responsive.img-thumbnail(src="{{image.url}}+{{image.filename}}")
+							div.imgShow(style="background-image:url({{image.url}}+{{image.filename}})")
 

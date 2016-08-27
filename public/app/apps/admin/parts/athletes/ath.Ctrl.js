@@ -11,9 +11,13 @@ angular.module('manager').controller('athCtrl', function($scope, athletes, $http
                     confirmButtonText: "Delete",
                     closeOnConfirm: true,
                 },function(){
-                    $http.delete('/ath/' + id).success(function(athlete){
+                    $http.delete('/ath/' + id).success(function(message){
 						swal("Deleted", "Athlete has been deleted", "success");
-						$('#' + id).remove();
+						console.log(message);
+						location.reload();
+					}).error(function(err){
+						consolee.log(err);
+						console.log('could not delete atlete')
 					})
                 })
 		
@@ -117,24 +121,28 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, f
 					item.athlete = athId; 
 					console.log(item);
 					console.log('going to create the above record');
-					$http.post('/record/new', item)
-						.success(function(data){
-							console.log('successfully created the record as: '  + angular.toJson(data));
-							// need to now add this record back into the athlete.
-							$http.post('/ath/addRecord', data)
-								.success(function(data){
-									console.log('successfully added record into athlete');
-									console.log(angular.toJson(data))
-								})
-								.error(function(data){
-									console.log('could not add that record back into athlete');
-									console.log(angular.toJson(data))
-								})
-						})
-						.error(function(data){
-							console.log('did not create the record');
-							console.log(angular.toJson(data))
-						});
+					if(item.year.length < 1 && item.federation.length < 1 && item.show.length < 1 && item.division.length < 1 && item.class.length < 1 && item.place.length < 1 ){
+						console.log('This competition has no information, not adding it.')
+					}else{
+						$http.post('/record/new', item)
+							.success(function(data){
+								console.log('successfully created the record as: '  + angular.toJson(data));
+								// need to now add this record back into the athlete.
+								$http.post('/ath/addRecord', data)
+									.success(function(data){
+										console.log('successfully added record into athlete');
+										console.log(angular.toJson(data))
+									})
+									.error(function(data){
+										console.log('could not add that record back into athlete');
+										console.log(angular.toJson(data))
+									})
+							})
+							.error(function(data){
+								console.log('did not create the record');
+								console.log(angular.toJson(data))
+							});
+					}
 				});
 				$scope.newAthlete = {};
 				$scope.records = [ {id: 'record1', year: '', federation: '', show:'', division: '', class: '', place: '', _creator: $scope.user} ]
@@ -176,7 +184,7 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 			class: '',
 			place: '',
 			_creator: $scope.user
-		}
+		};
 		$scope.records.push(record);
 	};
 	$scope.removeRecord = function(){
@@ -185,6 +193,7 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 	};
 
 	// Galleries
+	$scope.newPictures = [];
 	$scope.deleteGallery = function(id){
 		console.log('looking to delete this gallery');
 		swal({  title: "Delete Gallery?",
@@ -198,13 +207,51 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
                     $http.delete('/ath/' + $scope.athlete._id + '/gallery/' + id).success(function(athlete){
 						swal("Deleted", "Gallery has been deleted", "success");
 						location.reload();
-					})
-                })
+					});
+                });
 		
 	
 	};
+	$scope.addPictures = function(){
+		filepickerService.pickMultiple({
+			mimetype: 'image/*',
+			language: 'en',
+			maxFiles: 15,
+			services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'INSTAGRAM'],
+			openTo: 'COMPUTER'
+		},function(Blob){
+			console.log('uploaded image')
+			console.log(JSON.stringify(Blob));
+			$scope.newPictures = Blob;
+			$scope.$apply();
+		})
+	};
+	$scope.cancelNewPix = function(){
+		swal({  title: "Cancel?",
+            	    text: "You are requesting to cancel adding new pictures",
+            	    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    confirmButtonText: "Yes, Cancel",
+                    closeOnConfirm: true,
+                },function(){
+                    $scope.newPictures = [];
+                });
+	};
+	$scope.saveNewPix = function(album){
+		$http.post('/ath/' + $scope.athlete._id + '/addToAlbum/' + album, $scope.newPictures).success((data)=>{
+			angular.forEach($scope.newPictures, function(item){
+				angular.forEach($scope.athlete.galleries, function(gallery){
+					if(gallery._id == album){
+						gallery.images.push(item);
+					}
+				})
+			})
+			$scope.newPictures = [];
 
-	// Updating picture
+		})
+	};
+	// Updating Profile picture
 	$scope.newPicture = function(){
 		filepickerService.pick({
 			mimetype: 'image/*',

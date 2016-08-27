@@ -35,8 +35,11 @@ module.exports = function(){
 			athlete.findByIdAndRemove(req.params.id, function(err, athlete){
 				if(err){
 					console.log('could not delete that athlete');
+					res.json(athle);
+
 				}else{
 					console.log('success deleted that athlete')
+					res.json({message: 'Could not delete that athlete'})
 				}
 			})
 		},
@@ -102,6 +105,23 @@ module.exports = function(){
 					console.log(err);
 					console.log('could not delete album')
 				}
+			});
+		},
+		addToAlbum: function(req,res){
+			console.log('adding Pictures to this album');
+			console.log(req.body)
+			athlete.update({_id: req.params.id, 'galleries': {'$elemMatch' : {'_id': req.params.galId}}}, 
+				{$addToSet : { 'galleries.$.images' : {$each  : req.body}}},
+				{new: true, safe: true, upsert: true},
+				function(err,athlete){
+					if(err){
+						console.log('could not find athlete');
+						console.log(err);
+						res.json(err);
+					}else{
+						console.log('success update');					
+						res.json(athlete)
+					}
 			});
 		},
 		updateAlbum: function(req,res){

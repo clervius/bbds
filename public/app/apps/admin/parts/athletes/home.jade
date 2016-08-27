@@ -19,9 +19,8 @@
 				table.table.table-hover
 					thead
 						tr
-							th 
+							th Image
 							th Athlete
-							th Country
 							th Subtitle							
 							th.text-center # Shows
 							th.text-center Albums
@@ -30,9 +29,10 @@
 					tbody
 						tr(ng-repeat="athlete in athletes", id="athlete._id")
 							td(style="width:4.5%")
-								img.img-responsive.img-rounded(src="{{athlete.profile.picture.url}}+{{athlete.profile.picture.filename}}")
+								img.img-responsive.img-rounded(src="{{athlete.profile.picture.url}}+{{athlete.profile.picture.filename}}" ng-show="athlete.profile.picture.url.length > 0")
+								img.img-responsive.img-rounded(src="app/apps/front/img/profile.jpg", ng-show="!athlete.profile.picture")
 							td {{ athlete.profile.firstName}} {{ athlete.profile.lastName}}
-							td
+								.clearfix
 								img(src="img/flags/{{athlete.countries[0].countryName | lowercase}}.png")
 							td {{ athlete.profile.subtitle}}
 							td.text-center {{ athlete.competitions.length }}
@@ -41,10 +41,12 @@
 							td 
 								a.btn.btn-default.btn-xs.btn-simple(href="/#!/athlete/{{athlete._id}}", target="blank")
 									i.ti-new-window
-									|&nbsp;&nbsp;View Page
+									|&nbsp;&nbsp;View
+								|&nbsp;&nbsp;
 								a.btn.btn-primary.btn-xs.btn-simple(ui-sref="athlete({id: athlete._id})")
 									i.ti-pencil
-									|&nbsp;&nbsp;Edit								
+									|&nbsp;&nbsp;Edit		
+								|&nbsp;&nbsp;						
 								a.btn.btn-danger.btn-xs.btn-simple(ng-click="delete(athlete._id)", title="delete {{ athlete.profile.firstName }}")
 									i.ti-trash
 									|&nbsp;&nbsp;Delete

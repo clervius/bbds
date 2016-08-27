@@ -2,7 +2,7 @@
 	.col-md-12
 		.row
 			.col-md-4
-				a.image-container(style="background-image:url('{{ athlete.profile.picture.url }}')", ng-click="")
+				a.image-container.btn.btn-info(style="background-image:url('{{ athlete.profile.picture.url }}')", ng-click="")
 			.col-md-8
 				.row					
 					.col-md-5
@@ -42,4 +42,3 @@
 				.form-group(ng-repeat="country in athlete.countries")
 					label {{ country.classify }}
 					input.form-control(ng-model="country.countryName")
-
