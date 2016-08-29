@@ -31,10 +31,6 @@ div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 							|&nbsp;&nbsp;&nbsp;
 							button.btn.btn-xs.btn-info.btn-fill(ng-click="saveNewPix(album._id)") Save
 					.clearfix.text-right.pull-right
-						a.btn.btn-xs.btn-danger.btn-simple(ng-click='deleteImages(album._id)', ng-show="toBeDeleted.length > 0")
-							i.ti-close
-							|&nbsp;&nbsp;Remove Pictures
-						|&nbsp;&nbsp;
 						a.btn.btn-xs.btn-info.btn-simple(ui-sref="athlete.editAlbum({id: athlete._id, galId: album._id})")
 							i.ti-pencil
 							|&nbsp;&nbsp;Edit
@@ -48,12 +44,21 @@ div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 							|&nbsp;&nbsp;Delete Album
 					hr
 					.row
-						.col-md-2.col-xs-2(ng-repeat="image in album.images", style="margin-bottom:15px")
-							label(for="image{{$index+1}}", style="z-index:999;position:relative;top:5px;")
-								input(id="image{{$index+1}}", ng-model="deleteList[image.url]", type="checkbox")
-							.clearfix
-							div.imgShow(style="background-image:url({{image.url}}+{{image.filename}})")
-					.row
 						.col-md-12
-							p {{deleteList}}
-script.
+							p Click on the individual pictures you would like to delete from this album
+					.row
+						.col-md-2.col-xs-2(ng-repeat="image in album.images", style="margin-bottom:15px")
+							div.imgShow.btn.btn-danger(style="background-image:url({{image.url}}+{{image.filename}})", ng-click="addToList(album._id,$index)")
+				.row(ng-show="deleteList.length > 0")
+					.col-md-12
+						.clearfix.text-right.pull-right
+							button.btn.btn-simple.btn-danger.btn-xs(ng-click="deleteImages(album._id)") 
+								i.ti-trash
+								|&nbsp;&nbsp;Remove Pictures
+						hr
+					.col-md-12
+						h5.text-danger To be deleted
+							small.category &nbsp;&nbsp; Click on these pictures to cancel deleting them.
+				.row(ng-show="deleteList.length > 0")
+					.col-md-2.col-xs-2(ng-repeat="image in deleteList", style="margin-bottom:15px")
+						div.imgShow.btn.btn-info(style="background-image:url({{image.url}}+{{image.filename}})", ng-click="removeFromList(album._id,$index)")

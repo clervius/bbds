@@ -64,6 +64,7 @@ var athleteSchema = new Schema({
 		type: Date,
 		default: new Date
 	},
+	username: String,
 	competitions: [{record: {type: Schema.ObjectId, ref:'record'}}],
 	fbId: String,
 	account: { type: Schema.ObjectId, ref: 'user' },

@@ -5,6 +5,17 @@ var youthumb = require('youtube-thumbnails');
 
 module.exports = function(){
 	return{
+		getByUserName: function(req, res){
+			athlete.find({'username':req.params.id}).exec(function(err, athlete){
+				if(err){
+					console.log(err);
+					res.json(err);
+				}else{
+					console.log('found athlete');
+					res.redirect('/#!/athlete/' + athlete._id);
+				}
+			});
+		},
 		getAll: function(req, res){
 			athlete.find({}).exec(function(err, athletes){
 				if(err){
@@ -124,34 +135,49 @@ module.exports = function(){
 					}
 			});
 		},
+		deleteFromAlbum: function(req,res){
+			console.log('about to delete images from this album');
+			console.log(req.body);
+			athlete.update({_id: req.params.id, 'galleries': {'$elemMatch' : {'_id': req.params.galId}}}, 
+				{$pull: {
+					'galleries.$.images': { 'url' : req.body.url}
+					}
+				}, 
+				{new:true, safe: true}, 
+				function(err, athlete){
+					if(err){
+						console.log('could not delete pictures from this album');
+						console.log(err);
+					}else{
+						console.log('great success');
+						
+					}
+			});
+		},
 		updateAlbum: function(req,res){
 			console.log('about to update this album');
-			console.log(req.body)
-			athlete.findById(req.params.id, function(err, athlete){
-				if(!err){
-					console.log('found the athlete: ' + athlete.profile.firstName)
-					var updateGal = function(element){
-						if(element._id == req.params.galId){
-							console.log('found the album');
-							element = req.body;
-							athlete.save(function(err, ath){
-								if(!err){
-									console.log('successfully saved this athlete gallery update');
-									res.json(ath);
-								}else{
-									console.log('could not save this change')
-								}
-							});
-						}else{
-							console.log('not the album were looking for. This is:' + element._id + ' We want: ' + req.params.galId)
-						}
-					};
-					athlete.galleries.forEach(updateGal);
-				}else{
-					console.log('could not find that athlete');
-					console.log(err);
-				}
-			})
+			console.log(req.body);
+			athlete.update({_id: req.params.id, 'galleries': {'$elemMatch' : {'_id': req.params.galId}}},
+				{$set : { 'galleries.$' : {
+						'_id': req.body._id,
+						'galleryName' : req.body.galleryName, 
+						'description': req.body.description,
+						'photographerName': req.body.photographerName,
+						'photographerLink': req.body.photographerLink,
+						'images': req.body.images
+					}
+									
+				}},
+				{new: true, safe: true},
+				function(err, athlete){
+					if(err){
+						console.log(err);
+						console.log('could not update this album')
+					}else{
+						console.log('updated album')
+						res.json(athlete)
+					}
+				})
 		},
 		update: function(req, res){}
 	};

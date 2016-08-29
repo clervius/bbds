@@ -194,8 +194,8 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 
 	// Galleries
 	$scope.newPictures = [];
-	$scope.deleteList = {};
-	$scope.toBeDeleted = [];
+	$scope.deleteList = [];
+	$scope.deleteListUrls = [];
 	$scope.deleteGallery = function(id){
 		console.log('looking to delete this gallery');
 		swal({  title: "Delete Gallery?",
@@ -206,7 +206,7 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
                     confirmButtonText: "Delete",
                     closeOnConfirm: true,
                 },function(){
-                    $http.delete('/ath/' + $scope.athlete._id + '/gallery/' + id).success(function(athlete){
+                    $http.post('/ath/' + $scope.athlete._id + '/delGallery/' + id).success(function(athlete){
 						swal("Deleted", "Gallery has been deleted", "success");
 						location.reload();
 					});
@@ -226,18 +226,49 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 			$scope.$apply();
 		});
 	};
-	$scope.addToList = function(){
-
-	};
-	$scope.deleteImages = function(album){
-		angular.forEach($scope.deleteList, function(value, key){
-			if(key == true){
-				console.log(value);
-				$scope.toBedeleted.push(value);
-				console.log($scope.toBedeleted)
+	$scope.addToList = function(album,image){
+		console.log('removing image:' + image +'from album:' + album)
+		angular.forEach($scope.athlete.galleries, function(gallery){
+			if(gallery._id == album){
+				console.log('found the album')
+				var item = gallery.images[image];
+				$scope.deleteList.push(item);
+				$scope.deleteListUrls.push({'url' : item.url});
+				gallery.images.splice(image, 1);
+				console.log($scope.deleteListUrls)			
 			}
 		});
-		$http.delete('/ath/' + $scope.athlete._id + '/deleteFromAlbum/' + album, $scope.deleteList)
+	};
+	$scope.removeFromList = function(album,image){
+		console.log('Putting back image:' + image +'from album:' + album);
+		angular.forEach($scope.athlete.galleries, function(gallery){
+			if(gallery._id == album){
+				console.log('found the album');
+				var item = gallery.images[image];
+				gallery.images.push({item});
+				$scope.deleteList.splice(image,1)
+			}
+		});
+	};
+	$scope.deleteImages = function(album){
+		console.log(album)
+		console.log($scope.deleteListUrls);
+		angular.forEach($scope.deleteListUrls, function(url){
+			console.log('deleting: ' + url.url)
+			$http.post('/ath/' + $scope.athlete._id + '/deleteFromAlbum/' + album, url).success(function(data){
+				console.log('success')
+			});
+		});
+		swal({  title: "Pictures Deleted",
+            	    text: "Pictures have been deleted",
+            	    type: "success",
+                    showCancelButton: false,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    confirmButtonText: "Okay",
+                    closeOnConfirm: true,
+                },function(){
+                   location.reload();
+                });
 	};
 	$scope.cancelNewPix = function(){
 		swal({  title: "Cancel?",
@@ -371,7 +402,7 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 			console.log(JSON.stringify(Blob));
 			$scope.newAlbum.images = Blob;
 			$scope.$apply();
-		})
+		});
 	};
 
 	// Create Album
@@ -400,8 +431,6 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 // Controller to edit albums.
 angular.module('manager').controller('athCtrl4', function($scope, $http, $stateParams, filepickerService, $state){
 	$scope.album = {};
-	$scope.newPictures = [];
-	$scope.numPics = '';
 	$scope.$stateParams = $stateParams;
 	$http.get('/ath/' + $stateParams.id).success((data)=>{
 		console.log('got the athlete')
@@ -410,37 +439,14 @@ angular.module('manager').controller('athCtrl4', function($scope, $http, $stateP
 			if(gallery._id === $stateParams.galId){
 				console.log('got the album');
 				$scope.album = gallery;
-				$scope.numPics = gallery.images.length;
 			}
 		});
 	});
-
-
-	$scope.addPictures = function(){
-		filepickerService.pickMultiple({
-			mimetype: 'image/*',
-			language: 'en',
-			maxFiles: 15,
-			services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'INSTAGRAM'],
-			openTo: 'COMPUTER'
-		},function(Blob){
-			console.log('uploaded image')
-			console.log(JSON.stringify(Blob));
-			$scope.newPictures = Blob	
-			$scope.$apply();
-		})
-	};
 	$scope.close = function(){
 		parent.history.back();
 	}
 	$scope.deleteImages = function(){};
 	$scope.updateAlbum = function(){
-		if($scope.newPictures.length > 0){
-			angular.forEach($scope.newPictures, function(picture, key){
-				$scope.album.images.push(picture);
-
-			});
-		}
 		console.log('going to update this album');
 		console.log($scope.album);
 		$http.post('/ath/' + $stateParams.id + '/editAlbum/' + $scope.album._id, $scope.album).success((athlete)=>{
@@ -454,6 +460,7 @@ angular.module('manager').controller('athCtrl4', function($scope, $http, $stateP
                     confirmButtonText: "Okay",
                     closeOnConfirm: true,
                 },function(){
+                	
                     location.reload();
                 });
 		})

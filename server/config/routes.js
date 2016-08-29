@@ -1,6 +1,6 @@
 var path = require('path');
 var express = require('express');
-
+var athController = require('../api/athletes/ath.controller');
 module.exports = function(app, passport){
 
 
@@ -59,41 +59,43 @@ module.exports = function(app, passport){
 		res.render('unauthorized');
 	});
 	app.get('/noauth', function(req, res){
-		res.render('nonewUser')
-	})
+		res.render('nonewUser');
+	});
 	app.get('/wrongpass', function(req, res){
-		res.render('wrongpass')
-	})
+		res.render('wrongpass');
+	});
 	app.get('/logout', function(req, res){
 		req.logout();
 		res.redirect('/');
 	});
 
 	app.get('/front', function(req, res){
-		res.render('front/index')
-	})
+		res.render('front/index');
+	});
 
+
+	
 	app.get('/', function(req, res){
 		if(req.isAuthenticated()){
-			res.render('front/index')
+			res.render('front/index');
 		}else{
-			res.render('comingsoon')
+			res.render('comingsoon');
 		}
 	});
-}
+};
 
 function frontLoggedIn(req,res,next){
 	if(req.isAuthenticated()){
-		return next()
+		return next();
 	}else{
-		res.render('index')
+		res.render('index');
 	}
-};
+}
 
 function isLoggedIn(req, res, next){
 	if(req.isAuthenticated()){
-		return next()
+		return next();
 	}else{
 		res.redirect('/auth');
 	}
-};
+}
