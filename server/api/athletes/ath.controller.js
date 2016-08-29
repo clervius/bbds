@@ -194,7 +194,20 @@ module.exports = function(){
 					}
 				})
 		},
-		update: function(req, res){}
+		update: function(req, res){
+			athlete.findByIdAndUpdate(req.params.id, 
+				{$set : req.body }, 
+				{new: true, safe: true, upsert: true}, 
+				function(err, athlete){
+					if(err){
+						console.log(err);
+						console.log('could not update this athlete');
+					}else{
+						console.log('updated this athlete')
+						res.json(athlete);
+					}
+				});
+		}
 	};
 
 };

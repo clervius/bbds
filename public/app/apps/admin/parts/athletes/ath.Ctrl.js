@@ -172,6 +172,17 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 	$scope.$stateParams = $stateParams;
 	$scope.records = [];
 	$scope.newVideo = {};
+
+	//Dealing with Editorials
+	$scope.addPost = function(){
+		newItemNo = $scope.athlete.published.length + 1;
+		var post = {
+			id: 'post' + newItemNo,
+			link: '',
+			title: ''
+		};
+		$scope.athlete.published.push(post);
+	};
 	// Dealing with records
 	$scope.addRecord = function(){
 		var newItemNo = $scope.records.length + 1;
@@ -187,11 +198,6 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 		};
 		$scope.records.push(record);
 	};
-	$scope.removeRecord = function(){
-		var lastItem = $scope.records.length - 1;
-		$scope.records.splice(lastItem);
-	};
-
 	// Galleries
 	$scope.newPictures = [];
 	$scope.deleteList = [];
@@ -308,6 +314,7 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 			$scope.$apply();
 		});
 	};
+
 	$http.get('/ath/' + $stateParams.id).success(function(data){
 		$scope.athlete= data;
 	});
@@ -414,24 +421,21 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 	// function to create/update Athlete
 	$scope.updateAth = function(){
 		console.log('updating this athlete...');
-		//addSocial($scope.personalFB); addSocial($scope.publicFB); addSocial($scope.twitter); addSocial($scope.instagram); addSocial($scope.youtube); addSocial($scope.gPlus); addSocial($scope.web1); addSocial($scope.web2); 
-		//addCountries($scope.primaryCountry); addCountries($scope.secondaryCountry);		
-		//$scope.newAthlete.countries = $scope.countries;
-		//$scope.newAthlete.social = $scope.socials;
 		console.log($scope.user);
 		console.log($scope.athlete);
 		// Create this athlete
-		$http.post('/ath/update/' + $stateParams.id, $scope.athlete)
+		$http.post('/ath/update/' + $scope.athlete._id, $scope.athlete)
 			.success(function(data){
-				console.log(angular.toJson(data));
-				var athId = data._id;				
-				swal("Athlete Updated", "Athlete has been successfully updated", "success")
+				console.log(angular.toJson(data));		
+				swal("Athlete Updated", "Athlete has been successfully updated", "success");
+				location.reload();
 			})
 			.error(function(data){
 				console.log('could not save the athlete');
+				swal("error", "Athlete not updated", "warning")
 				console.log(data);
-			})
-	}
+			});
+	};
 	// end function to create/update athlete
 });
 
