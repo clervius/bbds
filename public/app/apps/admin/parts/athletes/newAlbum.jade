@@ -38,5 +38,5 @@
 .col-md-12
 	ul.newAlbum-images
 		li.col-md-2(ng-repeat="image in newAlbum.images")
-			.img-responsive(src="{{image.url}}+{{image.filename}}")
+			.imgShow(style="background-image:url({{image.url}}+{{image.filename}})")
 

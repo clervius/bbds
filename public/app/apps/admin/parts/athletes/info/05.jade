@@ -45,7 +45,9 @@ div(id="acordeon", ng-hide="$state.includes('athlete.editAlbum')")
 					hr
 					.row
 						.col-md-12
-							p Click on the individual pictures you would like to delete from this album
+							p.description 
+								strong.text-info To delete: &nbsp;
+								|Click on the individual pictures you would like to delete from this album
 					.row
 						.col-md-2.col-xs-2(ng-repeat="image in album.images", style="margin-bottom:15px")
 							div.imgShow.btn.btn-danger(style="background-image:url({{image.url}}+{{image.filename}})", ng-click="addToList(album._id,$index)")
