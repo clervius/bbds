@@ -21,7 +21,7 @@ include ../../components/ads/responsiveAd
 						include ../includes/socialShare
 						.post-body
 							div(ng-bind-html="article.content") 
-							div(ng-repeat="item in moreContent")
+							div(ng-repeat="item in article.moreContent")
 								.alignleft
 									img.imgShow(style="background-image:url({{ item.image.url}})")
 								.clearfix {{ item.content }}

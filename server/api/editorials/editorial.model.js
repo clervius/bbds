@@ -15,6 +15,7 @@ var editorialSchema = new Schema({
 	author: String,
 	ogTitle: String,
 	category: String,
+	moreContent: Schema.Types.Mixed,
 	where:{
 		homePage: {
 			type: Boolean,

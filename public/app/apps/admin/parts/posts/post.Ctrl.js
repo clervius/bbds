@@ -23,7 +23,7 @@ angular.module('manager').controller('postCtrl', function($scope, posts, $http){
 angular.module('manager').controller('postCtrl1', function($scope, $http, filepickerService, $state, $stateParams){
 	$scope.newPost = {};
 	$scope.newPost.mainImg = {};
-
+	$scope.newPost.moreContent = [];
 	$scope.tinymceOptions = {
 		plugins: '',
 		toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
@@ -41,6 +41,15 @@ angular.module('manager').controller('postCtrl1', function($scope, $http, filepi
 		})	
 	}
 
+	$scope.addSection = function(){
+		var newItemNo = $scope.newPost.moreContent.length + 1;
+		var section = {
+			id: 'record' + newItemNo,
+			content: '',
+			_creator: $scope.user
+		};
+		$scope.newPost.moreContent.push(section);
+	};
 	$scope.savePost = function(){
 		$http.post('/editorial/new', $scope.newPost).success(function(newpost){			
 			console.log(newpost); 			
