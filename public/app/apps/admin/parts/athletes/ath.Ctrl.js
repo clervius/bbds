@@ -387,6 +387,7 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 	$scope.newAlbum.athlete = $stateParams.id;
 
 	$scope.close = function(){
+		console.log('you clicked to close new album form');
 		$state.go('athlete', {'id': $stateParams.id} );
 	};
 
@@ -398,7 +399,7 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
 			services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH', 'INSTAGRAM'],
 			openTo: 'COMPUTER'
 		},function(Blob){
-			console.log('uploaded image')
+			console.log('uploaded image');
 			console.log(JSON.stringify(Blob));
 			$scope.newAlbum.images = Blob;
 			$scope.$apply();
@@ -423,7 +424,7 @@ angular.module('manager').controller('athCtrl3', function($scope, $http, $stateP
                 },function(){
                     location.reload();
                 });
-		})
+		});
 	};
 	
 });
