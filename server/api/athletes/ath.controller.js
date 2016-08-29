@@ -56,7 +56,7 @@ module.exports = function(){
 		},
 		addRecord: function(req, res){
 			console.log('adding record into athlete');
-
+			console.log(req.body);
 			athlete.findByIdAndUpdate(req.body.athlete, 
 				{ $push: { 'competitions' : { 'record' : req.body._id} } }, 
 				{new: true, safe:true, upsert: true}, 
@@ -91,6 +91,21 @@ module.exports = function(){
 						res.json(athlete)
 					}
 				})
+		},
+		deleveVideo : function(req, res){
+			console.log('about to delete this video');
+			athlete.findByIdAndUpdate(req.params.id, 
+				{$pull : { 'videos' : {'_id': req.params.videoId} } }, 
+				{new: true, safe: true}, 
+				function(err, athlete){
+					if(err){
+						console.log(err);
+						console.log('could not delete this athletes video')
+					}else{
+						console.log('successfully deleted this athletes video');
+						res.json({'message':'Video deleted'})
+					}
+				});
 		},
 		addGallery: function(req, res){
 			console.log('creating album for this athlete');

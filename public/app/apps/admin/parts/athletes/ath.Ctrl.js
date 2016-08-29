@@ -320,19 +320,60 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
 		})
 	})
 
+	// Competition functions
 	$scope.updateRecord = function(id){
-		if(id){
-			// find the record and update it
-		}else{
-			//create a brand new record.
-		}
-	}
-	$scope.updateAthlete = function(){
-		console.log('about to update this athlete')
+		angular.forEach($scope.records, function(record){
+			if(record._id == id){
+				$http.post('/record/' + id + '/update', record).success(function(data){
+					console.log('successfully updated this record');
+					swal("Updated Record", "This record has been successfully updated", "success");
+					// comment out the following line later.
+					location.reload();
+				});
+			}
+		});
 	};
-
-	// Add video
-
+	$scope.deleteRecord = function(id){
+		console.log('deleting this record')
+		angular.forEach($scope.records, function(record){
+			if(record._id == id){
+				swal({ title: "Delete Record",
+            	    text: "Are you sure you want to delete this record?",
+            	    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn btn-success btn-fill",
+                    confirmButtonText: "Yes",
+                    closeOnConfirm: true,
+				}, function(){
+					$http.delete('/record/' + id + '/delete').success(function(data){
+						console.log('record has been deleted');
+						console.log(data);
+						location.reload();
+					})
+				})
+			}
+		})
+	};
+	$scope.createRecord = function(one){
+		console.log('creating record');
+		angular.forEach($scope.records, function(record, key){
+			if(one == key){
+				record.athlete = $scope.athlete._id;
+				delete record.id;
+				console.log(record);
+				$http.post('/record/new', record).success(function(record){
+					console.log('record has been created. now needs to add to athlete');
+					console.log(record);
+					$http.post('/ath/addRecord', record).success(function(data){
+						$scope.records.splice(one,1);
+						swal("success", "record has been successfully created", "success");
+						$scope.records.push(record);
+					});				
+				});
+			}
+		});
+	};
+	// Video Functions
 	$scope.addVideo = function(){
 		console.log('adding video');
 		swal({
@@ -355,7 +396,21 @@ angular.module('manager').controller('athCtrl2', function($scope, $http, $stateP
             })
 
 	};
-
+	$scope.deleteVideo = function(videoId){
+		swal({  title: "Delete this video?",
+            	text: "Are you sure you want to delete this video?",
+            	type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn btn-success btn-fill",
+                confirmButtonText: "Delete Video",
+                closeOnConfirm: true,
+            },function(){
+               $http.delete('/ath/' + $stateParams.id + '/deleteVideo/' + videoId).success(function(data){
+               		console.log('successfully deleted this video');
+               		location.reload();
+                });
+            });
+	};
 	// function to create/update Athlete
 	$scope.updateAth = function(){
 		console.log('updating this athlete...');

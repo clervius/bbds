@@ -1,4 +1,4 @@
-.row
+.row(ng-show="records.length > 0")
 	.col-md-12
 		.table-responsive(style="margin-top:35px")
 			table.table.form-table.table-striped.show-table
@@ -11,6 +11,9 @@
 						th Class
 						th Place
 						th(style="background-color:transparent !important") 
+							a.btn.btn-xs.btn-info.btn-fill(ng-click="addRecord()", ng-show="records.length > 0") &nbsp;&nbsp;
+								i.ti-medall-alt
+								|&nbsp;&nbsp;Add Show&nbsp;&nbsp;
 				tbody
 					tr(ng-repeat="record in records")
 						td 
@@ -26,6 +29,8 @@
 						td
 							input.tbl-input.text-center(ng-model="record.place")
 						td.td-actions.text-center(style="background-color:transparent !important")
-							button.btn.btn-info.btn-simple.btn-xs(ng-click="updateRecord(record._id)") Update
-
-
+							button.btn.btn-primary.btn-simple.btn-xs.btn-icon(ng-click="updateRecord(record._id)", ng-show="record._id", title="Update Show information", style="margin-right:15px") 
+								i.ti-save
+							button.btn.btn-danger.btn-simple.btn-xs.btn-icon(ng-click="deleteRecord(record._id)", ng-show="record._id", title="Delete this show") 
+								i.ti-close
+							button.btn.btn-simple.btn-primary.btn-xs(ng-click="createRecord($index)", ng-show="!record._id") Save

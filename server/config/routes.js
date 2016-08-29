@@ -42,6 +42,7 @@ module.exports = function(app, passport){
 	app.delete('/ath/*', require('../api/athletes'));
 	app.get('/record/*', require('../api/competitions/records'));
 	app.post('/record/*', require('../api/competitions/records'));
+	app.delete('/record/*', require('../api/competitions/records'));
 	app.get('/show/*', require('../api/competitions/shows'));
 	app.post('/show/*', require('../api/competitions/shows'));
 	app.get('/federation/*', require('../api/federations'));

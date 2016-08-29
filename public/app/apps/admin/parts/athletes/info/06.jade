@@ -6,9 +6,14 @@
 hr
 .row
 	ul.list-unstyled
-		li.col-md-3(ng-repeat="video in athlete.videos")
-			a.text-danger(href="{{video.link}}", target="blank", style="position:relative")
-				img.img-responsive.img-thumbnail(src="{{video.thumb}}", style="opacity:.5")
-				.clearfix
-				p.text-center(style="position:absolute;top:-60px;left:60px")
-					i.fa-play.fa
+		li.dropdown.col-md-3(ng-repeat="video in athlete.videos")
+			button.btn.dropdown-toggle.btn-info.imgShow(type="button", style="background-image:url({{video.thumb}})", data-toggle="dropdown")
+			ul.dropdown-menu(role="menu")
+				li(role="presentation")
+					a(role="menuitem", tabindex="-1", href="{{video.link}}")
+						i.fa.fa-youtube-play
+						|&nbsp;&nbsp; Watch Video
+				li(role="presentation")
+					a(role="menuitem", tabindex="-1", ng-click="deleteVideo(video._id)") 
+						i.fa.fa-trash
+						|&nbsp;&nbsp; Delete Video

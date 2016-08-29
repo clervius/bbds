@@ -2,7 +2,7 @@
 	.col-md-7
 		.row
 			.col-md-12.text-right
-				a.btn.btn-sm.btn-info.btn-fill(ng-click="addRecord()") &nbsp;&nbsp;
+				a.btn.btn-sm.btn-info.btn-fill(ng-click="addRecord()", ng-hide="records.length > 0") &nbsp;&nbsp;
 					i.ti-medall-alt
 					|&nbsp;&nbsp;Add Show&nbsp;&nbsp;
 				|&nbsp;&nbsp;&nbsp;
@@ -14,7 +14,7 @@
 					i.ti-control-play
 					|&nbsp;&nbsp;Add Video&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-				a.btn.btn-sm.btn-primary.btn-fill(href="/#!/athlete/{{athlete._id}}", target="blank")  &nbsp;&nbsp;
+				a.btn.btn-sm.btn-primary(href="/#!/athlete/{{athlete._id}}", target="blank")  &nbsp;&nbsp;
 					i.ti-new-window
 					|&nbsp;&nbsp;View Page&nbsp;&nbsp;
 				|&nbsp;&nbsp;&nbsp;
