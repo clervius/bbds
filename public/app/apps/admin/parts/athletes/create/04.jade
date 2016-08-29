@@ -5,35 +5,30 @@
 			|&nbsp;&nbsp; Add Show
 hr
 .row
-	.table-responsive
-		table.table.form-table.table-striped
-			thead
-				tr
-					th Year
-					th Federation
-					th Competition 
-					th Division
-					th Class
-					th Place
-					th Save
-			tbody
-				tr(name="{{record.id}}", ng-repeat="record in records")
-					td 
-						input.tbl-input(ng-model="record.year")
-					td 
-						input.tbl-input(ng-model="record.federation")
-					td 
-						input.tbl-input(ng-model="record.show")
-					td 
-						input.tbl-input(ng-model="record.division")
-					td 
-						input.tbl-input(ng-model="record.class")
-					td 
-						input.tbl-input.text-center(ng-model="record.place")
-					td.td-actions.text-right 
-						a.btn.btn-info.btn-simple.btn-xs(rel="tooltip", title="Save Record", ng-click="saveRecord(record)") Save Record
-.row
 	.col-md-12
-		button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="createAthlete()") Save Athlete
+		.table-responsive
+			table.table.form-table.table-striped
+				thead
+					tr
+						th Year
+						th Federation
+						th Competition 
+						th Division
+						th Class
+						th Place
+				tbody
+					tr(name="{{record.id}}", ng-repeat="record in records")
+						td 
+							input.tbl-input(ng-model="record.year")
+						td 
+							input.tbl-input(ng-model="record.federation")
+						td 
+							input.tbl-input(ng-model="record.show")
+						td 
+							input.tbl-input(ng-model="record.division")
+						td 
+							input.tbl-input(ng-model="record.class")
+						td 
+							input.tbl-input.text-center(ng-model="record.place")
 
 

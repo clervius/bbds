@@ -1,0 +1,44 @@
+.row
+	.col-md-8.col-md-offset-2
+		.card.card-wizard(id="wizardCard")
+			form(id="wizardForm")
+				.header.text-center
+					h4.title(ng-bind="newAthlete.profile.firstName || 'Create Athlete'")
+					p.category Use this form to create an athlete.
+					p.category.text-info
+						strong Pictures/Albums and videos
+						|&nbsp;&nbsp; Can be added to athlete once you have saved the athlete.
+				.content
+					ul.nav
+						li
+							a(data-target="#01", data-toggle="tab")
+								i.ti-user
+								|&nbsp;&nbsp;Profile
+						li
+							a(data-target="#02", data-toggle="tab")
+								i.ti-comments
+								|&nbsp;&nbsp;Contact
+						li
+							a(data-target="#03", data-toggle="tab")
+								i.ti-bookmark-alt
+								|&nbsp;&nbsp;Editorials
+						li
+							a(data-target="#04", data-toggle="tab")
+								i.ti-medall
+								|&nbsp;&nbsp;Competitions
+					.tab-content
+						.tab-pane(id="01")
+							include create/01
+						.tab-pane(id="02")
+							include create/02
+						.tab-pane(id="03")
+							include create/03
+						.tab-pane(id="04")
+							include create/04
+					.clearfix
+				.card-footer.clearfix
+					button.btn.btn-default.btn-fill.btn-wd.btn-back.pull-left(type="button") Back
+					button.btn.btn-info.btn-fill.btn-wd.btn-next.pull-right(type="button") Next
+					button.btn.btn-info.btn-fill.btn-wd.btn-finish.pull-right(type="button", ng-click="createAthlete()") Finish
+script.
+	$().ready(function(){ var $validator = $("#wizardForm").validate({ rules: { firstName: { required: true }, lastName: { required: true } } }); $('#wizardCard').bootstrapWizard({ tabClass: 'nav nav-pills', nextSelector: '.btn-next', previousSelector: '.btn-back', onNext: function(tab, navigation, index) { var $valid = $('#wizardForm').valid(); if(!$valid) { $validator.focusInvalid(); return false; } }, onInit : function(tab, navigation, index){ var $total = navigation.find('li').length; $width = 100/$total; $display_width = $(document).width(); if($display_width < 600 && $total > 3){ $width = 50; } navigation.find('li').css('width',$width + '%'); }, onTabClick : function(tab, navigation, index){ return false; }, onTabShow: function(tab, navigation, index) { var $total = navigation.find('li').length; var $current = index+1; var wizard = navigation.closest('.card-wizard'); if($current >= $total) { $(wizard).find('.btn-next').hide(); $(wizard).find('.btn-finish').show(); } else if($current == 1){ $(wizard).find('.btn-back').hide(); } else { $(wizard).find('.btn-back').show(); $(wizard).find('.btn-next').show(); $(wizard).find('.btn-finish').hide(); } } }); })
