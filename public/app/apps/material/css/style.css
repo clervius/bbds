@@ -1,0 +1,11 @@
+.image-container,
+.imgShow {
+  display: block;
+  width: 100%;
+  padding-top: 95.41%;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0.03);
+  background-position: center center;
+}

@@ -1,11 +1,12 @@
 .main.main-raised.main-product
 	.row
-		each post in posts
+		h3.title.text-center Recent Articles
+	.row
+		for post in [posts[0], posts[1], posts[2], posts[3]]
 			.col-md-3
 				.card.card-plain.card-blog
 					.card-image
-						a(href="/post/#{post._id}")
-							img.img.img-raised(src="#{post.mainImg.url}+#{post.mainImg.filename}")
+						a.imgShow(href="/post/#{post._id}", style="background-image:url('#{post.mainImg.url}+#{post.mainImg.filename}');display:block")
 					.content
 						h6.category.text-info #{post.category}
 						h4.card-title
