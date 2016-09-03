@@ -1,0 +1,13 @@
+.main.main-raised.main-product
+	.row
+		each post in posts
+			.col-md-3
+				.card.card-plain.card-blog
+					.card-image
+						a(href="/post/#{post._id}")
+							img.img.img-raised(src="#{post.mainImg.url}+#{post.mainImg.filename}")
+					.content
+						h6.category.text-info #{post.category}
+						h4.card-title
+							a(href="/post/#{post._id}") #{post.postTitle}
+						p.card-description #{post.summary}

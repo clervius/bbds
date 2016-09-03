@@ -1,0 +1,21 @@
+.title.text-center
+	h3.title Athlete Profiles
+	p.description Recently featured athletes
+.row
+	each athlete in athletes
+		.col-md-3
+			.card.card-profile
+				.card-image
+					a(href="/athlete/#{athlete._id}")
+						img.img(src="#{athlete.profile.picture.url}+#{athlete.profile.picture.filename}")
+					.ripple-container
+				.content
+					a.card-title(href="/athlete/#{athlete._id}") #{athlete.profile.firstName} #{athlete.profile.lastName} 
+					h6.category.text-gray #{athlete.profile.subtitle}
+					.footer
+						.author.pull-right(style="position:relative;top:-5px")
+							a.btn.btn-xs.btn-primary.btn-raised(href="/athlete/#{athlete._id}", style="color:white") View Athlete
+						.stats.pull-left
+							i.fa.fa-trophy
+							|&nbsp;&nbsp;#{athlete.competitions.length + 1} shows 
+							

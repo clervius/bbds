@@ -1,7 +1,12 @@
 var path = require('path');
 var express = require('express');
 var athController = require('../api/athletes/ath.controller');
+var athlete = require('../api/athletes/ath.model');
+var post = require('../api/editorials/editorial.model');
+
 module.exports = function(app, passport){
+
+
 
 
 	app.get('/manager*', isLoggedIn, function(req, res){
@@ -26,15 +31,7 @@ module.exports = function(app, passport){
 		failureRedirect: '/wrongpass'
 	}));
 
-	/*
-	app.post('/access/login', function(req, res, next){
-		passport.authenticate('local-login', {
-			successRedirect: '/manager',
-			failureRedirect: '/auth'
-		})
-	}, function(req,res){
-		// function here if user doesn't exist
-	});*/
+
 	
 	//API routes
 	app.get('/ath/*', require('../api/athletes'));
@@ -69,11 +66,33 @@ module.exports = function(app, passport){
 		req.logout();
 		res.redirect('/');
 	});
-
+	/*
 	app.get('/front', function(req, res){
 		res.render('front/index');
-	});
+	});*/
 
+	app.get('/front', function(req, res){
+		var athletes, posts;
+		athlete.find().exec((err,competitors)=>{
+			if(!err){
+				athletes = competitors
+				post.find().exec((err,articles)=>{
+					if(!err){
+						posts = articles;
+						res.render('material/index', {athletes:athletes,posts:posts})
+					}else{
+						console.log(err);
+						console.log('could not get the posts');
+					}
+				});
+			}else{
+				console.log('could not get athletes');
+				console.log(err);
+			}
+		});
+		
+		
+	});
 
 	
 	app.get('/', function(req, res){
