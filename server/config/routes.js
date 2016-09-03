@@ -48,6 +48,8 @@ module.exports = function(app, passport){
 	app.post('/editorial/*', require('../api/editorials'));
 	app.delete('/editorial/*', require('../api/editorials'));
 
+	app.get('/front*', require('../api/material'));
+	app.post('/front*', require('../api/material'));
 	//front-end jade
 	app.get('/client/*', function(req, res){
 	    res.render('../../public/' + req.params[0]); 
