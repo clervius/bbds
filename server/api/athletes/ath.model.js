@@ -82,12 +82,13 @@ var athleteSchema = new Schema({
 }, {
 	toJSON: { virtuals: true}
 });
-
+/*
 var autoPopulateRecord = function(next){
-	this.populate('competitions');
+	this.competitions.forEach(this.populate('record'))
+	//this.populate('competitions.record');
 	next();
 }
 
-athleteSchema.pre('find', autoPopulateRecord).pre('findOne', autoPopulateRecord);
+athleteSchema.pre('find', function(next){this.competitions.populate('record'); next()}).pre('findOne', function(next){this.competitions.populate('record'); next()});*/
 
 module.exports = mongoose.model('athlete', athleteSchema);
