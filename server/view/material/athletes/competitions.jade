@@ -1,0 +1,17 @@
+h5.title.col-md-12 Competitions&nbsp;
+	small #{athlete.profile.firstName}'s shows
+.row
+	.col-md-12
+		.table-responsive
+			table.table
+				thead
+					tr
+						th Year
+						th Show
+						th Division
+						th Class
+						th Place
+					each show in athlete.competitions
+						tr
+							td #{show.year}
+							td #{show.show}

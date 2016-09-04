@@ -1,10 +1,10 @@
 .row
 	.col-md-12
-		.card.card-profile.card-plain
-			.col-md-5
+		.card.card-profile.card-plain(style="margin-bottom:0")
+			.col-md-6
 				.card-image.imgShow(style="background-image:url('#{athlete.profile.picture.url}+#{athlete.profile.picture.filename}')")
 				include ../includes/socialShare
-			.col-md-7
+			.col-md-6
 					.content.text-left
 						h4.card-title #{athlete.profile.firstName} #{athlete.profile.lastName}
 						h6.category.text-muted #{athlete.profile.subtitle}

@@ -7,6 +7,7 @@ var record = require('../competitions/records/record.model');
 
 
 var socialProfile = new Schema({
+	account: String,
 	service: String,
 	link: String
 });
@@ -82,5 +83,11 @@ var athleteSchema = new Schema({
 	toJSON: { virtuals: true}
 });
 
+var autoPopulateRecord = function(next){
+	this.populate('competitions');
+	next();
+}
+
+athleteSchema.pre('find', autoPopulateRecord).pre('findOne', autoPopulateRecord);
 
 module.exports = mongoose.model('athlete', athleteSchema);

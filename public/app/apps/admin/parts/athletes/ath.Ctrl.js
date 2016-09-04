@@ -49,16 +49,18 @@ angular.module('manager').controller('athCtrl1', function($scope, federations, f
 	};
 
 	// Social profiles code
-	$scope.personalFB = { service: 'personal Facebook' };
-	$scope.publicFB = { service: 'public Facebook' };
-	$scope.twitter = { service: 'twitter' };
-	$scope.instagram = { service: 'instagram' };
-	$scope.youtube = { service: 'youtube' };
-	$scope.gPlus = { service: 'google plus' };
-	$scope.web1 = { service: 'web1' };
-	$scope.web2 = { service: 'web2' };
-	var addSocial = function(account){		
-			$scope.socials.push(account);
+	$scope.personalFB = { service: 'personal Facebook', account: 'facebook-square'};
+	$scope.publicFB = { service: 'public Facebook', account: 'facebook' };
+	$scope.twitter = { service: 'twitter', account: 'twitter' };
+	$scope.instagram = { service: 'instagram', account: 'instagram' };
+	$scope.youtube = { service: 'youtube', account: 'youtube-play' };
+	$scope.gPlus = { service: 'google plus', account: 'google-plus' };
+	$scope.web1 = { service: 'web1', account: 'globe' };
+	$scope.web2 = { service: 'web2', account: 'globe' };
+	var addSocial = function(account){	
+			if(account.link !== ''){
+				$scope.socials.push(account);
+			}	
 	}
 	// Countries
 	$scope.primaryCountry = { classify: 'primary' }
