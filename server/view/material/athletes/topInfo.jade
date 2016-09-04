@@ -11,7 +11,8 @@
 						.row
 							ul.list-inline.col-md-12
 								each country in athlete.countries
-									li
-										img(src="/client/img/flags/#{country.countryName.toLowerCase()}.png")
+									- if(typeof(country.countryName) !== 'undefined')
+										li
+											img(src="/client/img/flags/#{country.countryName.toLowerCase()}.png")
 						p.card-description #{athlete.bio}
 		
