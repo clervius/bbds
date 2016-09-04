@@ -1,0 +1,24 @@
+doctype
+html(lang="en")
+	head
+		include includes/head
+		include ../includes/appicons
+		include includes/athOG
+		title #{athlete.profile.firstName} #{athlete.profile.lastName} - Bigbodies.com
+	body.athlete
+		include ../front/includes/fbSDK
+		include includes/topNav
+		.wrapper
+			.header.page-header(style="background-color:rgba(0,0,0,.65)")
+				p include header here maybe just a breadcrumb thing
+			.main.main-raised
+				.container
+					.col-md-9
+						include athletes/topInfo
+						include athletes/social
+						include athletes/competitions
+						include athletes/media
+					.col-md-3
+						include athletes/sidebar
+		include includes/footer
+		include includes/script

@@ -4,7 +4,7 @@ var express = require('express');
 	compression = require('compression');
 	errorHandler = require('errorhandler');
 	path = require('path');
-	methodOverride = require('method-override')
+	methodOverride = require('method-override');
 	bodyParser = require('body-parser');
 	cookieParser = require('cookie-parser');
 	session = require('express-session');
@@ -36,8 +36,9 @@ module.exports = function(app, config){
 		src: config.rootPath + '/public',
 		compile: compile
 	}));
-	
+	app.use('/client', express.static(config.rootPath + '/public'));
+	//app.use(express.static(config.rootPath + '/public'));
 	app.use(express.static(config.rootPath + '/public'));
 	app.use(require('prerender-node').set('prerenderToken', 'JnAcdMYmBLjwMWGwIgmG'));
 	app.locals.moment = require('moment');
-}
+};

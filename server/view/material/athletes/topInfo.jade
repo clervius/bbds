@@ -1,0 +1,14 @@
+.row
+	.col-md-12
+		.card.card-profile.card-plain
+			.col-md-5
+				.card-image.imgShow(style="background-image:url('#{athlete.profile.picture.url}+#{athlete.profile.picture.filename}')")
+			.col-md-7
+					.content.text-left
+						h4.card-title #{athlete.profile.firstName} #{athlete.profile.lastName}
+						h6.category.text-muted #{athlete.profile.subtitle}
+						.clearfix
+							each country in athlete.countries
+						p.card-description #{athlete.bio}
+		.clearfix
+		include ../includes/socialShare

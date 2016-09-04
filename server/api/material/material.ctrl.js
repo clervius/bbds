@@ -16,7 +16,7 @@ module.exports = function(){
 		},
 		athletes: function(req, res){
 			console.log('get athletes page');
-			res.render('material/athletes', {athletes:allAthletes, posts:allPosts});
+			res.render('material/allAthletes', {athletes:allAthletes, posts:allPosts});
 		},
 		posts: function(req, res){
 			console.log('get posts');
