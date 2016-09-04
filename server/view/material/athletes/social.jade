@@ -1,0 +1,22 @@
+h5.title.col-md-12 Social Media&nbsp;
+	small(style="display:block") connect with&nbsp;
+		strong #{athlete.profile.firstName}
+.col-md-12
+	.row
+		each account in athlete.social
+			- if(account.service === 'public facebook')
+				.col-md-4
+					a.btn.btn-simple(class="btn-facebook", href="#{account.link}", target="blank")
+						i.fa(class="fa-facebook-square")
+						|&nbsp; #{account.service} page
+			- if(account.service === 'personal facebook')
+				.col-md-4
+					a.btn.btn-simple(class="btn-facebook", href="#{account.link}", target="blank")
+						i.fa(class="fa-facebook")
+						|&nbsp; #{account.service} page
+			- if(account.service !== 'public facebook' && account.service !== 'personal facebook')
+				.col-md-4
+					a.btn.btn-simple(class="btn-#{account.service}", href="#{account.link}", target="blank")
+						i.fa(class="fa-#{account.service}")
+						|&nbsp; #{account.service} page
+
