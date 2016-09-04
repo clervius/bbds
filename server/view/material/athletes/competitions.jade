@@ -1,17 +1,24 @@
-h5.title.col-md-12 Competitions&nbsp;
-	small #{athlete.profile.firstName}'s shows
 .row
 	.col-md-12
-		.table-responsive
-			table.table
-				thead
-					tr
-						th Year
-						th Show
-						th Division
-						th Class
-						th Place
-					each show in athlete.competitions
-						tr
-							td #{show.year}
-							td #{show.show}
+		.card			
+			.content
+				h5.card-title Competitions&nbsp;&nbsp;
+					small #{athlete.profile.firstName}'s shows
+				.table-responsive
+					table.table(style="font-size:13px")
+						thead
+							tr
+								th.title Year
+								th.title Federation
+								th.title Show
+								th.title Division
+								th.text-center.title Class
+								th.text-center.title Place
+							each show in records
+								tr
+									td #{show.year}
+									td #{show.federation}
+									td #{show.show}
+									td #{show.division}
+									td.text-center #{show.class}
+									td.text-center #{show.place}

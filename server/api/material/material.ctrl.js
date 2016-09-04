@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var athlete = require('../athletes/ath.model');
 var post = require('../editorials/editorial.model');
+var record = require('../competitions/records/record.model')
 
 module.exports = function(){
 	var allAthletes,allPosts;
@@ -24,9 +25,20 @@ module.exports = function(){
 		},
 		getOneAthlete: function(req, res){
 			console.log('get one athlete');
+			var shows ;
+			
+
 			athlete.findById(req.params.id, function(err, athlete){
 				if(!err){
-					res.render('material/oneAth', {athletes:allAthletes, posts:allPosts, athlete:athlete});
+					record.find({'athlete':req.params.id}).exec(function(err, records){
+						console.log('looking up shows')
+						if(err){ console.log(err); console.log('could not get this athletes shows')}
+						else{ 
+							console.log('got the shows'); 
+							res.render('material/oneAth', {athletes:allAthletes, posts:allPosts, athlete:athlete, records: records});
+						 }
+					})
+					
 				}else{
 					console.log('couldnt get one athlete');
 					res.redirect('/');
