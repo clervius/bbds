@@ -2,13 +2,32 @@
 	.row
 		h3.title.text-center Recent Articles
 	.row
-		for post in [posts[0], posts[1], posts[2], posts[3]]
-			.col-md-3
-				.card.card-plain.card-blog
-					.card-image
-						a.imgShow(href="/post/#{post._id}", style="background-image:url('#{post.mainImg.url}+#{post.mainImg.filename}');display:block")
-					.content
-						h6.category.text-info #{post.category}
-						h4.card-title
-							a(href="/post/#{post._id}") #{post.postTitle}
-						p.card-description #{post.summary}
+		- if(posts.length > 3)
+			for post in [posts[0], posts[1], posts[2], posts[3]]
+				.col-md-3
+					.card.card-plain.card-blog
+						.card-image
+							a.imgShow(href="/front/post/#{post._id}", style="background-image:url('#{post.mainImg.url}+#{post.mainImg.filename}');display:block")
+						.content
+							h6.category.text-info #{post.category}
+							h4.card-title
+								a(href="/front/post/#{post._id}") #{post.postTitle}
+							p.card-description #{post.summary}... &nbsp;
+								a(href="/front/post/#{post._id}") Read More
+							p.author by &nbsp;
+								a #{ post.author } #{ post.published.toDateString()}
+
+		- if(posts.length < 4)
+			for post in posts
+				.col-md-3
+					.card.card-plain.card-blog
+						.card-image
+							a.imgShow(href="/front/post/#{post._id}", style="background-image:url('#{post.mainImg.url}+#{post.mainImg.filename}');display:block")
+						.content
+							h6.category.text-info #{post.category}
+							h4.card-title
+								a(href="/front/post/#{post._id}") #{post.postTitle}
+							p.card-description #{post.summary}... &nbsp;
+								a(href="/front/post/#{post._id}") Read More
+							p.author by &nbsp;
+								a #{ post.author } #{ post.published.toDateString()}

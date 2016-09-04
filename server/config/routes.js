@@ -72,30 +72,6 @@ module.exports = function(app, passport){
 	app.get('/front', function(req, res){
 		res.render('front/index');
 	});*/
-
-	app.get('/front', function(req, res){
-		var athletes, posts;
-		athlete.find().exec((err,competitors)=>{
-			if(!err){
-				athletes = competitors
-				post.find().exec((err,articles)=>{
-					if(!err){
-						posts = articles;
-						res.render('material/index', {athletes:athletes,posts:posts})
-					}else{
-						console.log(err);
-						console.log('could not get the posts');
-					}
-				});
-			}else{
-				console.log('could not get athletes');
-				console.log(err);
-			}
-		});
-		
-		
-	});
-
 	
 	app.get('/', function(req, res){
 		if(req.isAuthenticated()){

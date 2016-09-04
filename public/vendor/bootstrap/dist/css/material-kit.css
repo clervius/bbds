@@ -616,7 +616,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .navbar .navbar-nav > li > a.btn.btn-rose.dropdown-toggle, .open >
 .navbar .navbar-nav > li > a.btn.btn-rose.dropdown-toggle:focus, .open >
 .navbar .navbar-nav > li > a.btn.btn-rose.dropdown-toggle:hover {
-  background-color: #e91e63;
+  background-color: #a90202;
   color: #FFFFFF;
 }
 .btn.btn-rose:focus, .btn.btn-rose:active, .btn.btn-rose:hover,
@@ -655,7 +655,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .btn.btn-rose.btn-simple,
 .navbar .navbar-nav > li > a.btn.btn-rose.btn-simple {
   background-color: transparent;
-  color: #e91e63;
+  color: #a90202;
   box-shadow: none;
 }
 .btn.btn-rose.btn-simple:hover, .btn.btn-rose.btn-simple:focus, .btn.btn-rose.btn-simple:active,
@@ -663,7 +663,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .navbar .navbar-nav > li > a.btn.btn-rose.btn-simple:focus,
 .navbar .navbar-nav > li > a.btn.btn-rose.btn-simple:active {
   background-color: transparent;
-  color: #e91e63;
+  color: #a90202;
 }
 .btn.btn-white, .btn.btn-white:focus, .btn.btn-white:hover,
 .navbar .navbar-nav > li > a.btn.btn-white,
@@ -1078,7 +1078,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 .btn-group.open > .dropdown-toggle.btn.btn-rose,
 .btn-group-vertical.open > .dropdown-toggle.btn.btn-rose {
-  background-color: #e91e63;
+  background-color: #a90202;
 }
 .btn-group .dropdown-menu,
 .btn-group-vertical .dropdown-menu {
@@ -1626,7 +1626,7 @@ output {
   background-color: #f44336;
 }
 .label.label-rose {
-  background-color: #e91e63;
+  background-color: #a90202;
 }
 
 .form-control,
@@ -1712,7 +1712,7 @@ output {
   background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.is-focused.form-rose .form-control {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#a90202, #a90202), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.is-focused.form-white .form-control {
   background-image: linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#D2D2D2, #D2D2D2);
@@ -2195,7 +2195,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   box-shadow: 0 16px 26px -10px rgba(255, 152, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(255, 152, 0, 0.2);
 }
 .nav-pills.nav-pills-rose > li.active > a, .nav-pills.nav-pills-rose > li.active > a:focus, .nav-pills.nav-pills-rose > li.active > a:hover {
-  background-color: #e91e63;
+  background-color: #a90202;
   box-shadow: 0 16px 26px -10px rgba(233, 30, 99, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2);
 }
 
@@ -2580,7 +2580,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   color: #ffffff;
 }
 .navbar.navbar-rose {
-  background-color: #e91e63;
+  background-color: #a90202;
   color: #ffffff;
 }
 .navbar.navbar-rose .navbar-form .form-group input.form-control::-moz-placeholder,
@@ -2600,10 +2600,10 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 }
 .navbar.navbar-rose .dropdown-menu li > a:hover, .navbar.navbar-rose .dropdown-menu li > a:focus {
   color: #FFFFFF;
-  background-color: #e91e63;
+  background-color: #a90202;
 }
 .navbar.navbar-rose .dropdown-menu .active > a {
-  background-color: #e91e63;
+  background-color: #a90202;
   color: #ffffff;
 }
 .navbar.navbar-rose .dropdown-menu .active > a:hover, .navbar.navbar-rose .dropdown-menu .active > a:focus {
@@ -2851,7 +2851,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   background-color: #f44336;
 }
 .progress .progress-bar.progress-bar-rose {
-  background-color: #e91e63;
+  background-color: #a90202;
 }
 .progress.progress-line-primary {
   background: rgba(0, 19, 37, 0.2);
@@ -2965,7 +2965,7 @@ h2.title {
 }
 
 .text-rose {
-  color: #e91e63;
+  color: #a90202;
 }
 
 .text-gray {
@@ -3878,7 +3878,7 @@ hr.on-light {
   color: #f44336;
 }
 .icon.icon-rose {
-  color: #e91e63;
+  color: #a90202;
 }
 
 .table > thead > tr > th {
@@ -4235,14 +4235,14 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   color: #f44336;
 }
 .tagsinput.tag-rose .tag {
-  background-color: #e91e63;
+  background-color: #a90202;
   color: #FFFFFF;
 }
 .tagsinput.tag-rose .tag .tagsinput-remove-link {
   color: #FFFFFF;
 }
 .tagsinput.tag-rose .tagsinput-add {
-  color: #e91e63;
+  color: #a90202;
 }
 
 .btn-file {
