@@ -1,1 +1,11 @@
-p Social Share icons shall go here
+ul.socialShareAthlete.list-inline.text-left(style="margin-top:15px")
+	li
+		.fb-like(data-href="http://bigbodies.com/front/athlete/#{athlete._id}" data-layout="button_count", data-action="like", data-size="small", data-show-faces="false", data-share="true")
+	li(style="position:relative;top:5px")
+		a.twitter-share-button(data-show-count="true") Tweet
+		script(async, src="//platform.twitter.com/widgets.js", charset="utf-8")
+	li(style="position:relative;top:5px")
+		.g-plusone(data-size="medium", data-annotation="none")
+		script(src="https://apis.google.com/js/platform.js", async, type="text/javascript")
+	li
+		a(data-pin-do="buttonPin", data-pin-save="true", href="https://www.pinterest.com/pin/create/button/?url=http://bigbodies.com/front/athlete/#{athlete._id}&media=#{athlete.profile.picture.url}+#{athlete.profile.picture.filename}&description=#{athlete.profile.firstName}")
