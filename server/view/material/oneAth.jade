@@ -4,6 +4,7 @@ html(lang="en")
 		include includes/head
 		include ../includes/appicons
 		include includes/athOG
+		link(href="/client/vendor/strip/dist/css/strip.css", rel="stylesheet")
 		title #{athlete.profile.firstName} #{athlete.profile.lastName} - Bigbodies.com
 	body.athlete
 		include ../front/includes/fbSDK
@@ -23,3 +24,7 @@ html(lang="en")
 						include athletes/sidebar
 		include includes/footer
 		include includes/script
+		script(src="/client/vendor/strip/dist/js/strip.pkgd.min.js")
+	//
+		script.
+			$(document).ready(function(){$('.chocolat-parent').Chocolat();});

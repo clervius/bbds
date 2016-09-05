@@ -12,6 +12,8 @@ html(lang="en")
 		.page-header.header-filter(data-parallax="active", style="background-image:url('#{gallery.images[0].url}+#{gallery.images[0].filename}');background-position:center")
 			.container
 				.row.title-row
+					.col-md-2.hidden-sm.hidden-xs
+						div.imgShow.img-raised.img-rounded(style="background-image:url(#{athlete.profile.picture.url}+#{athlete.profile.picture.filename})")
 					.col-md-6
 						h1.title #{gallery.galleryName}
 						h4 #{gallery.description}
