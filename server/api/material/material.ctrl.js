@@ -45,6 +45,24 @@ module.exports = function(){
 				}
 			})
 		},
+		AthleteGallery: function(req, res){
+			console.log('getting ath album');
+			athlete.findById(req.params.id, function(err,athlete){
+				if(!err){
+					console.log('found athlete')
+					athlete.galleries.forEach((gallery)=>{
+						if(gallery._id == req.params.galId){
+							console.log('found album');
+							res.render('material/album', {athlete: athlete, gallery:gallery, athletes: allAthletes, posts: allPosts})
+						}else{
+							console.log('wrong album')
+						}
+					})
+				}else{
+					console.log('could not find that athlete')
+				}
+			})
+		},
 		getOnePost: function(req, res){
 			console.log('get one post');
 			

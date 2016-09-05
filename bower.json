@@ -53,11 +53,13 @@
     "angular-strap": "^2.3.9",
     "ekko-lightbox": "^4.0.2",
     "angular-ui-tinymce": "^0.0.16",
-    "ngMeta": "^0.3.9"
+    "ngMeta": "^0.3.9",
+    "chocolat": "^0.4.14"
   },
   "resolutions": {
     "angular": "1.4.x",
     "angular-touch": "1.4.x",
-    "angular-cookies": "1.4.x"
+    "angular-cookies": "1.4.x",
+    "jquery": "2.1.3"
   }
 }

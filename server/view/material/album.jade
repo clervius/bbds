@@ -1,0 +1,39 @@
+doctype
+html(lang="en")
+	head
+		include includes/head
+		include ../includes/appicons
+		include athletes/galOG
+		link(href="/client/vendor/chocolat/dist/css/chocolat.css", rel="stylesheet")
+		title #{athlete.profile.firstName} #{athlete.profile.lastName} - Bigbodies.com
+	body.product-page
+		include ../front/includes/fbSDK
+		include includes/topNav
+		.page-header.header-filter(data-parallax="active", style="background-image:url('#{gallery.images[0].url}+#{gallery.images[0].filename}');background-position:center")
+			.container
+				.row.title-row
+					.col-md-6
+						h1.title #{gallery.galleryName}
+						h4 #{gallery.description}
+						p.category by:&nbsp;
+							a(href="#{gallery.photographerLink}", style="color:white;text-decoration:underline") #{gallery.photographerName}
+				.clearfix
+		.section.section-gray
+			.container
+				.main.main-raised.main-product(style="margin:-25vh 0 0")
+					.row
+						.col-md-12
+							a.btn.btn-raised.btn-primary(href="/front/athlete/#{athlete._id}")
+								i.material-icons keyboard_arrow_left
+								|&nbsp;&nbsp; Back to #{athlete.profile.firstName}
+						.col-md-12
+							include athletes/albumShare
+					.row.chocolat-parent(data-chocolat-title="#{gallery.galleryName}")
+						each picture in gallery.images
+							.col-md-2
+								a.imgShow.img-raised.chocolat-image(style="background-image:url('#{picture.url}+#{picture.filename}'); display:block; margin-bottom:25px", href="#{picture.url}+#{picture.filename}")
+		include includes/footer
+		include includes/script
+		script(src="/client/vendor/chocolat/dist/js/jquery.chocolat.min.js")
+		script.
+			$(document).ready(function(){$('.chocolat-parent').Chocolat();});

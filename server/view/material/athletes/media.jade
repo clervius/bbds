@@ -1,4 +1,4 @@
-if athlete.galleries || athlete.videos
+if athlete.galleries.length > 0 || athlete.videos.length > 0
 	.row
 		.col-md-12
 			.card.card-nav-tabs
@@ -6,28 +6,32 @@ if athlete.galleries || athlete.videos
 					.nav-tabs-navigation
 						.nav-tabs-wrapper
 							ul.nav.nav-tabs(data-tabs="tabs")
-								li.active
-									a(data-toggle="tab", data-target="#photos") 
-										.fa.fa-picture-o
-										|&nbsp;&nbsp;Pictures
-								li
-									a(data-target="#videos", data-toggle="tab")
-										i.fa.fa-youtube-play
-										|&nbsp;&nbsp;Videos
+								if athlete.galleries.length > 0 
+									li.active
+										a(data-toggle="tab", data-target="#photos") 
+											.fa.fa-picture-o
+											|&nbsp;&nbsp;Pictures
+								if athlete.videos.length > 0
+									li
+										a(data-target="#videos", data-toggle="tab")
+											i.fa.fa-youtube-play
+											|&nbsp;&nbsp;Videos
 				.content
 					.tab-content
-						.tab-pane.active.fade.in(id="photos")
-							each album in athlete.galleries
-								.col-md-4
-									.card.card-profile.card-plain
-										.card-image
-											a.imgShow(href="/front/athlete/#{athlete._id}/gal/#{album._id}", style="background-image: url('#{album.images[0].url}+#{album.images[0].filename}');display:block")
-											.ripple-container
-										.content
-											a.card-title(href="/front/athlete/#{athlete._id}/gal/#{album._id}") #{album.galleryName}
-											.footer.text-center
-												.author(style="position:relative;top:-9px")
-													a.btn.btn-xs.btn-primary.btn-raised(href="/front/athlete/#{athlete._id}/gal/#{album._id}", style="color:white") View &nbsp;
-														i.material-icons keyboard_arrow_right
-						.tab-pane.fade.in(id="videos")
-							p this is for the videos
+						if athlete.galleries.length > 0 
+							.tab-pane.active.fade.in(id="photos")
+								each album in athlete.galleries
+									.col-md-4
+										.card.card-profile.card-plain
+											.card-image
+												a.imgShow(href="/front/athlete/#{athlete._id}/gal/#{album._id}", style="background-image: url('#{album.images[0].url}+#{album.images[0].filename}');display:block")
+												.ripple-container
+											.content
+												a.card-title(href="/front/athlete/#{athlete._id}/gal/#{album._id}") #{album.galleryName}
+												.footer.text-center
+													.author(style="position:relative;top:-9px")
+														a.btn.btn-xs.btn-primary.btn-raised(href="/front/athlete/#{athlete._id}/gal/#{album._id}", style="color:white") View &nbsp;
+															i.material-icons keyboard_arrow_right
+						if athlete.videos.length > 0
+							.tab-pane.fade.in(id="videos")
+								p this is for the videos

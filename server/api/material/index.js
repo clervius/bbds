@@ -8,6 +8,7 @@ router.get('/front/athletes', controller.athletes);
 router.get('/front/posts', controller.posts);
 router.get('/front/athlete/:id', controller.getOneAthlete);
 router.get('/front/post/:id', controller.getOnePost);
+router.get('/front/athlete/:id/gal/:galId', controller.AthleteGallery)
 
 
 module.exports = router;
