@@ -1,1 +1,18 @@
-p This will be the sidebar for single athlete page
+each account in athlete.social
+	- if(typeof(account.link) !== 'undefined')
+		if account.service == 'public Facebook'
+			.row(style="margin-bottom:30px")
+				.col-md-12
+					.fb-page.img-raised(data-href="#{account.link}", data-small-header="true", data-adapt-container-width="true", data-hide-cover="false", data-show-facepile="true")
+if athlete.published.length > 0
+	.row
+		.col-md-12
+			.card
+				.content
+					h4.title Featured Articles
+					ul.list-unstyled
+						each article in athlete.published
+							li(style="margin-bottom:10px")
+								a(target="blank", href="#{article.link}", style="text-decoration:none;color:rgba(0,0,0,.5)")
+									i.fa.fa-globe
+									|&nbsp;&nbsp;#{article.title}
