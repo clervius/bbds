@@ -1,0 +1,28 @@
+doctype
+html(lang="en")
+	head
+		include includes/head
+		include ../includes/appicons
+		include posts/postOG
+		title #{post.postTitle} - Bigbodies
+	body.product-page
+		include ../front/includes/fbSDK
+		include includes/topNav
+		include posts/header
+		.section.section-gray
+			.container
+				.main.main-raised.main-product(style="margin:-20vh 0 0")
+					.row
+						.col-md-8
+							.row
+								.col-md-12
+									img.img-responsive(src="#{post.mainImg.url}+#{post.mainImg.filename}")
+						.col-md-4
+							p In here goes the meta information and social media sharing icons/links but on the bottom
+					.clearfix
+					hr
+					.row
+						.col-md-12
+							.clearfix #{post.content}
+		include includes/footer
+		include includes/script

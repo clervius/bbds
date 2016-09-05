@@ -27,7 +27,7 @@
 							h6.category.text-info #{post.category}
 							h4.card-title
 								a(href="/front/post/#{post._id}") #{post.postTitle}
+								small.author(style="font-size:11px;display:block") #{ post.author } - #{ post.published.getMonth() + 1}/#{ post.published.getDate()}/#{ post.published.getFullYear()}
 							p.card-description #{post.summary}... &nbsp;
-								a(href="/front/post/#{post._id}") Read More
-							p.author by &nbsp;
-								a #{ post.author } #{ post.published.toDateString()}
+								a(href="/front/post/#{post._id}") Read More &raquo;
+							
