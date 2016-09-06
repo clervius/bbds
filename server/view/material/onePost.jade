@@ -13,26 +13,25 @@ html(lang="en")
 			.container
 				.main.main-raised.main-product(style="margin:-20vh 0 0")
 					.row
-						.col-md-8
+						.col-md-8.picPart
 							.row
 								.col-md-12
 									img.img-responsive(src="#{post.mainImg.url}+#{post.mainImg.filename}")
-						.col-md-4(style="position:relative;height:100%;overflow:hidden")
-							include posts/socialShare
-							p.text-gray 
-								strong By: &nbsp;
-								|#{post.author}
-								br
-								strong Published: &nbsp;
-								|#{ post.published.getMonth() + 1}/#{ post.published.getDate()}/#{ post.published.getFullYear()}
-								br
-								strong Image Credit: &nbsp;
-								a(href="#{post.mediaSourceLink}") #{post.mediaSource}
-								br
-								strong Featured Athlete: &nbsp;
-								a(href="#{post.featuredAthleteLink}") #{post.featuredAthlete} &raquo;
-
-							
+						.col-md-4.metaPart(style="position:relative;overflow:hidden")
+							.clearfix(style="position:absolute;bottom:0;width:100%")
+								p.text-gray 
+									strong By: &nbsp;
+									|#{post.author}
+									br
+									strong Published: &nbsp;
+									|#{ post.published.getMonth() + 1}/#{ post.published.getDate()}/#{ post.published.getFullYear()}
+									br
+									strong Image Credit: &nbsp;
+									a(href="#{post.mediaSourceLink}") #{post.mediaSource}
+									br
+									strong Featured Athlete: &nbsp;
+									a(href="#{post.featuredAthleteLink}") #{post.featuredAthlete} &raquo;
+								include posts/socialShare	
 					.clearfix
 					hr
 					.row
@@ -40,3 +39,8 @@ html(lang="en")
 							.clearfix !{post.content}
 		include includes/footer
 		include includes/script
+		script.
+			$(document).ready(function(){
+				var goodHeight = $('.picPart').height();
+				$('.metaPart').height(goodHeight)
+			})
