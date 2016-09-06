@@ -17,12 +17,26 @@ html(lang="en")
 							.row
 								.col-md-12
 									img.img-responsive(src="#{post.mainImg.url}+#{post.mainImg.filename}")
-						.col-md-4
-							p In here goes the meta information and social media sharing icons/links but on the bottom
+						.col-md-4(style="position:relative;height:100%;overflow:hidden")
+							include posts/socialShare
+							p.text-gray 
+								strong By: &nbsp;
+								|#{post.author}
+								br
+								strong Published: &nbsp;
+								|#{ post.published.getMonth() + 1}/#{ post.published.getDate()}/#{ post.published.getFullYear()}
+								br
+								strong Image Credit: &nbsp;
+								a(href="#{post.mediaSourceLink}") #{post.mediaSource}
+								br
+								strong Featured Athlete: &nbsp;
+								a(href="#{post.featuredAthleteLink}") #{post.featuredAthlete} &raquo;
+
+							
 					.clearfix
 					hr
 					.row
 						.col-md-12
-							.clearfix #{post.content}
+							.clearfix !{post.content}
 		include includes/footer
 		include includes/script

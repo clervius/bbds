@@ -1,0 +1,12 @@
+.title(style="border-bottom:1px solid rgba(0,0,0,.06);padding-bottom:5px;margin-bottom:5px") Share this post:
+ul.socialShareAthlete.list-inline.text-left()
+	li
+		.fb-like(data-href="http://bigbodies.com/front/post/#{post._id}" data-layout="button_count", data-action="like", data-size="small", data-show-faces="false", data-share="true")
+	li(style="position:relative;top:5px")
+		a.twitter-share-button(data-show-count="true") Tweet
+		script(async, src="//platform.twitter.com/widgets.js", charset="utf-8")
+	li(style="position:relative;top:5px")
+		.g-plusone(data-size="medium", data-annotation="none")
+		script(src="https://apis.google.com/js/platform.js", async, type="text/javascript")
+	li
+		a(data-pin-do="buttonPin", data-pin-save="true", href="https://www.pinterest.com/pin/create/button/?url=http://bigbodies.com/front/post/#{post._id}&media=#{post.mainImg.url}+#{post.mainImg.filename}&description=#{post.postTitle}")
