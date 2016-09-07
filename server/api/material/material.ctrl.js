@@ -26,8 +26,6 @@ module.exports = function(){
 		getOneAthlete: function(req, res){
 			console.log('get one athlete');
 			var shows ;
-			
-
 			athlete.findById(req.params.id, function(err, athlete){
 				if(!err){
 					record.find({'athlete':req.params.id}).exec(function(err, records){
@@ -53,7 +51,7 @@ module.exports = function(){
 					athlete.galleries.forEach((gallery)=>{
 						if(gallery._id == req.params.galId){
 							console.log('found album');
-							res.render('material/album', {athlete: athlete, gallery:gallery, athletes: allAthletes, posts: allPosts});
+							res.render('material/album', {athlete:athlete, gallery:gallery, athletes:allAthletes, posts:allPosts});
 						}else{
 							console.log('wrong album');
 						}
@@ -68,7 +66,7 @@ module.exports = function(){
 			post.findById(req.params.id, (err,post)=>{
 				if(!err){
 					console.log('found the post');
-					res.render('material/onePost', {post:post, athletes:allAthletes, posts: allPosts});
+					res.render('material/onePost', {post:post, athletes:allAthletes, posts:allPosts});
 				}else{
 					console.log('could not find the post');
 					res.redirect('/front');

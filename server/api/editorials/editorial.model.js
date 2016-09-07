@@ -14,7 +14,10 @@ var editorialSchema = new Schema({
 	summary: String,
 	author: String,
 	ogTitle: String,
-	category: String,
+	category: {
+		type: String,
+		default: 'Feature'
+	},
 	moreContent: Schema.Types.Mixed,
 	where:{
 		homePage: {

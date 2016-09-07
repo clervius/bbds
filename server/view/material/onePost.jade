@@ -35,8 +35,16 @@ html(lang="en")
 					.clearfix
 					hr
 					.row
-						.col-md-12
+						.col-md-8
 							.clearfix !{post.content}
+							br
+
+							.clearfix
+								include posts/socialShare	
+							.clearfix
+								.fb-comments(data-numposts="5", data-width="100%")
+						.col-md-4
+							include posts/sideBar
 		include includes/footer
 		include includes/script
 		script.
