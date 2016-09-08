@@ -1,28 +1,6 @@
 .clearfix
-	h4.title Recent Posts
-	- if(posts.length < 4)
-		for post in posts
-			.card
-				.content
-					h6.category #{article.category}
-					h4.card-title 
-						a(href="/front/post/#{article._id}") #{article.postTitle}
-					.footer
-						.author
-							a #{article.author}
-						.stats
-							i.material-icons chat_bubble
-							|&nbsp;
-	- if(posts.length > 3)
-		for post in [posts[0], posts[1], posts[2], posts[3]]
-			.card
-				.content
-					h6.category #{article.category}
-					h4.card-title 
-						a(href="/front/post/#{article._id}") #{article.postTitle}
-					.footer
-						.author
-							a #{article.author}
-						.stats
-							i.material-icons chat_bubble
-							|&nbsp;
+	.card
+		.content
+			.img-rounded.imgShow(style="background-image:url('#{athletes[1].profile.picture.url}+#{athletes[1].profile.picture..filename}')")
+			.img-rounded.imgShow(style="background-image:url('#{posts[0].mainImg.url}+#{posts[0].mainImg.filename}')")
+			.card-title Responsive Ad goes here
