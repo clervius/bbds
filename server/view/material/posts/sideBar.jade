@@ -1,6 +1,25 @@
-.clearfix
-	.card
-		.content
-			.img-rounded.imgShow(style="background-image:url('#{athletes[1].profile.picture.url}+#{athletes[1].profile.picture..filename}')")
-			.img-rounded.imgShow(style="background-image:url('#{posts[0].mainImg.url}+#{posts[0].mainImg.filename}')")
-			.card-title Responsive Ad goes here
+include sidebarPosts
+.row
+	.col-md-12
+		.card
+			.content.text-center(style="background-color:rgba(0,0,0,.05); height:70px")
+				.card-title Responsive Ad goes here
+.row
+	.col-md-12
+		h5.title Recent Athletes
+		.gallery-feed
+			each athlete in athletes
+				- if(typeof(athlete.profile) !== 'undefined')
+					.row(style="margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid rgba(0,0,0,.3)")
+						.col-md-3()
+							a.imgShow.img-rounded.img-raised(style="background-image:url('#{athlete.profile.picture.url}+#{athlete.profile.picture.filename}'); display:block; position:relative", href="/front/athlete/#{athlete._id}")
+						.col-md-9
+							h6.title(style="padding:5px 10px;") 
+								a(href="/front/athlete/#{athlete._id}") #{athlete.profile.firstName} #{athlete.profile.lastName}
+									small(style="display:block") #{athlete.profile.subtitle}
+									if athlete.competitions
+										small.text-info(style="display:block")
+											i.fa.fa-trophy
+											|&nbsp; #{athlete.competitions.length} show
+											if athlete.competitions.length > 1
+												|s

@@ -1,28 +1,16 @@
 .clearfix
 	h4.title Recent Posts
 	- if(posts.length < 4)
-		each post in posts
-			.card
-				.content
-					h6.category #{article.category}
-					h4.card-title 
-						a(href="/front/post/#{article._id}") #{article.postTitle}
-					.footer
-						.author
-							a #{article.author}
-						.stats
-							i.material-icons chat_bubble
-							|&nbsp;
+		each article in posts
+			.col-md-6
+				.card.card-blog.card-plain
+					.card-image
+						a.imgShow.img-rounded(style="background-image:url('#{article.mainImg.url}+#{article.mainImg.filename}'); display:block", href="/front/post/#{article._id}")
+							.card-title #{article.postTitle}
 	- if(posts.length > 3)
-		each post in [posts[0], posts[1], posts[2], posts[3]]
-			.card
-				.content
-					h6.category #{article.category}
-					h4.card-title 
-						a(href="/front/post/#{article._id}") #{article.postTitle}
-					.footer
-						.author
-							a #{article.author}
-						.stats
-							i.material-icons chat_bubble
-							|&nbsp;
+		each article in [posts[0], posts[1], posts[2], posts[3]]
+			.col-md-6
+				.card.card-blog.card-plain
+					.card-image
+						a.imgShow.img-rounded(style="background-image:url('#{article.mainImg.url}+#{article.mainImg.filename}'); display:block", href="/front/post/#{article._id}")
+							.card-title #{article.postTitle}
