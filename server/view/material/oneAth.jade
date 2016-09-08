@@ -6,25 +6,30 @@ html(lang="en")
 		include includes/athOG
 		link(href="/client/vendor/strip/dist/css/strip.css", rel="stylesheet")
 		title #{athlete.profile.firstName} #{athlete.profile.lastName} - Bigbodies.com
-	body.athlete
+	body.product-page
 		include ../front/includes/fbSDK
 		include includes/topNav
-		.wrapper
-			.header.page-header(style="background-color:rgba(0,0,0,.65)")
-				p include header here maybe just a breadcrumb thing
-			.main.main-raised
-				.container
-					.col-md-8
-						include athletes/topInfo
-						hr
-						include athletes/social
-						include athletes/competitions
-						include athletes/media
-					.col-md-4(style="padding-top:30px")
-						include athletes/sidebar
+		include athletes/header
+		.section.section-gray
+			.container
+				.main.main-raised.main-product(style="margin:-20vh 0 0")
+					.row
+						.col-md-8
+							include athletes/topInfo
+							hr
+							include athletes/social
+							include athletes/competitions
+							include athletes/media
+						.col-md-4(style="padding-top:30px")
+							include athletes/sidebar
 		include includes/footer
 		include includes/script
 		script(src="/client/vendor/strip/dist/js/strip.pkgd.min.js")
-	//
 		script.
-			$(document).ready(function(){$('.chocolat-parent').Chocolat();});
+			var feed = new Instafeed({
+				get: 'user',
+				userId: '#{athlete.igId}',
+				clientId: 'd9cbaa02a27c46f597e3a2c89d5e89f3',
+				template: '<a href="{{link}}"><img src="{{image}}" /></a>'
+			});
+			feed.run();
