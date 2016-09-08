@@ -3,7 +3,6 @@
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
 var config = require('./config');
-var sg = require('sendgrid').SendGrid('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');
 var mail = sg.emptyRequest();
 
 
@@ -104,12 +103,7 @@ module.exports = function(passport) {
                             
                             console.log('user created');
                             console.log(newUser);
-                            sg.API(mail, function(response){
-                                console.log(response.statusCode);
-                                console.log(response.body);
-                                console.log(response.headers);
-                                console.log('email sent!')
-                            });
+                        
                             return done(null, newUser);
                         }
                         
