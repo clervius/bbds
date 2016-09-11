@@ -155,3 +155,9 @@ table.form-table thead tr th:nth-child(7), table.form-table tbody tr td:nth-chil
 .show-table {
 	font-size: .8em;
 }
+h3.bigTitle {
+	width:100%;
+	background-color: rgba(0,0,0,.03);
+	color:rgba(0,0,0,.5);
+	padding:10px 15px 10px 0;
+}
