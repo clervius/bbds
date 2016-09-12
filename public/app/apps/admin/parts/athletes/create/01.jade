@@ -1,4 +1,4 @@
-.row
+.clearfix
 	.col-md-12
 		.row
 			.col-md-3
@@ -23,15 +23,11 @@
 					.col-md-4
 						.form-group
 							label Username
-							input.form-control(ng-model="newAthlete.username", placeholder="No Spaces")
+							input.form-control(ng-model="newAthlete.username", placeholder="created automatically", disabled)
 					.col-md-4
 						.form-group
 							label Subtitle
 							input.form-control(ng-model="newAthlete.profile.subtitle")
-					.col-md-4
-						.form-group
-							label Federation
-							select.form-control(ng-model="newAthlete.federation", ng-options="federation.federationShortName for federation in federations track by federation._id")
 		.row
 			.col-md-7
 				.form-group

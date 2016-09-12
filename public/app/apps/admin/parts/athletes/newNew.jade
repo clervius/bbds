@@ -1,41 +1,35 @@
 .row
 	.col-md-9
-		.card
-			.header
-				h4.title New Athlete
-				p.category Fill the form to create an athlete
-			hr
+		.card.card-plain
 			.content
 				form
 					.row
-						.col-md-2
-							.image-container(style="background-image:url('{{newAthlete.profile.picture.url}}')")
-							.clearfix
-							button.btn.btn-default.btn-xs.btn-fill.pull-right(ng-click="newPicture()")
-								i.ti-image
-								|&nbsp;&nbsp;Upload Picture
-						.col-md-10
+						.col-md-12
 							.card
-								h3.title.bigTitle Athlete Information
-									small Enter information here for the Athlete
-								.row
-									hr
-								include create/01
+								.card-header
+									h3.title.bigTitle Athlete Information
+										small(style="display:block") Enter information here for the Athlete
+								.content
+									include create/01
 							.card
-								h3.title.bigTitle Social Media
-									small Enter Athlete's social Media
-								.row
-									hr
-								include create/02
+								.card-header
+									h3.title.bigTitle Social Media
+										small(style="display:block") Enter Athlete's social Media
+								.content
+									include create/02
 							.card
-								h3.title.bigTitle Editorials
-									small Where has this Athlete been published?
-								include create/03
-							.card 
-								h3.title.bigTitle Competitions
-									small enter information for the shows this Athlete has done.
-								include create/04
-		//button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="createAthlete()") Save Athlete
+								.card-header
+									h3.title.bigTitle Editorials
+										small(style="display:block") Where has this Athlete been published?
+								.content
+									include create/03
+							.card
+								.card-header
+									h3.title.bigTitle Competitions
+										small(style="display:block") enter information for the shows this Athlete has done.
+								.content
+									include create/04
+				button.btn.btn-wd.btn-fill.btn-default.pull-right(ng-click="createAthlete()") Save Athlete
 	.col-md-3
 		.card.card-plain
 			.header
@@ -44,5 +38,3 @@
 				hr
 				h4.title Pictures?
 				p.category After you have saved the athlete, you will be able to add galleries and images
-script.
-	$('.datepicker').datetimepicker({ format: 'MM/DD/YYYY', icons: { time: "fa fa-clock-o", date: "fa fa-calendar", up: "fa fa-chevron-up", down: "fa fa-chevron-down", previous: 'fa fa-chevron-left', next: 'fa fa-chevron-right', today: 'fa fa-screenshot', clear: 'fa fa-trash', close: 'fa fa-remove' } });

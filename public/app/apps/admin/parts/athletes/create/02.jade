@@ -1,39 +1,25 @@
-.row
+.clearfix
 	
-	.col-md-6
+	.col-md-8
 		p The Facebook ID will be used to authenticate and offer the athlete the ability to update their profile.
 		p To find their ID, copy the athlete's Facebook URL and paste in the following page:&nbsp;
 			strong
 				a.btn.btn-facebook.btn-xs.btn-wd.btn-fill(href="http://findmyfbid.com/", target="blank") Search FB ID
 		p
 			small.text-info If you get an error, we will have to manually authenticate this user for their account when they request to claim.
-	.col-md-6
-		p The Instagram ID will be used to try to pull images from 
-			span(ng-bind="newAthlete.profile.firstName || 'the athlete'")
-			|'s instagram account.
-		p To find their Instagram ID, type in their instagram username in teh following page:&nbsp;
-			strong 
-				a.btn.btn-facebook.btn-xs.btn-wd.btn-fill(href="https://smashballoon.com/instagram-feed/find-instagram-user-id/", target="blank") Search Instagram ID
-		p
-			small.text-info If you get an error, this athlete will have to manually add their instagram account once they've claimed this profile.
-.row
+.clearfix
 	.col-md-6
 		.form-group
 			label 
 				i.fa.fa-lock
 				|&nbsp;&nbsp; Enter Facebook ID
 			input.form-control(name="fbID", placeholder="1001542109", ng-model="newAthlete.fbId")
-	.col-md-6
-		.form-group
-			label
-				i.fa.fa-lock
-				|&nbsp;&nbsp; Enter Instagram ID
-			input.form-control(name="igID", ng-model="newAthlete.igId")
+
 hr
-.row
+.clearfix
 	.col-md-12
 		h6.title Public Contact Information
-.row
+.clearfix
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-facebook
@@ -44,7 +30,7 @@ hr
 			span.input-group-addon.btn-facebook
 				i.ti-facebook
 			input.form-control(ng-model="publicFB.link", placeholder="Facebook Page", style="padding-left:15px")
-.row
+.clearfix
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-twitter
@@ -55,7 +41,7 @@ hr
 			span.input-group-addon.btn-instagram
 				i.ti-instagram
 			input.form-control(ng-model="instagram.link", placeholder="Instagram Username", style="padding-left:15px")
-.row
+.clearfix
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-youtube
@@ -66,7 +52,7 @@ hr
 			span.input-group-addon.btn-google
 				i.ti-google
 			input.form-control(ng-model="gPlus.link", placeholder="Google Plus URL", style="padding-left:15px")
-.row
+.clearfix
 	.col-md-6
 		.input-group
 			span.input-group-addon.btn-tumblr

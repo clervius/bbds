@@ -1,14 +1,13 @@
-.row
+.clearfix
 	.col-md-12
 		button.btn.btn-xs.btn-fill.btn-default.pull-right(ng-click="addPost()")
 			i.ti-plus
 			|&nbsp;&nbsp; Add Article
 hr
-.row(ng-repeat="post in editorials")
+.clearfix(ng-repeat="post in editorials")
 	.col-md-7
 		.form-group
 			input.form-control(placeholder="Article Title", ng-model="post.title")
 	.col-md-5
 		.form-group
 			input.form-control(placeholder="Article URL", ng-model="post.link")
-

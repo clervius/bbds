@@ -76,22 +76,6 @@ module.exports = function(passport) {
                 newUser.phone = req.body.phone;
 
                 // Mailchimp information
-                // Email information
-                mail.body = {
-                    "personalizations": [
-                        {
-                            "to": [{"email":newUser.email}],
-                            "subject": newUser.fname + " Congrats and welcome to Big Bodies!"
-                        }
-                    ],
-                    "from": { "email": "support@bigbodies.com"},
-                    "content": [{
-                        "type": "text/html",
-                        "value": "<b>Welcome to Big Bodies!</b><br><br><b>So what's next?</b><br><br><p>Login to the site with your email and password for access."
-                    }]
-                };
-                mail.method = 'POST'
-                mail.path = '/v3/mail/send'
                 // save the user
                 if(code === '12301988'){
                     newUser.save(function(err) {

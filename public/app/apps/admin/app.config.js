@@ -70,7 +70,7 @@ angular.module('manager').config(function($stateProvider, $urlRouterProvider, fi
 		})
 		.state('newAthlete', {
 			url: '/athletes/add',
-			templateUrl: '/client/app/apps/admin/parts/athletes/newWizard',
+			templateUrl: '/client/app/apps/admin/parts/athletes/newNew',
 			controller: 'athCtrl1',
 			ncyBreadcrumb: {
 				label: 'Create Athlete',
