@@ -14,19 +14,18 @@
 					i.ti-control-play
 					|&nbsp;&nbsp;Add Video&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-				a.btn.btn-sm.btn-primary(href="/#!/athlete/{{athlete._id}}", target="blank")  &nbsp;&nbsp;
+				a.btn.btn-sm.btn-primary(href="/front/athlete/{{athlete._id}}", target="blank")  &nbsp;&nbsp;
 					i.ti-new-window
-					|&nbsp;&nbsp;View Page&nbsp;&nbsp;
+					|&nbsp;&nbsp;View&nbsp;&nbsp;
 				|&nbsp;&nbsp;&nbsp;
 				button.btn.btn-sm.btn-default.btn-fill(ng-click="updateAth()")
 					i.ti-save
-					|&nbsp;&nbsp;Update Athlete&nbsp;&nbsp;
+					|&nbsp;&nbsp;Update&nbsp;&nbsp;
 		.clearfix
 		br
 		.card
 			.header
 				h4.title {{ athlete.profile.firstName}} {{ athlete.profile.lastName}}
-				p.category Pretty soon you will be able to edit this athlete's information
 			hr
 			.content
 				form
@@ -47,8 +46,6 @@
 											a(data-toggle="tab", data-target="#03", role="tab") 
 												i.ti-bookmark-alt
 												|&nbsp;&nbsp;Editorials&nbsp;&raquo;
-										li(ng-show="athlete.videos.length")
-											a(data-toggle="tab", data-target="#06", role="tab")
 							.tab-content(id="my-tab-content")
 								.tab-pane.active.fade.in(id="01")
 									include info/01
@@ -56,8 +53,6 @@
 									include info/02
 								.tab-pane.fade.in(id="03")
 									include info/03
-								.tab-pane.fade.in(id="06")
-									include info/06
 	.col-md-5				
 		.card.card-plain
 			include info/04
