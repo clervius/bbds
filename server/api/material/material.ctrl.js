@@ -97,7 +97,7 @@ module.exports = function(){
 		getOneAthlete: function(req, res){
 			console.log('get one athlete');
 			var shows ;
-			athlete.findById(req.params.id, function(err, athlete){
+			athlete.findById(req.params.id, function(err, person){
 				if(!err){
 					record.find({'athlete':req.params.id}).exec(function(err, records){
 						console.log('looking up shows')
@@ -113,7 +113,7 @@ module.exports = function(){
 										if(!err){ 
 											console.log('found all athletes'); 
 											allAthletes = athletes; 
-											res.render('material/oneAth', {athletes:allAthletes, posts:allPosts, athlete:athlete, records: records});
+											res.render('material/oneAth', {athletes:allAthletes, posts:allPosts, athlete:person, records: records});
 										}else{ 
 											console.log('Did not find athletes'); 
 										} 

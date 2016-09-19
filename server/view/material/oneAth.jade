@@ -12,8 +12,12 @@ html(lang="en")
 		include athletes/header
 		.section.section-gray
 			.container
-				.main.main-raised.main-product(style="margin:-20vh 0 0")
-					.row
+				.main.main-raised.main-product(style="margin:-20vh 0 0;position:relative")
+					if athlete.galleries.length > 0
+						.row(style="height:40vh;background-image:url('#{athlete.galleries[0].images[0].url}+#{athlete.galleries[0].images[0].filename}');background-position:center;position:absolute;top:0;left:15px;width:100%")
+					else
+						.row(style="height:40vh;background-image:url('#{athlete.profile.picture.url}+#{athlete.profile.picture.filename}');background-position:center;position:absolute;top:0;left:15px;width:100%")
+					.row(style="margin-top:25vh")
 						.col-md-8
 							include athletes/topInfo
 							hr

@@ -1,14 +1,1 @@
-if athlete.galleries.length > 0
-	.page-header.header-filter(data-parallax="active", style="background-image:url('#{athlete.galleries[0].images[0].url}+#{athlete.galleries[0].images[0].filename}');background-position:center")
-		.container
-			.row.title-row
-				.col-md-8
-					h1.title #{athlete.profile.firstName} #{athlete.profile.lastName}
-					h4 #{athlete.profile.subtitle}
-else
-	.page-header.header-filter(data-parallax="active", style="background-image:url('#{athlete.profile.picture.url}+#{athlete.profile.picture.filename}');background-position:center")
-		.container
-			.row.title-row
-				.col-md-8
-					h1.title #{athlete.profile.firstName} #{athlete.profile.lastName}
-					h4 #{athlete.profile.subtitle}
+.page-header.header-filter(data-parallax="active", style="background-color:rgba(0,0,0,.65);height:30vh")
