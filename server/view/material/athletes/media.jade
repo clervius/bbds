@@ -1,34 +1,15 @@
-if athlete.galleries.length > 0 || athlete.videos.length > 0
-	.row
-		.col-md-12
-			ul.nav-pills.galList.nav(data-tabs="tabs")
-				if athlete.galleries.length > 0 
-					li.active
-						a(data-toggle="tab", href="#photos") Pictures
-				if athlete.videos.length > 0
-					li
-						a(href="#videos", data-toggle="tab") Videos
-			.tab-content
-				if athlete.galleries.length > 0 
-					.tab-pane.active.fade.in(id="photos")
-						each album in athlete.galleries
-							.col-md-3
-								.card.card-profile.card-plain
-									.card-image
-										a.imgShow(href="/front/athlete/#{athlete._id}/gal/#{album._id}", style="background-image: url('#{album.images[0].url}+#{album.images[0].filename}');display:block")
-										.ripple-container
-									.content
-										a.card-title(href="/front/athlete/#{athlete._id}/gal/#{album._id}") #{album.galleryName}
-										.footer.text-center
-											.author(style="position:relative;top:-9px")
-												a.btn.btn-xs.btn-primary.btn-raised(href="/front/athlete/#{athlete._id}/gal/#{album._id}", style="color:white") View &nbsp;
-													i.material-icons keyboard_arrow_right
-				if athlete.videos.length > 0
-					.tab-pane.fade.in.chocolat-parent(id="videos")
-						each video in athlete.videos
-							.col-md-3
-								.card.card-profile.card-plain
-									.card-image
-										a.imgShow.strip(href="#{video.link}", style="background-image: url('#{video.thumb}');display:block")
-										.ripple-container
+if athlete.galleries.length > 0 
+	h4.title #{athlete.profile.firstName}'s Pictures
+	.row		
+		each album in athlete.galleries
+			.col-md-3
+				.card.card-profile.card-plain
+					.card-image
+						a.imgShow(href="/front/athlete/#{athlete._id}/gal/#{album._id}", style="background-image: url('#{album.images[0].url}+#{album.images[0].filename}');display:block")
+					.content
+						a.card-title(href="/front/athlete/#{athlete._id}/gal/#{album._id}") #{album.galleryName}
+						.footer.text-center
+							.author(style="position:relative;top:-9px")
+								a.btn.btn-xs.btn-primary.btn-raised(href="/front/athlete/#{athlete._id}/gal/#{album._id}", style="color:white") View &nbsp;
+									i.material-icons keyboard_arrow_right
 									

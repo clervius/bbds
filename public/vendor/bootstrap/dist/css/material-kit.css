@@ -6550,3 +6550,6 @@ footer .pull-center {
     margin-top: 15px;
   }
 }
+.videoLink:hover .play-icon i {
+  color:red;
+}
