@@ -153,7 +153,7 @@ module.exports = function(){
 		},
 		getOnePost: function(req, res){
 			console.log('getting one post');
-			post.findById(req.params.id, (err,post)=>{
+			post.findById(req.params.id, (err,article)=>{
 				if(!err){
 					console.log('found the post');
 					// Start
@@ -165,7 +165,7 @@ module.exports = function(){
 								if(!err){ 
 									console.log('found all athletes'); 
 									allAthletes = athletes; 
-									res.render('material/onePost', {post:post, athletes:allAthletes, posts:allPosts});
+									res.render('material/onePost', {post:article, athletes:allAthletes, posts:allPosts});
 								}else{ 
 									console.log('Did not find athletes'); 
 								} 

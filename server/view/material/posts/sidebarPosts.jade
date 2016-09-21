@@ -2,15 +2,24 @@
 	h4.title Recent Posts
 	- if(posts.length < 4)
 		each article in posts
-			.col-md-6
-				.card.card-blog.card-plain
-					.card-image
-						a.imgShow.img-rounded(style="background-image:url('#{article.mainImg.url}+#{article.mainImg.filename}'); display:block", href="/front/post/#{article._id}")
-							.card-title #{article.postTitle}
+			.row(style="margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid rgba(0,0,0,.3)")
+				.col-md-3
+					a.imgShow.img-rounded.img-raised(style="background-image:url('#{article.mainImg.url}+#{article.mainImg.filename}'); display:block", href="/front/post/#{article._id}")
+				.col-md-9
+					h6.title 
+						a(href="/front/post/#{article._id}") #{article.postTitle}
+							small(style="display:block") #{article.subtitle}
+							small.text-info(style="display:block")
+								i.fa.fa-comments
+								span &nbsp;1
+								|&nbsp; Comment(s)
 	- if(posts.length > 3)
 		each article in [posts[0], posts[1], posts[2], posts[3]]
-			.col-md-6
-				.card.card-blog.card-plain
-					.card-image
-						a.imgShow.img-rounded(style="background-image:url('#{article.mainImg.url}+#{article.mainImg.filename}'); display:block", href="/front/post/#{article._id}")
-							.card-title #{article.postTitle}
+			.row
+				.col-md-3
+					a.imgShow.img-rounded.img-raised(style="background-image:url('#{article.mainImg.url}+#{article.mainImg.filename}'); display:block", href="/front/post/#{article._id}")
+				.col-md-9
+					h6.title 
+						a(href="/front/post/#{article._id}") #{article.postTitle}
+						small(style="display:block") #{article.subtitle}
+
