@@ -1,0 +1,20 @@
+.main.main-raised.main-product(style="padding:0;border-radius:0;box-shadow:0 0 0;background-color:transparent;margin:-20vh 0 0")
+	.row
+		each athlete in athletes
+			- if(typeof(athlete.profile) !== 'undefined')
+				.col-md-3
+					.card.card-profile
+						.card-image
+							a.imgShow(href="/front/athlete/#{athlete._id}", style="background-image: url('#{athlete.profile.picture.url}+#{athlete.profile.picture.filename}');display:block")
+							.ripple-container
+						.content
+							a.card-title(href="/front/athlete/#{athlete._id}") #{athlete.profile.firstName} #{athlete.profile.lastName} 
+							h6.category.text-gray #{athlete.profile.subtitle}
+							.footer
+								.author.pull-right(style="position:relative;top:-9px")
+									a.btn.btn-xs.btn-primary.btn-raised(href="/front/athlete/#{athlete._id}", style="color:white") View &nbsp;
+										i.material-icons keyboard_arrow_right
+									.stats.pull-left
+										i.fa.fa-trophy
+										|&nbsp;&nbsp;#{athlete.competitions.length + 1} shows
+							
