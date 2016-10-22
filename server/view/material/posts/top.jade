@@ -1,0 +1,67 @@
+.main.main-raised.main-product
+	.row
+		h3.title.text-center Recent Articles
+	.row
+		if posts && posts.length < 2
+			.col-md-6
+				.card.card-raised.card-background(style="background-image:url('#{posts[0].mainImg.url}+#{posts[0].mainImg.filename}');background-size:cover;background-position:top center;height:323px")
+					.content
+						h6.category.text-info #{posts[0].category}
+						a(href="/front/post/#{posts[0]._id}")
+							h3.card-title #{posts[0].postTitle}
+						p.card-description #{posts[0].summary}...
+						a.btn.btn-danger.btn-round(href="/front/post/#{posts[0]._id}")
+							i.material-icons format_align_left
+							|&nbsp;&nbsp; Read Article
+		if posts && posts.length == 2
+			.col-md-6
+				.card.card-raised.card-background(style="background-image:url('#{posts[0].mainImg.url}+#{posts[0].mainImg.filename}');background-size:cover;background-position:top center;height:323px")
+					.content
+						h6.category.text-info #{posts[0].category}
+						a(href="/front/post/#{posts[0]._id}")
+							h3.card-title #{posts[0].postTitle}
+						p.card-description #{posts[0].summary}...
+						a.btn.btn-danger.btn-round(href="/front/post/#{posts[0]._id}")
+							i.material-icons format_align_left
+							|&nbsp;&nbsp; Read Article
+			.col-md-6
+				.card.card-raised.card-background(style="background-image:url('#{posts[1].mainImg.url}+#{posts[1].mainImg.filename}');background-size:cover;background-position:top center;height:323px")
+					.content
+						h6.category.text-info #{posts[1].category}
+						a(href="/front/post/#{posts[1]._id}")
+							h3.card-title #{posts[1].postTitle}
+						p.card-description #{posts[1].summary}...
+						a.btn.btn-danger.btn-round(href="/front/post/#{posts[1]._id}")
+							i.material-icons format_align_left
+							|&nbsp;&nbsp; Read Article
+		if posts && posts.length >= 3
+			.col-md-6
+				.card.card-raised.card-background(style="background-image:url('#{posts[0].mainImg.url}+#{posts[0].mainImg.filename}');background-size:cover;background-position:top center;height:323px")
+					.content
+						h6.category.text-info #{posts[0].category}
+						a(href="/front/post/#{posts[0]._id}")
+							h3.card-title #{posts[0].postTitle}
+						p.card-description #{posts[0].summary}...
+						a.btn.btn-danger.btn-round(href="/front/post/#{posts[0]._id}")
+							i.material-icons format_align_left
+							|&nbsp;&nbsp; Read Article
+			.col-md-6
+				.card.card-raised.card-background(style="background-image:url('#{posts[1].mainImg.url}+#{posts[1].mainImg.filename}');background-size:cover;background-position:top center;height:323px")
+					.content
+						h6.category.text-info #{posts[1].category}
+						a(href="/front/post/#{posts[1]._id}")
+							h3.card-title #{posts[1].postTitle}
+						p.card-description #{posts[1].summary}...
+						a.btn.btn-danger.btn-round(href="/front/post/#{posts[1]._id}")
+							i.material-icons format_align_left
+							|&nbsp;&nbsp; Read Article
+			.col-md-12
+				.card.card-raised.card-background(style="background-image:url('#{posts[2].mainImg.url}+#{posts[2].mainImg.filename}');background-size:cover;background-position:top center;height:323px")
+					.content
+						h6.category.text-info #{posts[2].category}
+						a(href="/front/post/#{posts[2]._id}")
+							h3.card-title #{posts[2].postTitle}
+						p.card-description #{posts[2].summary}...
+						a.btn.btn-danger.btn-round(href="/front/post/#{posts[2]._id}")
+							i.material-icons format_align_left
+							|&nbsp;&nbsp; Read Article

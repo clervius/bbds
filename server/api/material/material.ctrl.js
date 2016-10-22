@@ -84,7 +84,7 @@ module.exports = function(){
 						if(!err){ 
 							console.log('found all athletes'); 
 							allAthletes = athletes; 
-							res.render('material/posts', {athletes:allAthletes, posts:allPosts});
+							res.render('material/allPosts', {athletes:allAthletes, posts:allPosts});
 						}else{ 
 							console.log('Did not find athletes'); 
 						} 
