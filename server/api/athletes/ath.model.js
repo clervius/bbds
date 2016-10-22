@@ -14,6 +14,7 @@ var socialProfile = new Schema({
 
 var country = new Schema({
 	classify: String,
+	countryCode: String,
 	countryName: String
 });
 
